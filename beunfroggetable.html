@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Frosch - Un-frog-ettable Data Visualisations</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="logo-container mr-3">
+                    <img src="img/logo.png">
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-3xl font-bold">Data Frosch</h1>
+                    <p id="changing-text" class="text-xs sm:text-sm opacity-75"></p>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation - Horizontal scrolling on small screens -->
+    <nav class="navbar sticky top-0 z-50">
+        <div class="container mx-auto px-2"r>
+            <div class="flex py-3 px-2">
+                <a href="index.html" class="font-medium">⤺ Back HOME 🪷</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="py-10 md:py-16 bg-white relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-2"></div>
+        
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center">
+                <span class="section-title">Course overview</span>
+            </h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <p class="text-base md:text-lg mb-4 md:mb-6">
+                    Learn how to create charts that don’t just display data—but tell a compelling story. By the end of this workshop, you’ll know how to use text, shapes, colors, and emphasis to transform ordinary tables into crystal-clear, bite-sized insights.
+                </p>
+                <p class="text-base md:text-lg mb-4 md:mb-6">
+                    All you need is a sheet of paper, and a few colorful pencils to jump-start your data design journey 🖍️.
+                </p>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 text-center">
+            <!--<h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Ready to be unfroggetable?</h2> 
+            <p class="text-base md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">Create charts that shine</p>-->
+            <a target="_blank" href="https://buy.stripe.com/3cs9Bi37G3Y6eoU9AD" class="cta-button bounce-hover">Book your spot here</a>
+        </div>
+    </section>
+
+    <!-- Charts image -->
+<section class="py-10 md:py-16 bg-gray-50 relative">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-center">
+            <img src="img/charts.png" alt="Charts visualization" class="max-w-full h-auto">
+        </div>
+    </div>
+</section>
+
+    <!--What you will learn-->
+<section class="py-10 md:py-16 relative">
+    <div class="lily-pad lily-pad-2"></div>
+    <div class="lily-pad lily-pad-3"></div>
+
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center">
+                <span class="section-title">What you will learn</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- First column -->
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <h3 class="font-bold text-xl mb-4 text-primary-color">New way of looking</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>What happens in your 🧠 when you see a chart</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Distinguishing Between the Good, the Bad, and the Ugly</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>What to pay attention to when designing data visualisation</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Second column -->
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <h3 class="font-bold text-xl mb-4 text-primary-color">Storytelling with data</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Which is the right chart to for your data</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Why a story is important</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>How to use colors, text and annotations for clarity and focus</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Third column -->
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <h3 class="font-bold text-xl mb-4 text-primary-color">Practical approaches</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Chart classics and what to learn from them</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Tools and resources to help you along</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Hands-on excercises to get you started</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Other random Section -->
+<section id="about" class="py-10 md:py-16 bg-white relative">
+    <div class="lily-pad lily-pad-1"></div>
+    <div class="lily-pad lily-pad-2"></div>
+    
+    <div class="container mx-auto px-4">        
+        <div class="max-w-3xl mx-auto">
+            <p class="text-base md:text-lg mb-4 md:mb-6">
+                This course is perfect for beginners, but even seasoned chart creators can learn from it.
+            </p>
+        </div>
+    </div>
+</section>
+
+    
+    <!--Who should take it-->
+    <section class="py-10 md:py-16 bg-white relative">
+        <div class="lily-pad lily-pad-2"></div>
+        <div class="lily-pad lily-pad-3"></div>
+
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center">
+                <span class="section-title">Who should take the course?</span>
+            </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
+            <div class="bg-white rounded-lg p-6 shadow-md">
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                        <span>Journalists and editors looking to enhance their understanding of narrative data visualisation</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Communication professionals and designers who work with data</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Content creators who want to incorporate data visualisation</span>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </section>
+
+    <!-- Calendar Section -->
+    <section id="calendar" class="py-10 md:py-16 bg-white relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-3"></div>
+        
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center">
+                <span class="section-title">Upcoming Dates</span>
+            </h2>
+            
+            <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-gray-50 px-4 md:px-6 py-3 md:py-4 border-b">
+                    <h3 class="font-bold text-base md:text-lg">Course Schedule (May - July 2025)</h3>
+                </div>
+                    <!-- Calendar Event 3 -->
+                    <div class="p-4 md:p-6 calendar-event">
+                        <div class="flex flex-col md:flex-row md:justify-between">
+                            <div class="mb-3 md:mb-0">
+                                <h4 class="font-bold text-base md:text-lg">Un-🐸-ettable Data Visualisations</h4>
+                                <p class="text-sm opacity-75">Google Meet, Live Online Course</p>
+                            </div>
+                            <div class="md:text-right">
+                                <p class="font-medium text-sm md:text-base">Monday, June 23</p>
+                                <p class="text-sm opacity-75">16:00 - 18:00 CEST</p>
+                            </div>
+                        </div>
+                        <div class="mt-3 md:mt-4">
+                            <a target="_blank" href="https://buy.stripe.com/3cs9Bi37G3Y6eoU9AD" class="cta-button inline-block text-xs md:text-sm px-3 py-2 md:px-4 md:py-2">Book your spot!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+        <footer class="footer py-6 md:py-8">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col items-center md:flex-row md:justify-between md:items-start">
+                    <div class="mb-6 md:mb-0 text-center md:text-left">
+                        <div class="flex items-center justify-center md:justify-start">
+                            <div class="logo-container mr-3" style="width: 40px; height: 40px;">
+                                <img src="img/logo.png">
+                            </div>
+                            <div>
+                                <h3 class="text-base md:text-lg font-bold text-white">Data Frosch</h3>
+                                <p class="text-xs text-gray-300">datafrosch.fun</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-5 md:gap-8 mb-6 md:mb-0 text-center md:text-left">
+                        <div>
+                            <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Quick Links</h4>
+                            <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                                <li><a href="#about" class="text-gray-400 hover:text-white">About</a></li>
+                                <li><a href="#courses" class="text-gray-400 hover:text-white">Courses</a></li>
+                                <li><a href="#calendar" class="text-gray-400 hover:text-white">Calendar</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Resources</h4>
+                            <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                                <li><a href="https://www.youtube.com/@datafrosch" class="text-gray-400 hover:text-white">YouTube</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Contact</h4>
+                            <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                                <li><a href="mailto:ada@datafrosch.fun" class="text-gray-400 hover:text-white">Email</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pt-6 mt-6 border-t border-gray-700 text-center text-xs md:text-sm text-gray-400">
+                    <p>CC BY-SA 4.0</p>
+                    <p class="mt-2">Made with 💚 and 🐸</p>
+                </div>
+            </div>
+        </footer>
+    
+
+    <script src="js/taglines.js"></script>
+
+</body>
+</html>
+    
