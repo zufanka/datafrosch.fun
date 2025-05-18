@@ -152,6 +152,27 @@ h1, h2, h3, h4 {
     font-size: 14px;
 }
 
+/* Add scroll-driven animation */
+.navbar a::after {
+    content: "🐸";
+    position: absolute;
+    opacity: 0;
+    animation: frog-scroll linear;
+    animation-timeline: scroll();
+    animation-range: 0% 100%;
+}
+
+.navbar a:hover::after {
+    opacity: 1;
+    animation-play-state: paused;
+}
+
+@keyframes frog-scroll {
+    0% { transform: translateX(-100px); opacity: 0; }
+    50% { transform: translateX(0); opacity: 1; }
+    100% { transform: translateX(100px); opacity: 0; }
+}
+
 .hero {
     background-color: var(--primary-color);
     color: white;
