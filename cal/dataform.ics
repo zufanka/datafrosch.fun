@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//AnandChowdhary//calendar-link//EN
+BEGIN:VEVENT
+DTSTART:20250609T150000Z
+DTEND:20250609T154500Z
+DTSTAMP:20250520T161930Z
+SUMMARY:What form to use for my data?
+DESCRIPTION:A free YouTube LIVE about all what is delicious about barcharts, line graphs, treemaps, steamgraphs and more!
+LOCATION:https://www.youtube.com/live/1IRLqRtq0SI
+UID:85028
+END:VEVENT
+END:VCALENDAR
