@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Graven in Europese geldstromen</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/night.css">
+
+		<style type="text/css">
+			section { text-align: left; }
+			section strong {
+    			color: #FE7F6E;
+			}
+			section em, i {
+    			color: #84C5E6; 
+			}
+
+
+
+		</style>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background="img/main.jpg"></section>
+				<section 
+				data-background="img/main.jpg"
+				data-background-opacity="0.3"
+				data-markdown
+				data-transition="none">
+				## Graven in Europese geldstromen
+				</section>
+				<section data-markdown
+				data-transition="none">
+					<script type="text/template">
+						## Ada Homolova
+						*(Slowakije - Nederland - Oostenrijk)*
+						- 10+ jaar ervaring als datajournalist & trainer
+						---
+						- **Follow The Money** Bureau Brussel
+						- **Dataharvest** conference : data training coordinator
+						- ex *Investico, OneWorld, Pointer, OCCRP, Lost in Europe*
+						---
+						![](img/datafrosch.png)
+						Data Frosch | Learn Data, Tell Stories
+						---
+						## Wie zijn jullie?
+						- waar werk je en waar schrijf je over?
+						- wat hoop je te leren vandaag?
+						---
+						## Vandaag
+						- Introductie (10 mnin)
+						---
+						### EU budget (20 min)
+						1. **Financial Transparency System**: Uitgaven van de Europese Commissie
+						2. **Landbouwsubsidies**: Landbouwfinanciering door heel Europa
+						- Hands-on & QA (15 min)
+						---
+						## Pauze (5 min)
+						---
+						### Lidstaten budget (20 min)
+						4. **TED**: Europese aanbestedingscontracten
+						3. **State Aid**: Staatssteun
+						- Hands-on & QA (15 min)
+						---
+						## Je leert
+						- Welke inzichten je uit deze datasets kunt halen
+						- ... en welke niet
+						- Voorbeelden van verhalen
+						---
+						Vragen altijd welkom!
+					</script>
+				</section>
+				<section data-background="img/eumain.jpg"></section>
+				<section 
+				data-background="img/eumain.jpg"
+				data-background-opacity="0.3"
+				data-markdown
+				data-transition="none">
+				# Graven in het EU budget
+				</section>
+				<section data-markdown
+				data-transition="none">
+					<script type="text/template">
+						## Waarom is het zo verwarrend?
+						---
+| Dataset                     | Budget | Published by |
+|----------------------------|-------------------|--------------------------|
+| FTS | 🇪🇺                | 🇪🇺                       |
+| Landbouwsubsidies          | 🇪🇺                | 🇳🇱        |
+| TED                        | 🇳🇱                | 🇪🇺                       |
+| State Aid                  | 🇳🇱                | 🇪🇺                       |
+
+						---
+						## Hoe ziet er de EU budget uit?
+						---
+						![](img/eubudget.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/eubudget1.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/eubudget2.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						## Financial Transparency System
+						Alle uitgaven van de Europese Commissie die *niet* onder het beheer van de lidstaten valt
+
+						- [FAQ](https://ec.europa.eu/budget/financial-transparency-system/faq.html)
+						- [Homepage](https://ec.europa.eu/budget/financial-transparency-system)
+						---
+						![](img/eubudgetfts.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/eubudgetfts2.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						#### ✅ Wat je wél kunt vinden in de database: 
+						
+						1. Gegevens vanaf 2007 over toegekende bedragen (commitments).
+						2. Informatie over begunstigden onder direct of indirect EU-beheer.
+						3. Land van wettelijke vestiging van begunstigden.
+						4. Data over belangrijke programma’s zoals Horizon 2020.
+						5. Gedetailleerde financiële info: toegekend, verbruikt, aanvullingen/reducties.						
+						---
+						#### ❌ Wat je níet kunt vinden:
+						1. Betaalde bedragen. Alleen toezeggingen (commitments) vermeld.
+						2. Type organisatie (zoals universiteit of consultancy)
+						3. Contracten onder €15.000 (vanaf 2012 niet openbaar)
+						4. Uitgaven beheerd door lidstaten of derde partijen (bv. landbouwsubsidies).
+						5. Gevoelige info over bepaalde landen (zoals Afghanistan) zijn soms afgeschermd (*****).
+						---
+						### Verhalen
+						<small>[Lees het hier](https://www.ftm.eu/articles/recovery-files-consultancies-follow-up?share=k%2BRGbQKLPhPS/%2BXvabI7JA3zv5NvOvcR9lPUkVGgtZ6HsMbC6r04J68pxVm7HD0%3D)</small>
+						![](img/consultanciespeter.jpg)
+						---
+						## DEMO
+						### Data:
+						- [humans 👩🏼‍💻](https://ec.europa.eu/budget/financial-transparency-system/analysis.html)
+						- [machines 🤖](https://ec.europa.eu/budget/financial-transparency-system/help.html#download-data)
+						---
+						## Landbouwsubsidies
+						---
+						![](img/eubudget3.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						## Common Agricultural Policy (CAP)
+						- in het Nederlands: GLB
+						- Directe betalngen aan boeren (oa)
+						---
+						#### ✅ Wat je wél kunt vinden in de database: 
+						
+						1. Informatie over begunstigden van landbouwsubsidies in heel Europa
+						2. Boeren, bedrijven, scholen, kerken, sportclubs
+						3. Postcodes van deze bedrijven
+						4. Het bedrag en de schema waaronder die was uitgekeurd				
+						5. Data ouder dan 2 jaar (met een account)
+						---
+						#### ❌ Wat je níet kunt vinden:
+						1. Exacte adressen, kvk nummers
+						2. Data ouder dan 2 jaar (zonder account)
+						---
+						![](img/cap.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/cap2.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/cap3.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						## Verhalen
+						- FTM [Landbouwmiljonairs en minimumlonen](https://www.ftm.nl/artikelen/glb-miljarden-voor-de-boer-wie-krijgt-wat-van-brussel?share=HaB6ardqmhV2mzvHziZyPW8Ayn0q3XXDzVQSkI9Z5gBc1ptvnIKxYXNhseYNyko%3D)
+						- Reuters [Greek farmers pocket over 22 million euros in EU farm aid fraud](https://www.reuters.com/world/greek-farmers-pocket-over-22-million-euros-eu-farm-aid-fraud-minister-says-2025-09-02/)
+						---
+						| Dataset                     | Budget | Published by |
+|----------------------------|-------------------|--------------------------|
+| FTS | 🇪🇺                | 🇪🇺                       |
+| Landbouwsubsidies          | 🇪🇺                | 🇳🇱   !!!     |
+| TED                        | 🇳🇱                | 🇪🇺                       |
+| State Aid                  | 🇳🇱                | 🇪🇺                       |
+
+						---
+						### DEMO
+						- [Data](https://farmsubsidy.org)
+						---
+						## Hands-on (10 min) & QA
+						---
+						# Pauze (5 min)
+						</script>
+				</section>
+				<section data-background="img/msmain.jpg"></section>
+				<section 
+				data-background="img/msmain.jpg"
+				data-background-opacity="0.3"
+				data-markdown
+				data-transition="none">
+				# Graven in lidstaten data
+				</section>
+				<section data-markdown>
+					<script type="text/template"
+					data-transition="none">
+						## TED
+						- tenders electronic daily
+						---
+						✅ Wat je wél kunt vinden in de database: 
+
+						1. Aanbestedingen van lidstaten en EU instituties
+						2. Beschrijving van de opdracht, geschatte waarde
+						3. Partijen die aanbestedingen hebben gewonnen en bedragen
+						4. Contacten van de aanbestedende dienst (emails van ambtenaren)
+						5. Soms geen of foutieve bedragen 
+						---
+						❌ Wat je níet kunt vinden:
+  
+						1. Niet-openbare documenten (zoals contracten)
+						2. Aanbestedingen onder [drempelwaarden EU aanbesteden](https://ecer.minbuza.nl/-/nieuwe-drempelwaarden-europees-aanbesteden-2024-2025-gepubliceerd)
+						3. Geheime aanbestedingen
+						4. Alle partijen die hebben ingeschreven op een opdracht
+						---
+						![](img/ted1.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/ted2.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/ted3.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/ted5.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/ted6.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						### Verhalen
+						- FTM [Nederland is het minst transparante EU-land bij openbare aanbestedingen](https://www.ftm.nl/artikelen/nederland-meest-intransparante-eu-land-bij-openbare-aanbestedingen?share=y6n7GoVq8towFJFzEVaBdqhur7VHT5JQUyAlgnBChOILJ0xUE7FYjPk6ztEc4WE%3D)
+						- FTM [Nederland wil van Amerikaanse cloud af, maar weet niet hoe](https://www.ftm.nl/artikelen/amerikaanse-cloud-ondermijnt-de-soevereiniteit-van-europa)
+						---
+						### DEMO
+						- [Data](https://ted.europa.eu/)
+						---
+						## State aid
+						- toegekende staatssteun van lidstaten
+						---
+						✅ Wat je wél kunt vinden in de database: 
+						1. Naam van de ontvanger van staatssteun
+						2. Bedrag van de hulp
+						3. Doel en [sector](https://ec.europa.eu/competition/mergers/cases/index/nace_all.html) van de steun
+						4. Locatie van de ontvanger
+						5. Link naar goedgekeurde steunregelingen (via database of competition cases) 
+						---
+						❌ Wat je níet kunt vinden: 
+						1. Gegevens van Polen, Roemenië, Slovenië en Spanje (gebruiken eigen websites)
+						2. Steun onder drempelbedragen (bv. de-minimis)
+						3. Details over hoe het geld precies gebruikt is
+						4. Niet-gemelde of illegale steunmaatregelen
+						---
+						![](img/stateaidsectordarlings.jpg)
+						
+						---
+						![](img/stateaiddarlings.jpg)
+						
+						---
+
+						### Verhalen
+
+						- ???
+						---
+						## DEMO
+						- [Data](https://webgate.ec.europa.eu/competition/transparency/public?lang=en)
+						---
+						## Hands-on (10 min) & final QA 
+					</script>
+				</section>
+				<section data-background="img/happydigging.jpg"></section>
+				<section 
+				data-background="img/happydigging.jpg"
+				data-background-opacity="0.3"
+				data-markdown
+				data-transition="none">
+				# Graaf ze!
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
