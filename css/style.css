@@ -167,6 +167,32 @@ h1, h2, h3, h4 {
     animation-play-state: paused;
 }
 
+/* Dropdown functionality */
+.navbar .group:hover .absolute {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.navbar .absolute {
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    z-index: 100;
+}
+
+.navbar .absolute a {
+    color: var(--dark-color) !important;
+    padding: 0.5rem 1rem;
+    font-weight: normal;
+}
+
+.navbar .absolute a:hover {
+    background-color: #f3f4f6;
+    transform: none;
+}
+
+.navbar .absolute a:hover::after {
+    display: none;
+}
+
 @keyframes frog-scroll {
     0% { transform: translateX(-100px); opacity: 0; }
     50% { transform: translateX(0); opacity: 1; }
