@@ -136,7 +136,22 @@ h1, h2, h3, h4 {
     font-weight: 500;
     position: relative;
     display: inline-block;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 0.5rem;
+    font-size: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    .navbar a {
+        padding: 0.75rem 0.75rem;
+        font-size: 0.875rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar a {
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+    }
 }
 
 .navbar a:hover {
