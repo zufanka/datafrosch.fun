@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about different skill levels and tools for working with data - from web interfaces to programming languages. Discover AI chatbots that can help you level up your data journalism skills.">
+    <meta name="keywords" content="data analysis, journalism, spreadsheets, DuckDB, Python, AI chatbots, data skills">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://datafrosch.fun/blog/skills-and-tools-for-data.html">
+    <meta property="og:title" content="Skills and Tools to Consider When Working with Data | Data Frosch">
+    <meta property="og:description" content="A comprehensive guide to different approaches for analyzing databases and large datasets, from basic web interfaces to advanced programming.">
+    <meta property="og:image" content="https://datafrosch.fun/img/logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Data Frosch - Skills and Tools for Data Analysis">
+    <meta property="og:site_name" content="Data Frosch">
+    <meta property="og:locale" content="en_US">
+
+    <title>Skills and Tools to Consider When Working with Data | Data Frosch</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Modern PNG favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="/index.html">
+            <div class="flex items-center">
+                <div class="logo-container mr-3">
+                    <img src="../img/logo.png">
+                </div>
+                <div class="text-right">
+                    <h1 class="text-xl md:text-3xl font-bold">Data Frosch</h1>
+                    <p id="changing-text" class="text-xs sm:text-sm opacity-75"></p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Navigation - Horizontal scrolling on small screens -->
+    <nav class="navbar sticky top-0 z-50">
+        <div class="container mx-auto px-2">
+            <div class="flex py-3 px-2">
+                <a href="../index.html#about" class="font-medium">About</a>
+                <a href="../index.html#mentoring" class="font-medium">Mentoring</a>
+                <a href="../index.html#blog" class="font-medium">Blog</a>
+                <a href="../index.html#newsletter" class="font-medium">Newsletter</a>
+                <a href="../index.html#videos" class="font-medium">Videos</a>
+                <a href="../index.html#author" class="font-medium">The 🐸</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Content Section -->
+    <section class="py-10 md:py-16 bg-white relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-2"></div>
+
+        <div class="container mx-auto px-4">
+            <article class="max-w-3xl mx-auto">   
+                <h1 class="text-3xl md:text-4xl font-bold mb-3">
+                    How do I begin working with data?
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-8">
+                    Skills and tools to consider when leveling up your data game 💪
+                </p>
+
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-base md:text-lg mb-6">
+                        When working with databases and large datasets, the way we work really depends on our current capabilities and research needs.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Consider for example the <a href="https://ec.europa.eu/budget/financial-transparency-system/">Financial Transparency System</a>, where the European Commission publishes their yearly expenditures.
+                        There are multiple ways to access this data.
+                    </p>
+                    <p class="text-base md:text-lg mb-6">
+                        We can access it through a <a href="https://ec.europa.eu/budget/financial-transparency-system/analysis.html" target="_blank">web interface</a>. This is suitable for quick lookups and filters.
+                        But we can also <a href="https://ec.europa.eu/budget/financial-transparency-system/help.html#download-data" target="_blank">download the data</a> and analyse them locally on our computer.
+                        This makes it possible to interrogate older data, analyze trends, and generally allows for more flexibility.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Different approaches lend themselves for different sort of analysis and require different skills.
+                        Let's explore these approaches below.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-8">Level 1: Web Interface Only</h2>
+                    <p class="mb-2"><strong>Pros:</strong> No technical skills required</p>
+                    <p class="mb-2"><strong>Cons:</strong> Data analysis not possible</p>
+                    <p class="mb-2"><strong>Tools:</strong> browser</p>
+                    <p class="mb-6"><strong>Time investment to master:</strong> hours</p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        This approach is best for quick searches, look-ups of names, fact-checking, small-scale verification. The time investment is limited to learning how the web interface works, what data is in there, how it's collected, what are the columns, what data is not there. Usually pretty straightforward. Oftentimes we can also export data from these interfaces to move on to spreadsheet analysis.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-8">Level 2: Spreadsheet Analysis</h2>
+                    <p class="mb-2"><strong>Pros:</strong> Spreadsheet software widely available, low bar in learning</p>
+                    <p class="mb-2"><strong>Cons:</strong> Sheets with more than ~100,000 records might get more slow to process</p>
+                    <p class="mb-2"><strong>Tools:</strong> Excel, Google Sheets, LibreOffice Calc</p>
+                    <p class="mb-6"><strong>Time investment to master:</strong> days</p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        In spreadsheet analysis, basic data skills are required: basic data cleaning, sorting, filtering, pivot tables, lookups and simple visualisation are usually enough for most day-to-day journalistic analysis. The time investment to learn spreadsheet techniques is measured in days and therefore still pretty approachable.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-8">Level 3: Database Tools</h2>
+                    <p class="mb-2"><strong>Pros:</strong> Large-scale analysis</p>
+                    <p class="mb-2"><strong>Cons:</strong> Data visualisation not supported by most databases</p>
+                    <p class="mb-2"><strong>Tools:</strong> SQL, DuckDB, Neo4J</p>
+                    <p class="mb-6"><strong>Time investment to master:</strong> weeks</p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        With database tools, we are approaching master levels of data analysis. We can analyse and combine tables of millions of records. There are databases that handle tabular data (SQL, DuckDB), relational data (Neo4J), read data as rows (SQL) or columns (DuckDB). All these tools are free to use, most of them are open source, so we are not dependent on proprietary software. With database analysis, we can handle big datasets pretty well and learn the complexities that arise from joining and grouping data. We learn about unique identifiers and why they are important. The time investment gets a bit larger here and is measured in weeks rather than days.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-8">Level 4: Programming Languages</h2>
+                    <p class="mb-2"><strong>Pros:</strong> Swiss army knife, maximal freedom in analysis</p>
+                    <p class="mb-2"><strong>Cons:</strong> Time investment</p>
+                    <p class="mb-6"><strong>Time investment:</strong> months</p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Learning Python or R gives us all the freedom we want when it comes to data analysis. We can analyse and combine tables of millions of records. We can ask any questions, do any transformation, visualize anything. We can write scrapers, analyse relational or geographical data. We can plug in APIs and build proper software solutions. Moreover, we can combine them with spreadsheets (for example Google Sheets API) or databases (connect to a database if we have too much data to fit into memory) if we need to. The time investment is significant and therefore requires commitment.
+                    </p>
+
+                    <h2 class="text-3xl font-bold mb-6 mt-10">Chatbots</h2>
+                    <p class="text-base md:text-lg mb-6">
+                        AI chatbots help us using all of the skills and tools above. We do not want chatbots to analyse our data directly. But they can write scripts for us and explain how the tools work.
+                    </p>
+                    <p class="text-base md:text-lg mb-6">
+                        Moreover, there are special applications:
+                    </p>
+
+                    <h3 class="text-xl font-bold mb-3 mt-6">ChatGPT</h3>
+                    <ul class="list-disc pl-6 mb-4 space-y-1">
+                        <li>Most widely used all round model</li>
+                        <li>API integration for scripts</li>
+                        <li><strong><a href="https://openai.com/index/openai-codex/" target="_blank">Codex</a></strong> for coding</li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold mb-3 mt-6">Claude</h3>
+                    <ul class="list-disc pl-6 mb-4 space-y-1">
+                        <li>Sonnet model is good for agents, coding, and general computer use</li>
+                        <li>Web interface includes interactive artifacts for data visualization</li>
+                        <li><strong><a href="https://claudecode.io/" target="_blank">Claude code</a></strong> for coding on your own computer</li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold mb-3 mt-6">DeepSeek</h3>
+                    <ul class="list-disc pl-6 mb-4 space-y-1">
+                        <li>All-round model</li>
+                        <li>Cheap API</li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold mb-3 mt-6">Gemini Tools</h3>
+                    <p class="mb-2">You can encounter document upload limits if using on a free tier</p>
+                    <ul class="list-disc pl-6 mb-6 space-y-1">
+                        <li><strong><a href="https://gemini.google/overview/deep-research/?hl=en" target="_blank">Gemini Deep Research</a></strong>: research report generation</li>
+                        <li><strong><a href="https://journaliststudio.google.com/pinpoint/about/" target="_blank">Google Pinpoint</a></strong>: Upload large collections of procurement documents for analysis</li>
+                        <li><strong><a href="https://notebooklm.google.com/" target="_blank">NotebookLM</a></strong>: Summarize database exports and identify connections</li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold mb-3 mt-6">Local models</h3>
+                    <ul class="list-disc pl-6 mb-6 space-y-1">
+                        <li>worth considering for specialized tasks</li>
+                        <li><a href="https://ollama.com/" target="_blank">Ollama</a></li>
+                        <li><a href="https://lmstudio.ai/" target="_blank">LM Studio</a></li>
+                    </ul>
+
+                    <h2 class="text-3xl font-bold mb-6 mt-10">Mentoring</h2>
+                    <p class="text-base md:text-lg mb-6">
+                        Would you like some help on the way to data skills mastery? Consider our <a href="../mentorship.html">mentorship program</a>!
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section section id="newsletter" class="py-10 md:py-16 bg-gray-50 relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-3"></div>
+
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Sign up for our newsletter!</h2>
+            <p class="text-base md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">Ready to jump-start your data skills? Keep up to date with the newest courses and tutorials.</p>
+            <a target="_blank" href="https://datafrosch.beehiiv.com/subscribe" class="cta-button inline-block bounce-hover">🪷 Join the Pond 🪷</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-6 md:py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center md:flex-row md:justify-between md:items-start">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start">
+                        <div class="logo-container mr-3" style="width: 40px; height: 40px;">
+                            <img src="../img/logo.png">
+                        </div>
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-white">Data Frosch</h3>
+                            <p class="text-xs text-gray-300">datafrosch.fun</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-5 md:gap-8 mb-6 md:mb-0 text-center md:text-left">
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Quick Links</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="../index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                            <li><a href="../index.html#about" class="text-gray-400 hover:text-white">About</a></li>
+                            <li><a href="../index.html#mentoring" class="text-gray-400 hover:text-white">Mentoring</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Resources</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white">Blog</a></li>
+                            <li><a href="https://www.youtube.com/@datafrosch" class="text-gray-400 hover:text-white">YouTube</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Contact</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="mailto:ada@datafrosch.fun" class="text-gray-400 hover:text-white">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-gray-700 text-center text-xs md:text-sm text-gray-400">
+                <p>CC BY-SA 4.0</p>
+                <p class="mt-2">Made with 💚 and 🐸</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="../js/taglines.js"></script>
+</body>
+</html>

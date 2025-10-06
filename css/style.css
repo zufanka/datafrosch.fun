@@ -475,3 +475,32 @@ h1, h2, h3, h4 {
     transform: translate(-50%, -50%);
     z-index: 1;
 }
+
+/* Article links styling */
+article a {
+    color: var(--accent-color);
+    transition: all 0.2s ease;
+    font-weight: bold;
+}
+
+article a:hover {
+    text-decoration: underline;
+}
+
+/* Blog article title styling */
+article h2 {
+    text-align: left;
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+
+article h2:before {
+    content: "";
+    position: absolute;
+    height: 12px;
+    background-color: rgba(111, 148, 73, 0.2);
+    width: 100%;
+    bottom: 4px;
+    z-index: -1;
+}
