@@ -261,7 +261,7 @@ h1, h2, h3, h4 {
 }
 
 .section-title {
-    display: inline-block;
+    display: inline;
     position: relative;
     z-index: 1;
 }
@@ -506,7 +506,7 @@ article a:hover {
 article h2 {
     text-align: left;
     position: relative;
-    display: inline-block;
+    display: inline;
     z-index: 1;
 }
 
