@@ -1,0 +1,10 @@
+# robots.txt for datafrosch.fun
+User-agent: *
+Allow: /
+
+# Disallow specific directories
+Disallow: /inprogress/
+Disallow: /slides/plugin/
+
+# Sitemap location
+Sitemap: https://datafrosch.fun/sitemap.xml
