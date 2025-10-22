@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn how to build your own AI-powered RSS newsletter digest that aggregates content from multiple sources into a single weekly summary, delivered straight to your inbox.">
+    <meta name="keywords" content="RSS, newsletter, AI, automation, data journalism, LLM, DeepSeek, GitHub Actions, email digest, content aggregation, AI-powered newsletter, personalized news">
+    <meta name="author" content="Data Frosch">
+    <link rel="canonical" href="https://datafrosch.fun/blog/rss-newsletter.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://datafrosch.fun/blog/rss-newsletter.html">
+    <meta property="og:title" content="One Newsletter to Rule Them All | Data Frosch">
+    <meta property="og:description" content="Building an AI-powered RSS digest with robots - aggregate multiple news sources into one personalized weekly newsletter.">
+    <meta property="og:image" content="https://datafrosch.fun/img/rss-robot.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="RSS Robot - AI-Powered Newsletter Digest">
+    <meta property="og:site_name" content="Data Frosch">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="Data Frosch">
+    <meta property="article:section" content="Data Journalism">
+    <meta property="article:tag" content="RSS">
+    <meta property="article:tag" content="Newsletter">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="Automation">
+    <meta property="article:tag" content="Data Journalism">
+    <meta property="article:tag" content="LLM">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://datafrosch.fun/blog/rss-newsletter.html">
+    <meta name="twitter:title" content="One Newsletter to Rule Them All | Data Frosch">
+    <meta name="twitter:description" content="Building an AI-powered RSS digest with robots - aggregate multiple news sources into one personalized weekly newsletter.">
+    <meta name="twitter:image" content="https://datafrosch.fun/img/rss-robot.jpg">
+    <meta name="twitter:image:alt" content="RSS Robot - AI-Powered Newsletter Digest">
+
+    <title>One Newsletter to Rule Them All | Data Frosch</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Modern PNG favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "One Newsletter to Rule Them All: Building an AI-powered RSS digest with robots",
+        "description": "Learn how to build your own AI-powered RSS newsletter digest that aggregates content from multiple sources into a single weekly summary.",
+        "image": "https://datafrosch.fun/img/rss-robot.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "Data Frosch",
+            "url": "https://datafrosch.fun"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Data Frosch",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://datafrosch.fun/img/logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://datafrosch.fun/blog/rss-newsletter.html"
+        },
+        "keywords": ["RSS", "newsletter", "AI", "automation", "data journalism", "LLM", "GitHub Actions", "content aggregation"],
+        "articleSection": "Data Journalism",
+        "about": [
+            {
+                "@type": "Thing",
+                "name": "RSS Feeds"
+            },
+            {
+                "@type": "Thing",
+                "name": "AI-Powered Automation"
+            },
+            {
+                "@type": "Thing",
+                "name": "Newsletter Development"
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="/index.html">
+            <div class="flex items-center">
+                <div class="logo-container mr-3">
+                    <img src="../img/logo.png">
+                </div>
+                <div class="text-right">
+                    <h1 class="text-xl md:text-3xl font-bold">Data Frosch</h1>
+                    <p id="changing-text" class="text-xs sm:text-sm opacity-75"></p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Navigation - Horizontal scrolling on small screens -->
+    <nav class="navbar sticky top-0 z-50">
+        <div class="container mx-auto px-2">
+            <div class="flex py-3 px-2">
+                <a href="../index.html#about" class="font-medium">About</a>
+                <a href="../mentorship.html" class="font-medium">Mentorship</a>
+                <a href="../index.html#blog" class="font-medium">Blog</a>
+                <a href="../index.html#newsletter" class="font-medium">Newsletter</a>
+                <a href="../index.html#videos" class="font-medium">Videos</a>
+                <a href="../index.html#author" class="font-medium">The 🐸</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Content Section -->
+    <section class="py-10 md:py-16 bg-white relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-2"></div>
+
+        <div class="container mx-auto px-4">
+            <article class="max-w-3xl mx-auto">
+                <h1 class="text-3xl md:text-4xl font-bold mb-3">
+                    One Newsletter to Rule Them All
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-8">
+                    Building an AI-powered RSS digest with robots 🤖
+                </p>
+
+                <img src="../img/rss-robot.jpg" alt="RSS Robot Newsletter" class="w-full rounded-lg mb-8">
+
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-base md:text-lg mb-6">
+                        I pay good money for an <em>Economist</em> subscription, yet sometimes I don't read it for months. I genuinely enjoy their analysis (that's why I subscribed in the first place), but I simply don't think about reading it 🤷. At the same time, I also don't want to be subscribed to five different newsletters to cover all the topics I am interested in.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        What I do want is one newsletter once a week that gives me an overview of topics <strong>I care about</strong>. Therefore, I built this little tool to do exactly that: an <a href="https://github.com/DataFrosch/rss-digest" target="_blank">AI powered RSS digest</a>.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        In short, it fetches RSS feeds and sends me a weekly summary of what The Economist covered that week. Essentially, it is my own personalized newsletter. And that is pretty cool 😎.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        The way it works is super simple! Let's get into the components briefly.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-8">Components</h2>
+
+                    <h3 class="text-xl font-bold mb-3 mt-6">RSS</h3>
+                    <p class="text-base md:text-lg mb-6">
+                        RSS is a sort of relic from the beginning of the internet: one XML file that contains the date, headline, description, and link to an article.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Most publishers support it! Including <a href="https://rss.feedspot.com/theguardian_rss_feeds/" target="_blank">The Guardian</a> and <a href="https://rss.feedspot.com/nytimes_rss_feeds/?_src=search" target="_blank">The New York Times</a>. You can have a peek at a live <a href="https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml" target="_blank">RSS feed example here</a>.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        My digest currently uses <em>The Economist</em>'s feeds, but you could plug in any RSS source you like.
+                    </p>
+
+                    <h3 class="text-xl font-bold mb-3 mt-6">LLM</h3>
+                    <p class="text-base md:text-lg mb-6">
+                        Once the headlines and descriptions from the week are collected, they're sent to a language model along with a <a href="https://github.com/DataFrosch/rss-digest/blob/main/config/feeds.py" target="_blank">custom prompt</a> (your prompt would of course be different).
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        This step costs literally a few cents. I use DeepSeek API, and one query costs less than one cent, so with $1 of credit, you are covered for years. Alternatively, you can use free (but less private) models from <a href="https://openrouter.ai" target="_blank">openrouter.ai</a>.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        The model digests the feeds and writes a summary in HTML format.
+                    </p>
+
+                    <h3 class="text-xl font-bold mb-3 mt-6">Email & HTML</h3>
+                    <p class="text-base md:text-lg mb-6">
+                        The LLM output gets wrapped in a simple HTML template and emailed straight to me. Here's an <a href="https://htmlpreview.github.io/?https://github.com/DataFrosch/rss-digest/blob/f1ae15ef702b4fc731924bee2cd5979af0a712de/templates/example.html" target="_blank">example digest</a>.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        I use Gmail for sending, but any SMTP setup would work.
+                    </p>
+
+                    <h3 class="text-xl font-bold mb-3 mt-6">GitHub Actions</h3>
+                    <p class="text-base md:text-lg mb-6">
+                        To keep everything running automatically, I use <em>GitHub Actions</em> with a <a href="https://crontab.guru/" target="_blank">cron job</a> to trigger the script once a week. The format is very flexible - I could also run it every day, every hour, once a month, or on weekends at 10 AM.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-8">Pros and Cons</h2>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Now, I have one newsletter to rule them all and I am prompted to read <em>The Economist</em> again. I am happy.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Of course it's not perfect. The model will still probably pick articles randomly, or add a creative twist that was not in the source (hallucination happens). I see it more as a hint of what <em>The Economist</em> has been focusing on that week and as a reminder that I could spend half an hour catching up on their reporting.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Moreover, there are still cases where human curation wins. Especially for deep analyses or discovering new sources. However, this system can also do more than human curation when it comes to niche combination of interests. I, for example, ask it to give me inspiration for data driven stories. This is a very specific wish that I can not get anywhere else.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        So instead of manually skimming dozens of feeds, an AI model can summarize, organize, and email you the highlights. In a world drowning in recommendation algorithms that I have no control of whatsoever, this actually feels somewhat refreshing.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-8">Inspiration</h2>
+                    <p class="text-base md:text-lg mb-6">
+                        This little experiment was inspired by David Caswell's essay, <a href="https://radicallyinformed.substack.com/p/an-ai-enlightenment-the-consumer" target="_blank"><em>The Consumer Experience of AI-Mediated News</em></a>. He explores how AI can help serve us information that is most relevant to us, instead of what is most clickable and in the process empower us instead of overwhelm. It's a long read, but a good one!
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-8">Future</h2>
+                    <p class="text-base md:text-lg mb-6">
+                        The current setup handles a single feed configuration and one email output. Next, I would love to explore scaling it up: multiple digests, different prompts.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        The prompt design is still in its early stages too. There is A LOT of room to experiment with tone, structure, and the types of insights the AI emphasizes.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-8">Try It Yourself</h2>
+                    <p class="text-base md:text-lg mb-6">
+                        If this sounds like your kind of nerdy project, you can set this up yourself. Follow in <a href="https://github.com/DataFrosch/rss-digest" target="_blank">the readme in github repository</a>. That's it! Your personalized, AI-powered RSS newsletter.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        I'd love to hear from you if you try!
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section section id="newsletter" class="py-10 md:py-16 bg-gray-50 relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-3"></div>
+
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Sign up for our newsletter!</h2>
+            <p class="text-base md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">Ready to jump-start your data skills? Keep up to date with the newest courses and tutorials.</p>
+            <a target="_blank" href="https://datafrosch.beehiiv.com/subscribe" class="cta-button inline-block bounce-hover">🪷 Join the Pond 🪷</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-6 md:py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center md:flex-row md:justify-between md:items-start">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start">
+                        <div class="logo-container mr-3" style="width: 40px; height: 40px;">
+                            <img src="../img/logo.png">
+                        </div>
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-white">Data Frosch</h3>
+                            <p class="text-xs text-gray-300">datafrosch.fun</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-5 md:gap-8 mb-6 md:mb-0 text-center md:text-left">
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Quick Links</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="../index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                            <li><a href="../index.html#about" class="text-gray-400 hover:text-white">About</a></li>
+                            <li><a href="../index.html#mentoring" class="text-gray-400 hover:text-white">Mentoring</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Resources</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white">Blog</a></li>
+                            <li><a href="https://www.youtube.com/@datafrosch" class="text-gray-400 hover:text-white">YouTube</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Contact</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="mailto:ada@datafrosch.fun" class="text-gray-400 hover:text-white">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-gray-700 text-center text-xs md:text-sm text-gray-400">
+                <p>CC BY-SA 4.0</p>
+                <p class="mt-2">Made with 💚 and 🐸</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="../js/taglines.js"></script>
+</body>
+</html>
