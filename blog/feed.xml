@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Frosch Blog</title>
+    <link>https://datafrosch.fun/blog/</link>
+    <description>Articles and tutorials about data journalism, analysis techniques, and storytelling with data</description>
+    <language>en-us</language>
+    <atom:link href="https://datafrosch.fun/blog/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>One Newsletter to Rule Them All</title>
+      <link>https://datafrosch.fun/blog/rss-newsletter.html</link>
+      <description>Building an AI-powered RSS digest with robots. Learn how to build your own AI-powered RSS newsletter digest that aggregates content from multiple sources into a single weekly summary, delivered straight to your inbox.</description>
+      <pubDate>Tue, 22 Oct 2025 00:00:00 GMT</pubDate>
+      <guid>https://datafrosch.fun/blog/rss-newsletter.html</guid>
+    </item>
+
+    <item>
+      <title>How do I begin working with data?</title>
+      <link>https://datafrosch.fun/blog/skills-and-tools-for-data.html</link>
+      <description>Skills and tools to consider when leveling up your data game. When working with databases and large datasets, the way we work really depends on our current capabilities and research needs. Learn about different skill levels and tools—from web interfaces to programming languages—and discover AI chatbots that can help you level up your data journalism skills.</description>
+      <pubDate>Mon, 06 Oct 2025 00:00:00 GMT</pubDate>
+      <guid>https://datafrosch.fun/blog/skills-and-tools-for-data.html</guid>
+    </item>
+  </channel>
+</rss>
