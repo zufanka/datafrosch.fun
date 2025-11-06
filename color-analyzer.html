@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Analyzer - HSL Values</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+            user-select: none;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .button-container {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .add-color-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .add-color-btn:hover {
+            background: #45a049;
+        }
+
+        .clear-btn {
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .clear-btn:hover {
+            background: #da190b;
+        }
+
+        .color-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .color-table th {
+            background: #f0f0f0;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .color-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .editable-field {
+            background: transparent;
+            border: 1px solid transparent;
+            padding: 4px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-block;
+            min-width: 80px;
+        }
+
+        .editable-field:hover {
+            background: #f0f0f0;
+            border-color: #ddd;
+        }
+
+        .editable-field:focus {
+            outline: none;
+            background: white;
+            border-color: #2196F3;
+            box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+            cursor: text;
+        }
+
+        .editable-field.error {
+            border-color: #f44336;
+            background: #ffebee;
+        }
+
+        .color-swatch {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .metric-container {
+            margin-bottom: 0;
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #333;
+        }
+
+        .metric-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .scale-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .bars-container {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .color-bar-row {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .color-bar-wrapper {
+            position: relative;
+            height: 35px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            overflow: visible;
+            cursor: pointer;
+        }
+
+        .color-bar-wrapper:hover {
+            background: #d0d0d0;
+        }
+
+        .color-bar-wrapper.dragging {
+            background: #c0c0c0;
+        }
+
+        .color-bar {
+            height: 100%;
+            border-radius: 3px;
+            position: relative;
+            transition: width 0.1s ease;
+            pointer-events: none;
+        }
+
+        .bar-marker {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 140%;
+            background: #333;
+            pointer-events: none;
+            transition: left 0.1s ease;
+        }
+
+        .bar-marker.draggable {
+            width: 12px;
+            height: 150%;
+            background: transparent;
+            border-left: 2px solid #333;
+            cursor: ew-resize;
+            pointer-events: all;
+            margin-left: -6px;
+        }
+
+        .bar-marker.draggable:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .bar-marker.dragging {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .bar-label {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 12px;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .bar-value {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #333;
+            font-size: 12px;
+            font-weight: 500;
+            pointer-events: none;
+        }
+
+        .visual-comparison {
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .comparison-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #333;
+        }
+
+        .comparison-bar {
+            height: 30px;
+            margin-bottom: 8px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            color: white;
+            font-size: 12px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+
+        .instructions {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .instructions h3 {
+            color: #1976D2;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .instructions p {
+            color: #555;
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Color Analyzer Tool</h1>
+        
+        <div class="instructions">
+            <h3>Interactive Controls:</h3>
+            <p>• Drag the bars left/right to adjust Value, Hue, or Saturation</p>
+            <p>• Click anywhere on a bar to jump to that position</p>
+            <p>• Click on any Group Name or Hex Code in the table to edit directly</p>
+            <p>• Colors update in real-time as you make changes</p>
+        </div>
+
+        <table class="color-table" id="colorTable">
+            <thead>
+                <tr>
+                    <th>Group</th>
+                    <th>Hex</th>
+                    <th>Swatch</th>
+                    <th>Value Ratio %</th>
+                    <th>Hue</th>
+                    <th>Saturation %</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="colorTableBody">
+            </tbody>
+        </table>
+
+        <div class="button-container">
+            <button class="add-color-btn" onclick="addColor()">Add New Color</button>
+            <button class="clear-btn" onclick="clearAll()">Clear All</button>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-container">
+                <div class="metric-header">
+                    <span class="metric-title">Value (Lightness)</span>
+                </div>
+                <div class="scale-labels">
+                    <span>0</span>
+                    <span>100%</span>
+                </div>
+                <div class="bars-container" id="valueBars"></div>
+            </div>
+
+            <div class="metric-container">
+                <div class="metric-header">
+                    <span class="metric-title">Hue</span>
+                </div>
+                <div class="scale-labels">
+                    <span>0°</span>
+                    <span>360°</span>
+                </div>
+                <div class="bars-container" id="hueBars"></div>
+            </div>
+
+            <div class="metric-container">
+                <div class="metric-header">
+                    <span class="metric-title">Saturation</span>
+                </div>
+                <div class="scale-labels">
+                    <span>0</span>
+                    <span>100%</span>
+                </div>
+                <div class="bars-container" id="saturationBars"></div>
+            </div>
+
+            <div class="visual-comparison">
+                <div class="comparison-title">Visual Color Comparison</div>
+                <div id="visualBars"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let colors = [];
+        let isDragging = false;
+        let currentDragIndex = -1;
+        let currentDragProperty = '';
+
+        // Initialize with sample colors from the image
+        const sampleColors = [
+            { name: 'Bckgrnd', hex: '#f5f5f5' },
+            { name: 'Hero', hex: '#1c1a58' },
+            { name: '2nd', hex: '#c6baef' },
+            { name: '3rd', hex: '#dadada' }
+        ];
+
+        function hexToHSL(hex) {
+            // Remove the hash if present
+            hex = hex.replace('#', '');
+            
+            // Convert hex to RGB
+            const r = parseInt(hex.substr(0, 2), 16) / 255;
+            const g = parseInt(hex.substr(2, 2), 16) / 255;
+            const b = parseInt(hex.substr(4, 2), 16) / 255;
+            
+            const max = Math.max(r, g, b);
+            const min = Math.min(r, g, b);
+            let h, s, l = (max + min) / 2;
+            
+            if (max === min) {
+                h = s = 0; // achromatic
+            } else {
+                const d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                
+                switch (max) {
+                    case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+                    case g: h = ((b - r) / d + 2) / 6; break;
+                    case b: h = ((r - g) / d + 4) / 6; break;
+                }
+            }
+            
+            return {
+                h: Math.round(h * 360),
+                s: Math.round(s * 100),
+                l: Math.round(l * 100)
+            };
+        }
+
+        function hslToHex(h, s, l) {
+            // Convert HSL values to 0-1 range
+            h = h / 360;
+            s = s / 100;
+            l = l / 100;
+
+            let r, g, b;
+
+            if (s === 0) {
+                r = g = b = l; // achromatic
+            } else {
+                const hue2rgb = (p, q, t) => {
+                    if (t < 0) t += 1;
+                    if (t > 1) t -= 1;
+                    if (t < 1/6) return p + (q - p) * 6 * t;
+                    if (t < 1/2) return q;
+                    if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+                    return p;
+                };
+
+                const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+                const p = 2 * l - q;
+                r = hue2rgb(p, q, h + 1/3);
+                g = hue2rgb(p, q, h);
+                b = hue2rgb(p, q, h - 1/3);
+            }
+
+            const toHex = x => {
+                const hex = Math.round(x * 255).toString(16);
+                return hex.length === 1 ? '0' + hex : hex;
+            };
+
+            return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+        }
+
+        function addColor() {
+            const name = 'Color ' + (colors.length + 1);
+            const hex = '#808080'; // Default gray color
+            
+            const hsl = hexToHSL(hex);
+            colors.push({ name, hex, hsl });
+            
+            updateDisplay();
+            
+            // Focus on the newly added color's name field for immediate editing
+            setTimeout(() => {
+                const tbody = document.getElementById('colorTableBody');
+                const lastRow = tbody.rows[tbody.rows.length - 1];
+                const nameInput = lastRow.cells[0].querySelector('.editable-field');
+                if (nameInput) {
+                    nameInput.focus();
+                    nameInput.select();
+                }
+            }, 50);
+        }
+
+        function removeColor(index) {
+            colors.splice(index, 1);
+            updateDisplay();
+        }
+
+        function clearAll() {
+            colors = [];
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            updateTable();
+            updateBars();
+            updateVisualComparison();
+        }
+
+        function updateTable() {
+            const tbody = document.getElementById('colorTableBody');
+            tbody.innerHTML = '';
+            
+            colors.forEach((color, index) => {
+                const row = tbody.insertRow();
+                
+                // Create editable name field
+                const nameCell = row.insertCell();
+                const nameInput = document.createElement('input');
+                nameInput.type = 'text';
+                nameInput.className = 'editable-field';
+                nameInput.value = color.name;
+                nameInput.addEventListener('change', function() {
+                    colors[index].name = this.value;
+                    updateBars();
+                    updateVisualComparison();
+                });
+                nameInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        this.blur();
+                    }
+                });
+                nameCell.appendChild(nameInput);
+                
+                // Create editable hex field
+                const hexCell = row.insertCell();
+                const hexInput = document.createElement('input');
+                hexInput.type = 'text';
+                hexInput.className = 'editable-field';
+                hexInput.value = color.hex;
+                hexInput.addEventListener('input', function() {
+                    const newHex = this.value;
+                    if (newHex.match(/^#[0-9A-Fa-f]{6}$/)) {
+                        this.classList.remove('error');
+                        colors[index].hex = newHex;
+                        colors[index].hsl = hexToHSL(newHex);
+                        // Update other displays without recreating the table
+                        updateBars();
+                        updateVisualComparison();
+                        // Update the swatch in the next cell
+                        const swatchCell = row.cells[2];
+                        const swatch = swatchCell.querySelector('.color-swatch');
+                        if (swatch) {
+                            swatch.style.backgroundColor = newHex;
+                        }
+                        // Update the HSL values in the table
+                        row.cells[3].textContent = colors[index].hsl.l + '%';
+                        row.cells[4].textContent = colors[index].hsl.h + '°';
+                        row.cells[5].textContent = colors[index].hsl.s + '%';
+                    } else {
+                        this.classList.add('error');
+                    }
+                });
+                hexInput.addEventListener('change', function() {
+                    if (!this.value.match(/^#[0-9A-Fa-f]{6}$/)) {
+                        // Revert to original value if invalid
+                        this.value = colors[index].hex;
+                        this.classList.remove('error');
+                    }
+                });
+                hexInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        this.blur();
+                    }
+                });
+                hexCell.appendChild(hexInput);
+                
+                // Swatch cell
+                const swatchCell = row.insertCell();
+                const swatch = document.createElement('span');
+                swatch.className = 'color-swatch';
+                swatch.style.backgroundColor = color.hex;
+                swatchCell.appendChild(swatch);
+                
+                // HSL value cells
+                row.insertCell().textContent = color.hsl.l + '%';
+                row.insertCell().textContent = color.hsl.h + '°';
+                row.insertCell().textContent = color.hsl.s + '%';
+                
+                // Action cell
+                const actionCell = row.insertCell();
+                const removeBtn = document.createElement('button');
+                removeBtn.textContent = 'Remove';
+                removeBtn.style.cssText = 'background: #ff4444; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;';
+                removeBtn.onclick = function() { removeColor(index); };
+                actionCell.appendChild(removeBtn);
+            });
+        }
+
+        function updateBars() {
+            updateMetricBars('valueBars', 'l', 100, '%', '#4a4a4a');
+            updateMetricBars('hueBars', 'h', 360, '°', '#6a6a6a');
+            updateMetricBars('saturationBars', 's', 100, '%', '#8a8a8a');
+        }
+
+        function updateMetricBars(containerId, property, maxValue, unit, barColor) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            colors.forEach((color, index) => {
+                const value = color.hsl[property];
+                const percentage = (value / maxValue) * 100;
+                
+                const barRow = document.createElement('div');
+                barRow.className = 'color-bar-row';
+                
+                const wrapper = document.createElement('div');
+                wrapper.className = 'color-bar-wrapper';
+                wrapper.dataset.index = index;
+                wrapper.dataset.property = property;
+                wrapper.dataset.maxValue = maxValue;
+                
+                // Handle click on wrapper to move bar
+                wrapper.addEventListener('mousedown', function(e) {
+                    if (e.target === wrapper || e.target.classList.contains('color-bar')) {
+                        handleBarClick(e, wrapper, index, property, maxValue);
+                    }
+                });
+                
+                const bar = document.createElement('div');
+                bar.className = 'color-bar';
+                bar.style.width = percentage + '%';
+                bar.style.backgroundColor = barColor;
+                
+                const marker = document.createElement('div');
+                marker.className = 'bar-marker draggable';
+                marker.style.left = percentage + '%';
+                marker.dataset.index = index;
+                marker.dataset.property = property;
+                marker.dataset.maxValue = maxValue;
+                
+                // Add drag functionality to marker
+                marker.addEventListener('mousedown', function(e) {
+                    e.stopPropagation();
+                    startDrag(e, index, property, maxValue);
+                });
+                
+                const label = document.createElement('div');
+                label.className = 'bar-label';
+                label.textContent = color.name;
+                
+                const valueLabel = document.createElement('div');
+                valueLabel.className = 'bar-value';
+                valueLabel.textContent = value + unit;
+                
+                bar.appendChild(label);
+                wrapper.appendChild(bar);
+                wrapper.appendChild(marker);
+                wrapper.appendChild(valueLabel);
+                barRow.appendChild(wrapper);
+                container.appendChild(barRow);
+            });
+        }
+
+        function handleBarClick(e, wrapper, index, property, maxValue) {
+            const rect = wrapper.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+            const newValue = Math.round((percentage / 100) * maxValue);
+            
+            updateColorValue(index, property, newValue);
+        }
+
+        function startDrag(e, index, property, maxValue) {
+            isDragging = true;
+            currentDragIndex = index;
+            currentDragProperty = property;
+            
+            const marker = e.target;
+            marker.classList.add('dragging');
+            marker.parentElement.classList.add('dragging');
+            
+            const wrapper = marker.parentElement;
+            const rect = wrapper.getBoundingClientRect();
+            
+            function handleMouseMove(e) {
+                if (!isDragging) return;
+                
+                const x = e.clientX - rect.left;
+                const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+                const newValue = Math.round((percentage / 100) * maxValue);
+                
+                updateColorValue(currentDragIndex, currentDragProperty, newValue);
+            }
+            
+            function handleMouseUp() {
+                isDragging = false;
+                currentDragIndex = -1;
+                currentDragProperty = '';
+                marker.classList.remove('dragging');
+                wrapper.classList.remove('dragging');
+                
+                document.removeEventListener('mousemove', handleMouseMove);
+                document.removeEventListener('mouseup', handleMouseUp);
+            }
+            
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', handleMouseUp);
+        }
+
+        function updateColorValue(index, property, newValue) {
+            if (index < 0 || index >= colors.length) return;
+            
+            const color = colors[index];
+            color.hsl[property] = newValue;
+            
+            // Convert updated HSL back to Hex
+            color.hex = hslToHex(color.hsl.h, color.hsl.s, color.hsl.l);
+            
+            // Update display
+            updateDisplay();
+        }
+
+        function updateVisualComparison() {
+            const container = document.getElementById('visualBars');
+            container.innerHTML = '';
+            
+            colors.forEach(color => {
+                const bar = document.createElement('div');
+                bar.className = 'comparison-bar';
+                bar.style.backgroundColor = color.hex;
+                bar.textContent = color.name;
+                
+                // Adjust text color based on brightness
+                if (color.hsl.l > 50) {
+                    bar.style.color = '#333';
+                }
+                
+                container.appendChild(bar);
+            });
+        }
+
+        // Load sample colors on page load
+        window.addEventListener('load', function() {
+            sampleColors.forEach(sample => {
+                const hsl = hexToHSL(sample.hex);
+                colors.push({ name: sample.name, hex: sample.hex, hsl });
+            });
+            updateDisplay();
+        });
+
+        // Prevent text selection while dragging
+        document.addEventListener('selectstart', function(e) {
+            if (isDragging) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
