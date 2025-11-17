@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Graven in Europese geldstromen</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/night.css">
+
+		<style type="text/css">
+			section { text-align: left; }
+			section strong {
+    			color: #FE7F6E;
+			}
+			section em, i {
+    			color: #84C5E6; 
+			}
+
+
+
+		</style>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section 
+				data-background="img/eugraven.png"
+				data-background-opacity="0.5"
+				data-markdown
+				data-transition="none">
+				## Graven in Europese geldstromen
+				</section>
+				<section data-markdown
+				data-transition="none">
+					<script type="text/template">
+						## Ada Homolova
+						*(Slowakije - Nederland - Oostenrijk)*
+						- 10+ jaar ervaring als datajournalist & trainer
+						---
+						- **Follow The Money** Bureau Brussel : data journalist
+						- **Dataharvest** conference : data training coordinator
+						- ex *Investico, OneWorld, Pointer, OCCRP, Lost in Europe*
+						---
+						## Data Frosch
+						trainer & mentor
+						[![](img/datafrosch.png)](https://datafrosch.fun)
+						<!-- .element: class="r-stretch" -->
+						---
+						## Mentorships
+						- data journalistiek leren
+						- 8 weken 1-op-1 sessies
+						- 12 Januari 2026
+						- https://datafrosch.fun/mentorship
+						---
+						## Focus vandaag
+						- Datasets waaruit blijkt welke bedrijven, ngo's, internationale organisaties en overheden **belastinggeld hebben ontvangen**
+						- Zowel uit de _EU_-begroting als die van de _lidstaten_
+						---
+						## Structuur
+						1. **Introductie** (10 min)
+						2. **FTS** (20 min)
+							- introductie + DEMO
+							- Hands-on
+						3. **TED** (20 min)
+							- introductie + DEMO
+							- Hands-on
+						4. **QA**
+						---
+						![](img/ftsted.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						### Datasets
+						1. **FTS** (Financial Transparency System)
+						- Uitgaven van de Europese Commissie
+						2. **TED** (Tender Electronic Daily)
+						- Europese aanbestedingen
+						---
+						## Je leert:
+						- Welke _inzichten_ je uit deze datasets kunt halen
+						- ... en welke niet
+						- _Waar_ je deze datasets kunt vinden en hoe je de data eruit haalt  
+						- Wat soort _verhalen_ je kunt schrijven met deze databronnen
+						---
+						## Dit is geen:
+						- Overzicht van het EU-begrotingsproces of beleidsvorming  
+						- _Volledig overzicht_ van alle beschikbare databronnen  
+						- Training in _geavanceerde_ data-analyse of programmeren
+						---
+						Vragen altijd welkom!
+						---
+						## Waar komt het geld vandaan?
+| Dataset                     | Budget | Published by |
+|----------------------------|-------------------|--------------------------|
+| FTS | 🇪🇺                | 🇪🇺                       |
+| TED                        | 🇳🇱                | 🇪🇺                       |
+
+						---
+						## Hoe ziet er de EU budget uit?
+						---
+						![](img/eubudget.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/eubudget1.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/eubudget2.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						## Financial Transparency System
+						Alle uitgaven van de Europese Commissie die *niet* onder het beheer van de lidstaten valt
+
+						- [FAQ](https://ec.europa.eu/budget/financial-transparency-system/faq.html)
+						- [Homepage](https://ec.europa.eu/budget/financial-transparency-system)
+						---
+						#### ✅ Wat je wél kunt vinden in de database: 
+						
+						1. Gegevens vanaf _2007_ over toegekende bedragen (commitments).
+						2. Informatie over _begunstigden_ onder direct of indirect EU-beheer.
+						3. _Land_ van wettelijke vestiging van begunstigden.
+						4. Data over belangrijke _programma’s_ zoals Horizon 2020.
+						5. Gedetailleerde _financiële info_: toegekend, verbruikt, aanvullingen/reducties.						
+						---
+						#### ❌ Wat je níet kunt vinden:
+						1. _Betaalde_ bedragen. Alleen toezeggingen (commitments) vermeld.
+						2. _Type_ organisatie (zoals universiteit of consultancy)
+						3. Contracten onder _€15.000_ (vanaf 2012 niet openbaar)
+						4. Uitgaven beheerd door lidstaten of derde partijen (bv. landbouwsubsidies).
+						5. _Gevoelige_ info over bepaalde landen (zoals Afghanistan) zijn soms afgeschermd (*****).
+						---
+						![](img/eubudgetfts.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/eubudgetfts2.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						### Verhalen
+						<small>[Lees het hier](https://www.ftm.eu/articles/recovery-files-consultancies-follow-up?share=k%2BRGbQKLPhPS/%2BXvabI7JA3zv5NvOvcR9lPUkVGgtZ6HsMbC6r04J68pxVm7HD0%3D)</small>
+						![](img/consultanciespeter.jpg)
+						---
+						## DEMO
+						### Data:
+						- [humans 👩🏼‍💻](https://ec.europa.eu/budget/financial-transparency-system/analysis.html)
+						- [machines 🤖](https://ec.europa.eu/budget/financial-transparency-system/help.html#download-data)
+						---
+						### Opdracht
+						link naar deze pagina: datafrosch.fun/slides/ftsted
+						- Ga naar [FTS 👩🏼‍💻](https://ec.europa.eu/budget/financial-transparency-system/analysis.html)
+						---
+						## TED
+						- tenders electronic daily
+						---
+						✅ Wat je wél kunt vinden in de database: 
+
+						1. Aanbestedingen van _lidstaten_ en _EU instituties_
+						2. Aanbestende dienst, beschrijving van de opdracht, sector, geschatte waarde,...
+						3. Partijen die aanbestedingen hebben _gewonnen_ en _bedragen_
+						4. _Contacten_ van de aanbestedende dienst (emails van ambtenaren)
+						5. Soms _geen of foutieve_ bedragen 
+						---
+						❌ Wat je níet kunt vinden:
+  
+						1. _Niet-openbare_ documenten (zoals contracten)
+						2. Aanbestedingen _onder_ [drempelwaarden EU aanbesteden](https://ecer.minbuza.nl/-/nieuwe-drempelwaarden-europees-aanbesteden-2024-2025-gepubliceerd)
+						3. _Geheime_ aanbestedingen
+						4. _Alle partijen_ die hebben ingeschreven op een opdracht
+						---
+						![](img/ted1.png)
+						drempelwaarden
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/ted2.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/ted3.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/ted5.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/ted6.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						### Verhalen
+						- FTM [Nederland is het minst transparante EU-land bij openbare aanbestedingen](https://www.ftm.nl/artikelen/nederland-meest-intransparante-eu-land-bij-openbare-aanbestedingen?share=y6n7GoVq8towFJFzEVaBdqhur7VHT5JQUyAlgnBChOILJ0xUE7FYjPk6ztEc4WE%3D)
+						- FTM [Nederland wil van Amerikaanse cloud af, maar weet niet hoe](https://www.ftm.nl/artikelen/amerikaanse-cloud-ondermijnt-de-soevereiniteit-van-europa)
+						---
+						### DEMO
+						- [Data](https://ted.europa.eu/)
+						---
+						## Hands-on (10 min)
+						---
+					</script>
+				</section>
+				<section data-background="img/happydigging.jpg"></section>
+				<section 
+				data-background="img/happydigging.jpg"
+				data-background-opacity="0.3"
+				data-markdown
+				data-transition="none">
+				# Graaf ze!
+				</section>
+				<section 
+				data-background="img/happydigging.jpg"
+				data-background-opacity="0.3"
+				data-markdown
+				data-transition="none">
+				## homolova.sk/newsletter
+				## homolova.sk/feedback
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
