@@ -519,3 +519,15 @@ article h2:before {
     bottom: 4px;
     z-index: -1;
 }
+
+/* Terms and conditions content links */
+.max-w-4xl a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    transition: all 0.2s ease;
+}
+
+.max-w-4xl a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
