@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Skills Lab | Final Presentation</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/night.css">
+
+		<style type="text/css">
+			section { text-align: left; }
+			section strong {
+    			color: #FE7F6E;
+			}
+			section em, i {
+    			color: #84C5E6; 
+			}
+			.reveal img {
+				max-width: 60%;
+				text-align: center;
+			}
+
+		</style>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section 
+				data-background="img/frontpic.jpg"
+				data-background-opacity="0.7"
+				data-markdown
+				data-transition="none">
+				# The Beast
+				</section>
+				<section data-markdown
+				data-transition="none">
+					<script type="text/template">
+						## The Beast
+						<small>(as we lovingly call it internally)</small>
+						is a **relationship discovery engine**. It performs iterative, multi-lingual *online searches* and creates a *Knowledge Graph*
+						---
+						## Pains
+						1. Searching for overlaps between multiple entities = **time consuming**
+						---
+						## Pains
+						2. Searching languages one does not speak = **difficult**
+						---
+						## Jobs
+						1. Map out **connections** between entities 
+						---
+						## Jobs
+						2. Quickly generate **clues** for an investigation
+						---
+						## Gains
+						1. Making a **verifiable** source for research
+						---
+						## Gains
+						2. **Reduced** human time investment
+						---
+						## Gains
+						3. Access to **more connections** due to insights from local language searches
+						---
+						## Stakeholders
+						- any journalist in the Follow The Money newsroom
+						---
+						# Workflow
+						---
+						### 1. Perform an online search
+						- *dggs* DuckDuckGo search library
+						- example query: **Zivver**
+						---
+						### 2. Evaluate the URLs for relevancy
+						🤖
+
+```md
+✗ FILTERED: Sign in to Gmail - Computer - Gmail Help - Google Help...
+✗ FILTERED: Gmail-Hilfe - Google Help...
+✓ RELEVANT: Zivver - 2025 Company Profile , Team, Funding & Competitors ...
+Reasoning: This URL provides an in-depth company profile of Zivver, including funding details, key investors, l...
+✓ RELEVANT: Zivver | LinkedIn...
+Reasoning: The LinkedIn page for Zivver offers general company information such as industry, company size, and ..
+**✗ FILTERED: Zivver - Blog | Announcements...
+✗ FILTERED: Press release | Zivver Joins Kiteworks to Offer a Broad Rang...**
+```
+						---
+						### 3. Create more search queries
+						🤖
+						- example query: **Afore Hsieh**
+```md
+Generated 14 query suggestions in 2 language(s): en, zh
+  Queries in 'en':
+    1. Afore Hsieh product designer background
+    2. Afore Hsieh New York Times redesign
+    3. Mina Humanity Research Consultancy founder
+    4. Valentina former Head of Operations at HRC
+    5. Xie Minghui Executive Director Taiwan Competitiveness Forum
+    6. **The significance of Taipei Walking Tour in local tourism**
+    7. Humanity Research Consultancy key projects and objectives
+    8. Fujian Xie Clan Committee cultural initiatives
+  Queries in 'zh':
+    1. 謝飛與謝氏有限公司的關係
+    2. 謝氏膺晖證券有限公司歷史
+    3. 王勇與台灣統一聯盟黨背景
+    4. 李家廷與淡水步行旅遊導遊經驗
+    5. 薪資與隱藏台北的合作
+    6. Xie Yingning 福建謝氏宗親會廈門分支主席
+```
+						---
+						### 4. Extract the text
+						- *trafilatura* library
+```JSON
+{
+  "url": "https://www.sourcesecurity.com/people/wouter-klinkhamer.html",
+  "search_query": "Zivver cultuur Wouter Klinkhamer",
+  "fetched_at": "2025-11-25T09:29:34.136198Z",
+  "title": "Wouter Klinkhamer",
+  "markdown": "# Wouter Klinkhamer\n\n## News mentions\n\nZivver, Europe’s major provider of secure communications, best known for its AI-powered email security solutions and headquartered in Amsterdam, announced it has been acquired by Kiteworks. Kit...\n\nSecure communications company Zivver has been named in the 2025 DataTech50 list by FinTech Global, recognising the company as one of the most innovative technology providers drivin...\n\nZivver, has reached a major milestone this year, preventing over Eight million data leaks and celebrating its tenth year in email security. Established in Amsterdam in 2015 by founders Dr. Rick Goud...\n\nZorgring, the Regional Cooperation Organization (RCO) of healthcare parties in Northern Holland, has announced its partnership with secure communications platform Zivver. This collaboration aims...\n\n## Key people from Zivver\n\n## Security experts\n\nAligning physical and cyber defence for total protection\n\n[Download](https://www.sourcesecurity.com/white-papers/aligning-physical-and-cyber-defence-for-total-protection.html?ref=featured)\n\nUnderstanding AI-powered video analytics\n\n[Download](https://www.sourcesecurity.com/white-papers/understanding-ai-powered-video-analytics.html?ref=featured)\n\nEnhancing physical access control using a self-service model\n\n[Download](https://www.sourcesecurity.com/white-papers/enhancing-physical-access-control-using-a-self-service-model.html?ref=featured)\n\nSecurity and surveillance technologies for the casino market\n\n[Download](https://www.sourcesecurity.com/security-magazines/security-and-surveillance-technologies-for-the-casino-market.html?ref=featured)\n\nHow to implement a physical security strategy with privacy in mind\n\n[Download](https://www.sourcesecurity.com/white-papers/how-to-implement-a-physical-security-strategy-with-privacy-in-mind.html?ref=featured)"
+}
+```
+						---
+						### 5. Extract entities and relationships
+						🤖
+```JSON
+{
+      "source": "Afore Hsieh",
+      "target": "The New York Times",
+      "type": "Product Design",
+      "confidence": 0.85,
+      "evidence": "Redesigning The New York Times App to deliver a more personalized news experience for users.",
+      "source_url": "https://aforehsieh.com/",
+      "source_id": "canonical_10",
+      "target_id": "canonical_11"
+    },
+```
+						---
+						### 6. Draw a network
+						🏗️👷🏼👷🏻‍♀️🚧
+						- learn to work with LLM + Documentation
+						---
+						# Time & Costs
+						---
+						### Search & analysis of:
+						- **1** entity: *2* minutes
+						- **5** entities: *5* minutes
+						---
+						- ??? $0.5 - $1 ???
+						---
+						## 🎊 Showcase
+						---
+						# Questions?
+						---
+					</script>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
+
