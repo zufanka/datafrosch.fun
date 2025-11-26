@@ -521,13 +521,19 @@ article h2:before {
 }
 
 /* Terms and conditions content links */
-.max-w-4xl a {
+.max-w-4xl p a,
+.max-w-4xl li a,
+.max-w-3xl p a,
+.max-w-3xl li a {
     color: var(--primary-color);
     text-decoration: underline;
     transition: all 0.2s ease;
 }
 
-.max-w-4xl a:hover {
+.max-w-4xl p a:hover,
+.max-w-4xl li a:hover,
+.max-w-3xl p a:hover,
+.max-w-3xl li a:hover {
     color: var(--accent-color);
     text-decoration: underline;
 }
