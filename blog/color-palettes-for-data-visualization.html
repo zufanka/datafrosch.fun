@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn how to choose the perfect color palette for data visualization. Discover HSL color theory, why lightness matters most, and explore 4 powerful tools for creating accessible, harmonious color schemes.">
+    <meta name="keywords" content="color palette, data visualization, HSL, hue saturation lightness, color theory, accessible colors, contrast checker, color tools, data journalism, chart colors, visualization design">
+    <meta name="author" content="Data Frosch">
+    <link rel="canonical" href="https://datafrosch.fun/blog/color-palettes-for-data-visualization.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://datafrosch.fun/blog/color-palettes-for-data-visualization.html">
+    <meta property="og:title" content="How to Choose Colors for Data Visualization | Data Frosch">
+    <meta property="og:description" content="Master color selection for data viz with HSL color theory. Learn why lightness matters most and discover 4 essential tools for creating accessible palettes.">
+    <meta property="og:image" content="https://datafrosch.fun/img/colors_banner.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Colorful frog representing color theory for data visualization">
+    <meta property="og:site_name" content="Data Frosch">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="Data Frosch">
+    <meta property="article:published_time" content="2025-12-03">
+    <meta property="article:section" content="Data Visualization">
+    <meta property="article:tag" content="Color Theory">
+    <meta property="article:tag" content="Data Visualization">
+    <meta property="article:tag" content="Design Tools">
+    <meta property="article:tag" content="Accessibility">
+    <meta property="article:tag" content="HSL">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://datafrosch.fun/blog/color-palettes-for-data-visualization.html">
+    <meta name="twitter:title" content="How to Choose Colors for Data Visualization | Data Frosch">
+    <meta name="twitter:description" content="Master color selection for data viz with HSL color theory. Learn why lightness matters most and discover 4 essential tools for creating accessible palettes.">
+    <meta name="twitter:image" content="https://datafrosch.fun/img/colors_banner.png">
+    <meta name="twitter:image:alt" content="Colorful frog representing color theory for data visualization">
+
+    <title>How to Choose Colors for Data Visualization | Data Frosch</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Modern PNG favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Choose Colors for Data Visualization",
+        "description": "Learn how to choose the perfect color palette for data visualization using HSL color theory. Discover why lightness matters most and explore 4 powerful tools for creating accessible, harmonious color schemes.",
+        "image": "https://datafrosch.fun/img/colors_banner.png",
+        "datePublished": "2025-12-03",
+        "dateModified": "2025-12-03",
+        "author": {
+            "@type": "Organization",
+            "name": "Data Frosch",
+            "url": "https://datafrosch.fun"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Data Frosch",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://datafrosch.fun/img/logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://datafrosch.fun/blog/color-palettes-for-data-visualization.html"
+        },
+        "keywords": ["color palette", "data visualization", "HSL", "color theory", "accessible colors", "contrast checker", "visualization design"],
+        "articleSection": "Data Visualization",
+        "about": [
+            {
+                "@type": "Thing",
+                "name": "Color Theory"
+            },
+            {
+                "@type": "Thing",
+                "name": "Data Visualization"
+            },
+            {
+                "@type": "Thing",
+                "name": "Accessibility"
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="/index.html">
+            <div class="flex items-center">
+                <div class="logo-container mr-3">
+                    <img src="../img/logo.png" alt="Data Frosch logo - frog mascot for data journalism training">
+                </div>
+                <div class="text-right">
+                    <h1 class="text-xl md:text-3xl font-bold">Data Frosch</h1>
+                    <p id="changing-text" class="text-xs sm:text-sm opacity-75"></p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Navigation - Horizontal scrolling on small screens -->
+    <nav class="navbar sticky top-0 z-50">
+        <div class="container mx-auto px-2">
+            <div class="flex py-3 px-2">
+                <a href="../index.html#about" class="font-medium">About</a>
+                <a href="../mentorship.html" class="font-medium">Mentorship</a>
+                <a href="../index.html#blog" class="font-medium">Blog</a>
+                <a href="../index.html#newsletter" class="font-medium">Newsletter</a>
+                <a href="../index.html#videos" class="font-medium">Videos</a>
+                <a href="../index.html#author" class="font-medium">The frog</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Content Section -->
+    <section class="py-10 md:py-16 bg-white relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-2"></div>
+
+        <div class="container mx-auto px-4">
+            <article class="max-w-3xl mx-auto">
+                <h1 class="text-3xl md:text-4xl font-bold mb-3">
+                    How to Choose Colors for Data Visualization
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-8">
+                    Color theory fundamentals and 4 essential tools for better palettes
+                </p>
+
+                <figure class="mb-8">
+                    <img src="../img/colors_banner.png" alt="A colorful golden frog illustration representing color theory and data visualization palette design" class="w-full rounded-lg" loading="lazy">
+                    <figcaption class="text-sm text-gray-500 mt-2 text-center">Inspired by Brian Gratwicke's photo of the endangered Panamanian golden frog</figcaption>
+                </figure>
+
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-base md:text-lg mb-6">
+                        Recently, I had the pleasure of creating a data visualisation again, this time for <a href="https://ipi.shorthandstories.com/honouring-the-pioneers/index.html" target="_blank" rel="noopener">this piece</a> as part of the International Press Institute's archive exposition. I ended up making three visualisations I'm quite happy with:
+                    </p>
+
+                    <figure class="mb-6">
+                        <img src="../img/ipi-viz-1.png" alt="Data visualization showing historical press freedom trends with harmonized color palette" class="w-full rounded-lg shadow-md" loading="lazy">
+                        <figcaption class="text-sm text-gray-500 mt-2 text-center">IPI archive visualization 1: Historical press freedom data</figcaption>
+                    </figure>
+
+                    <figure class="mb-6">
+                        <img src="../img/ipi-viz-2.png" alt="Data visualization chart displaying journalist safety statistics with consistent color scheme" class="w-full rounded-lg shadow-md" loading="lazy">
+                        <figcaption class="text-sm text-gray-500 mt-2 text-center">IPI archive visualization 2: Journalist safety statistics</figcaption>
+                    </figure>
+
+                    <figure class="mb-6">
+                        <img src="../img/ipi-viz-3.png" alt="Data visualization showing media landscape analysis with accessible color choices" class="w-full rounded-lg shadow-md" loading="lazy">
+                        <figcaption class="text-sm text-gray-500 mt-2 text-center">IPI archive visualization 3: Media landscape analysis</figcaption>
+                    </figure>
+
+                    <p class="text-base md:text-lg mb-6">
+                        One of my biggest challenges when creating a data visualisation is choosing a colour palette. In my defense: colour and the interactions between colours form a vast field of study. Not <a href="https://books.google.at/books?id=A_MYU_XDXfcC&printsec=frontcover&source=gbs_ViewAPI&hl=en&redir_esc=y#v=onepage&q&f=false" target="_blank" rel="noopener">one book</a> has been written on the subject. To understand colour, we need to develop an intuition for our own visual perception. It's a lifetime of learning.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Recently, this article by RJ Andrews called <a href="https://www.chartography.net/p/color-engineering" target="_blank" rel="noopener">Colour Engineering</a> really rocked my world. It gave me a lifeline by showing a quantifiable system behind colour choices, based on three properties of colour: <strong>hue</strong>, <strong>saturation</strong> and <strong>lightness</strong> also called <strong>HSL</strong>.
+                    </p>
+
+                    <figure class="mb-6">
+                        <img src="../img/hsl-color-wheel.png" alt="HSL color wheel diagram showing hue, saturation, and lightness relationships for data visualization color selection" class="w-full rounded-lg shadow-md" loading="lazy">
+                        <figcaption class="text-sm text-gray-500 mt-2 text-center">The HSL color model: Hue, Saturation, and Lightness</figcaption>
+                    </figure>
+
+                    <p class="text-base md:text-lg mb-6">
+                        The biggest takeaway was that <strong>lightness is the most important factor</strong> for distinguishing colours (even more than hue), because our eyes are best trained to differentiate light from dark. There's more to it, of course, but I loved this insight. Leveraging it helps me both harmonise colours across a palette and distinguish them effectively.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        I won't repeat what the article explains so well, I highly recommend <a href="https://www.chartography.net/p/color-engineering" target="_blank" rel="noopener">giving it a read</a> (it's short, with pictures!). Instead, I'd like to expand on that information with... <em>drumroll</em>... tools!
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-10">1. Color Analyzer</h2>
+                    <p class="text-base md:text-lg mb-6">
+                        I blatantly copied the idea from the article and turned it into something interactive. You can now <a href="https://datafrosch.fun/color-analyzer.html" target="_blank">play with it</a> and make your own colour palettes.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-10">2. Contrast Checker</h2>
+                    <p class="text-base md:text-lg mb-6">
+                        Even though I now rely less on <a href="https://coolors.co/" target="_blank" rel="noopener">Coolors</a> for generating palettes, I still love and use their <a href="https://coolors.co/contrast-checker/9c480c-ffffff" target="_blank" rel="noopener">contrast checker</a>. If you create a palette and plan to put text over a background, it's incredibly useful for checking readability. Hint: it's all in the lightness too!
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-10">3. Accessible Palette</h2>
+                    <p class="text-base md:text-lg mb-6">
+                        Ready to dive deeper into colour theory? HSL is just one way to break colour down. In <a href="https://www.wildbit.com/blog/accessible-palette-stop-using-hsl-for-color-systems" target="_blank" rel="noopener">this blogpost</a>, Eugene Fedorenko explains why he dropped HSL in favour of LAB, and how he built an app for creating colour systems with consistent lightness and contrast. Try <a href="https://accessiblepalette.com/?shades=50,100,200,300,400,500,600,700,800,900&lightness=98,93.95,85.1,76.5,67.65,57.8,47.6,40.4,32.4,23.55&f57f3a=0,0&f8d147=0,-10&56d25b=0,0&0088cb=0,0&387AE6=1,15&66788E=0,0&808080=0,0" target="_blank" rel="noopener">Accessible Palette</a> yourself.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-10">4. Color Palette Pro</h2>
+                    <p class="text-base md:text-lg mb-6">
+                        This tool is a result of Ryan Feigenbaum's frustration with existing color palette generators: "<a href="https://ryanfeigenbaum.com/color-palette-pro/" target="_blank" rel="noopener">Mine just sucks less</a>." For those who really know what they're doing, or just enjoy retro interfaces for looking at pretty colours and pressing buttons, check out <a href="https://colorpalette.pro/?color=oklch%2869.3%25+0.151+180%29&paletteType=tet&paletteStyle=diamond&colorFormat=oklch&effects=0%2C16%2C78%2C87" target="_blank" rel="noopener">Color Palette Pro</a>.
+                    </p>
+
+                    <h2 class="text-3xl font-bold mb-6 mt-10">Mentorship</h2>
+                    <p class="text-base md:text-lg mb-6">
+                        Would you like some help on the way to data visualization mastery? Join our <a href="../mentorship.html">mentorship program</a>!
+                        <br><br>
+                        Not sure it's right for you? <a href="https://calendly.com/ahomolova/meet-with-ada" target="_blank" rel="noopener">Let's chat!</a>
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section section id="newsletter" class="py-10 md:py-16 bg-gray-50 relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-3"></div>
+
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Sign up for our newsletter!</h2>
+            <p class="text-base md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">Ready to jump-start your data skills? Keep up to date with the newest courses and tutorials.</p>
+            <a target="_blank" href="https://datafrosch.beehiiv.com/subscribe" class="cta-button inline-block bounce-hover">Join the Pond</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-6 md:py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center md:flex-row md:justify-between md:items-start">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start">
+                        <div class="logo-container mr-3" style="width: 40px; height: 40px;">
+                            <img src="../img/logo.png" alt="Data Frosch logo">
+                        </div>
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-white">Data Frosch</h3>
+                            <p class="text-xs text-gray-300">datafrosch.fun</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-5 md:gap-8 mb-6 md:mb-0 text-center md:text-left">
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Quick Links</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="../index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                            <li><a href="../index.html#about" class="text-gray-400 hover:text-white">About</a></li>
+                            <li><a href="../index.html#mentoring" class="text-gray-400 hover:text-white">Mentoring</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Resources</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white">Blog</a></li>
+                            <li><a href="https://www.youtube.com/@datafrosch" class="text-gray-400 hover:text-white">YouTube</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Contact</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="mailto:ada@datafrosch.fun" class="text-gray-400 hover:text-white">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-gray-700 text-center text-xs md:text-sm text-gray-400">
+                <p>CC BY-SA 4.0</p>
+                <p class="mt-2">Made with love and frogs</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="../js/taglines.js"></script>
+</body>
+</html>
