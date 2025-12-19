@@ -1,0 +1,18 @@
+Prompt for Future Reference
+
+  Create a new blog post about color palettes for data visualization:
+
+  1. Copy images from ~/Documents/zettelkasten/_img/:
+     - "1 1.png", "2.png", "3.png" (IPI visualizations)
+     - "Gemini_Generated_Image_2k4iy62k4iy62k4i.png" (HSL wheel)
+
+  2. Create blog/color-palettes-for-data-visualization.html:
+     - Use img/colors_banner.png as banner
+     - Add image credit: "Inspired by Brian Gratwicke's photo of the endangered Panamanian golden frog"
+     - Include full SEO (meta tags, Open Graph, Twitter, JSON-LD)
+     - All images need alt text and figcaption titles
+     - Content from Blog - colors.md in zettelkasten
+     
+  3. Update blog/index.html - add new post entry at top
+
+  4. Update index.html - replace "Latest from the Blog" with new post
