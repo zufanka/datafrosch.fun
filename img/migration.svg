@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="370"
+   height="850"
+   viewBox="0 0 370 850"
+   version="1.1"
+   id="svg16"
+   sodipodi:docname="migration.svg"
+   inkscape:version="1.4 (e7c3feb, 2024-10-09)"
+   inkscape:export-filename="migration.png"
+   inkscape:export-xdpi="259.45947"
+   inkscape:export-ydpi="259.45947"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     id="namedview16"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.1955882"
+     inkscape:cx="389.76631"
+     inkscape:cy="454.58796"
+     inkscape:window-width="2048"
+     inkscape:window-height="1041"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg16" />
+  <style
+     id="style1">700&amp;display=swap&quot;);700&amp;family=Nunito:wght@400;500;@import url(&quot;https://fonts.googleapis.com/css2?family=Quicksand:wght@400;text { font-family: Nunito, sans-serif; fill: #292F36; }
+.title { font-family: Quicksand, sans-serif; font-weight: 700; font-size: 18px; }
+.subtitle { font-family: Quicksand, sans-serif; font-weight: 500; font-size: 12px; fill: #6B7280; }
+.axis-label { font-size: 13px; font-weight: 700; }
+.value-label { font-size: 12px; font-weight: 700; }
+.source { font-size: 10px; fill: #9CA3AF; }
+</style>
+  <line
+     x1="71.613136"
+     y1="224.80235"
+     x2="323.11871"
+     y2="224.80235"
+     stroke="#e5e7eb"
+     stroke-width="1"
+     id="line2" />
+  <line
+     x1="71.613136"
+     y1="184.44884"
+     x2="323.11871"
+     y2="184.44884"
+     stroke="#e5e7eb"
+     stroke-width="1"
+     id="line3" />
+  <line
+     x1="71.613136"
+     y1="144.09535"
+     x2="323.11871"
+     y2="144.09535"
+     stroke="#e5e7eb"
+     stroke-width="1"
+     id="line4" />
+  <line
+     x1="71.613136"
+     y1="103.74181"
+     x2="323.11871"
+     y2="103.74181"
+     stroke="#e5e7eb"
+     stroke-width="1"
+     id="line5" />
+  <line
+     x1="71.613136"
+     y1="63.388313"
+     x2="323.11871"
+     y2="63.388313"
+     stroke="#e5e7eb"
+     stroke-width="1"
+     id="line6" />
+  <rect
+     x="84.188431"
+     y="184.28743"
+     width="37.725834"
+     height="40.514923"
+     fill="#6f9449"
+     rx="4"
+     id="rect7"
+     ry="4"
+     style="stroke-width:1" />
+  <rect
+     x="147.06482"
+     y="114.87939"
+     width="37.725834"
+     height="109.92295"
+     fill="#6f9449"
+     rx="4"
+     id="rect9"
+     ry="4"
+     style="stroke-width:1" />
+  <rect
+     x="209.94122"
+     y="75.655769"
+     width="37.725834"
+     height="149.14656"
+     fill="#ff6b6b"
+     rx="4"
+     id="rect11"
+     ry="4"
+     style="fill:#6f9449;fill-opacity:1;stroke-width:1" />
+  <rect
+     x="272.81763"
+     y="120.04464"
+     width="37.725834"
+     height="104.75771"
+     fill="#6f9449"
+     rx="4"
+     id="rect13"
+     ry="4"
+     style="stroke-width:1" />
+  <line
+     x1="70.677933"
+     y1="482.7207"
+     x2="323.26166"
+     y2="482.7207"
+     stroke="#e5e7eb"
+     stroke-width="1"
+     id="line2-3" />
+  <text
+     x="63.13813"
+     y="485.73663"
+     text-anchor="end"
+     class="axis-label"
+     id="text3-8"
+     style="font-size:12px;fill:#4d4d4d;stroke-width:1;-inkscape-font-specification:Nunito;font-family:Nunito;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">0.0%</text>
+  <line
+     x1="70.677933"
+     y1="433.71191"
+     x2="323.26166"
+     y2="433.71191"
+     stroke="#e5e7eb"
+     stroke-width="1"
+     id="line3-5" />
+  <text
+     x="63.13813"
+     y="436.72784"
+     text-anchor="end"
+     class="axis-label"
+     id="text4-6"
+     style="font-size:12px;fill:#4d4d4d;stroke-width:1;-inkscape-font-specification:Nunito;font-family:Nunito;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">0.5%</text>
+  <line
+     x1="70.677933"
+     y1="384.70309"
+     x2="323.26166"
+     y2="384.70309"
+     stroke="#e5e7eb"
+     stroke-width="1"
+     id="line4-1" />
+  <text
+     x="63.13813"
+     y="387.71909"
+     text-anchor="end"
+     class="axis-label"
+     id="text5-1"
+     style="font-size:12px;fill:#4d4d4d;stroke-width:1;-inkscape-font-specification:Nunito;font-family:Nunito;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">1.0%</text>
+  <line
+     x1="70.677933"
+     y1="335.69437"
+     x2="323.26166"
+     y2="335.69437"
+     stroke="#e5e7eb"
+     stroke-width="1"
+     id="line5-5" />
+  <text
+     x="63.13813"
+     y="338.71027"
+     text-anchor="end"
+     class="axis-label"
+     id="text6-9"
+     style="font-size:12px;fill:#4d4d4d;stroke-width:1;-inkscape-font-specification:Nunito;font-family:Nunito;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">1.5%</text>
+  <rect
+     x="83.307114"
+     y="446.45422"
+     width="37.887558"
+     height="36.266495"
+     fill="#4ecdc4"
+     rx="4"
+     id="rect6"
+     ry="4"
+     style="fill:#6f9449;fill-opacity:1;stroke-width:1" />
+  <text
+     x="102.25089"
+     y="497.80035"
+     text-anchor="middle"
+     class="axis-label"
+     id="text8"
+     style="font-size:12px;fill:#4d4d4d;stroke-width:1;-inkscape-font-specification:Nunito;font-family:Nunito;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">2021</text>
+  <rect
+     x="146.45305"
+     y="383.72296"
+     width="37.887558"
+     height="98.997734"
+     fill="#4ecdc4"
+     rx="4"
+     id="rect8"
+     ry="4"
+     style="fill:#6f9449;fill-opacity:1;stroke-width:1" />
+  <text
+     x="165.39682"
+     y="497.80035"
+     text-anchor="middle"
+     class="axis-label"
+     id="text10"
+     style="font-size:12px;fill:#4d4d4d;stroke-width:1;-inkscape-font-specification:Nunito;font-family:Nunito;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">2022</text>
+  <rect
+     x="209.59897"
+     y="350.397"
+     width="37.887558"
+     height="132.3237"
+     fill="#ff6b6b"
+     rx="4"
+     id="rect10"
+     ry="4"
+     style="fill:#6f9449;fill-opacity:1;stroke-width:1" />
+  <text
+     x="228.54276"
+     y="497.80035"
+     text-anchor="middle"
+     class="axis-label"
+     id="text12"
+     style="font-size:12px;fill:#4d4d4d;stroke-width:1;-inkscape-font-specification:Nunito;font-family:Nunito;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">2023</text>
+  <rect
+     x="272.7449"
+     y="390.58423"
+     width="37.887558"
+     height="92.136497"
+     fill="#4ecdc4"
+     rx="4"
+     id="rect12"
+     ry="4"
+     style="fill:#6f9449;fill-opacity:1;stroke-width:1" />
+  <text
+     x="291.68869"
+     y="497.80035"
+     text-anchor="middle"
+     class="axis-label"
+     id="text14"
+     style="font-size:12px;fill:#4d4d4d;stroke-width:1;-inkscape-font-specification:Nunito;font-family:Nunito;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">2024</text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:20px;font-family:Nunito;-inkscape-font-specification:'Nunito, @wght=400';font-variant-ligatures:none;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:'wght' 400;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+     x="37.350174"
+     y="291.38098"
+     id="text20-6"><tspan
+       sodipodi:role="line"
+       x="37.350174"
+       y="291.38098"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:20px;font-family:Nunito;-inkscape-font-specification:'Nunito, @wght=400';font-variant-ligatures:none;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:'wght' 400;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       id="tspan21">2. UK net migration as % of</tspan><tspan
+       sodipodi:role="line"
+       x="37.350174"
+       y="311.38098"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:20px;font-family:Nunito;-inkscape-font-specification:'Nunito, @wght=400';font-variant-ligatures:none;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:'wght' 400;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       id="tspan60">the population</tspan></text>
+  <text
+     x="96.713242"
+     y="835.04828"
+     text-anchor="middle"
+     class="axis-label"
+     id="text10-9"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:Nunito;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#4d4d4d;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1;-inkscape-font-specification:Nunito">2021</text>
+  <text
+     x="158.41197"
+     y="835.04828"
+     text-anchor="middle"
+     class="axis-label"
+     id="text12-2"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:Nunito;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#4d4d4d;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1;-inkscape-font-specification:Nunito">2022</text>
+  <text
+     x="223.06789"
+     y="835.04828"
+     text-anchor="middle"
+     class="axis-label"
+     id="text14-7"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:Nunito;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#4d4d4d;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1;-inkscape-font-specification:Nunito">2023</text>
+  <text
+     x="284.76663"
+     y="834.45685"
+     text-anchor="middle"
+     class="axis-label"
+     id="text16"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:Nunito;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#4d4d4d;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1;-inkscape-font-specification:Nunito">2024</text>
+  <rect
+     style="font-variation-settings:'wght' 400;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:stroke"
+     id="rect22"
+     width="0"
+     height="0.31365532"
+     x="166.77122"
+     y="677.49078"
+     rx="0.10455213"
+     ry="0.10455213" />
+  <line
+     x1="71.613136"
+     y1="224.80235"
+     x2="323.11871"
+     y2="224.80235"
+     stroke="#e5e7eb"
+     stroke-width="1"
+     id="line22" />
+  <text
+     x="64.941917"
+     y="229.47824"
+     text-anchor="end"
+     class="axis-label"
+     id="text22"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:Nunito;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#4d4d4d;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1;-inkscape-font-specification:Nunito">0</text>
+  <line
+     x1="71.613136"
+     y1="184.44884"
+     x2="323.11871"
+     y2="184.44884"
+     stroke="#e5e7eb"
+     stroke-width="1"
+     id="line23" />
+  <text
+     x="64.941917"
+     y="189.12471"
+     text-anchor="end"
+     class="axis-label"
+     id="text23"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:Nunito;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#4d4d4d;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1;-inkscape-font-specification:Nunito">250k</text>
+  <line
+     x1="71.613136"
+     y1="144.09535"
+     x2="323.11871"
+     y2="144.09535"
+     stroke="#e5e7eb"
+     stroke-width="1"
+     id="line24" />
+  <text
+     x="64.941917"
+     y="148.77122"
+     text-anchor="end"
+     class="axis-label"
+     id="text24"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:Nunito;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#4d4d4d;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1;-inkscape-font-specification:Nunito">500k</text>
+  <line
+     x1="71.613136"
+     y1="103.74181"
+     x2="323.11871"
+     y2="103.74181"
+     stroke="#e5e7eb"
+     stroke-width="1"
+     id="line25" />
+  <text
+     x="64.941917"
+     y="108.4177"
+     text-anchor="end"
+     class="axis-label"
+     id="text25"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:Nunito;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#4d4d4d;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1;-inkscape-font-specification:Nunito">750k</text>
+  <line
+     x1="71.613136"
+     y1="63.388313"
+     x2="323.11871"
+     y2="63.388313"
+     stroke="#e5e7eb"
+     stroke-width="1"
+     id="line26" />
+  <text
+     x="64.941917"
+     y="68.064171"
+     text-anchor="end"
+     class="axis-label"
+     id="text26"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:Nunito;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#4d4d4d;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1;-inkscape-font-specification:Nunito">1000k</text>
+  <rect
+     x="84.188431"
+     y="184.28743"
+     width="37.725834"
+     height="40.514923"
+     fill="#6f9449"
+     rx="4"
+     id="rect26"
+     ry="4"
+     style="stroke-width:1" />
+  <text
+     x="103.88774"
+     y="241.49045"
+     text-anchor="middle"
+     class="axis-label"
+     id="text27"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:Nunito;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#4d4d4d;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1;-inkscape-font-specification:Nunito">2021</text>
+  <rect
+     x="147.06482"
+     y="114.87939"
+     width="37.725834"
+     height="109.92295"
+     fill="#6f9449"
+     rx="4"
+     id="rect27"
+     ry="4"
+     style="stroke-width:1" />
+  <text
+     x="166.76414"
+     y="241.49045"
+     text-anchor="middle"
+     class="axis-label"
+     id="text28"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:Nunito;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#4d4d4d;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1;-inkscape-font-specification:Nunito">2022</text>
+  <rect
+     x="209.94122"
+     y="75.655769"
+     width="37.725834"
+     height="149.14656"
+     fill="#ff6b6b"
+     rx="4"
+     id="rect28"
+     ry="4"
+     style="fill:#6f9449;fill-opacity:1;stroke-width:1" />
+  <text
+     x="229.64055"
+     y="241.49045"
+     text-anchor="middle"
+     class="axis-label"
+     id="text29"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:Nunito;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#4d4d4d;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1;-inkscape-font-specification:Nunito">2023</text>
+  <rect
+     x="272.81763"
+     y="120.04464"
+     width="37.725834"
+     height="104.75771"
+     fill="#6f9449"
+     rx="4"
+     id="rect29"
+     ry="4"
+     style="stroke-width:1" />
+  <text
+     x="292.51697"
+     y="241.49045"
+     text-anchor="middle"
+     class="axis-label"
+     id="text30"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:Nunito;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#4d4d4d;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1;-inkscape-font-specification:Nunito">2024</text>
+  <line
+     x1="70.677933"
+     y1="482.7207"
+     x2="323.26166"
+     y2="482.7207"
+     stroke="#e5e7eb"
+     stroke-width="1"
+     id="line30" />
+  <line
+     x1="70.677933"
+     y1="433.71191"
+     x2="323.26166"
+     y2="433.71191"
+     stroke="#e5e7eb"
+     stroke-width="1"
+     id="line31" />
+  <line
+     x1="70.677933"
+     y1="384.70309"
+     x2="323.26166"
+     y2="384.70309"
+     stroke="#e5e7eb"
+     stroke-width="1"
+     id="line32" />
+  <line
+     x1="70.677933"
+     y1="335.69437"
+     x2="323.26166"
+     y2="335.69437"
+     stroke="#e5e7eb"
+     stroke-width="1"
+     id="line33" />
+  <rect
+     x="83.307114"
+     y="446.45422"
+     width="37.887558"
+     height="36.266495"
+     fill="#4ecdc4"
+     rx="4"
+     id="rect34"
+     ry="4"
+     style="fill:#6f9449;fill-opacity:1;stroke-width:1" />
+  <rect
+     x="146.45305"
+     y="383.72296"
+     width="37.887558"
+     height="98.997734"
+     fill="#4ecdc4"
+     rx="4"
+     id="rect35"
+     ry="4"
+     style="fill:#6f9449;fill-opacity:1;stroke-width:1" />
+  <rect
+     x="209.59897"
+     y="350.397"
+     width="37.887558"
+     height="132.3237"
+     fill="#ff6b6b"
+     rx="4"
+     id="rect36"
+     ry="4"
+     style="fill:#6f9449;fill-opacity:1;stroke-width:1" />
+  <rect
+     x="272.7449"
+     y="390.58423"
+     width="37.887558"
+     height="92.136497"
+     fill="#4ecdc4"
+     rx="4"
+     id="rect37"
+     ry="4"
+     style="fill:#6f9449;fill-opacity:1;stroke-width:1" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:20px;font-family:Nunito;-inkscape-font-specification:'Nunito, @wght=400';font-variant-ligatures:none;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:'wght' 400;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+     x="35.650173"
+     y="37.625278"
+     id="text39"><tspan
+       sodipodi:role="line"
+       id="tspan38"
+       x="35.650173"
+       y="37.625278"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:20px;font-family:Nunito;-inkscape-font-specification:'Nunito, @wght=400';font-variant-ligatures:none;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:'wght' 400;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1">1. UK net migration</tspan><tspan
+       sodipodi:role="line"
+       x="35.650173"
+       y="57.625278"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:20px;font-family:Nunito;-inkscape-font-specification:'Nunito, @wght=400';font-variant-ligatures:none;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:'wght' 400;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       id="tspan39" /></text>
+  <rect
+     x="136.08592"
+     y="584.7063"
+     width="9.1540899"
+     height="9.1540899"
+     fill="#6f9449"
+     rx="2"
+     id="rect16"
+     ry="2"
+     style="stroke-width:1" />
+  <text
+     x="150.73576"
+     y="593.69434"
+     font-size="8.39125px"
+     id="text56"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#1a1a1a;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000">Existing residents</text>
+  <rect
+     x="31.864363"
+     y="584.85492"
+     width="9.1540899"
+     height="9.1540899"
+     fill="#ff6b6b"
+     rx="2"
+     id="rect56"
+     ry="2"
+     style="stroke-width:1" />
+  <text
+     x="46.108292"
+     y="593.25153"
+     font-size="8.39125px"
+     id="text57"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#1a1a1a;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000">Net migration</text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:20px;font-family:Nunito;-inkscape-font-specification:'Nunito, @wght=400';font-variant-ligatures:none;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:'wght' 400;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
+     x="29.762798"
+     y="550.36066"
+     id="text58"><tspan
+       sodipodi:role="line"
+       x="29.762798"
+       y="550.36066"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:20px;font-family:Nunito;-inkscape-font-specification:'Nunito, @wght=400';font-variant-ligatures:none;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:'wght' 400;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       id="tspan59">3. UK net migration and total</tspan><tspan
+       sodipodi:role="line"
+       x="29.762798"
+       y="570.36066"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:20px;font-family:Nunito;-inkscape-font-specification:'Nunito, @wght=400';font-variant-ligatures:none;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:'wght' 400;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       id="tspan61">population</tspan><tspan
+       sodipodi:role="line"
+       x="29.762798"
+       y="590.36066"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:20px;font-family:Nunito;-inkscape-font-specification:'Nunito, @wght=400';font-variant-ligatures:none;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:'wght' 400;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       id="tspan58" /></text>
+  <rect
+     style="font-variation-settings:'wght' 400;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:stroke"
+     id="rect58"
+     width="0"
+     height="0.31365532"
+     x="166.77122"
+     y="677.49078"
+     rx="0.10455213"
+     ry="0.10455213" />
+  <line
+     x1="67.140472"
+     y1="814.56329"
+     x2="315.45148"
+     y2="814.56329"
+     stroke="#e5e7eb"
+     stroke-width="0.999997"
+     id="line2-36" />
+  <text
+     x="59.72821"
+     y="817.5282"
+     text-anchor="end"
+     class="axis-label"
+     id="text3"
+     style="font-size:12px;stroke-width:1;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:normal;font-family:Nunito;-inkscape-font-specification:Nunito;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#4d4d4d;fill-opacity:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1">0M</text>
+  <line
+     x1="67.140472"
+     y1="746.61749"
+     x2="315.45148"
+     y2="746.61749"
+     stroke="#e5e7eb"
+     stroke-width="0.999997"
+     id="line3-7" />
+  <text
+     x="59.72821"
+     y="749.58246"
+     text-anchor="end"
+     class="axis-label"
+     id="text4"
+     style="font-size:12px;stroke-width:1;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:normal;font-family:Nunito;-inkscape-font-specification:Nunito;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#4d4d4d;fill-opacity:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1">25M</text>
+  <line
+     x1="67.140472"
+     y1="678.67181"
+     x2="315.45148"
+     y2="678.67181"
+     stroke="#e5e7eb"
+     stroke-width="0.999997"
+     id="line4-5" />
+  <line
+     x1="69.468872"
+     y1="615.97137"
+     x2="317.77988"
+     y2="615.97137"
+     stroke="#e5e7eb"
+     stroke-width="0.999997"
+     id="line4-5-6" />
+  <text
+     x="59.72821"
+     y="681.63666"
+     text-anchor="end"
+     class="axis-label"
+     id="text5"
+     style="font-size:12px;stroke-width:1;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:normal;font-family:Nunito;-inkscape-font-specification:Nunito;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#4d4d4d;fill-opacity:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1">50M</text>
+  <rect
+     x="81.107964"
+     y="633.21063"
+     width="34.142765"
+     height="181.35275"
+     fill="#6f9449"
+     rx="0"
+     id="rect6-5"
+     style="stroke-width:0.999997" />
+  <rect
+     x="81.107964"
+     y="632.52832"
+     width="34.142765"
+     height="0.68217576"
+     fill="#ff6b6b"
+     rx="4"
+     id="rect7-6"
+     ry="4"
+     style="stroke-width:0.999997" />
+  <rect
+     x="143.1857"
+     y="632.59064"
+     width="34.142765"
+     height="181.9727"
+     fill="#6f9449"
+     rx="0"
+     id="rect8-2"
+     style="stroke-width:0.999997" />
+  <rect
+     x="143.1857"
+     y="630.73981"
+     width="34.142765"
+     height="1.8508434"
+     fill="#ff6b6b"
+     rx="0"
+     id="rect9-9"
+     ry="0"
+     style="stroke-width:0.999997" />
+  <rect
+     x="205.26346"
+     y="630.83197"
+     width="34.142765"
+     height="183.73141"
+     fill="#6f9449"
+     rx="0"
+     id="rect10-1"
+     style="stroke-width:0.999997" />
+  <rect
+     x="205.26346"
+     y="628.32062"
+     width="34.142765"
+     height="2.5112767"
+     fill="#ff6b6b"
+     rx="0"
+     id="rect11-2"
+     ry="0"
+     style="stroke-width:0.999997" />
+  <rect
+     x="267.34122"
+     y="628.03204"
+     width="34.142765"
+     height="186.53133"
+     fill="#6f9449"
+     rx="0"
+     id="rect12-7"
+     style="stroke-width:0.999997" />
+  <rect
+     x="267.34122"
+     y="626.26813"
+     width="34.142765"
+     height="1.7638729"
+     fill="#ff6b6b"
+     rx="0"
+     id="rect13-0"
+     ry="0"
+     style="stroke-width:0.999997" />
+  <text
+     x="62.994427"
+     y="619.89154"
+     text-anchor="end"
+     class="axis-label"
+     id="text6"
+     style="font-size:12px;stroke-width:1;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:normal;font-family:Nunito;-inkscape-font-specification:Nunito;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#4d4d4d;fill-opacity:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1">75M</text>
+</svg>
