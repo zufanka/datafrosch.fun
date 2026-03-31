@@ -29,6 +29,20 @@
                     { id: 'other-issues',                label: 'Other common issues' },
                     { id: 'final-check',                 label: 'Final tidy check' }
                 ]
+            },
+            {
+                id: 'pivot-tables',
+                title: 'Pivot Tables',
+                sections: [
+                    { id: 'core-question',    label: 'The one question' },
+                    { id: 'flat-to-grouped',  label: 'Flat list to summary' },
+                    { id: 'anatomy',          label: 'The four fields' },
+                    { id: 'adding-columns',   label: 'Adding a second dimension' },
+                    { id: 'count-vs-sum',     label: 'Count vs. sum' },
+                    { id: 'question-to-pivot',label: 'From question to pivot' },
+                    { id: 'prerequisites',    label: 'What pivot tables need' },
+                    { id: 'common-mistakes',  label: 'Common mistakes' }
+                ]
             }
         ]
     };

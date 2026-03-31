@@ -552,6 +552,8 @@ article h2:before {
     padding: 1.5rem 1rem;
     position: sticky;
     top: 48px;
+    min-height: calc(100vh - 48px);
+    align-self: stretch;
     max-height: calc(100vh - 48px);
     overflow-y: auto;
     align-self: start;
@@ -658,6 +660,7 @@ article h2:before {
 .guide-main {
     padding: 2rem 3rem;
     max-width: 860px;
+    overflow-x: hidden;
 }
 
 .guide-main h1 {
@@ -823,6 +826,9 @@ article h2:before {
 
 @media (max-width: 640px) {
     .tidy-examples { grid-template-columns: 1fr; }
+    .tidy-example table { font-size: 0.65rem; }
+    .tidy-example th { padding: 0.2rem 0.3rem; }
+    .tidy-example td { padding: 0.15rem 0.3rem; }
 }
 
 /* Nested example under a list item */

@@ -28,46 +28,7 @@
     <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
 
     <style>
-        .guides-index-sidebar {
-            background: var(--dark-color);
-            color: white;
-            width: 260px;
-            flex-shrink: 0;
-            padding: 1.5rem 1rem;
-            position: sticky;
-            top: 48px;
-            max-height: calc(100vh - 48px);
-            overflow-y: auto;
-            align-self: start;
-        }
-        .guides-index-sidebar .cat-heading {
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--primary-color);
-            margin: 1.25rem 0 0.5rem;
-        }
-        .guides-index-sidebar a {
-            display: block;
-            color: #ccc;
-            font-size: 0.875rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 3px;
-            text-decoration: none;
-            transition: color 0.15s, background 0.15s;
-        }
-        .guides-index-sidebar a:hover {
-            color: white;
-            background: rgba(255,255,255,0.08);
-        }
-        .guides-index-layout {
-            display: flex;
-            align-items: flex-start;
-            min-height: calc(100vh - 48px);
-        }
         .guides-index-main {
-            flex: 1;
             padding: 2.5rem 3rem;
             max-width: 860px;
         }
@@ -131,19 +92,11 @@
             margin: 2rem 0;
         }
         @media (max-width: 767px) {
-            .guides-index-layout { flex-direction: column; }
-            .guides-index-sidebar {
-                position: static;
-                width: 100%;
-                max-height: none;
-            }
             .guides-index-main { padding: 1.5rem 1rem; }
             .guides-index-hero { flex-direction: column; text-align: center; gap: 1rem; }
             .guides-index-hero img { width: 100px; height: 100px; }
         }
         @media print {
-            .header, .navbar, .guides-index-sidebar, .footer { display: none !important; }
-            .guides-index-layout { display: block; }
             .guides-index-main { padding: 0; max-width: 100%; }
         }
     </style>
@@ -174,14 +127,11 @@
     </nav>
     <script src="../js/navbar.js"></script>
 
-    <div class="guides-index-layout">
+    <div class="guide-layout">
 
-        <!-- Sidebar -->
-        <aside class="guides-index-sidebar">
-            <p class="cat-heading" style="margin-top:0;">Checklists</p>
-            <a href="finding-stories-in-data.html">Finding Stories in Data</a>
-            <a href="tidy-data.html">Tidy Data</a>
-        </aside>
+        <!-- Sidebar (populated by sidebar.js) -->
+        <aside class="guide-sidebar"></aside>
+        <script src="sidebar.js"></script>
 
         <!-- Main -->
         <main class="guides-index-main">
@@ -197,14 +147,18 @@
 
             <hr>
 
-            <!-- Checklists section -->
             <div class="cat-section">
-                <h3>Checklists</h3>
-                <p class="cat-desc">Checklists walk you through a process from start to finish, so you don't miss a step. They're designed to be used interactively — check items off as you go, and your progress is saved in your browser.</p>
                 <ol>
                     <li><a href="finding-stories-in-data.html">Finding Stories in Data</a> — interrogate a new dataset and surface story angles. Covers source interrogation, descriptive statistics, rankings, rates, time &amp; geographic patterns, outliers, missing data, verification, and the news test.</li>
                     <li><a href="tidy-data.html">Tidy Data</a> — turn a messy spreadsheet into clean, analysis-ready data. Covers wide vs. long format, merged cells, inconsistent values, data types, and a final tidy check.</li>
+                    <li><a href="pivot-tables.html">Pivot Tables</a> — build intuition for what pivot tables do, how to read them, and how to construct them from a question rather than a menu.</li>
                 </ol>
+            </div>
+
+            <hr>
+
+            <div class="cat-section">
+                <p class="cat-desc">More free resources: tutorials and walkthroughs on the <a href="https://www.youtube.com/@datafrosch" target="_blank">YouTube channel</a>, and longer reads on the <a href="../blog/index.html">blog</a>.</p>
             </div>
 
         </main>

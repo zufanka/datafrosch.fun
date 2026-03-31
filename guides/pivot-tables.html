@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pivot Tables — build intuition for what pivot tables are, how they work, and when to use them in data journalism.">
+    <link rel="canonical" href="https://datafrosch.fun/guides/pivot-tables.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://datafrosch.fun/guides/pivot-tables.html">
+    <meta property="og:title" content="Pivot Tables | Data Frosch Guides">
+    <meta property="og:description" content="Build intuition for pivot tables — what they are, how they work, and when to use them.">
+    <meta property="og:image" content="https://datafrosch.fun/img/logo.png">
+    <meta property="og:site_name" content="Data Frosch">
+    <meta property="og:locale" content="en_US">
+
+    <title>Pivot Tables | Data Frosch Guides</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="/index.html">
+            <div class="flex items-center">
+                <div class="logo-container mr-3">
+                    <img src="../img/logo.png" alt="Data Frosch logo">
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-3xl font-bold">Data Frosch</h1>
+                    <p class="text-xs sm:text-sm opacity-75">Guides</p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar sticky top-0 z-50">
+        <div class="container mx-auto px-1 sm:px-2">
+            <div class="flex py-2 sm:py-3"></div>
+        </div>
+    </nav>
+    <script src="../js/navbar.js"></script>
+
+    <!-- Guide layout: sidebar + main -->
+    <div class="guide-layout">
+
+        <!-- Sidebar (populated by sidebar.js) -->
+        <aside class="guide-sidebar"></aside>
+        <script src="sidebar.js"></script>
+
+        <!-- Main content -->
+        <main class="guide-main">
+            <p class="text-xs text-gray-500 mb-2"><a href="index.html" class="hover:underline">← All Guides</a></p>
+            <span class="guide-badge">Guide</span>
+            <h1>Pivot Tables</h1>
+            <p class="guide-intro">A pivot table answers one question: <em>how does this number break down across these categories?</em> This guide builds the intuition for what pivot tables do, how to read them, and how to construct them from a question rather than a menu.</p>
+
+            <!-- The core question -->
+            <section id="core-question" class="guide-section">
+                <h2>The one question a pivot table answers</h2>
+                <p class="text-sm md:text-base mb-3">You have a long flat list of rows — contracts, crimes, patients, transactions. You want to know: <strong>how many rows match each category?</strong> or <strong>what is the total value for each group?</strong></p>
+                <p class="text-sm md:text-base mb-3">That is all a pivot table does. It collapses many rows into a summary, grouped by one or more categories.</p>
+                <p class="text-sm md:text-base">You could do the same thing by hand — sort by ministry, count the rows, write down the number, repeat. A pivot table does it instantly, and lets you change the grouping without starting over.</p>
+            </section>
+
+            <!-- From flat to grouped -->
+            <section id="flat-to-grouped" class="guide-section">
+                <h2>From flat list to grouped summary</h2>
+                <p class="text-sm md:text-base mb-4">Start with a flat list of procurement contracts. Each row is one contract.</p>
+
+                <div class="tidy-examples" style="margin-bottom: 1.5rem;">
+                    <div class="tidy-example bad">
+                        <p class="ex-label" style="color:#555;">Flat data — one row per contract</p>
+                        <table>
+                            <tr><th>ministry</th><th>year</th><th>value (€)</th></tr>
+                            <tr><td>Health</td><td>2022</td><td>120,000</td></tr>
+                            <tr><td>Finance</td><td>2022</td><td>45,000</td></tr>
+                            <tr><td>Health</td><td>2023</td><td>89,000</td></tr>
+                            <tr><td>Finance</td><td>2023</td><td>210,000</td></tr>
+                            <tr><td>Health</td><td>2022</td><td>55,000</td></tr>
+                            <tr><td>Finance</td><td>2023</td><td>30,000</td></tr>
+                        </table>
+                    </div>
+                    <div class="tidy-example good">
+                        <p class="ex-label">Pivot — count of contracts per ministry</p>
+                        <table>
+                            <tr><th>ministry</th><th>count</th></tr>
+                            <tr><td>Finance</td><td>3</td></tr>
+                            <tr><td>Health</td><td>3</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <p class="text-sm md:text-base mb-4">The six rows collapsed into two — one per ministry. The pivot table counted how many times each ministry appeared.</p>
+                <p class="text-sm md:text-base">But you can ask a different question of the same data — not <em>how many</em> but <em>how much</em>:</p>
+
+                <div class="tidy-examples" style="margin-bottom:0;">
+                    <div class="tidy-example bad">
+                        <p class="ex-label" style="color:#555;">Same flat data</p>
+                        <table>
+                            <tr><th>ministry</th><th>year</th><th>value (€)</th></tr>
+                            <tr><td>Health</td><td>2022</td><td>120,000</td></tr>
+                            <tr><td>Finance</td><td>2022</td><td>45,000</td></tr>
+                            <tr><td>Health</td><td>2023</td><td>89,000</td></tr>
+                            <tr><td>Finance</td><td>2023</td><td>210,000</td></tr>
+                            <tr><td>Health</td><td>2022</td><td>55,000</td></tr>
+                            <tr><td>Finance</td><td>2023</td><td>30,000</td></tr>
+                        </table>
+                    </div>
+                    <div class="tidy-example good">
+                        <p class="ex-label">Pivot — total spending per ministry</p>
+                        <table>
+                            <tr><th>ministry</th><th>total (€)</th></tr>
+                            <tr><td>Finance</td><td>285,000</td></tr>
+                            <tr><td>Health</td><td>264,000</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Anatomy -->
+            <section id="anatomy" class="guide-section">
+                <h2>The four fields</h2>
+                <p class="text-sm md:text-base mb-4">Every pivot table tool — Excel, Google Sheets, Python, R — organises the same four fields. Once you understand what each one does, the tool doesn't matter.</p>
+
+                <div class="mb-5">
+                    <h3 class="text-base font-bold mb-1">Values — <span class="font-normal text-gray-600">what you want to measure</span></h3>
+                    <p class="text-sm md:text-base mb-2">This is a numeric column. You choose an aggregation: <strong>count</strong> (how many rows), <strong>sum</strong> (add them up), <strong>average</strong>, <strong>max</strong>, <strong>min</strong>. Count doesn't need a numeric column — it just counts rows. Sum, average, max, and min do.</p>
+                    <p class="text-sm md:text-base text-gray-600 italic">Example: Sum of <code>value</code>, or Count of <code>contract_id</code>.</p>
+                </div>
+
+                <div class="mb-5">
+                    <h3 class="text-base font-bold mb-1">Rows — <span class="font-normal text-gray-600">what you want to group by</span></h3>
+                    <p class="text-sm md:text-base mb-2">A categorical column. The pivot table creates one output row per unique value in this column.</p>
+                    <p class="text-sm md:text-base text-gray-600 italic">Example: <code>ministry</code> → one row per ministry.</p>
+                </div>
+
+                <div class="mb-5">
+                    <h3 class="text-base font-bold mb-1">Columns — <span class="font-normal text-gray-600">a second grouping, spread sideways</span></h3>
+                    <p class="text-sm md:text-base mb-2">Optional. A second categorical column whose unique values become column headers. This is what gives the pivot table its name — you are <em>pivoting</em> a category from rows into columns. The result is a cross-tabulation.</p>
+                    <p class="text-sm md:text-base text-gray-600 italic">Example: <code>year</code> → columns become 2022, 2023, 2024.</p>
+                </div>
+
+                <div class="mb-2">
+                    <h3 class="text-base font-bold mb-1">Filters — <span class="font-normal text-gray-600">zoom in on a subset</span></h3>
+                    <p class="text-sm md:text-base mb-2">Restrict the data before summarising. The pivot table runs on only the rows that match your filter.</p>
+                    <p class="text-sm md:text-base text-gray-600 italic">Example: Filter to <code>year = 2023</code> before counting contracts.</p>
+                </div>
+            </section>
+
+            <!-- Adding columns -->
+            <section id="adding-columns" class="guide-section">
+                <h2>Adding a second dimension with Columns</h2>
+                <p class="text-sm md:text-base mb-4">This is where most people get stuck. Here is what happens when you move <code>year</code> from Rows to Columns:</p>
+
+                <div class="tidy-examples" style="margin-bottom:1.5rem;">
+                    <div class="tidy-example bad">
+                        <p class="ex-label" style="color:#555;">Rows: ministry &amp; year — two grouping columns, stacked</p>
+                        <table>
+                            <tr><th>ministry</th><th>year</th><th>total (€)</th></tr>
+                            <tr><td>Finance</td><td>2022</td><td>45,000</td></tr>
+                            <tr><td>Finance</td><td>2023</td><td>240,000</td></tr>
+                            <tr><td>Health</td><td>2022</td><td>175,000</td></tr>
+                            <tr><td>Health</td><td>2023</td><td>89,000</td></tr>
+                        </table>
+                    </div>
+                    <div class="tidy-example good">
+                        <p class="ex-label">Rows: ministry, Columns: year — cross-tabulation</p>
+                        <table>
+                            <tr><th>ministry</th><th>2022</th><th>2023</th></tr>
+                            <tr><td>Finance</td><td>45,000</td><td>240,000</td></tr>
+                            <tr><td>Health</td><td>175,000</td><td>89,000</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <p class="text-sm md:text-base mb-3">Both tables contain the same information. The cross-tabulation on the right is easier to scan for comparisons across years. It is also the form journalists most often see in press releases and reports.</p>
+                <p class="text-sm md:text-base">Use the stacked form (left) when you have many years or want to sort by total. Use the cross-tab (right) when you want to compare two categories against each other at a glance.</p>
+            </section>
+
+            <!-- Count vs sum -->
+            <section id="count-vs-sum" class="guide-section">
+                <h2>Count vs. sum — the most common confusion</h2>
+                <p class="text-sm md:text-base mb-4">These answer different questions. Getting them mixed up produces numbers that are subtly wrong.</p>
+
+                <div class="tidy-examples" style="margin-bottom:1rem;">
+                    <div class="tidy-example bad" style="border-color:#f5c0c0;">
+                        <p class="ex-label">Count — how many contracts did each ministry sign?</p>
+                        <table>
+                            <tr><th>ministry</th><th>count of contracts</th></tr>
+                            <tr><td>Finance</td><td>3</td></tr>
+                            <tr><td>Health</td><td>3</td></tr>
+                        </table>
+                        <p class="text-xs text-gray-500 mt-2 italic">Counts rows. Does not care about the value column.</p>
+                    </div>
+                    <div class="tidy-example good">
+                        <p class="ex-label">Sum — how much did each ministry spend?</p>
+                        <table>
+                            <tr><th>ministry</th><th>total value (€)</th></tr>
+                            <tr><td>Finance</td><td>285,000</td></tr>
+                            <tr><td>Health</td><td>264,000</td></tr>
+                        </table>
+                        <p class="text-xs text-gray-500 mt-2 italic">Adds up the value column. A ministry with one huge contract scores higher than one with many small ones.</p>
+                    </div>
+                </div>
+
+                <p class="text-sm md:text-base">Both are valid — they answer different questions. Before you build a pivot table, ask: am I measuring <em>frequency</em> (count) or <em>magnitude</em> (sum)?</p>
+            </section>
+
+            <!-- From question to pivot -->
+            <section id="question-to-pivot" class="guide-section">
+                <h2>From question to pivot table</h2>
+                <p class="text-sm md:text-base mb-4">Work backwards from your question. Each part of the question maps to a field.</p>
+
+                <table class="w-full text-sm md:text-base mb-4" style="border-collapse:collapse;">
+                    <thead>
+                        <tr style="background:#f2f7ec; border-bottom: 2px solid #c2d9aa;">
+                            <th style="padding:0.5rem 0.75rem; text-align:left; color:#4a7a24;">Question</th>
+                            <th style="padding:0.5rem 0.75rem; text-align:left; color:#4a7a24;">Rows</th>
+                            <th style="padding:0.5rem 0.75rem; text-align:left; color:#4a7a24;">Columns</th>
+                            <th style="padding:0.5rem 0.75rem; text-align:left; color:#4a7a24;">Values</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom:1px solid #eee;">
+                            <td style="padding:0.5rem 0.75rem;">How many contracts per ministry?</td>
+                            <td style="padding:0.5rem 0.75rem;">ministry</td>
+                            <td style="padding:0.5rem 0.75rem;">—</td>
+                            <td style="padding:0.5rem 0.75rem;">count</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #eee;">
+                            <td style="padding:0.5rem 0.75rem;">Total spending per ministry per year?</td>
+                            <td style="padding:0.5rem 0.75rem;">ministry</td>
+                            <td style="padding:0.5rem 0.75rem;">year</td>
+                            <td style="padding:0.5rem 0.75rem;">sum of value</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #eee;">
+                            <td style="padding:0.5rem 0.75rem;">Average contract size per region?</td>
+                            <td style="padding:0.5rem 0.75rem;">region</td>
+                            <td style="padding:0.5rem 0.75rem;">—</td>
+                            <td style="padding:0.5rem 0.75rem;">average of value</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #eee;">
+                            <td style="padding:0.5rem 0.75rem;">Number of crimes per neighbourhood per year, only violent crimes?</td>
+                            <td style="padding:0.5rem 0.75rem;">neighbourhood</td>
+                            <td style="padding:0.5rem 0.75rem;">year</td>
+                            <td style="padding:0.5rem 0.75rem;">count</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.5rem 0.75rem;">Which supplier received the largest single contract?</td>
+                            <td style="padding:0.5rem 0.75rem;">supplier</td>
+                            <td style="padding:0.5rem 0.75rem;">—</td>
+                            <td style="padding:0.5rem 0.75rem;">max of value</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-sm md:text-base">If you cannot map your question to these fields, the question may be too complex for a single pivot table — or the data may need to be tidied first.</p>
+            </section>
+
+            <!-- What pivot tables need -->
+            <section id="prerequisites" class="guide-section">
+                <h2>What pivot tables need to work</h2>
+                <p class="text-sm md:text-base mb-3">Pivot tables only work well on tidy data. If your data has these problems, fix them first:</p>
+                <ul class="text-sm md:text-base mb-3" style="list-style:disc; padding-left:1.25rem;">
+                    <li class="mb-2"><strong>Merged cells</strong> — a merged region header makes the entire column unusable as a Row or Column field. Unmerge and fill down first.</li>
+                    <li class="mb-2"><strong>Inconsistent values</strong> — "Netherlands", "The Netherlands", and "NL" will appear as three separate groups. Standardise categorical columns before pivoting.</li>
+                    <li class="mb-2"><strong>Numbers stored as text</strong> — a value column with currency symbols or spaces will return 0 when you try to Sum it. Strip the non-numeric characters first.</li>
+                    <li class="mb-2"><strong>Subtotal rows mixed into data</strong> — these will be counted and summed alongside the real data, inflating every result.</li>
+                </ul>
+                <p class="text-sm md:text-base">See the <a href="tidy-data.html" class="text-green-700 hover:underline">Tidy Data guide</a> for how to fix each of these.</p>
+            </section>
+
+            <!-- Common mistakes -->
+            <section id="common-mistakes" class="guide-section">
+                <h2>Common mistakes</h2>
+
+                <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.4rem; margin-top:1rem;">Summarising already-summarised data</h3>
+                <p class="text-sm md:text-base mb-3">If your dataset already contains a <code>total</code> or <code>subtotal</code> column calculated from other columns in the same table, do not sum it in a pivot table — you will double-count. Sum the source column instead, or remove the pre-calculated totals first.</p>
+
+                <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.4rem; margin-top:1rem;">Confusing empty cells with zero</h3>
+                <p class="text-sm md:text-base mb-3">When a cross-tabulation cell has no matching rows, most tools leave it blank or show zero. These mean different things. Blank means <em>no data</em>; zero means <em>zero confirmed cases</em>. Know which one your tool produces before reporting the number.</p>
+
+                <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.4rem; margin-top:1rem;">Forgetting what the denominator is</h3>
+                <p class="text-sm md:text-base mb-3">A count of 42 contracts for a given ministry only becomes meaningful when you know the total. Check your grand total. Does it match the number of rows in your source data? If not, you have a filter applied you forgot about, or duplicates in the data.</p>
+
+                <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.4rem; margin-top:1rem;">Not refreshing after the source data changes</h3>
+                <p class="text-sm md:text-base">In Excel and Google Sheets, pivot tables do not update automatically when you edit the source data. Refresh the pivot table any time you change the underlying data.</p>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer py-6 md:py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center md:flex-row md:justify-between md:items-start">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start">
+                        <div class="logo-container mr-3" style="width: 40px; height: 40px;">
+                            <img src="../img/logo.png" alt="Data Frosch logo">
+                        </div>
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-white">Data Frosch</h3>
+                            <p class="text-xs text-gray-300">datafrosch.fun</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-5 md:gap-8 mb-6 md:mb-0 text-center md:text-left">
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Quick Links</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="../index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                            <li><a href="../index.html#mentorship" class="text-gray-400 hover:text-white">Mentorship</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Resources</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="../blog/index.html" class="text-gray-400 hover:text-white">Blog</a></li>
+                            <li><a href="index.html" class="text-gray-400 hover:text-white">Guides</a></li>
+                            <li><a href="https://www.youtube.com/@datafrosch" class="text-gray-400 hover:text-white">YouTube</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Contact</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="mailto:ada@datafrosch.fun" class="text-gray-400 hover:text-white">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-gray-700 text-center text-xs md:text-sm text-gray-400">
+                <p>CC BY-SA 4.0</p>
+                <p class="mt-2">Made with 💚 and 🐸</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
