@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Data Frosch Guides — practical checklists, templates, and frameworks for data journalists.">
+    <meta name="keywords" content="data journalism guides, data analysis checklists, investigative data tips">
+    <link rel="canonical" href="https://datafrosch.fun/guides/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://datafrosch.fun/guides/">
+    <meta property="og:title" content="Guides | Data Frosch">
+    <meta property="og:description" content="Practical checklists, templates, and frameworks for data journalists.">
+    <meta property="og:image" content="https://datafrosch.fun/img/logo.png">
+    <meta property="og:site_name" content="Data Frosch">
+    <meta property="og:locale" content="en_US">
+
+    <title>Guides | Data Frosch</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
+
+    <style>
+        .guides-index-sidebar {
+            background: var(--dark-color);
+            color: white;
+            width: 260px;
+            flex-shrink: 0;
+            padding: 1.5rem 1rem;
+            position: sticky;
+            top: 48px;
+            max-height: calc(100vh - 48px);
+            overflow-y: auto;
+            align-self: start;
+        }
+        .guides-index-sidebar .cat-heading {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary-color);
+            margin: 1.25rem 0 0.5rem;
+        }
+        .guides-index-sidebar a {
+            display: block;
+            color: #ccc;
+            font-size: 0.875rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            text-decoration: none;
+            transition: color 0.15s, background 0.15s;
+        }
+        .guides-index-sidebar a:hover {
+            color: white;
+            background: rgba(255,255,255,0.08);
+        }
+        .guides-index-layout {
+            display: flex;
+            align-items: flex-start;
+            min-height: calc(100vh - 48px);
+        }
+        .guides-index-main {
+            flex: 1;
+            padding: 2.5rem 3rem;
+            max-width: 860px;
+        }
+        .guides-index-hero {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        .guides-index-hero img {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+        .guides-index-hero h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+        }
+        .guides-index-hero p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        .guides-index-main .cat-section {
+            margin-bottom: 2.5rem;
+        }
+        .guides-index-main .cat-section h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .guides-index-main .cat-section .cat-desc {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        .guides-index-main .cat-section ol {
+            padding-left: 1.25rem;
+            margin: 0;
+        }
+        .guides-index-main .cat-section ol li {
+            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+            line-height: 1.5;
+        }
+        .guides-index-main .cat-section ol li a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .guides-index-main .cat-section ol li a:hover {
+            text-decoration: underline;
+        }
+        .guides-index-main hr {
+            border: none;
+            border-top: 1px solid #e5e7eb;
+            margin: 2rem 0;
+        }
+        @media (max-width: 767px) {
+            .guides-index-layout { flex-direction: column; }
+            .guides-index-sidebar {
+                position: static;
+                width: 100%;
+                max-height: none;
+            }
+            .guides-index-main { padding: 1.5rem 1rem; }
+            .guides-index-hero { flex-direction: column; text-align: center; gap: 1rem; }
+            .guides-index-hero img { width: 100px; height: 100px; }
+        }
+        @media print {
+            .header, .navbar, .guides-index-sidebar, .footer { display: none !important; }
+            .guides-index-layout { display: block; }
+            .guides-index-main { padding: 0; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="/index.html">
+            <div class="flex items-center">
+                <div class="logo-container mr-3">
+                    <img src="../img/logo.png" alt="Data Frosch logo">
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-3xl font-bold">Data Frosch</h1>
+                    <p class="text-xs sm:text-sm opacity-75">Guides</p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar sticky top-0 z-50">
+        <div class="container mx-auto px-1 sm:px-2">
+            <div class="flex py-2 sm:py-3"></div>
+        </div>
+    </nav>
+    <script src="../js/navbar.js"></script>
+
+    <div class="guides-index-layout">
+
+        <!-- Sidebar -->
+        <aside class="guides-index-sidebar">
+            <p class="cat-heading" style="margin-top:0;">Checklists</p>
+            <a href="finding-stories-in-data.html">Finding Stories in Data</a>
+            <a href="tidy-data.html">Tidy Data</a>
+        </aside>
+
+        <!-- Main -->
+        <main class="guides-index-main">
+
+            <!-- Hero -->
+            <div class="guides-index-hero">
+                <img src="../img/frosch.png" alt="Data Frosch frog mascot">
+                <div>
+                    <h2>Practical guides for data journalists</h2>
+                    <p>Not sure where to start with a dataset? Need a structured checklist to make sure you haven't missed anything? These guides give you frameworks and tools to work through data journalism challenges step by step.</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- Checklists section -->
+            <div class="cat-section">
+                <h3>Checklists</h3>
+                <p class="cat-desc">Checklists walk you through a process from start to finish, so you don't miss a step. They're designed to be used interactively — check items off as you go, and your progress is saved in your browser.</p>
+                <ol>
+                    <li><a href="finding-stories-in-data.html">Finding Stories in Data</a> — interrogate a new dataset and surface story angles. Covers source interrogation, descriptive statistics, rankings, rates, time &amp; geographic patterns, outliers, missing data, verification, and the news test.</li>
+                    <li><a href="tidy-data.html">Tidy Data</a> — turn a messy spreadsheet into clean, analysis-ready data. Covers wide vs. long format, merged cells, inconsistent values, data types, and a final tidy check.</li>
+                </ol>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer py-6 md:py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center md:flex-row md:justify-between md:items-start">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start">
+                        <div class="logo-container mr-3" style="width: 40px; height: 40px;">
+                            <img src="../img/logo.png" alt="Data Frosch logo">
+                        </div>
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-white">Data Frosch</h3>
+                            <p class="text-xs text-gray-300">datafrosch.fun</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-5 md:gap-8 mb-6 md:mb-0 text-center md:text-left">
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Quick Links</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="../index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                            <li><a href="../index.html#mentorship" class="text-gray-400 hover:text-white">Mentorship</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Resources</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="../blog/index.html" class="text-gray-400 hover:text-white">Blog</a></li>
+                            <li><a href="index.html" class="text-gray-400 hover:text-white">Guides</a></li>
+                            <li><a href="https://www.youtube.com/@datafrosch" class="text-gray-400 hover:text-white">YouTube</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Contact</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="mailto:ada@datafrosch.fun" class="text-gray-400 hover:text-white">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-gray-700 text-center text-xs md:text-sm text-gray-400">
+                <p>CC BY-SA 4.0</p>
+                <p class="mt-2">Made with 💚 and 🐸</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

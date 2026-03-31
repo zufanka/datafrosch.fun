@@ -1,0 +1,43 @@
+# Data Frosch
+
+> Data Frosch (datafrosch.fun) is a data journalism training platform run by Ada Homolova — freelance data & investigative journalist with 10+ years of experience. It offers 1-on-1 mentorship, a community (The Pond), free blog articles, practical guides, and YouTube tutorials aimed at journalists and aspiring data specialists who want to work with data and tell stories.
+
+## Site
+
+- [Homepage](https://datafrosch.fun/) — Overview of all offerings: mentorship, community, free resources
+
+## Mentorship
+
+- [Data Journalism Mentorship](https://datafrosch.fun/#mentorship) — Structured 1-on-1 program (9 weeks), custom learning path, daily Discord support, full Pond community access
+- [Book a Call](https://calendar.app.google/ycRjeVVsaeKvV8dJ8) — Schedule a free intro call with Ada
+
+## The Pond Community
+
+- [The Pond](https://datafrosch.fun/#the-pond) — Community for newsroom data nerds: 2 monthly online trainings, Discord, resources & newsletter
+- [Join the Pond](https://datafrosch.beehiiv.com/subscribe) — Sign up for the community newsletter
+
+## Blog
+
+- [Blog Index](https://datafrosch.fun/blog/) — All articles on data journalism, tools, and storytelling
+- [The Pitfalls of Percentages in the News](https://datafrosch.fun/blog/pitfalls-of-percentages-in-the-news.html) — Why percentages mislead in journalism and how to report them correctly (by Jonathan Stoneman, 2026-02-18)
+- [How to Choose Colors for Data Visualization](https://datafrosch.fun/blog/color-palettes-for-data-visualization.html) — HSL color theory, why lightness matters, and 4 tools for accessible palettes (2025-12-03)
+- [One Newsletter to Rule Them All](https://datafrosch.fun/blog/rss-newsletter.html) — Building an AI-powered RSS digest with GitHub Actions and DeepSeek
+- [Skills and Tools to Consider When Working with Data](https://datafrosch.fun/blog/skills-and-tools-for-data.html) — Overview of skill levels and tools from spreadsheets to Python, SQL, and AI chatbots
+
+## Guides
+
+- [Guides Index](https://datafrosch.fun/guides/) — Practical checklists, templates, and frameworks for data journalists
+- [Finding Stories in Data](https://datafrosch.fun/guides/finding-stories-in-data.html) — Step-by-step checklist for interrogating a new dataset: first look, time patterns, geography, rankings, outliers, missing data, context
+
+## Videos
+
+- [YouTube Channel (@datafrosch)](https://www.youtube.com/@datafrosch) — Tutorials and pondcasts on data journalism topics
+- [Pondcast #3: Calculate CO2 emissions](https://www.youtube.com/watch?v=qE9GMVyRoEI) — Methods for measuring carbon dioxide emissions with Thomas Goorden
+- [The lazy journalist's secret: AI classification](https://www.youtube.com/watch?v=lU49a7XbxFA) — Using AI to simplify content classification
+- [Scraping from scratch in Python](https://www.youtube.com/watch?v=wQ1gR6MQtFU) — Beginner-friendly web scraping tutorial
+
+## About
+
+- [Ada Homolova](https://homolova.sk/) — Founder's personal website and extended portfolio
+- Contact: ada@datafrosch.fun
+- License: CC BY-SA 4.0

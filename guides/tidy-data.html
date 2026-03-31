@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tidy Data — a practical checklist for turning messy spreadsheets into clean, analysis-ready data for journalists.">
+    <link rel="canonical" href="https://datafrosch.fun/guides/tidy-data.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://datafrosch.fun/guides/tidy-data.html">
+    <meta property="og:title" content="Tidy Data | Data Frosch Guides">
+    <meta property="og:description" content="A practical checklist for turning messy spreadsheets into clean, analysis-ready data.">
+    <meta property="og:image" content="https://datafrosch.fun/img/logo.png">
+    <meta property="og:site_name" content="Data Frosch">
+    <meta property="og:locale" content="en_US">
+
+    <title>Tidy Data | Data Frosch Guides</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="/index.html">
+            <div class="flex items-center">
+                <div class="logo-container mr-3">
+                    <img src="../img/logo.png" alt="Data Frosch logo">
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-3xl font-bold">Data Frosch</h1>
+                    <p class="text-xs sm:text-sm opacity-75">Guides</p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar sticky top-0 z-50">
+        <div class="container mx-auto px-1 sm:px-2">
+            <div class="flex py-2 sm:py-3"></div>
+        </div>
+    </nav>
+    <script src="../js/navbar.js"></script>
+
+    <!-- Guide layout: sidebar + main -->
+    <div class="guide-layout">
+
+        <!-- Sidebar (populated by sidebar.js) -->
+        <aside class="guide-sidebar"></aside>
+        <script src="sidebar.js"></script>
+
+        <!-- Main content -->
+        <main class="guide-main">
+            <p class="text-xs text-gray-500 mb-2"><a href="index.html" class="hover:underline">← All Guides</a></p>
+            <span class="guide-badge">Checklist</span>
+            <h1>Tidy Data</h1>
+            <p class="guide-intro">Most data you receive was laid out for human readers, not for machines. This guide explains what tidy data is, shows the most common ways data goes wrong with concrete examples, and ends with a checklist to confirm your dataset is ready for analysis.</p>
+
+            <!-- Introduction -->
+            <section id="introduction" class="guide-section">
+                <h2>Introduction: What is tidy data and why it matters</h2>
+                <p class="text-sm md:text-base mb-3">Tidy data is a specific, consistent way of organising a dataset so that every tool be it a spreadsheet, a script, or a visualisation library can read it without surprises. The <a href="https://vita.had.co.nz/papers/tidy-data.pdf" target=_blank>concept comes from statistician Hadley Wickham</a>, but the underlying idea is simple enough to apply in Excel.</p>
+            </section>
+
+            <!-- Three rules -->
+            <section id="three-rules" class="guide-section">
+                <h2>Three rules of tidy data</h2>
+                <ol class="text-sm md:text-base mb-3" style="list-style:decimal; padding-left:1.25rem;">
+                    <li class="mb-4">
+                        <strong>Each variable forms one column.</strong> A variable is a single type of measurement or attribute: population, year, country name, contract value. If two different things are crammed into the same column, or if one thing is spread across several columns, the data is not tidy.
+                        <div class="tidy-examples">
+                            <div class="tidy-example bad">
+                                <p class="ex-label">✗ Not tidy — year as column headers</p>
+                                <table>
+                                    <tr><th>country</th><th>2021</th><th>2022</th><th>2023</th></tr>
+                                    <tr><td>Germany</td><td>83m</td><td>84m</td><td>84m</td></tr>
+                                    <tr><td>France</td><td>68m</td><td>68m</td><td>68m</td></tr>
+                                </table>
+                            </div>
+                            <div class="tidy-example good">
+                                <p class="ex-label">✓ Tidy — year as a variable</p>
+                                <table>
+                                    <tr><th>country</th><th>year</th><th>population</th></tr>
+                                    <tr><td>Germany</td><td>2021</td><td>83m</td></tr>
+                                    <tr><td>Germany</td><td>2022</td><td>84m</td></tr>
+                                    <tr><td>France</td><td>2021</td><td>68m</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tidy-examples">
+                            <div class="tidy-example bad">
+                                <p class="ex-label">✗ Not tidy — one variable split across columns</p>
+                                <table>
+                                    <tr><th>city</th><th>male_count</th><th>female_count</th></tr>
+                                    <tr><td>Berlin</td><td>1,823,000</td><td>1,901,000</td></tr>
+                                    <tr><td>Hamburg</td><td>912,000</td><td>954,000</td></tr>
+                                </table>
+                            </div>
+                            <div class="tidy-example good">
+                                <p class="ex-label">✓ Tidy — gender as a variable</p>
+                                <table>
+                                    <tr><th>city</th><th>gender</th><th>count</th></tr>
+                                    <tr><td>Berlin</td><td>male</td><td>1,823,000</td></tr>
+                                    <tr><td>Berlin</td><td>female</td><td>1,901,000</td></tr>
+                                    <tr><td>Hamburg</td><td>male</td><td>912,000</td></tr>
+                                    <tr><td>Hamburg</td><td>female</td><td>954,000</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tidy-examples">
+                            <div class="tidy-example bad">
+                                <p class="ex-label">✗ Not tidy — two variables in one column</p>
+                                <table>
+                                    <tr><th>contract_id</th><th>location</th><th>amount</th></tr>
+                                    <tr><td>C-001</td><td>Amsterdam (NL)</td><td>€120,000</td></tr>
+                                    <tr><td>C-002</td><td>Berlin (DE)</td><td>€45,000</td></tr>
+                                    <tr><td>C-003</td><td>Paris (FR)</td><td>€80,000</td></tr>
+                                </table>
+                            </div>
+                            <div class="tidy-example good">
+                                <p class="ex-label">✓ Tidy — city and country as separate columns</p>
+                                <table>
+                                    <tr><th>contract_id</th><th>city</th><th>country</th><th>amount</th></tr>
+                                    <tr><td>C-001</td><td>Amsterdam</td><td>NL</td><td>€120,000</td></tr>
+                                    <tr><td>C-002</td><td>Berlin</td><td>DE</td><td>€45,000</td></tr>
+                                    <tr><td>C-003</td><td>Paris</td><td>FR</td><td>€80,000</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="mb-4">
+                        <strong>Each observation forms one row.</strong> An observation is one complete record: the population of one country in one year, or the value of one procurement contract. If a single observation spans multiple rows, or if one row contains several observations, the data is not tidy.
+                        <div class="tidy-examples">
+                            <div class="tidy-example bad">
+                                <p class="ex-label">✗ Not tidy — one party per two rows</p>
+                                <table>
+                                    <tr><th>party</th><th>measure</th><th>value</th></tr>
+                                    <tr><td>SPD</td><td>votes</td><td>8,254,861</td></tr>
+                                    <tr><td>SPD</td><td>vote_share</td><td>25.7%</td></tr>
+                                    <tr><td>CDU</td><td>votes</td><td>8,775,471</td></tr>
+                                    <tr><td>CDU</td><td>vote_share</td><td>27.4%</td></tr>
+                                </table>
+                            </div>
+                            <div class="tidy-example good">
+                                <p class="ex-label">✓ Tidy — one party per row</p>
+                                <table>
+                                    <tr><th>party</th><th>votes</th><th>vote_share</th></tr>
+                                    <tr><td>SPD</td><td>8,254,861</td><td>25.7%</td></tr>
+                                    <tr><td>CDU</td><td>8,775,471</td><td>27.4%</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="mb-2">
+                        <strong>Each type of observational unit forms one table.</strong> Don't mix things that belong in separate tables. Contract details and buyer addresses should live in two linked tables, not one flat sheet with repeated address fields on every row.
+                        <div class="tidy-examples">
+                            <div class="tidy-example bad">
+                                <p class="ex-label">✗ Not tidy — buyer address repeated on every contract row</p>
+                                <table>
+                                    <tr><th>contract_id</th><th>amount</th><th>buyer</th><th>buyer_city</th><th>buyer_country</th></tr>
+                                    <tr><td>C-001</td><td>€120k</td><td>Min. Finance</td><td>Berlin</td><td>DE</td></tr>
+                                    <tr><td>C-002</td><td>€45k</td><td>Min. Finance</td><td>Berlin</td><td>DE</td></tr>
+                                    <tr><td>C-003</td><td>€80k</td><td>Min. Finance</td><td>Berlin</td><td>DE</td></tr>
+                                </table>
+                            </div>
+                            <div class="tidy-example good">
+                                <p class="ex-label">✓ Tidy — contracts table + buyers table, linked by ID</p>
+                                <table>
+                                    <tr><th>contract_id</th><th>amount</th><th>buyer_id</th></tr>
+                                    <tr><td>C-001</td><td>€120k</td><td>B-01</td></tr>
+                                    <tr><td>C-002</td><td>€45k</td><td>B-01</td></tr>
+                                </table>
+                                <table style="margin-top:0.4rem;">
+                                    <tr><th>buyer_id</th><th>buyer</th><th>city</th><th>country</th></tr>
+                                    <tr><td>B-01</td><td>Min. Finance</td><td>Berlin</td><td>DE</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+                <p class="text-sm md:text-base mb-3">Most real-world data you receive such as government spreadsheets, scraped tables, exported reports will break at least one of these rules. That is not a moral failing on anyone's part. It reflects the fact that data is often laid out for human readers, not for machines. Tidying it up is a routine part of data journalism.</p>
+            </section>
+
+
+            <!-- Other common issues -->
+            <section id="other-issues" class="guide-section">
+                <h2>Other common issues</h2>
+                <p class="text-sm md:text-base mb-4">These problems don't break the three tidy rules, but they will break your analysis just as surely.</p>
+
+                <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.5rem;">Merged cells &amp; colour-coded meaning</h3>
+                <p class="text-sm md:text-base mb-2">Spreadsheets designed for human readers use visual tricks — merged region headers, highlighted rows — that tools cannot read. Unmerge and fill down; replace colour with a text column.</p>
+                <div class="tidy-examples" style="margin-bottom:1.5rem;">
+                    <div class="tidy-example bad">
+                        <p class="ex-label">✗ Merged region header + colour-coded row</p>
+                        <table>
+                            <tr><th colspan="3" style="text-align:center;">North Region</th></tr>
+                            <tr><th>city</th><th>year</th><th>contracts</th></tr>
+                            <tr><td>Hamburg</td><td>2023</td><td>142</td></tr>
+                            <tr style="background:#fef9c3;"><td>Bremen</td><td>2023</td><td>38</td></tr>
+                            <tr><td>Kiel</td><td>2023</td><td>61</td></tr>
+                        </table>
+                    </div>
+                    <div class="tidy-example good">
+                        <p class="ex-label">✓ Region filled down; status as a column</p>
+                        <table>
+                            <tr><th>region</th><th>city</th><th>year</th><th>contracts</th><th>status</th></tr>
+                            <tr><td>North</td><td>Hamburg</td><td>2023</td><td>142</td><td></td></tr>
+                            <tr><td>North</td><td>Bremen</td><td>2023</td><td>38</td><td>disputed</td></tr>
+                            <tr><td>North</td><td>Kiel</td><td>2023</td><td>61</td><td></td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.5rem;">Inconsistent values &amp; typos</h3>
+                <p class="text-sm md:text-base mb-2">A group-by treats every unique string as a separate category. "Netherlands" and "The Netherlands" will produce two separate rows in any aggregate.</p>
+                <div class="tidy-examples" style="margin-bottom:1.5rem;">
+                    <div class="tidy-example bad">
+                        <p class="ex-label">✗ Four spellings → four groups in any count</p>
+                        <table>
+                            <tr><th>country</th><th>contracts</th></tr>
+                            <tr><td>Netherlands</td><td>14</td></tr>
+                            <tr><td>The Netherlands</td><td>9</td></tr>
+                            <tr><td>NL</td><td>3</td></tr>
+                            <tr><td>nederland</td><td>2</td></tr>
+                        </table>
+                    </div>
+                    <div class="tidy-example good">
+                        <p class="ex-label">✓ Standardised → one group, correct total</p>
+                        <table>
+                            <tr><th>country</th><th>contracts</th></tr>
+                            <tr><td>Netherlands</td><td>14</td></tr>
+                            <tr><td>Netherlands</td><td>9</td></tr>
+                            <tr><td>Netherlands</td><td>3</td></tr>
+                            <tr><td>Netherlands</td><td>2</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.5rem;">Numbers &amp; dates stored as plain text</h3>
+                <p class="text-sm md:text-base mb-2">A currency symbol or stray space inside a cell turns a number into text. <code>SUM()</code> returns zero; sorting by date gives wrong order.</p>
+                <div class="tidy-examples" style="margin-bottom:1.5rem;">
+                    <div class="tidy-example bad">
+                        <p class="ex-label">✗ Amounts and dates stored as text</p>
+                        <table>
+                            <tr><th>contract_id</th><th>amount</th><th>signed</th></tr>
+                            <tr><td>C-001</td><td>€ 120,000</td><td>15/03/2023</td></tr>
+                            <tr><td>C-002</td><td>€45.000</td><td>3-9-2023</td></tr>
+                            <tr><td>C-003</td><td>80000 EUR</td><td>Nov 2023</td></tr>
+                        </table>
+                    </div>
+                    <div class="tidy-example good">
+                        <p class="ex-label">✓ Clean numbers; ISO 8601 dates</p>
+                        <table>
+                            <tr><th>contract_id</th><th>amount_eur</th><th>signed</th></tr>
+                            <tr><td>C-001</td><td>120000</td><td>2023-03-15</td></tr>
+                            <tr><td>C-002</td><td>45000</td><td>2023-09-03</td></tr>
+                            <tr><td>C-003</td><td>80000</td><td>2023-11-01</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.5rem;">Subtotal rows mixed in with data</h3>
+                <p class="text-sm md:text-base mb-2">A grand-total or subtotal row is not an observation — it will skew every aggregate you run and produce phantom records in any join.</p>
+                <div class="tidy-examples">
+                    <div class="tidy-example bad">
+                        <p class="ex-label">✗ Subtotal row mixed into data</p>
+                        <table>
+                            <tr><th>region</th><th>sales</th></tr>
+                            <tr><td>North</td><td>142</td></tr>
+                            <tr><td>South</td><td>98</td></tr>
+                            <tr><td><strong>Total</strong></td><td><strong>240</strong></td></tr>
+                            <tr><td>East</td><td>76</td></tr>
+                            <tr><td>West</td><td>113</td></tr>
+                            <tr><td><strong>Grand total</strong></td><td><strong>429</strong></td></tr>
+                        </table>
+                    </div>
+                    <div class="tidy-example good">
+                        <p class="ex-label">✓ Data only — totals computed by your tool</p>
+                        <table>
+                            <tr><th>region</th><th>sales</th></tr>
+                            <tr><td>North</td><td>142</td></tr>
+                            <tr><td>South</td><td>98</td></tr>
+                            <tr><td>East</td><td>76</td></tr>
+                            <tr><td>West</td><td>113</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final check -->
+            <section id="final-check" class="guide-section">
+                <h2>Tidy check</h2>
+                <p class="text-sm text-gray-500 mb-3 italic">Run through this confirmation list before passing the data to analysis, a visualisation tool, or a colleague.</p>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="fc-1"><label for="fc-1">Every column header is a variable name (not a value, not a blank, not a merged label spanning multiple columns).</label></li>
+                    <li><input type="checkbox" id="fc-2"><label for="fc-2">Every row is exactly one observation (no subtotals, no grand totals, no blank separator rows, no duplicate records).</label></li>
+                    <li><input type="checkbox" id="fc-3"><label for="fc-3">Every cell contains a single value for a single variable (no combined strings that encode multiple facts, no lists inside a cell).</label></li>
+                    <li><input type="checkbox" id="fc-4"><label for="fc-4">All values in a column are the same data type (all numbers, all dates, or all text; no mixed columns).</label></li>
+                    <li><input type="checkbox" id="fc-5"><label for="fc-5">Categorical values are consistent and standardised. Run a final unique-values check on every categorical column.</label></li>
+                    <li><input type="checkbox" id="fc-6"><label for="fc-6">You have saved a clean, unmodified copy of the raw data separately, and you have a change log (even a simple one) describing what you altered and why.</label></li>
+                    <li><input type="checkbox" id="fc-7"><label for="fc-7">A colleague who has never seen this dataset could open it and immediately understand what each column means. If not, add a data dictionary.</label></li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer py-6 md:py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center md:flex-row md:justify-between md:items-start">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start">
+                        <div class="logo-container mr-3" style="width: 40px; height: 40px;">
+                            <img src="../img/logo.png" alt="Data Frosch logo">
+                        </div>
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-white">Data Frosch</h3>
+                            <p class="text-xs text-gray-300">datafrosch.fun</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-5 md:gap-8 mb-6 md:mb-0 text-center md:text-left">
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Quick Links</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="../index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                            <li><a href="../index.html#mentorship" class="text-gray-400 hover:text-white">Mentorship</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Resources</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="../blog/index.html" class="text-gray-400 hover:text-white">Blog</a></li>
+                            <li><a href="index.html" class="text-gray-400 hover:text-white">Guides</a></li>
+                            <li><a href="https://www.youtube.com/@datafrosch" class="text-gray-400 hover:text-white">YouTube</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Contact</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="mailto:ada@datafrosch.fun" class="text-gray-400 hover:text-white">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-gray-700 text-center text-xs md:text-sm text-gray-400">
+                <p>CC BY-SA 4.0</p>
+                <p class="mt-2">Made with 💚 and 🐸</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        var STORAGE_KEY = 'guide-tidy-data';
+
+        function restoreCheckboxes() {
+            var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+            document.querySelectorAll('.checklist input[type="checkbox"]').forEach(function (cb) {
+                if (saved[cb.id]) cb.checked = true;
+            });
+        }
+
+        function saveCheckboxes() {
+            var state = {};
+            document.querySelectorAll('.checklist input[type="checkbox"]').forEach(function (cb) {
+                if (cb.checked) state[cb.id] = true;
+            });
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        }
+
+        document.querySelectorAll('.checklist input[type="checkbox"]').forEach(function (cb) {
+            cb.addEventListener('change', saveCheckboxes);
+        });
+
+        document.getElementById('reset-all').addEventListener('click', function () {
+            localStorage.removeItem(STORAGE_KEY);
+            document.querySelectorAll('.checklist input[type="checkbox"]').forEach(function (cb) {
+                cb.checked = false;
+            });
+        });
+
+        restoreCheckboxes();
+
+        // Scroll spy
+        var sections = document.querySelectorAll('.guide-section');
+        var links = document.querySelectorAll('.guide-sidebar nav a[data-section]');
+        window.addEventListener('scroll', function () {
+            var current = '';
+            sections.forEach(function (s) {
+                if (window.scrollY >= s.offsetTop - 80) current = s.id;
+            });
+            links.forEach(function (l) {
+                l.classList.toggle('active', l.dataset.section === current);
+            });
+        }, { passive: true });
+    })();
+    </script>
+</body>
+</html>

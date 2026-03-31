@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How attaching units to your calculations prevents costly mistakes in data journalism — a lesson from the Mars Climate Orbiter and investigative journalist Thomas Goorden.">
+    <meta name="keywords" content="unit conversions, data journalism, Julia, Python pint, R units, calculations, environmental journalism">
+    <meta name="author" content="Ada Homolova">
+    <link rel="canonical" href="https://datafrosch.fun/blog/unit-conversions.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://datafrosch.fun/blog/unit-conversions.html">
+    <meta property="og:title" content="Stop Making Unit Mistakes | Data Frosch">
+    <meta property="og:description" content="How attaching units to your calculations prevents costly mistakes — a lesson from the Mars Climate Orbiter and investigative journalist Thomas Goorden.">
+    <meta property="og:image" content="https://datafrosch.fun/img/unit-frogs.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Frogs representing unit conversions">
+    <meta property="og:site_name" content="Data Frosch">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="Ada Homolova">
+    <meta property="article:published_time" content="2026-03-31">
+    <meta property="article:section" content="Data Journalism">
+    <meta property="article:tag" content="Units">
+    <meta property="article:tag" content="Data Journalism">
+    <meta property="article:tag" content="Calculations">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://datafrosch.fun/blog/unit-conversions.html">
+    <meta name="twitter:title" content="Stop Making Unit Mistakes | Data Frosch">
+    <meta name="twitter:description" content="How attaching units to your calculations prevents costly mistakes — a lesson from the Mars Climate Orbiter and investigative journalist Thomas Goorden.">
+    <meta name="twitter:image" content="https://datafrosch.fun/img/unit-frogs.jpg">
+
+    <title>Stop Making Unit Mistakes | Data Frosch</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Stop Making Unit Mistakes",
+        "description": "How attaching units to your calculations prevents costly mistakes in data journalism — a lesson from the Mars Climate Orbiter and investigative journalist Thomas Goorden.",
+        "image": "https://datafrosch.fun/img/unit-frogs.jpg",
+        "datePublished": "2026-03-31",
+        "dateModified": "2026-03-31",
+        "author": {
+            "@type": "Person",
+            "name": "Ada Homolova"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Data Frosch",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://datafrosch.fun/img/logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://datafrosch.fun/blog/unit-conversions.html"
+        },
+        "keywords": ["unit conversions", "data journalism", "calculations", "environmental journalism", "Julia", "Python", "R"],
+        "articleSection": "Data Journalism"
+    }
+    </script>
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="/index.html">
+            <div class="flex items-center">
+                <div class="logo-container mr-3">
+                    <img src="../img/logo.png" alt="Data Frosch logo - frog mascot for data journalism training">
+                </div>
+                <div class="text-right">
+                    <h1 class="text-xl md:text-3xl font-bold">Data Frosch</h1>
+                    <p id="changing-text" class="text-xs sm:text-sm opacity-75"></p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar sticky top-0 z-50">
+        <div class="container mx-auto px-1 sm:px-2">
+            <div class="flex py-2 sm:py-3"></div>
+        </div>
+    </nav>
+    <script src="../js/navbar.js"></script>
+
+    <!-- Blog Content Section -->
+    <section class="py-10 md:py-16 bg-white relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-2"></div>
+
+        <div class="container mx-auto px-4">
+            <article class="max-w-3xl mx-auto">
+                <h1 class="text-3xl md:text-4xl font-bold mb-3">
+                    Stop making unit mistakes!
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-2">
+                    Let the computer track your units so you don't have to
+                </p>
+                <p class="text-sm text-gray-500 mb-8">by Ada Homolova &middot; March 31, 2026</p>
+
+                <figure class="mb-8">
+                    <img src="../img/unit-frogs.jpg" alt="Frogs representing unit conversions" class="rounded-lg w-full" loading="eager">
+                    <figcaption class="text-sm text-gray-500 mt-2 text-center">From left to right: bullfrog, toad, tree frog, tomato frog, poison dart frog, Panamanian golden frog</figcaption>
+                </figure>
+
+                <div class="prose prose-lg max-w-none">
+
+                    <p class="text-base md:text-lg mb-6">
+                        You're reading a government report. Carbon budget is in gigatons of CO₂. The factory data is in megatons. Your source gave you numbers in kilogrammes. And now you're doing math in a spreadsheet, shifting decimal points, hoping you didn't just accidentally multiply something by a thousand.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        This is a problem Thomas Goorden pointed to in our <a href="https://www.youtube.com/watch?v=qE9GMVyRoEI" target="_blank" class="text-green-700 hover:underline">latest Pondcast</a>. Thomas is an investigative journalist with a physics background who covers environmental topics. Calculations where unit mistakes are a real danger are a vital part of his journalistic practice.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        And they are too easy to make. How many zeros between a gigaton and a megaton? If you have to think about it, it's a problem.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-10">Let the computer do the work</h2>
+
+                    <p class="text-base md:text-lg mb-6">
+                        On September 23 1999, after almost 10 months of travel to Mars, the $125 million <a href="https://www.simscale.com/blog/nasa-mars-climate-orbiter-metric/" target="_blank" class="text-green-700 hover:underline">Mars Climate Orbiter burned</a> and broke into pieces, because two teams working on the navigation were working in different unit systems. But these mistakes are preventable if we integrate units into the scripts.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Thomas uses Julia (a programming language built by mathematicians) with a library called <a href="http://juliaphysics.github.io/Unitful.jl/stable/" target="_blank" class="text-green-700 hover:underline">Unitful</a>. The idea is simple: instead of just typing a number, you attach the unit to it.
+                    </p>
+
+                    <aside class="bg-gray-50 border-l-4 border-green-500 p-4 mb-6 text-sm md:text-base text-gray-700 font-mono">
+                        Instead of writing <strong>12</strong>, you write <strong>12 u"g/mol"</strong><br>
+                        Instead of <strong>1000</strong>, you write <strong>1 u"kg/mol"</strong>
+                    </aside>
+
+                    <p class="text-base md:text-lg mb-6">
+                        When you then do math with those numbers, the library handles the conversions automatically. Mix kilogrammes with grammes? It sorts it out. Multiply gigatons by a factor that's in tonnes? No problem.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        As Thomas put it: "I don't think about how many zeros. I write gigaton and megaton, look at what the calculation gives me, and trust the computer, because I told it what the units are."
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-10">You can do this for any physical substance</h2>
+
+                    <p class="text-base md:text-lg mb-6">
+                        In our <a href="https://www.youtube.com/watch?v=qE9GMVyRoEI" target="_blank" class="text-green-700 hover:underline">latest Pondcast</a>, Thomas focused on how to calculate carbon emissions from any fuel or plastic. However, this advice is pretty universal. You can use it in your PFAS research, energy or water usage calculations.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        If you're asking "how big is this compared to that?" or "does this number make sense?", attaching units to your calculations is the single best way to stop yourself from making an embarrassing mistake.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-10">Try it yourself</h2>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Thomas shared his full Julia <a href="https://github.com/tgoorden/UnderstandingCarbon" target="_blank" class="text-green-700 hover:underline">notebook on GitHub</a>. You don't need to know Julia to follow along!
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        And even if you never touch Julia, the takeaway is this: if you're doing any kind of calculation with physical quantities <strong>use a unit library</strong>.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Python has one too (called <a href="https://pint.readthedocs.io/en/stable/getting/overview.html" target="_blank" class="text-green-700 hover:underline">pint</a>) and R as well (called <a href="https://cran.r-project.org/web/packages/units/index.html" target="_blank" class="text-green-700 hover:underline">units</a>) According to Thomas, it's all functionally equivalent, but he prefers the readability of Julia and points to some other amazing tricks you can pull off in Julia, like combining it with the 'Handcalcs' and/or 'IntervalArithmetic' libraries.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        🦋 <a href="https://bsky.app/profile/goorden.be" target="_blank" class="text-green-700 hover:underline">For more, follow Thomas on Bluesky</a>
+                    </p>
+
+                    <h3 class="text-xl font-bold mb-3">Watch the full session on YouTube</h3>
+                    <div class="mb-6" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+                        <iframe src="https://www.youtube.com/embed/qE9GMVyRoEI?si=3QCp5ySmfDo4YRYo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%;"></iframe>
+                    </div>
+
+
+
+
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Free Resources CTA -->
+    <section class="py-10 md:py-16 bg-white relative">
+        <div class="lily-pad lily-pad-2"></div>
+
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Free resources</h2>
+            <p class="text-base md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">To help you work with data more confidently.</p>
+            <a href="../guides/index.html" class="cta-button inline-block bounce-hover">Explore the guides</a>
+        </div>
+    </section>
+
+    <!-- Mentorship CTA -->
+    <section class="py-10 md:py-16 bg-gray-50 relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-3"></div>
+
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Take your data skills to the next level</h2>
+            <p class="text-base md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto"></p>
+            <a href="../mentorship.html" class="cta-button inline-block bounce-hover">Join the mentorship</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-6 md:py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center md:flex-row md:justify-between md:items-start">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start">
+                        <div class="logo-container mr-3" style="width: 40px; height: 40px;">
+                            <img src="../img/logo.png" alt="Data Frosch logo">
+                        </div>
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-white">Data Frosch</h3>
+                            <p class="text-xs text-gray-300">datafrosch.fun</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-5 md:gap-8 mb-6 md:mb-0 text-center md:text-left">
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Quick Links</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="../index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                            <li><a href="../index.html#about" class="text-gray-400 hover:text-white">About</a></li>
+                            <li><a href="../index.html#mentoring" class="text-gray-400 hover:text-white">Mentoring</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Resources</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white">Blog</a></li>
+                            <li><a href="../guides/index.html" class="text-gray-400 hover:text-white">Guides</a></li>
+                            <li><a href="https://www.youtube.com/@datafrosch" class="text-gray-400 hover:text-white">YouTube</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Contact</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="mailto:ada@datafrosch.fun" class="text-gray-400 hover:text-white">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-gray-700 text-center text-xs md:text-sm text-gray-400">
+                <p>CC BY-SA 4.0</p>
+                <p class="mt-2">Made with 💚 and 🐸</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="../js/taglines.js"></script>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Finding Stories in Data — a step-by-step checklist for data journalists interrogating a new dataset.">
+    <link rel="canonical" href="https://datafrosch.fun/guides/finding-stories-in-data.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://datafrosch.fun/guides/finding-stories-in-data.html">
+    <meta property="og:title" content="Finding Stories in Data | Data Frosch Guides">
+    <meta property="og:description" content="A step-by-step checklist for interrogating a new dataset and surfacing story angles.">
+    <meta property="og:image" content="https://datafrosch.fun/img/logo.png">
+    <meta property="og:site_name" content="Data Frosch">
+    <meta property="og:locale" content="en_US">
+
+    <title>Finding Stories in Data | Data Frosch Guides</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="/index.html">
+            <div class="flex items-center">
+                <div class="logo-container mr-3">
+                    <img src="../img/logo.png" alt="Data Frosch logo">
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-3xl font-bold">Data Frosch</h1>
+                    <p class="text-xs sm:text-sm opacity-75">Guides</p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar sticky top-0 z-50">
+        <div class="container mx-auto px-1 sm:px-2">
+            <div class="flex py-2 sm:py-3"></div>
+        </div>
+    </nav>
+    <script src="../js/navbar.js"></script>
+
+    <!-- Guide layout: sidebar + main -->
+    <div class="guide-layout">
+
+        <!-- Sidebar (populated by sidebar.js) -->
+        <aside class="guide-sidebar"></aside>
+        <script src="sidebar.js"></script>
+
+        <!-- Main content -->
+        <main class="guide-main">
+            <p class="text-xs text-gray-500 mb-2"><a href="index.html" class="hover:underline">← All Guides</a></p>
+            <span class="guide-badge">Checklist</span>
+            <h1>Finding Stories in Data</h1>
+            <p class="guide-intro">A step-by-step checklist for interrogating a new dataset and surfacing story angles. Check off items as you work.</p>
+
+            <!-- Introduction -->
+            <section id="introduction" class="guide-section">
+                <h2>How to use this guide</h2>
+                <p class="text-sm md:text-base mb-3">Every data story starts from one of two places:</p>
+                <ul class="text-sm md:text-base mb-3" style="list-style:disc; padding-left:1.25rem;">
+                    <li class="mb-1"><strong>You have a question</strong>: you're investigating a hypothesis and you go looking for data to test it.</li>
+                    <li class="mb-1"><strong>You have a dataset</strong>: you received or found data, and you need to explore it to see what it contains.</li>
+                </ul>
+                <p class="text-sm md:text-base mb-3">Either way, interrogate the source before you start analyzing. Work through each section in order.</p>
+                <p class="text-sm md:text-base mb-3">Not every move applies to every dataset. Skip sections that don't fit your data. If you don't understand what a section means but you feel like it might be relevant, research it.</p>
+                <p class="text-sm md:text-base">Remember: Data tells you what, people tell you why. Data shows you who is counted, but the system decides who isn't. Before you publish, talk to someone who lives inside the numbers.</p>
+            </section>
+
+            <!-- Interrogate the source -->
+            <section id="interrogate" class="guide-section">
+                <h2>Interrogate the source</h2>
+                <p class="text-sm text-gray-500 mb-3 italic">Do this before any analysis. Data is not neutral. It always comes into being with a certain goal in mind. Read any accompanying documentation, methodology notes, or data dictionary.</p>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="int-1"><label for="int-1">Document the data's origin: where it comes from, who recorded it, how, and for what purpose.</label></li>
+                    <li><input type="checkbox" id="int-3"><label for="int-3">Check the methodology notes for completeness: how were records collected?</label></li>
+                    <li><input type="checkbox" id="int-4"><label for="int-4">Identify who or what is <em>not</em> included in these figures. Are there things missing?</label></li>
+                    <li><input type="checkbox" id="int-5"><label for="int-5">Explore the methodological notes for choices that had to be made to generate the data.</label></li>
+                    <li><input type="checkbox" id="int-7"><label for="int-7">Cross-check key figures against at least one independent source.</label></li>
+                    <li><input type="checkbox" id="int-8"><label for="int-8">Search for prior analyses and note any known methodological flaws.</label></li>
+                </ul>
+            </section>
+
+            <!-- First look -->
+            <section id="first-look" class="guide-section">
+                <h2>First look: understand what you have</h2>
+                <p class="text-sm text-gray-500 mb-3 italic">Before any analysis, get oriented.</p>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="fl-1"><label for="fl-1">Define what one row represents (a person, a contract, a country, a day).</label></li>
+                    <li><input type="checkbox" id="fl-2"><label for="fl-2">How many rows? How many columns?</label></li>
+                    <li><input type="checkbox" id="fl-3"><label for="fl-3">What time period does the data cover? When was it last updated?</label></li>
+                    <li><input type="checkbox" id="fl-6"><label for="fl-6">Look at the first and last rows. Do the values look plausible?</label></li>
+                    <li><input type="checkbox" id="fl-7"><label for="fl-7">Check data types: are numbers stored as numbers? Are dates recognized as dates?</label></li>
+                    <li><input type="checkbox" id="fl-8"><label for="fl-8">Scan for unexpected values: misspellings, mixed formats, ALL CAPS vs lowercase.</label></li>
+                </ul>
+            </section>
+
+            <!-- Descriptive statistics -->
+            <section id="descriptive" class="guide-section">
+                <h2>Descriptive statistics: what does the data look like overall?</h2>
+                <p class="text-sm text-gray-500 mb-3 italic">Run these on every column.</p>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="desc-1"><label for="desc-1">Calculate min, max, mean, and median for numeric columns.</label></li>
+                    <li><input type="checkbox" id="desc-2"><label for="desc-2">Where do mean and median diverge strongly? That signals skew or outliers.</label></li>
+                    <li><input type="checkbox" id="desc-3"><label for="desc-3">Find the most and least common values in categorical columns.</label></li>
+                    <li><input type="checkbox" id="desc-4"><label for="desc-4">Count unique values in categorical columns (countries, companies, categories).</label></li>
+                </ul>
+                <div class="guide-callout">
+                    <p><strong>Before you go further:</strong> Does this look like the right data to answer your questions? Ask this after the initial check and first quick analysis.</p>
+                </div>
+            </section>
+
+            <!-- Rankings & comparisons -->
+            <section id="rankings" class="guide-section">
+                <h2>Rankings &amp; comparisons: who leads, who lags?</h2>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="rk-1"><label for="rk-1">Sort each column top and bottom: what's the biggest? The smallest?</label></li>
+                    <li><input type="checkbox" id="rk-2"><label for="rk-2">Find who or what appears most often.</label></li>
+                    <li><input type="checkbox" id="rk-3"><label for="rk-3">What is the gap between first and last?</label></li>
+                    <li><input type="checkbox" id="rk-4"><label for="rk-4">Compare groups: does one category consistently outperform another? Do richer regions get more contracts? Do older passengers survive less?</label></li>
+                </ul>
+            </section>
+
+            <!-- Rates & context -->
+            <section id="rates" class="guide-section">
+                <h2>Context: compared to what?</h2>
+                <p class="text-sm text-gray-500 mb-3 italic">Raw numbers rarely tell the whole story.</p>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="rt-1"><label for="rt-1">Express values as rates: per capita, per 1,000, as a percentage of total.</label></li>
+                    <li><input type="checkbox" id="rt-2"><label for="rt-2">What is the denominator? A number rarely works in isolation. Is a million a lot or not? Depends on the context.</label></li>
+                    <li><input type="checkbox" id="rt-3"><label for="rt-3">Compare to a baseline: national average, previous year, EU norm. A big number in a big country may be less remarkable than a small number in a small one.</label></li>
+                </ul>
+            </section>
+
+            <!-- Time patterns -->
+            <section id="time-patterns" class="guide-section">
+                <h2>Time patterns: is something changing?</h2>
+                <p class="text-sm text-gray-500 mb-3 italic">Only applies if your data has a date or year column.</p>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="tp-1"><label for="tp-1">Identify the overall trend: rising, falling, or flat.</label></li>
+                    <li><input type="checkbox" id="tp-2"><label for="tp-2">Spot spikes or sudden drops and research what happened at those points.</label></li>
+                    <li><input type="checkbox" id="tp-3"><label for="tp-3">Check for seasonal cycles.</label></li>
+                    <li><input type="checkbox" id="tp-4"><label for="tp-4">Note whether the rate of change is accelerating or slowing.</label></li>
+                    <li><input type="checkbox" id="tp-5"><label for="tp-5">Compare first and last period: what is the % change?</label></li>
+                    <li><input type="checkbox" id="tp-6"><label for="tp-6">Check whether a record high or low has been reached.</label></li>
+                    <li><input type="checkbox" id="tp-7"><label for="tp-7">Are there sudden breaks or discontinuities? Could these reflect a change in methodology rather than reality?</label></li>
+                </ul>
+            </section>
+
+            <!-- Geographic patterns -->
+            <section id="geographic" class="guide-section">
+                <h2>Geographic patterns: does place matter?</h2>
+                <p class="text-sm text-gray-500 mb-3 italic">Only applies if your data has a location column.</p>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="geo-1"><label for="geo-1">Check whether values cluster in certain regions or countries.</label></li>
+                    <li><input type="checkbox" id="geo-2"><label for="geo-2">Look for urban/rural or rich/poor splits.</label></li>
+                    <li><input type="checkbox" id="geo-3"><label for="geo-3">Identify places that are outliers compared to their neighbours.</label></li>
+                    <li><input type="checkbox" id="geo-4"><label for="geo-4">Can you put it on a map?</label></li>
+                    <li><input type="checkbox" id="geo-5"><label for="geo-5">Have administrative boundaries changed over the data's time span? (regions merged, renamed, redrawn)</label></li>
+                </ul>
+            </section>
+
+            <!-- Relationships -->
+            <section id="relationships" class="guide-section">
+                <h2>Relationships: does X connect to Y?</h2>
+                <p class="text-sm text-gray-500 mb-3 italic">Correlation is not causation, but a strong pattern is worth investigating.</p>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="rel-1"><label for="rel-1">When one value goes up, does another go up or down?</label></li>
+
+                </ul>
+            </section>
+
+            <!-- Outliers & anomalies -->
+            <section id="outliers" class="guide-section">
+                <h2>Outliers &amp; anomalies: what doesn't fit?</h2>
+                <p class="text-sm text-gray-500 mb-3 italic">An outlier may be your story.</p>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="out-1"><label for="out-1">What values are far from the average? (a rough rule: more than 2–3 standard deviations from the mean)</label></li>
+                    <li><input type="checkbox" id="out-2"><label for="out-2">Are there suspiciously round numbers or uniformly identical values?</label></li>
+                    <li><input type="checkbox" id="out-3"><label for="out-3">Check whether one row dominates the totals.</label></li>
+                    <li><input type="checkbox" id="out-4"><label for="out-4">Check whether outliers coincide with known events: elections, policy changes, crises.</label></li>
+                </ul>
+            </section>
+
+            <!-- Missing data -->
+            <section id="missing-data" class="guide-section">
+                <h2>Missing data: what isn't there?</h2>
+                <p class="text-sm text-gray-500 mb-3 italic">Absence of data can be a finding on itself.</p>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="md-1"><label for="md-1">Count empty cells per column.</label></li>
+                    <li><input type="checkbox" id="md-2"><label for="md-2">Are the gaps random, or do they cluster in certain countries, years, or categories?</label></li>
+                    <li><input type="checkbox" id="md-3"><label for="md-3">What would you expect to be here that isn't?</label></li>
+                    <li><input type="checkbox" id="md-4"><label for="md-4">Ask the data provider why records are missing and document the answer.</label></li>
+                </ul>
+            </section>
+
+            <!-- Verification -->
+            <section id="verification" class="guide-section">
+                <h2>Verification: before you publish</h2>
+                <p class="text-sm text-gray-500 mb-3 italic">If something looks to good to be true, it probably is.</p>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="ver-1"><label for="ver-1">Find a comparable dataset from an independent source and cross-check key figures.</label></li>
+                    <li><input type="checkbox" id="ver-2"><label for="ver-2">Speak to an expert who can sanity-check your main findings.</label></li>
+                    <li><input type="checkbox" id="ver-3"><label for="ver-3">Consider alternative explanations for the patterns you found, can you rule them out?</label></li>
+                    <li><input type="checkbox" id="ver-4"><label for="ver-4">Document your analysis steps so anybody could reproduce them. Publish them as a methodology with your article.</label></li>
+                    <li><input type="checkbox" id="ver-5"><label for="ver-5">Identify what the data does <em>not</em> cover, and acknowledge it in your story and your methodology.</label></li>
+                    <li><input type="checkbox" id="ver-6"><label for="ver-6">Save a clean, unmodified copy of the raw data with a note of where and when you got it.</label></li>
+                </ul>
+            </section>
+
+            <!-- The news test -->
+            <section id="news-test" class="guide-section">
+                <h2>The news test</h2>
+                <p class="text-sm text-gray-500 mb-3 italic">Once you find something interesting, ask these three questions. If yes to all three, you might have a story.</p>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="nt-1"><label for="nt-1"><strong>Surprising?</strong> Is this different from what you'd expect?</label></li>
+                    <li><input type="checkbox" id="nt-2"><label for="nt-2"><strong>Significant?</strong> Is it meaningful in scale, impact, or who is affected?</label></li>
+                    <li><input type="checkbox" id="nt-3"><label for="nt-3"><strong>Showable?</strong> Write a one-sentence summary of your finding. Can you also show it in one chart?</label></li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer py-6 md:py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center md:flex-row md:justify-between md:items-start">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start">
+                        <div class="logo-container mr-3" style="width: 40px; height: 40px;">
+                            <img src="../img/logo.png" alt="Data Frosch logo">
+                        </div>
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-white">Data Frosch</h3>
+                            <p class="text-xs text-gray-300">datafrosch.fun</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-5 md:gap-8 mb-6 md:mb-0 text-center md:text-left">
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Quick Links</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="../index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                            <li><a href="../index.html#mentorship" class="text-gray-400 hover:text-white">Mentorship</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Resources</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="../blog/index.html" class="text-gray-400 hover:text-white">Blog</a></li>
+                            <li><a href="index.html" class="text-gray-400 hover:text-white">Guides</a></li>
+                            <li><a href="https://www.youtube.com/@datafrosch" class="text-gray-400 hover:text-white">YouTube</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Contact</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="mailto:ada@datafrosch.fun" class="text-gray-400 hover:text-white">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-gray-700 text-center text-xs md:text-sm text-gray-400">
+                <p>CC BY-SA 4.0</p>
+                <p class="mt-2">Made with 💚 and 🐸</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        var STORAGE_KEY = 'guide-finding-stories';
+
+        function restoreCheckboxes() {
+            var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+            document.querySelectorAll('.checklist input[type="checkbox"]').forEach(function (cb) {
+                if (saved[cb.id]) cb.checked = true;
+            });
+        }
+
+        function saveCheckboxes() {
+            var state = {};
+            document.querySelectorAll('.checklist input[type="checkbox"]').forEach(function (cb) {
+                if (cb.checked) state[cb.id] = true;
+            });
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        }
+
+        document.querySelectorAll('.checklist input[type="checkbox"]').forEach(function (cb) {
+            cb.addEventListener('change', saveCheckboxes);
+        });
+
+        document.getElementById('reset-all').addEventListener('click', function () {
+            localStorage.removeItem(STORAGE_KEY);
+            document.querySelectorAll('.checklist input[type="checkbox"]').forEach(function (cb) {
+                cb.checked = false;
+            });
+        });
+
+        restoreCheckboxes();
+
+        // Scroll spy
+        var sections = document.querySelectorAll('.guide-section');
+        var links = document.querySelectorAll('.guide-sidebar nav a[data-section]');
+        window.addEventListener('scroll', function () {
+            var current = '';
+            sections.forEach(function (s) {
+                if (window.scrollY >= s.offsetTop - 80) current = s.id;
+            });
+            links.forEach(function (l) {
+                l.classList.toggle('active', l.dataset.section === current);
+            });
+        }, { passive: true });
+    })();
+    </script>
+</body>
+</html>

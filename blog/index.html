@@ -54,17 +54,11 @@
 
     <!-- Navigation -->
     <nav class="navbar sticky top-0 z-50">
-        <div class="container mx-auto px-2">
-            <div class="flex py-3 px-2">
-                <a href="../index.html#about" class="font-medium">About</a>
-                <a href="../index.html#mentoring" class="font-medium">Mentoring</a>
-                <a href="../index.html#blog" class="font-medium">Blog</a>
-                <a href="../index.html#newsletter" class="font-medium">Newsletter</a>
-                <a href="../index.html#videos" class="font-medium">Videos</a>
-                <a href="../index.html#author" class="font-medium">The 🐸</a>
-            </div>
+        <div class="container mx-auto px-1 sm:px-2">
+            <div class="flex py-2 sm:py-3"></div>
         </div>
     </nav>
+    <script src="../js/navbar.js"></script>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -81,6 +75,27 @@
 
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
+                <!-- Blog Post: Unit Conversions -->
+                <article class="course-card mb-8">
+                    <div class="p-6 md:p-8">
+                        <div class="mb-4">
+                            <p class="text-xs md:text-sm text-gray-500 mb-2">March 31, 2026</p>
+                            <h3 class="text-xl md:text-2xl font-bold mb-4">
+                                <a href="unit-conversions.html" class="hover:text-primary-color transition">
+                                    Stop making unit mistakes!
+                                </a>
+                            </h3>
+                            <p class="text-base md:text-lg text-gray-600 mb-4">
+                                Let the computer track your units so you don't have to
+                            </p>
+                            <p class="text-sm md:text-base mb-6">
+                                Shifting decimal points between gigatons and megatons is how mistakes happen. Investigative journalist Thomas Goorden explains how attaching units to your calculations — in Julia, Python, or R — lets the computer handle conversions automatically.
+                            </p>
+                        </div>
+                        <a href="unit-conversions.html" class="cta-button inline-block text-xs md:text-sm px-4 py-2">Read More →</a>
+                    </div>
+                </article>
+
                 <!-- Blog Post: Pitfalls of Percentages -->
                 <article class="course-card mb-8">
                     <div class="p-6 md:p-8">
@@ -216,6 +231,7 @@
                         <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Resources</h4>
                         <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
                             <li><a href="index.html" class="text-gray-400 hover:text-white">Blog</a></li>
+                            <li><a href="../guides/index.html" class="text-gray-400 hover:text-white">Guides</a></li>
                             <li><a href="https://www.youtube.com/@datafrosch" class="text-gray-400 hover:text-white">YouTube</a></li>
                         </ul>
                     </div>

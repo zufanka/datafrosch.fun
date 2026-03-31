@@ -1,0 +1,301 @@
+# Data Frosch — Full Content
+
+> Data Frosch (datafrosch.fun) is a data journalism training platform run by Ada Homolova — freelance data & investigative journalist with 10+ years of experience. It offers 1-on-1 mentorship, a community (The Pond), free blog articles, practical guides, and YouTube tutorials for journalists and aspiring data specialists.
+
+License: CC BY-SA 4.0
+Contact: ada@datafrosch.fun
+
+---
+
+## Homepage — datafrosch.fun
+
+**Tagline:** Learn Data, Tell Stories
+
+Hands-on data training for journalists and (aspiring) data specialists.
+
+### Services
+
+**Data Journalism Mentorship** — The deep end of The Pond. A structured, 1-on-1 program to level up your data skills.
+
+- 1-on-1 Sessions: Regular online meetings to review your progress, tackle challenges, and refine your work. Daily support via Discord.
+- Custom Learning Path: Personalized 9-week program covering topics chosen to accelerate your growth as a data storyteller.
+- Full Pond Access: Mentorship includes full access to The Pond community — trainings, resources, Discord, and networking with other data professionals.
+
+Testimonials:
+- "The data journalism mentorship with Ada is truly brilliant! Her guidance didn't just open up a door to a new skill set, it improved my way of reporting and transformed my approach to stories." — Sarah Emler, Reporter at ORF (Austria)
+- "Ada's bright personality together with her encouraging teaching style put a smile on my face at every session. I learned to work with my data, create datasets, learned to cross-reference and realized that Python is just a language, and not a monster preying on me." — Charlotte Wirth, Freelance investigative reporter
+
+Apply / Book a Call: https://calendar.app.google/ycRjeVVsaeKvV8dJ8
+
+**The Pond** — A community for and by nerds in the newsroom.
+
+- Monthly Trainings: 2 online training sessions per month on data journalism topics — from spreadsheets to Python to data visualization.
+- Resources & Tools: Curated resources, tutorials, and practical guides.
+- Discord Community: Connect with fellow data journalists. Ask questions, share your work, and get peer feedback.
+- Newsletter: Tips, new tutorials, and what's happening in the data journalism world.
+
+Join: https://datafrosch.beehiiv.com/subscribe
+
+### About Ada Homolova
+
+Ada Homolova is a freelance data & investigative journalist and teacher. Over more than 10 years, she has made stories with small and big datasets. She believes data skills should be for everyone. She has given lectures, taught at conferences like Dataharvest and NICAR, given guest lectures in the Master's program in Gothenburg, and mentored journalists 1:1 through programs like IJ4EU.
+
+Website: https://homolova.sk/
+LinkedIn: https://www.linkedin.com/in/adahomolova/
+GitHub: https://github.com/zufanka/
+YouTube: https://www.youtube.com/@datafrosch
+
+---
+
+## Blog Post: The Pitfalls of Percentages in the News
+
+URL: https://datafrosch.fun/blog/pitfalls-of-percentages-in-the-news.html
+Author: Jonathan Stoneman
+Published: 2026-02-18
+
+Why percentages mislead, and what journalists can do about it.
+
+In my work as a trainer, I have spent quite a lot of time looking at how journalists use numbers in their output — and especially percentages. There is plenty of advice about using numbers in general, but less about percentages.
+
+Numbers need to be used with care in journalistic output — not too many of them, make them relatable, don't use decimal places, and so on. But when we get to percentages the rules change.
+
+### Proportions
+
+Percentages, as well as other proportions such as numbers per 100,000 in a population, help to put the number into context. For example, when considering numbers of migrants arriving in various European countries it's useful to put the number in the context of the whole population. Germany is the EU member with the largest population, and it takes in a lot of migrants — but only 15 per 1000 inhabitants, while Malta tops the table at 76 migrants per 1000 inhabitants.
+
+Numbers per 1000 help to make the proportion more relatable — whole numbers only. Most people find it easier to visualise whole people, not decimal places of people.
+
+When we look at rarer events, such as murder, we tend to express proportions in terms of number per 100,000. In the USA, Washington DC topped the murder league table in 2024 with 25.5 murders per 100,000, five times the US average, and more than double the worst state — Louisiana with almost 11 murders per 100,000 in 2024.
+
+Clearly it makes sense to compare numbers according to the total population. But it is too tempting when writing about a chart like this to take the reported numbers alone, divorced from their true context, and say something like 'you are more than twice as likely to be murdered in Washington DC than you are in Louisiana'.
+
+### Likelihood
+
+There is a peculiar branch of 'journalese' which uses this formulation — "A pedestrian or cyclist hit by a truck was 90% more likely to face serious injury than one hit by a regular car, and almost 200% more likely to be killed."
+
+This is a false use of statistics. "90% more likely" is easier to understand once you realise that 90% is close to 100% and a 100% increase equates to a doubling of the original figure. And a 200% increase is not a doubling — it's a tripling.
+
+The '% more likely' formulation forces the reader to do mental gymnastics. It would be truer to say 'last year the number of people seriously injured when they were hit by a truck was almost double the number injured by a regular car.'
+
+When it comes to falls in numbers, the journalese is even harder to understand — for example: "Eating 2oz of chocolate a week makes you 46% less likely to die of a stroke." A 46% reduction is roughly about half — wouldn't it be easier to say 'about half'?
+
+### Percentages are not normal
+
+**Why we use percentages:**
+- To show proportions
+- Put numbers in context (growth, relationship to the whole, or another part)
+- Help to compare apples and oranges when necessary
+
+**Downsides to using percentages:**
+- They can give a false appearance of 'objectivity' or spurious accuracy, especially when the sample size is small (<100)
+- They can give a false impression — for example, a rise in crime from a low base: 30 crimes committed last month, 36 this month = 20% increase. But it's just 6 more crimes.
+- Arithmetic isn't as straightforward with percentages as with raw numbers. If visits to a website this month were 10k and next month 13k, that is 30% increase. But a month later a fall back to 10k is a 23% drop — not a net change of 7% as you might think from adding/subtracting percentages.
+- A 100% increase is the same as doubling. But a 100% decrease is not a halving — it means the number falls to 0.
+
+When a percentage increase is more than 100%, it's safer and clearer to tell people the number has more than doubled, or simply tell them what today's figure is compared to yesterday's.
+
+### Context is key
+
+When plotting percentages on a chart you need context. Bubble size combined with percentage values on the x-axis can build context into the picture — showing both proportion and absolute magnitude simultaneously.
+
+Where things get problematic is when results are removed from the underlying raw numbers. Readers can start reading percentage charts as if they were raw numbers, especially when population sizes differ dramatically (e.g. Poland vs Croatia population pyramids).
+
+In a world where people manipulate facts to fit their own narratives, showing percentages without their original data context is dangerous.
+
+---
+
+## Blog Post: How to Choose Colors for Data Visualization
+
+URL: https://datafrosch.fun/blog/color-palettes-for-data-visualization.html
+Author: Data Frosch (Ada Homolova)
+Published: 2025-12-03
+
+Color theory fundamentals and 4 essential tools for better palettes.
+
+One of the biggest challenges when creating a data visualisation is choosing a colour palette. To understand colour, we need to develop an intuition for our own visual perception.
+
+The article "Colour Engineering" by RJ Andrews introduced a quantifiable system behind colour choices, based on three properties of colour: **hue**, **saturation**, and **lightness** — also called **HSL**.
+
+The biggest takeaway: **lightness is the most important factor** for distinguishing colours (even more than hue), because our eyes are best trained to differentiate light from dark. Leveraging lightness helps both harmonise colours across a palette and distinguish them effectively.
+
+### 4 Tools for Color Palettes
+
+**1. Color Analyzer** (https://datafrosch.fun/color-analyzer.html)
+An interactive tool to play with your own colour palettes based on the HSL model.
+
+**2. Contrast Checker** (https://coolors.co/contrast-checker/9c480c-ffffff)
+If you create a palette and plan to put text over a background, this tool checks readability. Hint: it's all in the lightness.
+
+**3. Accessible Palette** (https://accessiblepalette.com)
+Built around LAB color space rather than HSL for more consistent lightness and contrast. Eugene Fedorenko explains in his blog post why he dropped HSL in favour of LAB for colour systems.
+
+**4. Color Palette Pro** (https://colorpalette.pro)
+Ryan Feigenbaum's palette generator — "Mine just sucks less." For those who really know what they're doing or enjoy retro interfaces.
+
+---
+
+## Blog Post: One Newsletter to Rule Them All
+
+URL: https://datafrosch.fun/blog/rss-newsletter.html
+Author: Data Frosch
+Published: (no explicit date)
+
+Building an AI-powered RSS digest.
+
+The goal: one newsletter once a week that gives an overview of topics you care about. Solution: an AI-powered RSS digest (https://github.com/DataFrosch/rss-digest).
+
+### How it works
+
+**RSS** — A sort of relic from the beginning of the internet: one XML file containing the date, headline, description, and link to an article. Most publishers support it, including The Guardian and The New York Times.
+
+**LLM** — Once the headlines and descriptions from the week are collected, they're sent to a language model along with a custom prompt. This costs literally a few cents. The project uses DeepSeek API (less than one cent per query). Alternatively, free (but less private) models from openrouter.ai can be used. The model digests the feeds and writes a summary in HTML format.
+
+**Email & HTML** — The LLM output gets wrapped in a simple HTML template and emailed. Gmail works, but any SMTP setup would work.
+
+**GitHub Actions** — A cron job triggers the script once a week. The format is flexible — could run daily, hourly, monthly, or on weekends at a specific time.
+
+### Pros and Cons
+
+The result: one personalized newsletter prompted from a specific set of interests. It acts as a hint of what a publication has been focusing on that week.
+
+Limitations: The model may pick articles randomly or hallucinate details not in the source. Human curation still wins for deep analyses or discovering new sources. However, this system can handle niche combinations of interests that no other newsletter covers — for example, prompting for data-driven story ideas.
+
+Instead of manually skimming dozens of feeds, an AI model can summarize, organize, and email highlights. In a world of recommendation algorithms with no user control, this feels refreshing.
+
+### Try it
+
+GitHub repo: https://github.com/DataFrosch/rss-digest
+
+---
+
+## Blog Post: Skills and Tools to Consider When Working with Data
+
+URL: https://datafrosch.fun/blog/skills-and-tools-for-data.html
+Author: Data Frosch
+Published: (no explicit date)
+
+Skills and tools to consider when leveling up your data game.
+
+When working with databases and large datasets, the approach depends on current capabilities and research needs. Consider the EU Financial Transparency System (ec.europa.eu/budget/financial-transparency-system/) as an example — it can be accessed via web interface for quick lookups, or downloaded for local analysis.
+
+### Level 1: Web Interface Only
+
+- **Pros:** No technical skills required
+- **Cons:** Data analysis not possible
+- **Tools:** Browser
+- **Time investment to master:** Hours
+
+Best for quick searches, look-ups of names, fact-checking, small-scale verification. Often data can be exported from these interfaces to move on to spreadsheet analysis.
+
+### Level 2: Spreadsheet Analysis
+
+- **Pros:** Widely available, low learning bar
+- **Cons:** Sheets with more than ~100,000 records may slow down
+- **Tools:** Excel, Google Sheets, LibreOffice Calc
+- **Time investment to master:** Days
+
+Basic data skills required: data cleaning, sorting, filtering, pivot tables, lookups, and simple visualisation. Usually enough for most day-to-day journalistic analysis.
+
+### Level 3: Database Tools
+
+- **Pros:** Large-scale analysis
+- **Cons:** Data visualisation not supported by most databases
+- **Tools:** SQL, DuckDB, Neo4J
+- **Time investment to master:** Weeks
+
+Can analyse and combine tables of millions of records. DuckDB handles columnar data; SQL handles tabular/row data; Neo4J handles relational/graph data. All tools are free and mostly open source. This level introduces unique identifiers and joining/grouping complexity.
+
+### Level 4: Programming Languages
+
+- **Pros:** Swiss army knife, maximal freedom in analysis
+- **Cons:** Significant time investment
+- **Time investment:** Months
+
+Python or R gives full freedom in data analysis — any transformation, any visualization, scrapers, relational or geographical data, API integration, software solutions. Can combine with spreadsheets or databases when needed.
+
+### AI Chatbots
+
+AI chatbots help with all of the above. They should not analyse data directly, but can write scripts and explain how tools work.
+
+**ChatGPT:** Most widely used all-round model. API integration for scripts. Codex for coding.
+
+**Claude:** Sonnet model is good for agents, coding, and general computer use. Web interface includes interactive artifacts for data visualization. Claude Code for coding on your own computer.
+
+**DeepSeek:** All-round model with a cheap API.
+
+**Gemini Tools:**
+- Gemini Deep Research: research report generation
+- Google Pinpoint: upload collections of documents for analysis
+- NotebookLM: RAG system for document collections
+
+**Local models:** Worth considering for specialized tasks. Tools: Ollama, LM Studio.
+
+---
+
+## Guide: Finding Stories in Data
+
+URL: https://datafrosch.fun/guides/finding-stories-in-data.html
+Type: Interactive Checklist
+
+A step-by-step checklist for interrogating a new dataset and surfacing story angles. Work through each section in order when you receive a new dataset.
+
+### How to use this guide
+
+Work through each section in order when you receive a new dataset. The checklist prompts you to ask the right questions at every stage — from the very first look to final context checks before publication.
+
+### First look at the dataset
+
+- Note the number of rows and columns. Does the size match your expectations?
+- Read any accompanying documentation, methodology notes, or data dictionary.
+- Identify who collected the data, when, and for what purpose.
+- Check the date range — what time period does the data cover?
+- Look at the first and last rows. Do the values look plausible?
+- Calculate basic summary statistics (min, max, mean, median) for key numeric columns.
+- List the unique values in categorical columns. Any surprises or inconsistencies in naming?
+
+### Time patterns
+
+- Plot the data over time. Is there an overall upward or downward trend?
+- Look for seasonal patterns — do values spike or dip at the same time each year?
+- Identify any sudden breaks or discontinuities. Could these reflect a change in methodology?
+- Compare the most recent period to the previous one and to the same period a year ago.
+- Check whether a record high or low has been reached — is this newsworthy?
+
+### Geographic patterns
+
+- Map the data. Which regions stand out visually?
+- Compare values per capita (or another appropriate normalisation) rather than raw counts.
+- Look for clusters — are high (or low) values concentrated in a specific area?
+- Identify any geographic unit with a striking local story — zoom in.
+- Cross-check geographic boundaries — have any regions changed over the data's time span?
+
+### Rankings & comparisons
+
+- Sort the data to find the top and bottom entries. Do the extremes make sense?
+- Compare this dataset to a benchmark — national average, EU average, a previous year.
+- Check whether rankings have changed significantly over time.
+- Be cautious about comparing entities of very different sizes — normalise if needed.
+
+### Outliers & anomalies
+
+- Identify values that are more than 2–3 standard deviations from the mean.
+- For each outlier: is it a data error, a genuine anomaly, or an interesting story?
+- Look for round numbers or suspiciously uniform values — possible signs of imprecision.
+- Check if outliers coincide with known events (elections, policy changes, crises).
+
+### Missing data
+
+- Count missing values per column. Which fields have the most gaps?
+- Is the missingness random, or does it cluster around specific entities, regions, or time periods?
+- Ask the data provider why certain records are missing — and document the answer.
+- Consider whether missing data could itself be the story (e.g. a country that stopped reporting).
+- Decide how you will handle missingness in your analysis — and disclose it to readers.
+
+### Context & verification
+
+- Find a comparable dataset from an independent source and cross-check key figures.
+- Speak to an expert who can sanity-check your main findings.
+- Identify what the data does NOT cover — and mention it in your story.
+- Consider alternative explanations for the patterns you found. Can you rule them out?
+- Save a clean copy of the raw data before any modifications, with a source note.
+- Document your analysis steps so another journalist could reproduce them.
