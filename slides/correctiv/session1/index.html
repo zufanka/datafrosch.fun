@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
+
+		<title>Session 1 — Data Analysis</title>
+
+		<link rel="stylesheet" href="dist/reset.css" />
+		<link rel="stylesheet" href="dist/reveal.css" />
+		<link rel="stylesheet" href="dist/theme/terminal.css" />
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="dist/plugin/highlight/monokai.css" />
+
+		<style>
+			.reveal section[data-background-image] h1,
+			.reveal section[data-background-image] h2,
+			.reveal section[data-background-image] h3,
+			.reveal section[data-background-image] p {
+				text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+			}
+			.reveal .slide-background-content {
+				background-size: cover;
+				background-position: center;
+			}
+			.reveal a {
+				color: #8be9fd;
+			}
+			.reveal a:hover {
+				color: #a8f0ff;
+			}
+			.reveal .slides section,
+			.reveal .slides section > * {
+				text-align: left;
+			}
+			.reveal .slides section ul,
+			.reveal .slides section ol {
+				display: block;
+				text-align: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- 1. Welcome image (no overlay text) -->
+				<section data-background-image="img/intro.jpg">
+				</section>
+
+				<!-- 2. Hi! I am Ada. -->
+				<section data-markdown>
+					<textarea data-template>
+## Hi! I am Ada.
+
+🔗 [Portfolio](https://homolova.sk/)
+
+🐸 [Datafrosch](https://datafrosch.fun)
+
+					</textarea>
+				</section>
+
+				<!-- 3. The program for the day -->
+				<section>
+					<h2>Program</h2>
+					<ul>
+						<li class="fragment"><strong>10:00</strong> Introduction</li>
+						<li class="fragment"><strong>10:05</strong> Data workflow (15 min)</li>
+						<li class="fragment"><strong>10:20</strong> Titanic dataset (45 min)</li>
+						<li class="fragment"><strong>11:05</strong> Break (5 min)</li>
+						<li class="fragment"><strong>11:10</strong> Finding a story (5 min)</li>
+						<li class="fragment"><strong>11:15</strong> Solar tenders (35 min)</li>
+						<li class="fragment"><strong>11:50</strong> Homework &amp; mentorships</li>
+					</ul>
+				</section>
+
+				<!-- 4. Any questions? -->
+				<section data-markdown>
+					<textarea data-template>
+## Any questions?
+					</textarea>
+				</section>
+
+				<!-- 5. Please ask questions -->
+				<section data-markdown>
+					<textarea data-template>
+## Please ask questions during the session!
+
+There will be a lot of information
+					</textarea>
+				</section>
+
+								<!-- Data workflow title -->
+				<section data-markdown>
+					<textarea data-template>
+## Data Workflow
+					</textarea>
+				</section>
+
+				<!-- 10. Data workflow image (no overlay text) -->
+				<section data-background-image="img/data-workflow.jpg">
+				</section>
+
+				<!-- 11. Interviewing data = data analysis -->
+				<section data-markdown>
+					<textarea data-template>
+## Interviewing data = data analysis
+					</textarea>
+				</section>
+
+				<!-- 12. = a series of data transformations -->
+				<section data-markdown>
+					<textarea data-template>
+## = a series of data **transformations**
+
+- sorting <!-- .element: class="fragment" -->
+- filtering <!-- .element: class="fragment" -->
+- pivoting <!-- .element: class="fragment" -->
+- merging <!-- .element: class="fragment" -->
+					</textarea>
+				</section>
+
+				<!-- 6. Titanic image (no overlay text) -->
+				<section data-background-image="img/titanic.jpg" data-background-size="contain">
+				</section>
+
+				<!-- 7. Make your own copy + link -->
+				<section data-markdown>
+					<textarea data-template>
+## Please make your own copy and follow along
+
+🔗 [Open the Titanic dataset](https://docs.google.com/spreadsheets/d/1itGDvNlvNCEIM_BhP3Z1wWiXHUQUAx13Vx57f3tg7o4/edit)
+					</textarea>
+				</section>
+
+				<!-- 8. Questions? -->
+				<section data-background-image="img/data-workflow.jpg">
+					Questions?
+				</section>
+
+				<!-- 9. 5 min break -->
+				<section data-markdown>
+					<textarea data-template>
+## 5 min break
+					</textarea>
+				</section>
+
+
+
+				<!-- 13. Tidy data -->
+				<section data-markdown>
+					<textarea data-template>
+## 🏆 Tidy data
+
+🔗 [datafrosch.fun/guides/tidy-data](https://datafrosch.fun/guides/tidy-data)
+					</textarea>
+				</section>
+
+				<!-- 14. Compare: Titanic vs Eurostat -->
+				<section data-markdown>
+					<textarea data-template>
+## Compare
+
+🔗 [Tidy](https://docs.google.com/spreadsheets/d/1itGDvNlvNCEIM_BhP3Z1wWiXHUQUAx13Vx57f3tg7o4/edit) vs 🔗 [Untidy](https://docs.google.com/spreadsheets/d/1wjQ3beh-g52Fk1DPIhhG-rCU96-_ZZLJ/edit?gid=1159410280#gid=1159410280)
+					</textarea>
+				</section>
+
+				<!-- 15. Finding a story in data -->
+				<section data-markdown>
+					<textarea data-template>
+## Finding a story in data
+					</textarea>
+				</section>
+
+				<!-- 16. Solar image (no overlay text) -->
+				<section data-background-image="img/solar.jpg">
+				</section>
+
+				<!-- 17. Guide + dataset + instruction -->
+				<section data-markdown>
+					<textarea data-template>
+## Solar tenders
+
+🔗 [Finding stories in data guide](https://datafrosch.fun/guides/finding-the-story)
+
+🔗 [Open the Solar tenders dataset](https://docs.google.com/spreadsheets/d/1vb0_cD1TFkKMRCssii6cVpoiJAzJH97B58t6r6ysW4A/edit?gid=0#gid=0)
+
+Do not follow along, just grab the guide, watch, and think with me
+					</textarea>
+				</section>
+
+				<section>
+					<div style="text-align: center; font-size: 4em;">
+						<p>❤️</p>
+						<p>🐸</p>
+					</div>
+				</section>
+
+				<!-- 18. Homework -->
+				<section data-markdown>
+					<textarea data-template>
+## Homework
+
+🔗 [Military building contracts in Europe](https://docs.google.com/document/d/17S-WdWW0py5FHAk5zdtf9gXW-eu0zI3XqBPojoczJ40/edit?tab=t.0)
+
+We see each other again Thursday, April 9 · 14:00–15:30
+					</textarea>
+				</section>
+
+				<!-- 19. Mentorships -->
+				<section data-markdown>
+					<textarea data-template>
+## Mentorships
+
+Open again May 4
+
+🔗 [datafrosch.fun/mentorship](https://datafrosch.fun/mentorship)
+
+					</textarea>
+				</section>
+
+				<!-- 20. Stay in touch -->
+				<section data-markdown>
+					<textarea data-template>
+## Stay in touch 💚
+
+🔗 [LinkedIn](https://www.linkedin.com/in/adahomolova/)
+
+🔗 [Newsletter](https://homolova.sk/newsletter)
+					</textarea>
+				</section>
+
+				<!-- Thank you -->
+				<section data-markdown>
+					<textarea data-template>
+## Thank you and see you next Thursday 14:00!
+					</textarea>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="dist/plugin/notes.js"></script>
+		<script src="dist/plugin/markdown.js"></script>
+		<script src="dist/plugin/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				transition: 'none',
+				plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+			});
+		</script>
+	</body>
+</html>
