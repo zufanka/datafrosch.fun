@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
+
+		<title>Session 2 — Coding with LLMs</title>
+
+		<link rel="stylesheet" href="dist/reset.css" />
+		<link rel="stylesheet" href="dist/reveal.css" />
+		<link rel="stylesheet" href="dist/theme/terminal.css" />
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="dist/plugin/highlight/monokai.css" />
+
+		<style>
+			.reveal section[data-background-image] h1,
+			.reveal section[data-background-image] h2,
+			.reveal section[data-background-image] h3,
+			.reveal section[data-background-image] p {
+				text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+			}
+			.reveal .slide-background-content {
+				background-size: cover;
+				background-position: center;
+			}
+			.reveal a {
+				color: #8be9fd;
+			}
+			.reveal a:hover {
+				color: #a8f0ff;
+			}
+			.reveal .slides section,
+			.reveal .slides section > * {
+				text-align: left;
+			}
+			.reveal .slides section ul,
+			.reveal .slides section ol {
+				display: block;
+				text-align: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- 1. Welcome image (no overlay text) -->
+				<section data-background-image="img/intro.jpg">
+				</section>
+
+				<!-- 2. Hi! I am Ada. -->
+				<section data-markdown>
+					<textarea data-template>
+## Hi! I am Ada.
+
+🔗 [Portfolio](https://homolova.sk/)
+
+🐸 [Datafrosch](https://datafrosch.fun)
+					</textarea>
+				</section>
+
+				<!-- 3. Program for the day -->
+				<section>
+					<h2>Program</h2>
+					<ul>
+						<li class="fragment"><strong>10:00</strong> Introduction</li>
+						<li class="fragment"><strong>10:05</strong> First dataset — Titanic with an LLM</li>
+						<li class="fragment"><strong>10:35</strong> Context building</li>
+						<li class="fragment"><strong>10:50</strong> Break (5 min)</li>
+						<li class="fragment"><strong>10:55</strong> Local agents</li>
+						<li class="fragment"><strong>11:10</strong> Second dataset — Solar</li>
+						<li class="fragment"><strong>11:50</strong> Homework</li>
+					</ul>
+				</section>
+
+				<!-- 4. Any questions? -->
+				<section data-markdown>
+					<textarea data-template>
+## Any questions?
+					</textarea>
+				</section>
+
+				<!-- 5. Please ask questions -->
+				<section data-markdown>
+					<textarea data-template>
+## Please ask questions during the session!
+					</textarea>
+				</section>
+
+				<!-- 6. Data workflow image (no overlay text) -->
+				<section data-background-image="img/data-workflow.jpg">
+				</section>
+
+				<!-- 7. What model will you use? -->
+				<section data-markdown>
+					<textarea data-template>
+## What model will you use?
+
+🔗 [LLM Arena — Code leaderboard](https://arena.ai/leaderboard/code)
+					</textarea>
+				</section>
+
+				<!-- 8. Titanic image (no overlay text) -->
+				<section data-background-image="img/titanic.jpg" data-background-size="contain">
+				</section>
+
+				<!-- 9. Download the data and follow along -->
+				<section data-markdown>
+					<textarea data-template>
+## Please download the data and follow along
+
+🔗 [Titanic dataset](https://docs.google.com/spreadsheets/d/1itGDvNlvNCEIM_BhP3Z1wWiXHUQUAx13Vx57f3tg7o4/edit?usp=drive_web&ouid=113747780923637070234)
+
+Upload it into your LLM.
+					</textarea>
+				</section>
+
+				<!-- 10. Prompt 1 -->
+				<section data-markdown>
+					<textarea data-template>
+## Prompt 1
+
+Please look into the data and give me a basic overview of how the data is structured, descriptive statistics, columns, unique values, and where the dataset is dirty and might need cleaning.
+					</textarea>
+				</section>
+
+				<!-- 11. Prompt 2 -->
+				<section data-markdown>
+					<textarea data-template>
+## Prompt 2
+
+Do a simple exploratory correlation analysis. I am interested which features mattered to whether a person survived.
+					</textarea>
+				</section>
+
+				<!-- 12. Prompt 3 -->
+				<section data-markdown>
+					<textarea data-template>
+## Prompt 3
+
+Make me an exploratory dashboard with this data.
+					</textarea>
+				</section>
+
+				<!-- 13. Examples -->
+				<section>
+					<h2>Examples</h2>
+					<ul>
+						<li class="fragment">🔗 <a href="https://chat.deepseek.com/a/chat/s/c9d2c01f-fc17-4275-ac61-ce597590aaec">Deepseek</a></li>
+						<li class="fragment">🔗 <a href="https://gemini.google.com/app/481f1a7f87ed02ff">Gemini</a></li>
+						<li class="fragment">🔗 <a href="https://chatgpt.com/c/69e7bf91-0cbc-832d-a877-1739b4e5f78f">ChatGPT</a></li>
+						<li class="fragment">🔗 <a href="https://claude.ai/chat/6f049169-6f4a-4086-9522-cc493d40596e">Claude</a></li>
+					</ul>
+				</section>
+
+				<!-- 14. Show me what you got -->
+				<section data-markdown>
+					<textarea data-template>
+## Show me what you got?
+					</textarea>
+				</section>
+
+				<!-- 16a. Context building — title -->
+				<section data-markdown>
+					<textarea data-template>
+## Context building
+					</textarea>
+				</section>
+
+				<!-- 16b. It's NOT -->
+				<section>
+					<h2>It's NOT:</h2>
+					<ul>
+						<li class="fragment">A <strong>conversation</strong> with a similarly <strong>thinking</strong> entity</li>
+						<li class="fragment">It will present bullshit <strong>confidently</strong></li>
+						<li class="fragment">Don't be fooled! Keep thinking!</li>
+					</ul>
+				</section>
+
+				<!-- 16c. Instead -->
+				<section>
+					<h2>Instead:</h2>
+					<ul>
+						<li class="fragment">Context building</li>
+						<li class="fragment">Transformation</li>
+					</ul>
+				</section>
+
+				<!-- 16d. Frog building context image 1 (no overlay text) -->
+				<section data-background-image="img/frog-builing-context.png">
+				</section>
+
+				<!-- 16d2. Frog building context image 2 (no overlay text) -->
+				<section data-background-image="img/frog-builing-context-2.png">
+				</section>
+
+				<!-- 16d3. Frog building context image 3 (no overlay text) -->
+				<section data-background-image="img/frog-builing-context-3.png">
+				</section>
+
+				<!-- 16e. Step by step -->
+				<section>
+					<h2>Take it step by step</h2>
+					<ul>
+						<li class="fragment">start with <strong>exploration and summary stats</strong></li>
+						<li class="fragment">drill into what's interesting: <strong>correlations, outliers</strong></li>
+						<li class="fragment"><strong>combine</strong> with other data</li>
+						<li class="fragment">make <strong>dashboards</strong></li>
+						<li class="fragment"><strong>test the output</strong> against the source data</li>
+					</ul>
+				</section>
+
+				<!-- 16f. If unsure -->
+				<section>
+					<h2>If you are unsure about the approach</h2>
+					<ul>
+						<li class="fragment">Ask about a good approach</li>
+						<li class="fragment">Do your analysis as a <strong>new iteration</strong> — refrain from introducing noise to your context</li>
+					</ul>
+				</section>
+
+				<!-- 16f2. Always verify -->
+				<section>
+					<h2>Always verify</h2>
+					<ul>
+						<li class="fragment">LLMs fabricate <strong>plausible</strong> numbers</li>
+						<li class="fragment">Check every stat against the <strong>source</strong></li>
+						<li class="fragment">Ask it to cite the rows or cells it used</li>
+					</ul>
+				</section>
+
+				<!-- 16f3. Data privacy -->
+				<section>
+					<h2>Data privacy</h2>
+					<ul>
+						<li class="fragment">Don't paste <strong>sensitive data</strong> into hosted chat UIs</li>
+						<li class="fragment">Leaked docs, sources, personal data → <strong>local agents only</strong></li>
+						<li class="fragment">Check the tool's data-retention settings</li>
+					</ul>
+				</section>
+
+				<!-- 16f4. Privacy image -->
+				<section>
+					<div style="text-align: center;">
+						<img src="img/privacy.png" style="max-width: 70%; max-height: 500px;" />
+					</div>
+				</section>
+
+				<!-- 15. 5 min break -->
+				<section data-markdown>
+					<textarea data-template>
+## 5 min break
+					</textarea>
+				</section>
+
+				<!-- 16g. Local agents — title -->
+				<section data-markdown>
+					<textarea data-template>
+## Local agents
+					</textarea>
+				</section>
+
+				<!-- 16h. Why different from a chat UI -->
+				<section>
+					<h2>Different from a chat UI</h2>
+					<ul>
+						<li class="fragment">Reads your <strong>files</strong> directly</li>
+						<li class="fragment">Runs <strong>code</strong> on your machine</li>
+						<li class="fragment">Keeps working while you watch</li>
+						<li class="fragment">You <strong>need a subscription</strong></li>
+					</ul>
+				</section>
+
+				<!-- 16i. What to install -->
+				<section>
+					<h2>What to install</h2>
+					<ul>
+						<li class="fragment">🔗 <a href="https://claude.com/claude-code">Claude Code</a></li>
+						<li class="fragment">🔗 <a href="https://developers.openai.com/codex/cli">Codex</a></li>
+						<li class="fragment">🔗 <a href="https://codeassist.google/">Gemini Code Assist</a></li>
+					</ul>
+				</section>
+
+				<!-- 17. Solar image (no overlay text) -->
+				<section data-background-image="img/solar.jpg">
+				</section>
+
+				<!-- 18. Follow along or just watch -->
+				<section data-markdown>
+					<textarea data-template>
+## Solar tenders
+
+🔗 [Solar tenders dataset](https://docs.google.com/spreadsheets/d/1vb0_cD1TFkKMRCssii6cVpoiJAzJH97B58t6r6ysW4A/edit?gid=0#gid=0)
+
+You can follow along or just watch.
+
+For the best results use a **local agent**.
+					</textarea>
+				</section>
+
+				<section>
+					<div style="text-align: center; font-size: 4em;">
+						<p>✨🐸✨</p>
+					</div>
+				</section>
+
+				<!-- 19. Homework -->
+				<section data-markdown>
+					<textarea data-template>
+## Homework
+
+🔗 [Make a dashboard!](TODO-link-to-homework-doc)
+
+We see each other again Thursday, April 30 · 14:00–15:30
+					</textarea>
+				</section>
+
+				<!-- Thank you -->
+				<section data-markdown>
+					<textarea data-template>
+## Thank you and see you next Thursday 14:00!
+					</textarea>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="dist/plugin/notes.js"></script>
+		<script src="dist/plugin/markdown.js"></script>
+		<script src="dist/plugin/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				transition: 'none',
+				plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+			});
+		</script>
+	</body>
+</html>
