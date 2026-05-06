@@ -1,0 +1,894 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>OŠTRO vs AI</title>
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/night.css">
+
+		<style type="text/css">
+			section { text-align: left; }
+			section strong {
+    			color: #FE7F6E;
+			}
+			section em, i {
+    			color: #84C5E6;
+			}
+			.chart-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+				height: 100%;
+			}
+			.chart-slide h3 {
+				text-align: center;
+				margin-bottom: 20px;
+			}
+			.pie-legend {
+				font-size: 14px;
+			}
+			.bar-chart text {
+				fill: white;
+				font-size: 12px;
+			}
+			.axis text {
+				fill: white;
+			}
+			.axis path, .axis line {
+				stroke: white;
+			}
+		</style>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+		<script src="https://d3js.org/d3.v7.min.js"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- Title slide with background -->
+				<section
+				data-background="img/journalismrobot.png"
+				data-background-opacity="0.5"
+				data-background-position="top"
+				data-transition="none">
+					<h1>Oštro vs AI</h1>
+				</section>
+
+				<!-- Hi intro -->
+				<section
+				data-markdown
+				data-transition="none">
+					<script type="text/template">
+					# 👋
+					---
+					![](img/Ada_Homolova_JAISL_Certificate.png)
+					<!-- .element: class="r-stretch" -->
+					</script>
+				</section>
+
+				<!-- Statistics intro -->
+				<section data-transition="none">
+					<h2>First, some statistics</h2>
+					<p><em>from your survey responses</em></p>
+				</section>
+
+				<!-- Chart 1: How often do you use AI? - Pie Chart -->
+				<section class="chart-slide" data-transition="none">
+					<h3>How often do you use AI tools?</h3>
+					<div class="chart-container">
+						<div id="frequency-chart"></div>
+					</div>
+				</section>
+
+				<!-- Chart 2: For which tasks? - Bar Chart -->
+				<section class="chart-slide" data-transition="none">
+					<h3>For which types of tasks do you use AI?</h3>
+					<div class="chart-container">
+						<div id="tasks-chart"></div>
+					</div>
+				</section>
+
+				<!-- Reuters research -->
+				<section data-transition="none">
+					<div style="display: flex; align-items: center; justify-content: center; gap: 30px; height: 100%;">
+						<img src="img/ukjournos.png" style="max-height: 650px; max-width: 85%;">
+						<div style="text-align: left;">
+							<a href="https://reutersinstitute.politics.ox.ac.uk/sites/default/files/2025-11/AI_Adoption_by_UK_Journalists_0.pdf" target="_blank"><em>Reuters research</em></a>
+						</div>
+					</div>
+				</section>
+
+				<!-- Chart 4: Concerns - Pie Chart -->
+				<section class="chart-slide" data-transition="none">
+					<h3>How concerned are you about AI risks?</h3>
+					<div class="chart-container">
+						<div id="concerns-chart"></div>
+					</div>
+				</section>
+
+				<!-- Motivations slide -->
+				<section data-transition="none">
+					<h3>Your biggest motivation</h3>
+					<ul>
+						<li>Saving time / speed up processes / efficiency</li>
+						<li><strong>Making life easier</strong></li>
+					</ul>
+				</section>
+
+				<!-- Chart 3: Confidence - Bar Chart -->
+				<section class="chart-slide" data-transition="none">
+					<h3>How confident do you feel using AI?</h3>
+					<div class="chart-container">
+						<div id="confidence-chart"></div>
+					</div>
+				</section>
+
+				<!-- Main content slides -->
+				<section
+				data-markdown
+				data-transition="none">
+					<script type="text/template">
+						## Today
+						---
+						## We will
+						<li class="fragment" data-fragment-index="1"><strong>build a practical understanding</strong> of large language models</li>
+						<li class="fragment" data-fragment-index="2"><strong>explore</strong> the uses and caveats</li>
+						<li class="fragment" data-fragment-index="3"><strong>excercise</strong> some techniques and tools</li>
+						---
+						## We won't
+						- discuss **energy consumption**
+						---
+						👀 = recommended reading
+						---
+						## ⁉️ Questions are welcome any time
+						---
+						## Building understanding
+						---
+						### Language
+						---
+						#### 👉 **AI**
+						Broad application of machine learning, has been around for decades
+						---
+						#### 👉 **Language models**
+						<li class="fragment" data-fragment-index="1">also: chat bots, LLM</li>
+						<li class="fragment" data-fragment-index="2">most <em>recent</em> breakthrough that has been forced upon us from everywhere</li>
+						<li class="fragment" data-fragment-index="3">still <em>new</em>: used in weird ways, misunderstood</li>
+						<li class="fragment" data-fragment-index="4">prime time for <em>experiments</em> 🧪</li>
+						---
+						### LLMs vs journalism
+						---
+						#### Problems & fears
+						<li class="fragment" data-fragment-index="1">Exploiting content <strong>without paying for it</strong></li>
+						<li class="fragment" data-fragment-index="2"><strong>Google Zero</strong></li>
+						<li class="fragment" data-fragment-index="3"><strong>Energy consumption</strong></li>
+						<li class="fragment" data-fragment-index="4"><strong>Privacy</strong></li>
+						<li class="fragment" data-fragment-index="5"><strong>Bias</strong> : lack of transparency around training data and other processes</li>
+						---
+						<li><strong>Misinformation and bias at scale</strong></li>
+						<li class="fragment" data-fragment-index="1"><strong>Manipulated content</strong> : not knowing what is real anymore</li>
+						<li class="fragment" data-fragment-index="2">👉 <strong>Reduced trust in journalism</strong></li>
+						---
+						#### It's not all bad
+						---
+						![](img/notalwaysbabypeacock-lg.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/realitycheck.jpg)
+						<!-- .element: class="r-stretch" -->
+						<small><a href="https://realitycheckk.replit.app/21" target="_blank">Play here</a></small>
+						---
+						![](img/realgrocerystore.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/signsofaiwriting.jpg)
+						<!-- .element: class="r-stretch" -->
+						<small>👀 <a href="https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing" target="_blank">Signs of AI writing</a> via Wikipedia</small>
+						---
+						- **Algorithmic overlords** : hyper‑personalized information streams, even less control
+						---
+						**But** it can also mean *real personalisation*
+						<br><br>
+						👀 <a href="https://radicallyinformed.substack.com/p/an-ai-enlightenment-the-consumer" target="_blank">The consumer experience of AI-mediated news</a>
+						---
+						![](img/robotwriting.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						Fetches 6 RSS feeds from The Economist and sends me a *weekly summary* of what  covered that week. Essentially, it is my **own personalized newsletter**.
+						<br><br>
+						👀 <a href="https://datafrosch.fun/blog/rss-newsletter.html" target="_blank">One newsletter to rule them all</a>
+						<br>
+						👩🏻‍💻 <a href="https://github.com/DataFrosch/rss-digest" target="_blank">Clone it on Github!</a>
+						---
+						- **Loss of critical judgment**: everybody becoming stupid, especially kids
+					</script>
+				</section>
+				<!-- Fiction article slide -->
+				<section data-transition="none">
+					<div style="display: flex; align-items: center; justify-content: center; gap: 30px; height: 100%;">
+						<div style="text-align: center;">
+							<img src="img/Eva_Dora_Cowdery_Young_Girl_Reading_a_Book.jpg" style="max-height: 500px; max-width: 100%;">
+							<br><small>Eva Dora Cowdery: 'Young Girl Reading a Book' ca.1898</small>
+						</div>
+						<div style="text-align: left;">
+							<a href="https://magazine.1000libraries.com/how-fiction-sparked-outrage-in-the-18th-century/" target="_blank"><em>How Fiction Sparked Outrage in the 18th Century</em></a>
+						</div>
+					</div>
+				</section>
+				<section
+				data-markdown
+				data-transition="none">
+					<script type="text/template">
+						> Critics of the time worried that people were *slipping into a fantasy realm* and *losing their grip on reality*. 
+						---
+						> Novels were blamed for basically just about everything, from *increasing promiscuity* in young women to *encouraging suicide* and self-harm in young men.
+						---
+						> One of these critics,[...] called for the *banning of novels* altogether and [proposed a tax to discourage] people from wasting their time with *frivolous fiction*.
+						---
+						![](img/goethe.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						- **Job losses** : cutting staff in media
+						---
+						#### Robot's can't:
+						<li class="fragment" data-fragment-index="1"><strong>build trust</strong> with sources</li>
+						<li class="fragment" data-fragment-index="2">exercise <strong>editorial judgment</strong></li>
+						<li class="fragment" data-fragment-index="3">solve morally and ethically <strong>ambiguous</strong> situations</li>
+						<li class="fragment" data-fragment-index="4">create from <strong>bodily</strong> experience</li>
+						
+						<p class="fragment" data-fragment-index="5"><a href="https://www.poynter.org/reporting-editing/2025/new-journalism-human-senses-gay-talese-ai-storytelling/" target="_blank">👀 The scent of the human as resistance to algorithmic storytelling</a></p>
+						---
+						### The AI augmented journalist
+						- 👩‍💻 + 🤖🤖🤖🤖 = 💣
+						---
+						### So how does this work?
+						---
+						**Word predictor**: what is statistically *most probable* next token?
+						---
+						![](img/robotfridgemagnets.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						<p>✅ <strong>Multilingual tasks</strong>: Translation, cross-lingual search</p>
+						<p class="fragment" data-fragment-index="1">✅ <strong>Summarization</strong> of long documents</p>
+						<p class="fragment" data-fragment-index="2">✅ <strong>Explaining complex topics</strong></p>
+						<p class="fragment" data-fragment-index="3">✅ <strong>Explaining code</strong></p>
+						<p class="fragment" data-fragment-index="4">✅ <strong>Simulating perspectives</strong>: Role-playing</p>
+						---
+						### Example
+						![](img/4-ai-role-play-techniques.png)
+						<small>👀 <a href="https://onlinejournalismblog.com/2025/11/28/4-ways-you-can-role-play-with-ai/" target="_blank">onlinejournalismblog</a></small>
+						<!-- .element: class="r-stretch" -->
+						---
+						<p>❌ <strong>Genuine novelty</strong>: no truly original ideas</p>
+						<p class="fragment" data-fragment-index="1">❌ <strong>Factual reliability</strong>: present false information with confidence</p>
+						<p class="fragment" data-fragment-index="2">❌ <strong>Knowing what they don't know</strong>: rarely say "I have no idea"</p>
+						<p class="fragment" data-fragment-index="3">❌ <strong>Consistent reasoning</strong>: contradictions</p>
+						<p class="fragment" data-fragment-index="4">❌ <strong>Subjective judgment</strong>: don't know what is 'most interesting'</p>
+						<p class="fragment" data-fragment-index="5">❌ <strong>Training data cutoffs</strong>: don't know about recent events</p>
+						---
+						🙏<span style="color: #FF6B6B;">~~GENERAL SEARCH~~</span>🥹
+						---
+						**Transformer**: taking input and transforming it into something else
+						---
+						![](img/robottransformer.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						<p>✅ <strong>Rewording</strong>, adjusting tone</p>
+						<p class="fragment" data-fragment-index="1">✅ <strong>Generating code</strong> from natural language</p>
+						<p class="fragment" data-fragment-index="2">✅ <strong>Entity & Relationship extraction</strong>: Identifying people, organizations, locations, mapping connections between entities (NER but better)</p>
+						<p class="fragment" data-fragment-index="3">✅ <strong>OCR</strong>: tabula but better</p>
+						<p class="fragment" data-fragment-index="4">✅ <strong>Data cleaning</strong></p>
+						<p class="fragment" data-fragment-index="5">✅ <strong>Format conversion</strong> : text into tables, csv into JSON, changing data formats</p>
+						<p class="fragment" data-fragment-index="6">✅ <strong>Pattern detection</strong></p>
+						---
+						❌ **Data analysis** : don't have them do analysis! Have them write the code to do the analysis.
+						---
+						**A traveller in vector space**: exploring possibilities
+						---
+						![](img/travelerinvectorspace.jpg)
+						<a href="https://jku-vds-lab.at/apps/embedding-structure-explorer/" target="_blank">https://jku-vds-lab.at</a>
+						---
+						### Brainstorming
+						<p class="fragment" data-fragment-index="1">✅ <strong>Ideation</strong>: Generating many plausible options quickly</p>
+						<p class="fragment" data-fragment-index="2">✅ <strong>Producing first drafts</strong> such as interview questions, or FOIA requests</p>
+						<p class="fragment" data-fragment-index="3">✅ <strong>Exploring strategies</strong> in for example code, research</p>
+						---
+						### Important!
+						❗They are **eager to please** and therefore your biggest echo chamber<br>
+						❗The ability to **question**, **verify**, and **contextualize** information is still *yours*<br>
+						---
+						### Challenges
+						- Find **small tasks** to save time
+						- Create **verifiable** workflows
+						---
+						![](img/euuncovered.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						#### Issues
+						- language barrier
+						- large time investment
+						---
+						- **Concrete** small issue, part of a **larger workflow**
+						- Potential *high gains*: time!
+						---
+						![](img/robotwriting.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						<li>🤖 written with claude</li>
+						<li class="fragment" data-fragment-index="1">pulls 2000 articles from 100 RSS feeds every week</li>
+						<li class="fragment" data-fragment-index="2">exctracts 20-30 relevant articles (🤖 semantic understanding)</li>
+						<li class="fragment" data-fragment-index="3">sends a weekly email with the selection</li>
+						---
+						### ✅
+						<li class="fragment" data-fragment-index="1">sources accross many languages</li>
+						<li class="fragment" data-fragment-index="2">links to the original publication for fact-checks</li>
+						<li class="fragment" data-fragment-index="3">saves time</li>
+						---
+						#### ❗
+						<li class="fragment" data-fragment-index="1">unknown bias</li>
+						<li class="fragment" data-fragment-index="2">sources still limited (by having an RSS feed)</li>
+						<li class="fragment" data-fragment-index="3">only half of the job</li>
+						---
+						> Disclaimer: This digest was generated automatically with AI. It **will contain errors and misinterpretations**. Please **always fact-check** with the original publications.
+						---
+						*DEMO: 5 min Ostro RSS feed analysis*
+						---
+						## Models
+						---
+						### General purpose models
+						GPT, Claude, Gemini, DeepSeek, LLaMA, ...
+						---
+						#### Differences
+						- Parameters, speed, system prompt, training data, output, thinking, context window, price, ...
+						---
+						![](img/models-gpt1.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/models-gpt2.jpg)
+						<!-- .element: class="r-stretch" --> 
+						---
+						🙏<span style="color: #FF6B6B;">~~GENERAL SEARCH~~</span>🥹
+						---
+						![](img/models-claude.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/tokens.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						##### System prompt
+						---
+						![](img/scrapersthumbnail.jpg)<br>
+						📽️ <a href="https://www.youtube.com/watch?v=1yCykgFrZz0" target="_blank">YouTube</a>
+						<!-- .element: class="r-stretch" -->
+						---
+						*DeepSeek*
+						![](img/scraperblocking-deepseek.jpg)<br>
+						<!-- .element: class="r-stretch" -->
+						---
+						*ChatGPT*
+						![](img/scraperblocking-gpt.jpg)<br>
+						<!-- .element: class="r-stretch" -->
+						---
+						*Claude*<br>
+						![](img/scraperblocking-claude.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						Training data + system prompt = **different behavior**
+						---
+						### Specialized models
+						---
+						#### 🤗 Huggingface
+						<li class="fragment" data-fragment-index="1">selection of open source specialized models</li>
+						<li class="fragment" data-fragment-index="2"><a href="https://huggingface.co/spaces" target="_blank">huggingface.co/spaces</a></li>
+						<li class="fragment" data-fragment-index="3"><a href="https://huggingface.co/models" target="_blank">huggingface.co/models</a></li>
+						---
+						#### Example: One shot classifier
+						<a href="https://colab.research.google.com/drive/1Y62tXx0K4l4QMZs17KQhD_neUjJ7J1YT#scrollTo=55U3yeIBtCRV" target="_blank">Google Colab</a>
+						---
+						## Prompting
+						---
+						#### Vocabulary
+						- prompt
+						- context
+						---
+						##### Prompt
+						---
+						###### What makes a good prompt
+						---
+						![](img/goodprompt.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/goodprompt2.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						##### System prompt
+						---
+						![](img/systemprompt.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/systemprompt2.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						##### Context
+						---
+						‼️ Not to confuse with *context window*
+						- *context*: the current 'conversation' including system prompt, prompts and answers
+						- *context window*: how much tokens fit in the context
+						---
+						![](img/contextusage.jpg)
+						<!-- .element: class="r-stretch" -->						
+						---
+						#### Exercise 1 (*10 min*): <a href="https://drive.google.com/drive/folders/19AwDoV0jydKmpN3V2KGYbm8BRDpL5sug" target="_blank">Prompting</a>
+						---
+						#### Resolution : The meta-prompt
+						---
+						> "I am an investigative journalist looking into land ownership. I want to get structured output from this document including the names of owners, share of ownership etc. Based on this document and what I need to extract, *write me a reusable prompt* I can use for future cadastral extracts."
+						---
+						#### For best results on moderately complex tasks
+						1. Have a **conversation**
+						2. Ask questions, tell it to ask you **clarifying questions**
+						3. **At the end** of the conversation ask for a prompt
+						4. **Start a new** conversation with the prompt so you start with a *clean context*
+						---
+						# Creating images
+						---
+						#### Example 1: Datafrosch logo
+						---
+						![](img/datafrosch.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/datafroschlogoidea1.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/datafroschlogoidea2.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						#### Example 2: Banner for LinkedIn Post
+						---
+						![](img/instructivechill1.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/instructivechill2.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/instructivechill.png)
+						<!-- .element: class="r-stretch" -->
+						---
+						Free and good: 🍌 <a href="https://gemini.google.com/app" target="_blank">Gemini nano banana</a>
+						---
+						## Tools for researchers
+						- 🔍 Research
+						- RAG
+						---
+						### 🔍 Research
+						- LLM searches the web and creates a research report *including sources*
+						- **Gemini**, GPT, Claude, <a href="https://www.perplexity.ai/" target="_blank">perplexity.ai</a>
+						---
+						### Pros
+						<li class="fragment" data-fragment-index="1">results are <strong>verifiable</strong></li>
+						<li class="fragment" data-fragment-index="2">might find <strong>new</strong> sources that complement your web search</li>
+						<li class="fragment" data-fragment-index="3">writes a <strong>summary</strong> of the findings</li>
+						---
+						### Cons
+						- it will **miss** some content (paywalls for example)
+						- unknown **biases** in source selection
+						---
+						#### Example: <a href="https://gemini.google.com/app/57926aeca4831ade" target="_blank">History of media ownership in Czechia</a>
+						---
+						### RAG
+						(Retrieval-Augmented Generation) 
+						---
+						<li>uses LLM as a <strong>search engine</strong></li>
+						<li class="fragment" data-fragment-index="1">connected to <strong>selected external knowledge</strong> sources</li>
+						<li class="fragment" data-fragment-index="2">finds <strong>relevant chunks</strong> of text and generate answers</li>
+						<li class="fragment" data-fragment-index="3">up-to-date and more trustworthy</li>
+						---
+						![](img/rag.webp)
+						---
+						### What NOT to ask a RAG system
+						---
+						#### Exhaustive listing requests
+						<p class="fragment" data-fragment-index="1">❌ List <em>all</em> owners in these documents</p>
+						<p class="fragment" data-fragment-index="2">❌ Give me <em>every</em> address mentioned</p>
+						<p class="fragment" data-fragment-index="3">❌ Extract <em>all</em> dates from the documents</p>
+						<p class="fragment" data-fragment-index="4">- RAG retrieves the <em>most relevant chunks</em>, not all chunks.</p>
+						---
+						#### Counting and statistics
+						<p class="fragment" data-fragment-index="1">❌ <em>How many</em> properties have hidden ownership?</p>
+						<p class="fragment" data-fragment-index="2">❌ <em>What percentage</em> of owners are companies vs individuals?</p>
+						<p class="fragment" data-fragment-index="3">❌ Count the <em>total number</em> of unique addresses</p>
+						<p class="fragment" data-fragment-index="4">- RAG <em>can't aggregate</em> across all documents</p>
+						---
+						#### Structured data export
+						<p class="fragment" data-fragment-index="1">❌ <em>Create a CSV of all</em> properties with their owners and addresses</p>
+						<p class="fragment" data-fragment-index="2">❌ <em>Make a table of every</em> ownership percentage in all documents</p>
+						<p class="fragment" data-fragment-index="3">- RAG retrieves only the most relevant chunks, and can't aggregate</p>
+						---
+						#### Exercise 2 (*15 min*): <a href="https://drive.google.com/drive/folders/173guQQwdax1RTinZfufsAnENEtl5GQqj" target="_blank">NotebookLM</a>
+						---
+						## Coding
+						<li class="fragment" data-fragment-index="1">writing code in natural language</li>
+						<li class="fragment" data-fragment-index="2"><strong>scrapers</strong>, <strong>data analysis</strong> (write code, don't have it analyse data), <strong>custom tools</strong>...</li>
+						<li class="fragment" data-fragment-index="3"><strong>pro tip</strong>: conversations + meta-prompting <em>all the way</em>, keep your context clean</li>
+						---
+						### Custom tools
+						- Making small tools **focused on 1 task**
+						---
+						#### Examples:
+						- <a href="https://datafrosch.fun/blog/color-palettes-for-data-visualization.html" target="_blank">Chosing colors for data visualisations</a> 👉🏾 <a href="https://datafrosch.fun/color-analyzer.html" target="_blank">Color Analyzer</a> 🎨
+						- Automated online searches
+						---
+						## Interfaces
+						---
+						### Chat window
+						---
+						![](img/gpthello.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						#### Projects
+						---
+						![](img/gptprojects.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						#### Tools
+						---
+						![](img/gpttools.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/claudetools.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/claudetools2.jpg)
+						<!-- .element: class="r-stretch" -->
+						---
+						### APIs
+						- To use from code
+						- Paid per request/token
+						---
+						### Claude Code / Codex
+						- Give the LLM control of your computer - very powerful 🏋🏿🦸🏻‍♂️
+						- Requires monthly subscription
+						---
+						## 🙅🏼 How NOT to use LLMs
+						---
+						- **For direct quotes and attribution**: They hallucinate information by design
+						---
+						- **Sensitive sources**: Never input information that could identify confidential sources, whistleblowers, or vulnerable people
+						---
+						- **Anything you wouldn't want leaked**: Assume anything you paste could appear in training data or logs
+						---
+						## 🫣 When privacy is really important
+						---
+						Try local models with <a href="https://ollama.com/" target="_blank">ollama</a> or <a href="https://lmstudio.ai/" target="_blank">lmstudio.ai</a>
+						- **Pros**: free, local (nothing gets sent out, privacy friendly)
+						- **Cons**: often more slow & stupid OR very big (e.g. <a href="https://ollama.com/library/deepseek-v3" target="_blank">DeepSeek v3</a>: 404 GB)
+						---
+						![](img/lmarena.jpg)
+						<a href="https://lmarena.ai/leaderboard/" target="_blank">LM Arena</a>
+						<!-- .element: class="r-stretch" -->
+						---
+						![](img/huggingfacemodels.jpg)
+						<a href="https://huggingface.co/models" target="_blank">huggingface</a>
+						<!-- .element: class="r-stretch" -->
+						---
+						- ... or just **ask a language model** what is the best model for the task
+						---
+						## 🪙 Most things cost money
+						---
+						<li>You will hit <strong>limitation without a subscription</strong></li>
+						<li class="fragment" data-fragment-index="1">For API's you need <strong>credits</strong></li>
+						<li class="fragment" data-fragment-index="2">Claude code / codex require subscriptions</li>
+						<li class="fragment" data-fragment-index="3">Cheapest API for a good model: DeepSeek</li>
+						<li class="fragment" data-fragment-index="4">free API calls via <a href="https://openrouter.ai/" target="_blank">openrouter.ai</a> (incl. sacrificing all the privacy)</li>
+						---
+						## Reading tips 👀
+						---
+						<li><a href="https://www.eidosmedia.com/download/media/The-Impact-of-AI-on-the-newsroom-Eidosmedia.pdf" target="_blank">The impact of AI in the newsroom</a></li>
+						<li><a href="https://radicallyinformed.substack.com/p/an-ai-enlightenment-the-consumer" target="_blank">The consumer experience of AI-mediated news</a></li>
+						<li><a href="https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing" target="_blank">Signs of AI writing</a></li>
+						<li><a href="https://www.poynter.org/reporting-editing/2025/new-journalism-human-senses-gay-talese-ai-storytelling/" target="_blank">The scent of the human as resistance to algorithmic storytelling</a></li>
+						<li><a href="https://onlinejournalismblog.com/2025/11/28/4-ways-you-can-role-play-with-ai/" target="_blank">4 ways to role play with AI</a></li>
+						<li><a href="https://blog.sshh.io/p/how-i-use-every-claude-code-feature" target="_blank">How I use every Claude Code feature</a></li>
+						<li><a href="https://huggingface.co/spaces/JournalistsonHF/ai-toolkit" target="_blank">AI Toolkit for Journalists</a></li>
+						<li><a href="https://github.com/ruimgbarros/ai-recipes-ddj" target="_blank">🍰 Six AI recipes for the modern journalist</a></li>		
+					</script>
+				</section>
+				<section data-transition="none">
+					<div style="display: flex; align-items: center; justify-content: center; gap: 30px; height: 100%;">
+						<div style="text-align: center;">
+							<a href="https://homolova.sk/newsletter" target="_blank"><img src="img/newsletters.jpg" style="max-height: 500px; max-width: 100%;"></a>
+						</div>
+						<div style="text-align: left;">
+							<h3>Stay in touch!</h3>
+							<a href="https://homolova.sk/newsletter" target="_blank">👈🏾 homolova.sk/newsletter</a><br>
+							<a href="https://datafrosch.fun/" target="_blank">🐸 datafrosch.fun</a><br>
+							LinkedIN: <a href="https://www.linkedin.com/in/adahomolova/" target="_blank">Ada Homolova</a><br>
+							💌 ada@homolova.sk
+						</div>
+					</div>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+			// Initialize Reveal.js
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+
+			// D3 Charts - render after Reveal is ready
+			Reveal.on('ready', function() {
+				createFrequencyChart();
+				createTasksChart();
+				createConfidenceChart();
+				createConcernsChart();
+			});
+
+			// Chart 1: Frequency Pie Chart
+			function createFrequencyChart() {
+				const data = [
+					{ label: "Rarely / Never", value: 6, color: "#FE7F6E" },
+					{ label: "Few times/week", value: 3, color: "#84C5E6" },
+					{ label: "Daily", value: 1, color: "#98D8AA" }
+				];
+
+				const width = 500, height = 400;
+				const radius = Math.min(width, height) / 2 - 40;
+
+				const svg = d3.select("#frequency-chart")
+					.append("svg")
+					.attr("width", width)
+					.attr("height", height)
+					.append("g")
+					.attr("transform", `translate(${width/2}, ${height/2})`);
+
+				const pie = d3.pie().value(d => d.value).sort(null);
+				const arc = d3.arc().innerRadius(0).outerRadius(radius);
+
+				const arcs = svg.selectAll("arc")
+					.data(pie(data))
+					.enter()
+					.append("g");
+
+				arcs.append("path")
+					.attr("d", arc)
+					.attr("fill", d => d.data.color)
+					.attr("stroke", "#222")
+					.attr("stroke-width", 2);
+
+				// Labels
+				arcs.append("text")
+					.attr("transform", d => `translate(${arc.centroid(d)})`)
+					.attr("text-anchor", "middle")
+					.attr("fill", "#222")
+					.attr("font-size", "14px")
+					.attr("font-weight", "bold")
+					.text(d => d.data.value);
+
+				// Legend
+				const legend = svg.selectAll(".legend")
+					.data(data)
+					.enter()
+					.append("g")
+					.attr("transform", (d, i) => `translate(${-width/2 + 20}, ${height/2 - 80 + i * 25})`);
+
+				legend.append("rect")
+					.attr("width", 18)
+					.attr("height", 18)
+					.attr("fill", d => d.color);
+
+				legend.append("text")
+					.attr("x", 25)
+					.attr("y", 14)
+					.attr("fill", "white")
+					.attr("font-size", "14px")
+					.text(d => d.label);
+			}
+
+			// Chart 2: Tasks Bar Chart (Horizontal)
+			function createTasksChart() {
+				const data = [
+					{ task: "Translation", count: 4 },
+					{ task: "Background research", count: 4 },
+					{ task: "Drafting/editing", count: 2 },
+					{ task: "Brainstorming", count: 2 },
+					{ task: "Transcription", count: 1 },
+					{ task: "Source discovery", count: 1 },
+					{ task: "Data analysis", count: 1 },
+					{ task: "Fact-checking", count: 1 },
+					{ task: "General search", count: 1 }
+				];
+
+				const margin = {top: 20, right: 40, bottom: 30, left: 140};
+				const width = 550 - margin.left - margin.right;
+				const height = 400 - margin.top - margin.bottom;
+
+				const svg = d3.select("#tasks-chart")
+					.append("svg")
+					.attr("width", width + margin.left + margin.right)
+					.attr("height", height + margin.top + margin.bottom)
+					.append("g")
+					.attr("transform", `translate(${margin.left},${margin.top})`);
+
+				const y = d3.scaleBand()
+					.domain(data.map(d => d.task))
+					.range([0, height])
+					.padding(0.2);
+
+				const x = d3.scaleLinear()
+					.domain([0, d3.max(data, d => d.count)])
+					.nice()
+					.range([0, width]);
+
+				svg.append("g")
+					.attr("transform", `translate(0,${height})`)
+					.call(d3.axisBottom(x).ticks(4))
+					.selectAll("text")
+					.attr("fill", "white");
+
+				svg.append("g")
+					.call(d3.axisLeft(y))
+					.selectAll("text")
+					.attr("fill", "white");
+
+				svg.selectAll(".bar")
+					.data(data)
+					.enter()
+					.append("rect")
+					.attr("x", 0)
+					.attr("y", d => y(d.task))
+					.attr("width", d => x(d.count))
+					.attr("height", y.bandwidth())
+					.attr("fill", "#FE7F6E");
+
+				svg.selectAll(".label")
+					.data(data)
+					.enter()
+					.append("text")
+					.attr("x", d => x(d.count) + 5)
+					.attr("y", d => y(d.task) + y.bandwidth()/2 + 4)
+					.attr("text-anchor", "start")
+					.attr("fill", "white")
+					.attr("font-size", "12px")
+					.text(d => d.count);
+			}
+
+			// Chart 3: Confidence Bar Chart
+			function createConfidenceChart() {
+				const data = [
+					{ level: "Not confident\nat all", count: 1, color: "#FF6B6B" },
+					{ level: "Not very\nconfident", count: 3, color: "#FE7F6E" },
+					{ level: "Neutral", count: 6, color: "#84C5E6" },
+					{ level: "Confident", count: 0, color: "#98D8AA" }
+				];
+
+				const margin = {top: 20, right: 30, bottom: 80, left: 50};
+				const width = 500 - margin.left - margin.right;
+				const height = 400 - margin.top - margin.bottom;
+
+				const svg = d3.select("#confidence-chart")
+					.append("svg")
+					.attr("width", width + margin.left + margin.right)
+					.attr("height", height + margin.top + margin.bottom)
+					.append("g")
+					.attr("transform", `translate(${margin.left},${margin.top})`);
+
+				const x = d3.scaleBand()
+					.domain(data.map(d => d.level))
+					.range([0, width])
+					.padding(0.3);
+
+				const y = d3.scaleLinear()
+					.domain([0, d3.max(data, d => d.count) + 1])
+					.range([height, 0]);
+
+				svg.append("g")
+					.attr("transform", `translate(0,${height})`)
+					.call(d3.axisBottom(x))
+					.selectAll("text")
+					.attr("fill", "white")
+					.style("text-anchor", "middle");
+
+				svg.append("g")
+					.call(d3.axisLeft(y).ticks(6))
+					.selectAll("text")
+					.attr("fill", "white");
+
+				svg.selectAll(".bar")
+					.data(data)
+					.enter()
+					.append("rect")
+					.attr("x", d => x(d.level))
+					.attr("y", d => y(d.count))
+					.attr("width", x.bandwidth())
+					.attr("height", d => height - y(d.count))
+					.attr("fill", d => d.color)
+					.attr("stroke", d => d.count === 0 ? d.color : "none")
+					.attr("stroke-width", 2)
+					.attr("stroke-dasharray", d => d.count === 0 ? "5,5" : "none");
+
+				svg.selectAll(".label")
+					.data(data)
+					.enter()
+					.append("text")
+					.attr("x", d => x(d.level) + x.bandwidth()/2)
+					.attr("y", d => y(d.count) - 5)
+					.attr("text-anchor", "middle")
+					.attr("fill", "white")
+					.attr("font-size", "14px")
+					.text(d => d.count);
+			}
+
+			// Chart 4: Concerns Pie Chart
+			function createConcernsChart() {
+				const data = [
+					{ label: "Very concerned", value: 4, color: "#FF6B6B" },
+					{ label: "Somewhat concerned", value: 5, color: "#FE7F6E" },
+					{ label: "Not very concerned", value: 1, color: "#98D8AA" }
+				];
+
+				const width = 500, height = 400;
+				const radius = Math.min(width, height) / 2 - 40;
+
+				const svg = d3.select("#concerns-chart")
+					.append("svg")
+					.attr("width", width)
+					.attr("height", height)
+					.append("g")
+					.attr("transform", `translate(${width/2}, ${height/2})`);
+
+				const pie = d3.pie().value(d => d.value).sort(null);
+				const arc = d3.arc().innerRadius(0).outerRadius(radius);
+
+				const arcs = svg.selectAll("arc")
+					.data(pie(data))
+					.enter()
+					.append("g");
+
+				arcs.append("path")
+					.attr("d", arc)
+					.attr("fill", d => d.data.color)
+					.attr("stroke", "#222")
+					.attr("stroke-width", 2);
+
+				arcs.append("text")
+					.attr("transform", d => `translate(${arc.centroid(d)})`)
+					.attr("text-anchor", "middle")
+					.attr("fill", "#222")
+					.attr("font-size", "14px")
+					.attr("font-weight", "bold")
+					.text(d => d.data.value);
+
+				// Legend
+				const legend = svg.selectAll(".legend")
+					.data(data)
+					.enter()
+					.append("g")
+					.attr("transform", (d, i) => `translate(${-width/2 + 20}, ${height/2 - 80 + i * 25})`);
+
+				legend.append("rect")
+					.attr("width", 18)
+					.attr("height", 18)
+					.attr("fill", d => d.color);
+
+				legend.append("text")
+					.attr("x", 25)
+					.attr("y", 14)
+					.attr("fill", "white")
+					.attr("font-size", "14px")
+					.text(d => d.label);
+			}
+		</script>
+	</body>
+</html>

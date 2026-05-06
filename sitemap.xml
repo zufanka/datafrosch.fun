@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://datafrosch.fun/</loc>
-    <lastmod>2025-10-22</lastmod>
+    <lastmod>2026-05-06</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
@@ -12,16 +12,36 @@
   </url>
   <url>
     <loc>https://datafrosch.fun/blog/</loc>
-    <lastmod>2025-10-22</lastmod>
+    <lastmod>2026-05-06</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://datafrosch.fun/blog/skills-and-tools-for-data.html</loc>
-    <lastmod>2025-10-22</lastmod>
+    <loc>https://datafrosch.fun/blog/bias-in-your-ai.html</loc>
+    <lastmod>2026-05-06</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datafrosch.fun/blog/unit-conversions.html</loc>
+    <lastmod>2026-03-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datafrosch.fun/blog/pitfalls-of-percentages-in-the-news.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datafrosch.fun/blog/color-palettes-for-data-visualization.html</loc>
+    <lastmod>2025-12-03</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://datafrosch.fun/blog/rss-newsletter.html</loc>
+    <lastmod>2025-10-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://datafrosch.fun/blog/skills-and-tools-for-data.html</loc>
     <lastmod>2025-10-22</lastmod>
     <priority>0.7</priority>
   </url>

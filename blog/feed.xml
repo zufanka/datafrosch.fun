@@ -8,6 +8,38 @@
     <atom:link href="https://datafrosch.fun/blog/feed.xml" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>The bias hiding in your AI</title>
+      <link>https://datafrosch.fun/blog/bias-in-your-ai.html</link>
+      <description>Read the words as critically as you read the numbers. Exploring EU health spending data with Claude Code, the model framed government healthcare as money coming "out of people's pockets" — a slightly American way of looking at it. A look at the cultural bias inherent in LLMs and why we should treat their interpretations with the same scepticism as any other source.</description>
+      <pubDate>Wed, 06 May 2026 00:00:00 GMT</pubDate>
+      <guid>https://datafrosch.fun/blog/bias-in-your-ai.html</guid>
+    </item>
+
+    <item>
+      <title>Stop making unit mistakes!</title>
+      <link>https://datafrosch.fun/blog/unit-conversions.html</link>
+      <description>Let the computer track your units so you don't have to. How attaching units to your calculations prevents costly mistakes — a lesson from the Mars Climate Orbiter and investigative journalist Thomas Goorden.</description>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 GMT</pubDate>
+      <guid>https://datafrosch.fun/blog/unit-conversions.html</guid>
+    </item>
+
+    <item>
+      <title>The Pitfalls of Percentages in the News</title>
+      <link>https://datafrosch.fun/blog/pitfalls-of-percentages-in-the-news.html</link>
+      <description>Why percentages mislead, and what journalists can do about it. Jonathan Stoneman explores why '% more likely' is bad journalese, how percentages don't behave like normal numbers, and why context is always key in data reporting.</description>
+      <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+      <guid>https://datafrosch.fun/blog/pitfalls-of-percentages-in-the-news.html</guid>
+    </item>
+
+    <item>
+      <title>How to Choose Colors for Data Visualization</title>
+      <link>https://datafrosch.fun/blog/color-palettes-for-data-visualization.html</link>
+      <description>Color theory fundamentals and 4 essential tools for better palettes. Learn how to choose the perfect color palette for data visualization using HSL color theory. Discover why lightness matters most for distinguishing colors and explore 4 powerful tools for creating accessible, harmonious color schemes.</description>
+      <pubDate>Wed, 03 Dec 2025 00:00:00 GMT</pubDate>
+      <guid>https://datafrosch.fun/blog/color-palettes-for-data-visualization.html</guid>
+    </item>
+
+    <item>
       <title>One Newsletter to Rule Them All</title>
       <link>https://datafrosch.fun/blog/rss-newsletter.html</link>
       <description>Building an AI-powered RSS digest with robots. Learn how to build your own AI-powered RSS newsletter digest that aggregates content from multiple sources into a single weekly summary, delivered straight to your inbox.</description>

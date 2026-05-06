@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Large language models inherit cultural and political bias from their training data. A live exploration of EU health spending data with Claude Code shows why we should read the words as critically as the numbers.">
+    <meta name="keywords" content="AI bias, large language models, data journalism, Claude, health data, critical AI">
+    <meta name="author" content="Ada Homolova">
+    <link rel="canonical" href="https://datafrosch.fun/blog/bias-in-your-ai.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://datafrosch.fun/blog/bias-in-your-ai.html">
+    <meta property="og:title" content="The bias hiding in your AI | Data Frosch">
+    <meta property="og:description" content="LLMs are eager to please — and they bring biases that aren't always obvious. A health-data Pondcast with Claude Code, and what we learned about reading AI output critically.">
+    <meta property="og:image" content="https://datafrosch.fun/img/findingstories_logo.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Finding stories in data with Claude Code">
+    <meta property="og:site_name" content="Data Frosch">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="Ada Homolova">
+    <meta property="article:published_time" content="2026-05-06">
+    <meta property="article:section" content="Data Journalism">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="Bias">
+    <meta property="article:tag" content="Data Journalism">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://datafrosch.fun/blog/bias-in-your-ai.html">
+    <meta name="twitter:title" content="The bias hiding in your AI | Data Frosch">
+    <meta name="twitter:description" content="LLMs are eager to please — and they bring biases that aren't always obvious. A health-data Pondcast with Claude Code, and what we learned about reading AI output critically.">
+    <meta name="twitter:image" content="https://datafrosch.fun/img/findingstories_logo.jpg">
+
+    <title>The bias hiding in your AI | Data Frosch</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The bias hiding in your AI",
+        "description": "LLMs inherit cultural and political bias from their training data. A live exploration of EU health spending data with Claude Code shows why we should read the words as critically as the numbers.",
+        "image": "https://datafrosch.fun/img/findingstories_logo.jpg",
+        "datePublished": "2026-05-06",
+        "dateModified": "2026-05-06",
+        "author": {
+            "@type": "Person",
+            "name": "Ada Homolova"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Data Frosch",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://datafrosch.fun/img/logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://datafrosch.fun/blog/bias-in-your-ai.html"
+        },
+        "keywords": ["AI bias", "large language models", "data journalism", "Claude", "health data"],
+        "articleSection": "Data Journalism"
+    }
+    </script>
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="/index.html">
+            <div class="flex items-center">
+                <div class="logo-container mr-3">
+                    <img src="../img/logo.png" alt="Data Frosch logo - frog mascot for data journalism training">
+                </div>
+                <div class="text-right">
+                    <h1 class="text-xl md:text-3xl font-bold">Data Frosch</h1>
+                    <p id="changing-text" class="text-xs sm:text-sm opacity-75"></p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar sticky top-0 z-50">
+        <div class="container mx-auto px-1 sm:px-2">
+            <div class="flex py-2 sm:py-3"></div>
+        </div>
+    </nav>
+    <script src="../js/navbar.js"></script>
+
+    <!-- Blog Content Section -->
+    <section class="py-10 md:py-16 bg-white relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-2"></div>
+
+        <div class="container mx-auto px-4">
+            <article class="max-w-3xl mx-auto">
+                <h1 class="text-3xl md:text-4xl font-bold mb-3">
+                    The bias hiding in your AI
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-2">
+                    Read the words as critically as you read the numbers
+                </p>
+                <p class="text-sm text-gray-500 mb-8">by Ada Homolova &middot; May 6, 2026</p>
+
+                <figure class="mb-8">
+                    <img src="../img/findingstories_logo.jpg" alt="Finding stories in data with Claude Code — Pondcast banner" class="rounded-lg w-full" loading="eager">
+                </figure>
+
+                <div class="prose prose-lg max-w-none">
+
+                    <p class="text-base md:text-lg mb-6">
+                        In our <a href="https://www.youtube.com/watch?v=DWnYlMLeG-k" target="_blank" class="text-green-700 hover:underline">recent Pondcast</a>, we were exploring EU health spending data with Claude Code. We tasked the model to find trends and outliers across 27 countries.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Large language models are good at this. As they are trained on a lot of code, writing for example python for doing fast insights into data, overviews of the columns, finding outliers, missing data and general simple explorative data analysis is a second nature to them. The issues arrive when they take the liberty to interpret the trends.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        In our analysis for example, Claude described government-funded healthcare as money coming "out of people's pockets." This triggered Jonathan's reporter instincts.
+                    </p>
+
+                    <blockquote class="border-l-4 border-green-500 pl-4 italic text-gray-700 mb-6">
+                        "That's a strange way of putting it because of course my health spending comes out of my pocket. It's just it comes in taxes, not in a specific insurance. It's a slightly American way of looking at it."
+                    </blockquote>
+
+                    <p class="text-base md:text-lg mb-6">
+                        He's right. The model framed it as if government spending is some separate pot, and private spending is the one that really hits you. Later the model said "households shouldering more of the cost" about countries where private health spending was growing. Same framing: public money isn't yours, private spending is the real burden.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        It was a prime example of bias inherent to these models and why we should be very careful with any interpretations they offer.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-10">Why this matters</h2>
+
+                    <p class="text-base md:text-lg mb-6">
+                        If I had taken that output and dropped it into an article without thinking, I would have published an opinion disguised as analysis. Not my opinion, but the model's. Inherited from its training data, which skews heavily American and English-language.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        This isn't just our anecdote. A <a href="https://academic.oup.com/pnasnexus/article/3/9/pgae346/7756548" target="_blank" class="text-green-700 hover:underline">study in PNAS Nexus</a> tested multiple GPT models against the World Values Survey across dozens of countries and found they consistently default to English-speaking, Western values. A <a href="https://www.science.org/doi/10.1126/sciadv.adz2924" target="_blank" class="text-green-700 hover:underline">paper in Science Advances</a> showed that the same facts produce different conclusions depending on how they're framed. And it gets weirder: <a href="https://techxplore.com/news/2025-07-llms-display-cultural-tendencies-queries.html" target="_blank" class="text-green-700 hover:underline">research from July 2025</a> found that the same model thinks differently depending on what <em>language</em> you prompt it in. Ask in English, get an individualist Anglo-American lens. Ask in Chinese, get a more collectivist one. The worldview shifts with the language. This is an interesting insight into language. But also something to bear in mind when using output of the model for anything.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        This doesn't mean AI is useless for data journalism. In the same session, Claude spotted something it identified as "Cyprus's healthcare restructuring", flagged bigger expenditures on health systems in newer EU members, and found that there is not much correlation between how much a country spends on the health care and life expectancy. Those are potential leads I should at least explore (and test!) for further research if I want to. It gave our initial analysis a kickstart, but the thinking is still for me to do.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        This process is collaboration, rather than delegation. These models are really eager to please, so we need to be careful about framing. If we tell it 'give me a story' it will make its utter best to create a story out of nothing and confidently state that that is the story. And when it frames that story, it brings biases that are not always immediately recognizable as such.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-10">The takeaway</h2>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Use AI to explore data. Let it surface patterns and perspectives. But read the <em>words</em> as critically as you'd read the numbers. Even the interpretation of statistics is susceptible to bias. Where we once only had to question our own assumptions, we now also need to stay alert to the model's. And that's not just a risk, but I believe also an opportunity: as it makes those biases visible, it can push us to think more consciously about them.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        📒 <a href="../notebooks/health_spend_exploration.html" class="text-green-700 hover:underline">See the notebook Claude created, zoomed in on health expenditures in EU countries</a>
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        🐸 <em>Want to practice this kind of critical AI + data workflow? <a href="https://discord.com/invite/FQe2UQxE5D" target="_blank" class="text-green-700 hover:underline">Join The Pond</a> — we do live sessions like this twice a month.</em>
+                    </p>
+
+                    <h3 class="text-xl font-bold mb-3">Watch the full session on YouTube</h3>
+                    <div class="mb-6" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+                        <iframe src="https://www.youtube.com/embed/DWnYlMLeG-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%;"></iframe>
+                    </div>
+
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Free Resources CTA -->
+    <section class="py-10 md:py-16 bg-white relative">
+        <div class="lily-pad lily-pad-2"></div>
+
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Free resources</h2>
+            <p class="text-base md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">To help you work with data more confidently.</p>
+            <a href="../guides/index.html" class="cta-button inline-block bounce-hover">Explore the guides</a>
+        </div>
+    </section>
+
+    <!-- Mentorship CTA -->
+    <section class="py-10 md:py-16 bg-gray-50 relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-3"></div>
+
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Take your data skills to the next level</h2>
+            <p class="text-base md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto"></p>
+            <a href="../mentorship.html" class="cta-button inline-block bounce-hover">Join the mentorship</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-6 md:py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center md:flex-row md:justify-between md:items-start">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start">
+                        <div class="logo-container mr-3" style="width: 40px; height: 40px;">
+                            <img src="../img/logo.png" alt="Data Frosch logo">
+                        </div>
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-white">Data Frosch</h3>
+                            <p class="text-xs text-gray-300">datafrosch.fun</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-5 md:gap-8 mb-6 md:mb-0 text-center md:text-left">
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Quick Links</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="../index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                            <li><a href="../index.html#about" class="text-gray-400 hover:text-white">About</a></li>
+                            <li><a href="../index.html#mentoring" class="text-gray-400 hover:text-white">Mentoring</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Resources</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white">Blog</a></li>
+                            <li><a href="../guides/index.html" class="text-gray-400 hover:text-white">Guides</a></li>
+                            <li><a href="https://www.youtube.com/@datafrosch" class="text-gray-400 hover:text-white">YouTube</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Contact</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="mailto:ada@datafrosch.fun" class="text-gray-400 hover:text-white">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-gray-700 text-center text-xs md:text-sm text-gray-400">
+                <p>CC BY-SA 4.0</p>
+                <p class="mt-2">Made with 💚 and 🐸</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="../js/taglines.js"></script>
+</body>
+</html>
