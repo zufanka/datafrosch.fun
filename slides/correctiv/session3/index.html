@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
+
+		<title>Session 3 — Web Scraping</title>
+
+		<link rel="stylesheet" href="dist/reset.css" />
+		<link rel="stylesheet" href="dist/reveal.css" />
+		<link rel="stylesheet" href="dist/theme/terminal.css" />
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="dist/plugin/highlight/monokai.css" />
+
+		<style>
+			.reveal section[data-background-image] h1,
+			.reveal section[data-background-image] h2,
+			.reveal section[data-background-image] h3,
+			.reveal section[data-background-image] p {
+				text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+			}
+			.reveal .slide-background-content {
+				background-size: cover;
+				background-position: center;
+			}
+			.reveal a {
+				color: #8be9fd;
+			}
+			.reveal a:hover {
+				color: #a8f0ff;
+			}
+			.reveal .slides section,
+			.reveal .slides section > * {
+				text-align: left;
+			}
+			.reveal .slides section ul,
+			.reveal .slides section ol {
+				display: block;
+				text-align: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- 1b. Welcome image + "Scraping" overlay -->
+				<section data-background-image="img/cover.png" data-background-opacity="0.4">
+					<h1>Scraping</h1>
+				</section>
+
+				<!-- 2. Program for the day -->
+				<section>
+					<h2>Program</h2>
+					<ul>
+						<li class="fragment"><strong>10:00</strong> Introduction</li>
+						<li class="fragment"><strong>10:10</strong> ✋ Hands-on 1 — your first scraper</li>
+						<li class="fragment"><strong>10:20</strong> What is the internet?</li>
+						<li class="fragment"><strong>10:35</strong> ✋ Hands-on 2 — Books to Scrape</li>
+						<li class="fragment"><strong>11:10</strong> Break (5 min)</li>
+						<li class="fragment"><strong>11:15</strong> ✋ Hands-on 3 — Eurovision odds</li>
+						<li class="fragment"><strong>11:55</strong> Homework</li>
+					</ul>
+				</section>
+
+				<!-- 3. Local setup check -->
+				<section>
+					<h2>Local setup check</h2>
+					<ul>
+						<li class="fragment">Local agent installed &amp; running?</li>
+						<li class="fragment">Python available?</li>
+						<li class="fragment">API key shared</li>
+					</ul>
+				</section>
+
+				<!-- 4. Sandbox image (no overlay text) -->
+				<section data-background-image="img/sandbox.jpg" data-background-size="contain">
+				</section>
+
+				<!-- 5. Hands-on 1 — title -->
+				<section data-markdown>
+					<textarea data-template>
+## ✋ Hands-on 1
+					</textarea>
+				</section>
+
+				<!-- 6. Hands-on 1 — prompt -->
+				<section data-markdown>
+					<textarea data-template>
+## Your first scraper
+
+Fire up your local agent and ask it to **write a simple Python scraper**.
+
+Tell it you **can't code**, so it should explain everything very well.
+					</textarea>
+				</section>
+
+				<!-- 7. What is the internet? -->
+				<section data-markdown>
+					<textarea data-template>
+## What is the internet?
+					</textarea>
+				</section>
+
+				<!-- 8. Text flying around through cables -->
+				<section data-markdown>
+					<textarea data-template>
+## A bunch of text flying around through cables
+					</textarea>
+				</section>
+
+				<!-- 9. Even images are text -->
+				<section data-markdown>
+					<textarea data-template>
+## Even images are text
+					</textarea>
+				</section>
+
+				<!-- 10. base64 image -->
+				<section data-background-image="img/base64image.jpg" data-background-size="contain">
+				</section>
+
+				<!-- 11. The inspector -->
+				<section data-markdown>
+					<textarea data-template>
+## The inspector 🕵️
+					</textarea>
+				</section>
+
+				<!-- 12. inspector image -->
+				<section data-background-image="img/inspector.jpg" data-background-size="contain">
+				</section>
+
+				<!-- 13. Books to scrape -->
+				<section data-markdown>
+					<textarea data-template>
+## 📚 Let's inspect together
+
+🔗 [Books to Scrape](https://books.toscrape.com/)
+					</textarea>
+				</section>
+
+				<!-- 14. HTML & CSS -->
+				<section data-markdown>
+					<textarea data-template>
+## HTML &amp; CSS, help us navigate 🧭
+					</textarea>
+				</section>
+
+				<!-- 15. HTML — DOM tree -->
+				<section data-background-image="img/domtree.webp" data-background-size="contain">
+				</section>
+
+				<!-- 16. HTML tags -->
+				<section data-background-image="img/HTML_Tags.jpg" data-background-size="contain">
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+HTML tags — 🔗 [source](https://mason.gmu.edu/~kshiffl4/375/module5-2.html)
+					</textarea>
+				</section>
+
+				<!-- 17. CSS -->
+				<section data-background-image="img/css.jpg" data-background-size="contain">
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+CSS — 🔗 [source](https://en.wikipedia.org/wiki/HTML_element)
+					</textarea>
+				</section>
+
+				<!-- 18. Integrity watch -->
+				<section data-markdown>
+					<textarea data-template>
+## 👀 Let's look at the network tab
+
+🔗 [Integrity Watch](https://integritywatch.eu/)
+					</textarea>
+				</section>
+
+				<!-- 19. Network tab -->
+				<section data-markdown>
+					<textarea data-template>
+## The Network tab
+
+Where the (undocumented) **APIs** and **files** live.
+					</textarea>
+				</section>
+
+				<!-- 20. Questions? -->
+				<section data-markdown>
+					<textarea data-template>
+## Questions?
+					</textarea>
+				</section>
+
+				<!-- 21. Hands-on 2 — title -->
+				<section data-markdown>
+					<textarea data-template>
+## ✋ Hands-on 2
+					</textarea>
+				</section>
+
+				<!-- 22. Hands-on 2 — task -->
+				<section>
+					<h2>Books to Scrape</h2>
+					<p>Fire up your local agent — scrape the first <strong>5 pages</strong> of
+						<a href="https://books.toscrape.com/">books.toscrape.com</a></p>
+					<ul>
+						<li class="fragment">Stage 1: <strong>plan</strong></li>
+						<li class="fragment">Stage 2: <strong>implement</strong></li>
+						<li class="fragment">Stage 3: <strong>review</strong></li>
+					</ul>
+					<p class="fragment"><em>A volunteer for every stage 🙋</em></p>
+				</section>
+
+				<!-- 23. Break -->
+				<section data-markdown>
+					<textarea data-template>
+## 5 min break
+					</textarea>
+				</section>
+
+				<!-- 24. Hands-on 3 — title -->
+				<section data-markdown>
+					<textarea data-template>
+## ✋ Hands-on 3
+					</textarea>
+				</section>
+
+				<!-- 24b. Hands-on 3 — task -->
+				<section>
+					<h2>Eurovision odds dashboard</h2>
+					<ul>
+						<li class="fragment">Scrape the <strong>Internet Archive</strong> for the Eurovision odds over time</li>
+						<li class="fragment">🔗 <a href="https://eurovisionworld.com/odds/eurovision">eurovisionworld.com/odds/eurovision</a></li>
+						<li class="fragment">🔗 <a href="https://archive.org/developers/index-apis.html">archive.org index APIs</a></li>
+						<li class="fragment">Make a <strong>dashboard</strong></li>
+					</ul>
+				</section>
+
+				<section>
+					<div style="text-align: center; font-size: 4em;">
+						<p>✨🐸✨</p>
+					</div>
+				</section>
+
+				<!-- 25. Homework -->
+				<section data-markdown>
+					<textarea data-template>
+## Homework
+- this homework is doable with or without an LLM
+
+---
+
+🔗 [Integrity Watch](https://integritywatch.eu/)
+- scrape data about the commission or the eu parliament (use the network tab!)
+- explore it
+- make a research question (e.g. *"Which lobbyists is commissioner x meeting the most?"*)
+- send me a two-paragraph data story: headline + 2 paragraphs + 1 visualisation
+- deadline: **3 June**
+
+---
+
+We see each other again **?? 4 June 14:00 ??**
+					</textarea>
+				</section>
+
+				<!-- Thank you -->
+				<section data-markdown>
+					<textarea data-template>
+## Thank you!
+					</textarea>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="dist/plugin/notes.js"></script>
+		<script src="dist/plugin/markdown.js"></script>
+		<script src="dist/plugin/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				transition: 'none',
+				plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+			});
+		</script>
+	</body>
+</html>
