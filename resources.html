@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="All Data Frosch resources in one place — videos (Pondcasts), blog posts, guides, and the newsletter.">
+    <meta name="keywords" content="data journalism resources, Pondcast, data guides, data blog, data newsletter">
+    <link rel="canonical" href="https://datafrosch.fun/resources.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://datafrosch.fun/resources.html">
+    <meta property="og:title" content="Resources | Data Frosch">
+    <meta property="og:description" content="All Data Frosch resources in one place — videos, blog posts, guides, and the newsletter.">
+    <meta property="og:image" content="https://datafrosch.fun/img/logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Data Frosch - Free Resources">
+    <meta property="og:site_name" content="Data Frosch">
+    <meta property="og:locale" content="en_US">
+
+    <title>Resources | Data Frosch</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
+    <link rel="alternate" type="application/rss+xml" title="Data Frosch Blog" href="https://datafrosch.fun/blog/feed.xml">
+
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
+
+    <style>
+        .resource-filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .resource-filter {
+            background: #fff;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+        }
+        .resource-filter:hover { background: var(--primary-color); color: #fff; }
+        .resource-filter.active { background: var(--primary-color); color: #fff; }
+        @media (min-width: 768px) {
+            .resource-filter { font-size: 0.95rem; padding: 0.5rem 1.25rem; }
+        }
+        .resource-item.hidden { display: none; }
+        .video-container img[data-thumb-target]:not([src]) { background: #e5e7eb; }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="/index.html">
+            <div class="flex items-center">
+                <div class="logo-container mr-3">
+                    <img src="img/logo.png" alt="Data Frosch logo - frog mascot for data journalism training">
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-3xl font-bold">Data Frosch</h1>
+                    <p class="text-xs sm:text-sm opacity-75">Resources</p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar sticky top-0 z-50">
+        <div class="container mx-auto px-1 sm:px-2">
+            <div class="flex py-2 sm:py-3"></div>
+        </div>
+    </nav>
+    <script src="js/navbar.js"></script>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-2xl md:text-5xl font-bold mb-4 md:mb-6">Free Resources</h2>
+            <p class="text-lg md:text-xl mb-2 max-w-2xl mx-auto">Videos, blog posts, guides, and the newsletter — everything in one place.</p>
+        </div>
+    </section>
+
+    <!-- All resources with filters -->
+    <section id="resources" class="py-10 md:py-16 bg-gray-50 relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-3"></div>
+
+        <div class="container mx-auto px-4">
+
+            <!-- Filter buttons -->
+            <div class="resource-filters" role="tablist" aria-label="Filter resources">
+                <button type="button" class="resource-filter active" data-filter="all">All</button>
+                <button type="button" class="resource-filter" data-filter="video">Videos</button>
+                <button type="button" class="resource-filter" data-filter="blog">Blog</button>
+                <button type="button" class="resource-filter" data-filter="guide">Guides</button>
+                <button type="button" class="resource-filter" data-filter="newsletter">Newsletter</button>
+            </div>
+
+            <div id="resource-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+
+                <!-- Video — Pondcast #5 (2026-05-14) -->
+                <a target="_blank" href="https://www.youtube.com/watch?v=_teY3H-sK4I" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="video">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Pondcast #5: Text embeddings and how to use them" class="w-full h-full object-cover" loading="lazy" />
+                        <div class="play-button">
+                            <div class="w-12 h-12 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm3.33 10.33l-4.73 2.83a.33.33 0 0 1-.5-.29V7.13a.33.33 0 0 1 .5-.29l4.73 2.83a.33.33 0 0 1 0 .58z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Video</span>
+                            <span class="text-xs text-gray-500">May 14, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">Pondcast #5: Text embeddings and how to use them</h3>
+                        <p class="opacity-75 text-xs md:text-sm">What text embeddings are and how to put them to work in practice.</p>
+                    </div>
+                </a>
+
+                <!-- Blog — bias in your AI (2026-05-06) -->
+                <a href="blog/bias-in-your-ai.html" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="blog">
+                    <div class="video-container">
+                        <img data-thumb-target alt="The bias hiding in your AI" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Blog</span>
+                            <span class="text-xs text-gray-500">May 6, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">The bias hiding in your AI</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Read the words as critically as you read the numbers — what a health-data Pondcast taught us about LLM bias.</p>
+                    </div>
+                </a>
+
+                <!-- Newsletter — The Pond #9 (2026-05-06) -->
+                <a target="_blank" href="https://datafrosch.beehiiv.com/p/the-pond-9-embeddings-eggs-and-statistics" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="newsletter" data-thumb="img/findingstories_logo.jpg">
+                    <div class="video-container">
+                        <img data-thumb-target alt="The Pond #9: Embeddings, eggs and statistics" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Newsletter</span>
+                            <span class="text-xs text-gray-500">May 6, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">🪷 The Pond #9: Embeddings, eggs and statistics</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Also: come learn about maps!</p>
+                    </div>
+                </a>
+
+                <!-- Video — Pondcast #4 (2026-04-17) -->
+                <a target="_blank" href="https://www.youtube.com/watch?v=DWnYlMLeG-k" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="video">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Pondcast #4: Finding Stories in health expenses data with Ada" class="w-full h-full object-cover" loading="lazy" />
+                        <div class="play-button">
+                            <div class="w-12 h-12 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm3.33 10.33l-4.73 2.83a.33.33 0 0 1-.5-.29V7.13a.33.33 0 0 1 .5-.29l4.73 2.83a.33.33 0 0 1 0 .58z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Video</span>
+                            <span class="text-xs text-gray-500">Apr 17, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">Pondcast #4: Finding Stories in health expenses data with Ada</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Uncovering narratives and insights from healthcare expenditure data.</p>
+                    </div>
+                </a>
+
+                <!-- Newsletter — The Pond #8 (2026-04-08) -->
+                <a target="_blank" href="https://datafrosch.beehiiv.com/p/the-pond-8-don-t-make-unit-mistakes" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="newsletter" data-thumb="img/unit-frogs.jpg">
+                    <div class="video-container">
+                        <img data-thumb-target alt="The Pond #8: Don't make unit mistakes!" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Newsletter</span>
+                            <span class="text-xs text-gray-500">Apr 8, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">🪷 The Pond #8: Don't make unit mistakes!</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Also: come learn about embeddings and how to find even more stories in data!</p>
+                    </div>
+                </a>
+
+                <!-- Guide — Pivot Tables (2026-03-31) -->
+                <a href="guides/pivot-tables.html" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="guide">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Pivot Tables" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Guide</span>
+                            <span class="text-xs text-gray-500">Mar 31, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">Pivot Tables</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Build intuition for what pivot tables do, how to read them, and how to construct them from a question.</p>
+                    </div>
+                </a>
+
+                <!-- Guide — Tidy Data (2026-03-31) -->
+                <a href="guides/tidy-data.html" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="guide">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Tidy Data" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Guide</span>
+                            <span class="text-xs text-gray-500">Mar 31, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">Tidy Data</h3>
+                        <p class="opacity-75 text-xs md:text-sm">What tidy data is, the most common ways spreadsheets go wrong, and a checklist to confirm your data is analysis-ready.</p>
+                    </div>
+                </a>
+
+                <!-- Guide — Finding Stories in Data (2026-03-31) -->
+                <a href="guides/finding-stories-in-data.html" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="guide">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Finding Stories in Data" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Guide</span>
+                            <span class="text-xs text-gray-500">Mar 31, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">Finding Stories in Data</h3>
+                        <p class="opacity-75 text-xs md:text-sm">A step-by-step checklist to interrogate any dataset and surface story angles — from first look to context checks.</p>
+                    </div>
+                </a>
+
+                <!-- Blog — unit conversions (2026-03-31) -->
+                <a href="blog/unit-conversions.html" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="blog">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Stop making unit mistakes!" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Blog</span>
+                            <span class="text-xs text-gray-500">Mar 31, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">Stop making unit mistakes!</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Let the computer track your units and never miscalculate gigatons vs megatons again.</p>
+                    </div>
+                </a>
+
+                <!-- Video — Pondcast #3 (2026-03-25) -->
+                <a target="_blank" href="https://www.youtube.com/watch?v=qE9GMVyRoEI" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="video">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Pondcast #3: Calculate CO2 emissions with Thomas Goorden" class="w-full h-full object-cover" loading="lazy" />
+                        <div class="play-button">
+                            <div class="w-12 h-12 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm3.33 10.33l-4.73 2.83a.33.33 0 0 1-.5-.29V7.13a.33.33 0 0 1 .5-.29l4.73 2.83a.33.33 0 0 1 0 .58z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Video</span>
+                            <span class="text-xs text-gray-500">Mar 25, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">Pondcast #3: Calculate CO2 emissions with Thomas Goorden</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Discussing methods for measuring carbon dioxide emissions.</p>
+                    </div>
+                </a>
+
+                <!-- Newsletter — The Pond #7 (2026-02-26) -->
+                <a target="_blank" href="https://datafrosch.beehiiv.com/p/the-pond-7-beware-of-percentages" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="newsletter" data-thumb="img/murder_rate.png">
+                    <div class="video-container">
+                        <img data-thumb-target alt="The Pond #7: beware of percentages!" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Newsletter</span>
+                            <span class="text-xs text-gray-500">Feb 26, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">🪷 The Pond #7: beware of percentages!</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Also: come find stories with us and learn how to calculate CO2 emissions!</p>
+                    </div>
+                </a>
+
+                <!-- Blog — pitfalls of percentages (2026-02-18) -->
+                <a href="blog/pitfalls-of-percentages-in-the-news.html" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="blog">
+                    <div class="video-container">
+                        <img data-thumb-target alt="The Pitfalls of Percentages in the News" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Blog</span>
+                            <span class="text-xs text-gray-500">Feb 18, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">The Pitfalls of Percentages in the News</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Why percentages mislead, and what journalists can do about it.</p>
+                    </div>
+                </a>
+
+                <!-- Newsletter — The Pond #6 (2026-01-21) -->
+                <a target="_blank" href="https://datafrosch.beehiiv.com/p/the-pond-6-nurseries-vpns-and-color-palettes" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="newsletter" data-thumb="img/colors_banner.png">
+                    <div class="video-container">
+                        <img data-thumb-target alt="The Pond #6: Nurseries, VPNs and color palettes" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Newsletter</span>
+                            <span class="text-xs text-gray-500">Jan 21, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">🪷 The Pond #6: Nurseries, VPNs and color palettes</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Also: Hang out with us on Mondays!</p>
+                    </div>
+                </a>
+
+                <!-- Video — Pondcast #2 (2026-01-14) -->
+                <a target="_blank" href="https://www.youtube.com/watch?v=lvSleNCANkI" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="video">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Pondcast #2: Investigating kindergartens with Freja Wedenborg" class="w-full h-full object-cover" loading="lazy" />
+                        <div class="play-button">
+                            <div class="w-12 h-12 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm3.33 10.33l-4.73 2.83a.33.33 0 0 1-.5-.29V7.13a.33.33 0 0 1 .5-.29l4.73 2.83a.33.33 0 0 1 0 .58z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Video</span>
+                            <span class="text-xs text-gray-500">Jan 14, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">🪷 Pondcast #2: Investigating kindergartens with Freja Wedenborg</h3>
+                        <p class="opacity-75 text-xs md:text-sm">What 350 evaluation reports reveal about inequality between Copenhagen neighbourhoods.</p>
+                    </div>
+                </a>
+
+                <!-- Video — AI classification (2025-12-22) -->
+                <a target="_blank" href="https://www.youtube.com/watch?v=lU49a7XbxFA" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="video">
+                    <div class="video-container">
+                        <img data-thumb-target alt="The lazy journalist's secret: AI classification" class="w-full h-full object-cover" loading="lazy" />
+                        <div class="play-button">
+                            <div class="w-12 h-12 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm3.33 10.33l-4.73 2.83a.33.33 0 0 1-.5-.29V7.13a.33.33 0 0 1 .5-.29l4.73 2.83a.33.33 0 0 1 0 .58z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Video</span>
+                            <span class="text-xs text-gray-500">Dec 22, 2025</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">The lazy journalist's secret: AI classification</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Behind-the-scenes from mentorship — using AI to classify a big pile of text.</p>
+                    </div>
+                </a>
+
+                <!-- Blog — color palettes (2025-12-03) -->
+                <a href="blog/color-palettes-for-data-visualization.html" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="blog">
+                    <div class="video-container">
+                        <img data-thumb-target alt="How to Choose Colors for Data Visualization" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Blog</span>
+                            <span class="text-xs text-gray-500">Dec 3, 2025</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">How to Choose Colors for Data Visualization</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Color theory fundamentals and 4 essential tools for better palettes.</p>
+                    </div>
+                </a>
+
+                <!-- Video — Pondcast #1 (2025-12-03) -->
+                <a target="_blank" href="https://www.youtube.com/watch?v=1yCykgFrZz0" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="video">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Pondcast #1: Scraper blocking and how to get around it" class="w-full h-full object-cover" loading="lazy" />
+                        <div class="play-button">
+                            <div class="w-12 h-12 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm3.33 10.33l-4.73 2.83a.33.33 0 0 1-.5-.29V7.13a.33.33 0 0 1 .5-.29l4.73 2.83a.33.33 0 0 1 0 .58z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Video</span>
+                            <span class="text-xs text-gray-500">Dec 3, 2025</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">🪷 Pondcast #1: Scraper blocking and how to get around it</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Practical approaches when websites block your scraper.</p>
+                    </div>
+                </a>
+
+                <!-- Video — Scraping from scratch in Python (2025-12-03) -->
+                <a target="_blank" href="https://www.youtube.com/watch?v=wQ1gR6MQtFU" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="video">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Scraping from scratch in Python (beginner friendly!)" class="w-full h-full object-cover" loading="lazy" />
+                        <div class="play-button">
+                            <div class="w-12 h-12 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm3.33 10.33l-4.73 2.83a.33.33 0 0 1-.5-.29V7.13a.33.33 0 0 1 .5-.29l4.73 2.83a.33.33 0 0 1 0 .58z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Video</span>
+                            <span class="text-xs text-gray-500">Dec 3, 2025</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">Scraping from scratch in Python (beginner friendly!)</h3>
+                        <p class="opacity-75 text-xs md:text-sm">From zero to scraping a real site, step by step in Python.</p>
+                    </div>
+                </a>
+
+                <!-- Blog — RSS newsletter (2025-10-22) -->
+                <a href="blog/rss-newsletter.html" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="blog">
+                    <div class="video-container">
+                        <img data-thumb-target alt="One Newsletter to Rule Them All" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Blog</span>
+                            <span class="text-xs text-gray-500">Oct 22, 2025</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">One Newsletter to Rule Them All</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Building an AI-powered RSS digest that summarises your favourite feeds into a weekly email.</p>
+                    </div>
+                </a>
+
+                <!-- Blog — skills and tools (2025-10-06) -->
+                <a href="blog/skills-and-tools-for-data.html" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="blog">
+                    <div class="video-container">
+                        <img data-thumb-target alt="How do I begin working with data?" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Blog</span>
+                            <span class="text-xs text-gray-500">Oct 6, 2025</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">How do I begin working with data?</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Skills and tools to consider when levelling up your data game — from spreadsheets to Python and AI chatbots.</p>
+                    </div>
+                </a>
+
+                <!-- Video — What form to use for my data? (2025-06-10) -->
+                <a target="_blank" href="https://www.youtube.com/watch?v=1IRLqRtq0SI" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="video">
+                    <div class="video-container">
+                        <img data-thumb-target alt="What form to use for my data?" class="w-full h-full object-cover" loading="lazy" />
+                        <div class="play-button">
+                            <div class="w-12 h-12 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm3.33 10.33l-4.73 2.83a.33.33 0 0 1-.5-.29V7.13a.33.33 0 0 1 .5-.29l4.73 2.83a.33.33 0 0 1 0 .58z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Video</span>
+                            <span class="text-xs text-gray-500">Jun 10, 2025</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">What form to use for my data?</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Pick the right chart shape for what your data is trying to say.</p>
+                    </div>
+                </a>
+
+                <!-- Video — Chart makeover: volunteering in Austria (2025-03-31) -->
+                <a target="_blank" href="https://www.youtube.com/watch?v=1QxR2x9vgFg" class="resource-item course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-type="video">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Chart makeover: volunteering in Austria" class="w-full h-full object-cover" loading="lazy" />
+                        <div class="play-button">
+                            <div class="w-12 h-12 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm3.33 10.33l-4.73 2.83a.33.33 0 0 1-.5-.29V7.13a.33.33 0 0 1 .5-.29l4.73 2.83a.33.33 0 0 1 0 .58z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Video</span>
+                            <span class="text-xs text-gray-500">Mar 31, 2025</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">Chart makeover: volunteering in Austria</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Rework a real-world chart step by step.</p>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- Subscribe CTA -->
+            <div class="mt-10 md:mt-14 text-center">
+                <p class="text-base md:text-lg mb-4 opacity-90">Want new resources delivered to your inbox?</p>
+                <a target="_blank" href="https://datafrosch.beehiiv.com/subscribe" class="cta-button inline-block bounce-hover">🪷 Join the Pond 🪷</a>
+                <p class="mt-4 text-xs md:text-sm opacity-75">
+                    Prefer a feed reader? Subscribe to the <a href="blog/feed.xml" class="text-green-700 hover:underline">blog RSS feed</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-6 md:py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center md:flex-row md:justify-between md:items-start">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start">
+                        <div class="logo-container mr-3" style="width: 40px; height: 40px;">
+                            <img src="img/logo.png" alt="Data Frosch logo">
+                        </div>
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-white">Data Frosch</h3>
+                            <p class="text-xs text-gray-300">datafrosch.fun</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-5 md:gap-8 mb-6 md:mb-0 text-center md:text-left">
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Quick Links</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                            <li><a href="index.html#mentorship" class="text-gray-400 hover:text-white">Mentorship</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Resources</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="blog/index.html" class="text-gray-400 hover:text-white">Blog</a></li>
+                            <li><a href="guides/index.html" class="text-gray-400 hover:text-white">Guides</a></li>
+                            <li><a href="https://www.youtube.com/@datafrosch" class="text-gray-400 hover:text-white">YouTube</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Contact</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="mailto:ada@datafrosch.fun" class="text-gray-400 hover:text-white">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-gray-700 text-center text-xs md:text-sm text-gray-400">
+                <p>CC BY-SA 4.0</p>
+                <p class="mt-2">Made with 💚 and 🐸</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/thumbs.js"></script>
+    <script>
+        (function () {
+            var buttons = document.querySelectorAll('.resource-filter');
+            var items = document.querySelectorAll('.resource-item');
+            buttons.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var filter = btn.getAttribute('data-filter');
+                    buttons.forEach(function (b) { b.classList.remove('active'); });
+                    btn.classList.add('active');
+                    items.forEach(function (item) {
+                        if (filter === 'all' || item.getAttribute('data-type') === filter) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
