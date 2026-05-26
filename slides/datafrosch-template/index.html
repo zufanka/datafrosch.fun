@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Datafrosch slide template</title>
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/datafrosch.css">
+
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- 1. Title slide -->
+				<section class="title-slide">
+					<span class="kicker">Issue 01 &middot; Template</span>
+					<h1>Datafrosch<br>slide style</h1>
+					<p class="subtitle">An editorial template for data stories &amp; workshops.</p>
+					<p class="meta">datafrosch.com</p>
+				</section>
+
+				<!-- 2. Section divider -->
+				<section class="section-divider" data-background-color="#FF8BB8">
+					<span class="eyebrow">Part one</span>
+					<h2>Type &amp;<br>text</h2>
+					<p><em>Bowlby One headlines on a Roboto body.</em></p>
+				</section>
+
+				<!-- 3. Headings showcase -->
+				<section>
+					<h1>Heading 1</h1>
+					<h2>Heading 2</h2>
+					<h3>Heading 3</h3>
+					<h4>Heading 4 (slab)</h4>
+					<p>Body sets in <strong>Roboto</strong> with a soft pink highlighter on bold and <em>slab italics</em> for soft emphasis. Inline <code>code</code> sits in a cream chip. Links look like <a href="#">this link here</a>.</p>
+				</section>
+
+				<!-- 4. Bullet list -->
+				<section>
+					<h2>Square bullets</h2>
+					<ul>
+						<li>Flat squares in pink, then blue, then orange</li>
+						<li>Nested lists shift colour automatically
+							<ul>
+								<li>Like this second level
+									<ul>
+										<li>And this third</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>No icons, no rounding — just blocks</li>
+					</ul>
+				</section>
+
+				<!-- 5. Numbered list -->
+				<section>
+					<h2>Numbered steps</h2>
+					<ol>
+						<li>Pick the chart that fits the story</li>
+						<li>Strip what isn't the story</li>
+						<li>Annotate the number that matters</li>
+						<li>Read it cold tomorrow</li>
+					</ol>
+				</section>
+
+				<!-- 6. Quote -->
+				<section>
+					<h2>Pull quote</h2>
+					<blockquote>
+						The simple graph has brought more information to the data analyst's mind than any other device.
+					</blockquote>
+					<p style="text-align: right;"><small>— John Tukey</small></p>
+				</section>
+
+				<!-- 7. Tags / badges -->
+				<section>
+					<h2>Tags</h2>
+					<p>
+						<span class="tag">Essay</span>
+						<span class="tag green">Data</span>
+						<span class="tag blue">Investigation</span>
+						<span class="tag orange">Workshop</span>
+						<span class="tag ink">Newsletter</span>
+					</p>
+					<p><small>Flat colour blocks &mdash; the signature element. Use <code>.tag</code> + a colour modifier.</small></p>
+				</section>
+
+				<!-- 8. Tips / warnings -->
+				<section>
+					<h2>Callouts</h2>
+					<div class="tip"><strong>Tip</strong> Wrap a takeaway in <code>&lt;div class="tip"&gt;</code> and it gets the pink drop-shadow.</div>
+					<div class="warning"><strong>Heads up</strong> <code>&lt;div class="warning"&gt;</code> swaps the shadow to orange for things to watch out for.</div>
+				</section>
+
+				<!-- 9. Two-column cards -->
+				<section>
+					<h2>Two columns</h2>
+					<div class="cols">
+						<div class="card">
+							<h4>Card one</h4>
+							<p>Cream paper, ink border, pink offset shadow.</p>
+						</div>
+						<div class="card blue">
+							<h4>Card two</h4>
+							<p>Same card, blue shadow via <code>.card.blue</code>.</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- 10. Three-column -->
+				<section>
+					<h2>Three columns</h2>
+					<div class="cols three">
+						<div class="card"><h4>Plan</h4><p>Sketch the story first.</p></div>
+						<div class="card green"><h4>Make</h4><p>Build the simplest chart.</p></div>
+						<div class="card orange"><h4>Test</h4><p>Read it cold tomorrow.</p></div>
+					</div>
+				</section>
+
+				<!-- 11. Code -->
+				<section>
+					<h2>Code</h2>
+					<pre><code class="language-python" data-trim data-noescape>
+import pandas as pd
+
+df = pd.read_csv("turnout.csv")
+by_region = (
+    df.groupby("region")
+      .agg(voters=("voter_id", "size"),
+           turnout=("turned_out", "mean"))
+      .sort_values("turnout", ascending=False)
+)
+print(by_region.head())
+					</code></pre>
+				</section>
+
+				<!-- 12. Table -->
+				<section>
+					<h2>Tables</h2>
+					<table>
+						<thead>
+							<tr><th>Region</th><th>Voters</th><th>Turnout</th></tr>
+						</thead>
+						<tbody>
+							<tr><td>Bratislava</td><td>412,503</td><td>71%</td></tr>
+							<tr><td>Košice</td><td>238,914</td><td>64%</td></tr>
+							<tr><td>Žilina</td><td>187,202</td><td>58%</td></tr>
+							<tr><td>Prešov</td><td>156,330</td><td>52%</td></tr>
+						</tbody>
+					</table>
+				</section>
+
+				<!-- 13. Coloured section dividers showcase -->
+				<section class="section-divider on-light" data-background-color="#02F585">
+					<span class="eyebrow">Variant</span>
+					<h2>Green slab</h2>
+					<p>Pair <code>.section-divider.on-light</code> with <code>data-background-color="#02F585"</code>.</p>
+				</section>
+
+				<section class="section-divider" data-background-color="#5B8BEE">
+					<span class="eyebrow">Variant</span>
+					<h2>Blue slab</h2>
+				</section>
+
+				<section class="section-divider" data-background-color="#FF8A1F">
+					<span class="eyebrow">Variant</span>
+					<h2>Orange slab</h2>
+				</section>
+
+				<!-- 14. Cream paper -->
+				<section data-background-color="#fdf5f0">
+					<h2>Cream paper</h2>
+					<p>Set <code>data-background-color="#fdf5f0"</code> on any section to swap white for warm cream.</p>
+				</section>
+
+				<!-- 15. Dark slide -->
+				<section class="dark" data-background-color="#020202">
+					<h2>Dark slide</h2>
+					<p>Use <code>class="dark"</code> together with <code>data-background-color="#020202"</code>; headings stay pink, body flips to paper white.</p>
+				</section>
+
+				<!-- 16. Fragments -->
+				<section>
+					<h2>Reveal in steps</h2>
+					<ul>
+						<li class="fragment">First idea appears</li>
+						<li class="fragment">Then the supporting detail</li>
+						<li class="fragment">And finally the punchline</li>
+					</ul>
+				</section>
+
+				<!-- 17. Recap -->
+				<section>
+					<h2>Recap</h2>
+					<ol>
+						<li>Bowlby One headlines, pink and uppercase</li>
+						<li>Roboto body, slab italic for soft emphasis</li>
+						<li>Flat candy-pop tags and section slabs</li>
+						<li>Ink borders with offset shadow on cards &amp; code</li>
+					</ol>
+				</section>
+
+				<!-- 18. Closing -->
+				<section class="title-slide">
+					<span class="kicker">End of deck</span>
+					<h1>Thanks.</h1>
+					<p class="subtitle">Copy this folder to start a new deck in the datafrosch style.</p>
+					<p class="meta">datafrosch.com</p>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				slideNumber: 'c/t',
+				transition: 'slide',
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

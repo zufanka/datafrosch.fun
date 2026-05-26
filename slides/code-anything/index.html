@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Code anything &mdash; datafrosch</title>
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/datafrosch.css">
+
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+
+		<style>
+			/* Reveal default slide is 960x700; keep images inside that box. */
+			.reveal .image-pair {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1.25rem;
+				align-items: center;
+				margin: 0;
+			}
+			.reveal .image-pair figure { margin: 0; text-align: center; }
+			.reveal .image-pair img {
+				margin: 0;
+				max-width: 100%;
+				max-height: 500px;
+				object-fit: contain;
+				display: block;
+			}
+			.reveal .single-image {
+				text-align: center;
+			}
+			.reveal .single-image img {
+				max-width: 90%;
+				max-height: 540px;
+				margin: 0 auto;
+				display: block;
+				object-fit: contain;
+			}
+			.reveal .big-emoji {
+				font-size: 6em;
+				text-align: center;
+				line-height: 1;
+				margin: 0;
+			}
+			.reveal .image-caption {
+				display: block;
+				text-align: center;
+				margin-top: 0.5em;
+				font-family: 'Roboto Slab', Georgia, serif;
+				font-size: 0.5em;
+				letter-spacing: 0.05em;
+				color: #666;
+			}
+			.reveal section .prompt-quote {
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 0.65em;
+				line-height: 1.55;
+				font-style: normal;
+			}
+
+			/* Prompt examples — keep code blocks readable at slide scale */
+			.reveal pre.prompt-code {
+				width: 88%;
+				font-size: 0.42em;
+			}
+			.reveal pre.prompt-code code {
+				white-space: pre-wrap;
+				background: #020202;
+				color: #f5f5f5;
+			}
+
+			/* Anchor heading to top — overrides reveal's vertical centering */
+			.reveal .slides section.anchor-top {
+				top: 40px !important;
+				transform: none !important;
+				bottom: auto !important;
+				height: auto !important;
+			}
+
+			/* Triangle / cycle diagram */
+			.reveal .cycle {
+				position: relative;
+				width: 760px;
+				height: 480px;
+				margin: 1.2em auto 0;
+				font-family: 'Bowlby One', sans-serif;
+				text-transform: uppercase;
+			}
+			.reveal .cycle svg {
+				position: absolute;
+				inset: 0;
+				width: 100%;
+				height: 100%;
+				overflow: visible;
+			}
+			.reveal .cycle .node {
+				position: absolute;
+				transform: translate(-50%, -50%);
+				font-size: 1.7em;
+				letter-spacing: 0.01em;
+				color: #fff;
+				white-space: nowrap;
+				line-height: 1;
+				padding: 0.15em 0.4em;
+				background: #FF8A1F;
+				z-index: 2;
+			}
+			.reveal .cycle .node.top    { top: 11%;  left: 50%; }
+			.reveal .cycle .node.bright { top: 82%;  left: 78%; }
+			.reveal .cycle .node.bleft  { top: 82%;  left: 22%; }
+
+			/* Equation-style three-term cascade */
+			.reveal .equation {
+				text-align: center;
+				font-family: 'Bowlby One', sans-serif;
+				text-transform: uppercase;
+				letter-spacing: 0.01em;
+				line-height: 1.05;
+			}
+			.reveal .equation .row {
+				display: flex;
+				align-items: baseline;
+				justify-content: center;
+				gap: 0.35em;
+				margin: 0.45em 0;
+				font-size: 1.7em;
+			}
+			.reveal .equation .row .eq {
+				color: rgba(255, 255, 255, 0.55);
+				font-family: 'Roboto Slab', Georgia, serif;
+				font-weight: 700;
+				font-size: 0.85em;
+			}
+			.reveal .equation .term { display: inline-block; }
+			.reveal .equation .pink   { color: #FF8BB8; }
+			.reveal .equation .blue   { color: #5B8BEE; }
+			.reveal .equation .orange { color: #FF8A1F; }
+
+			/* Stacked meta lines (works on title slide or its own section) */
+			.reveal .stack {
+				font-family: 'Roboto Slab', Georgia, serif;
+				font-size: 0.7em;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+			}
+			.reveal .title-slide .stack {
+				margin-top: 1.6em;
+				font-size: 0.55em;
+			}
+			.reveal .stack > span,
+			.reveal .stack > a {
+				display: block;
+				margin: 0.5em 0;
+				border: none;
+				color: #020202;
+				width: max-content;
+			}
+			.reveal .stack > span {
+				font-size: 1.6em;
+				margin-bottom: 1.4em;
+			}
+			.reveal .stack > a {
+				color: #FF8BB8;
+				border-bottom: 2px solid #FF8BB8;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<div class="stack">
+						<span>datafrosch.fun/slides/code-anything</span> 
+						
+						Either use codex or claude code, otherwise:
+						<a href="https://opencode.ai/download">Download Opencode</a>
+						<a href="https://www.python.org/downloads/">Download Python</a>
+					</div>
+				</section>
+
+				<!-- 2. Hands-on: chat-app snake game -->
+				<section>
+					<h2>Hands-on <small>(5&ndash;10 min)</small></h2>
+					<ol>
+						<li class="fragment">Open ChatGPT, Claude or DeepSeek &mdash; chat apps that make interactive artifacts.</li>
+						<li class="fragment">Prompt it to <em>&ldquo;make a snake game&rdquo;</em>.</li>
+						<li class="fragment">Have fun with the prompt &mdash; make it poop rainbows, make it a space version.</li>
+						<li class="fragment">Play it for a bit, then paste a screenshot &amp; the prompt on the <a href="https://excalidraw.com/#room=d8ba38d1d9ca3fe3c753,oGvi9P3izyrFfUyBQuSALw">shared board</a>.</li>
+					</ol>
+				</section>
+
+				<!-- 3a-3c. Snake-game image gallery, two per slide -->
+				<section>
+					<div class="image-pair">
+						<figure>
+							<img src="img/snake-plain-gpt.jpg" alt="Plain snake game (GPT)">
+							<span class="image-caption">GPT &mdash; plain</span>
+						</figure>
+						<figure>
+							<img src="img/snake-deepseek-plain.jpg" alt="Plain snake game (DeepSeek)">
+							<span class="image-caption">DeepSeek &mdash; plain</span>
+						</figure>
+					</div>
+				</section>
+
+				<section>
+					<div class="image-pair">
+						<figure>
+							<img src="img/snake-desert-claude-sonnet.jpg" alt="Desert snake (Claude Sonnet)">
+							<span class="image-caption">Claude Sonnet &mdash; desert</span>
+						</figure>
+						<figure>
+							<img src="img/snake-space-claude-opus.jpg" alt="Space snake (Claude Opus)">
+							<span class="image-caption">Claude Opus &mdash; space</span>
+						</figure>
+					</div>
+				</section>
+
+				<section>
+					<div class="single-image">
+						<img src="img/snake-teaparty-claude-haiku.jpg" alt="Tea-party snake (Claude Haiku)">
+						<span class="image-caption">Claude Haiku &mdash; tea party</span>
+					</div>
+				</section>
+
+				<!-- Re-intro: title + trainers -->
+				<section class="title-slide">
+					<span class="kicker">Workshop</span>
+					<h1>Code<br>anything</h1>
+					<p class="subtitle">Dataharvest 2026</p>
+				</section>
+
+				<section class="title-slide">
+					<span class="kicker">Trainer</span>
+					<h1>Ada<br>Homolova</h1>
+					<p class="subtitle">Freelance data journalist &amp; trainer.</p>
+					<div class="stack">
+						<a href="https://datafrosch.fun">datafrosch.fun</a>
+					</div>
+				</section>
+
+				<section class="title-slide">
+					<span class="kicker">Trainer</span>
+					<h1>Johan<br>Schuijt</h1>
+					<p class="subtitle">Freelance developer.</p>
+					<div class="stack">
+						<a href="https://resolve.works">resolve.works</a>
+					</div>
+				</section>
+
+				<!-- 4. What is happening here? -->
+				<section class="anchor-top">
+					<h2>What is happening here?</h2>
+					<ul>
+						<li class="fragment">The model knows what a &ldquo;snake game&rdquo; is &mdash; thanks to its training data.</li>
+						<li class="fragment">It knows how to make interactive artifacts (JavaScript).</li>
+					</ul>
+				</section>
+
+				<section class="anchor-top">
+					<h2>What is happening here?</h2>
+					<ul>
+						<li class="fragment">But: it will make a lot of arbitrary choices on its own.
+							<ul>
+								<li class="fragment">How does it look?</li>
+								<li class="fragment">How does it behave?</li>
+								<li class="fragment">Do walls end the game?</li>
+								<li class="fragment">Are there obstacles?</li>
+								<li class="fragment">Does the snake have eyes?</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<!-- 5. We don't want this -->
+				<section class="dark" data-background-color="#020202">
+					<h2>We don&rsquo;t want this 🙅‍♀️</h2>
+				</section>
+
+				<!-- 6. The four pillars -->
+				<section class="dark" data-background-color="#020202">
+					<h2>The four pillars</h2>
+					<ol>
+						<li class="fragment"><strong>Prompt</strong></li>
+						<li class="fragment"><strong>Context</strong></li>
+						<li class="fragment"><strong>Local agents</strong></li>
+						<li class="fragment"><strong>Plan &rarr; Implement &rarr; Review</strong></li>
+					</ol>
+				</section>
+
+				<!-- 7. Section divider: Prompt -->
+				<section class="section-divider" data-background-color="#FF8BB8">
+					<span class="eyebrow">Pillar one</span>
+					<h2>Prompt</h2>
+				</section>
+
+				<!-- 8. Optimal prompt -->
+				<section>
+					<div class="single-image">
+						<img src="img/optimal-prompt.webp" alt="The optimal prompt sits between vague and overly prescriptive">
+					</div>
+					<p style="text-align: center;"><small><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Effective context engineering for AI agents</a></small></p>
+				</section>
+
+				<!-- 9. prompt.jpg -->
+				<section>
+					<div class="single-image">
+						<img src="img/prompt.jpg" alt="Prompt example">
+					</div>
+				</section>
+
+				<!-- 10. ✍️🤖 -->
+				<section>
+					<p class="big-emoji">&#x270D;&#xFE0F;&#x1F916;</p>
+				</section>
+
+				<!-- 11. prompt2.jpg -->
+				<section>
+					<div class="single-image">
+						<img src="img/prompt2.jpg" alt="Prompt example, take two">
+					</div>
+				</section>
+
+				<!-- 12. Section divider: Context -->
+				<section class="section-divider" data-background-color="#5B8BEE">
+					<span class="eyebrow">Pillar two</span>
+					<h2>Context</h2>
+				</section>
+
+				<!-- 13. Definition -->
+				<section>
+					Making sure the model gets <strong>enough information</strong> to perform its task well.
+				</section>
+
+				<section>
+					<h2>Context:</h2>
+						<ul>
+								<li class="fragment">Documentation</li>
+								<li class="fragment">Methodology</li>
+								<li class="fragment">Reports</li>
+								<li class="fragment">Examples</li>
+								<li class="fragment">Tools</li>
+							</ul>
+				</section>
+
+				<!-- 14. context-vs-prompt -->
+				<section>
+					<div class="single-image">
+						<img src="img/context-vs-prompt.png" alt="Context vs prompt">
+					</div>
+					<p style="text-align: center;"><small><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Effective context engineering for AI agents</a></small></p>
+				</section>
+
+				<!-- 15. No context = hallucinations -->
+				<section>
+					No <strong>context</strong> = just <strong>training data</strong> = more <strong>randomness</strong>
+					
+				</section>
+
+				<!-- 16. context.jpg -->
+				<section>
+					<div class="single-image">
+						<img src="img/context.jpg" alt="Context benchmark">
+					</div>
+					<p style="text-align: center;"><small><a href="https://www.kaggle.com/benchmarks/google/facts">FACTS Benchmark Suite Leaderboard</a></small></p>
+				</section>
+
+				<!-- 17. 🐍 -->
+				<section>
+					<p class="big-emoji">&#x1F40D;</p>
+				</section>
+
+				<!-- 18. Core mechanics -->
+				<section>
+					<h2>Core mechanics</h2>
+					<pre class="prompt-code"><code class="language-plaintext">Build a snake game in Python. Represent the snake as a list of (x, y) grid coordinates. It moves by adding a new head in the current direction and removing the tail. Arrow keys change direction. Just a snake crawling on a blank grid — no food, walls, or scoring yet.</code></pre>
+				</section>
+
+				<!-- 19. Basic rules -->
+				<section>
+					<h2>Basic rules</h2>
+					<pre class="prompt-code"><code class="language-plaintext">We have a snake as a list of (x, y) coordinates that moves by adding a head and removing a tail, with arrow-key control. Now add three rules, keeping that representation: (1) food at a random empty cell, (2) eating food grows the snake by skipping the tail removal that turn, (3) game ends on collision with a wall or itself.</code></pre>
+				</section>
+
+				<!-- 20. Design and polish -->
+				<section>
+					<h2>Design &amp; polish</h2>
+					<pre class="prompt-code"><code class="language-plaintext">The snake now moves, eats food to grow, and dies on collision. Keep all of that working. Add polish only: a score counter (one point per food), a game-over screen showing the score with a restart key, and simple colours for the snake, food, and background.</code></pre>
+				</section>
+
+				<!-- 21. Good practices -->
+				<section>
+					<h2>Good practices</h2>
+					<div class="cols">
+						<div class="card fragment">
+							<h4>Discuss</h4>
+							<p>Talk through the problem with the model first.</p>
+						</div>
+						<div class="card blue fragment">
+							<h4>Ask me questions</h4>
+							<p>Make the model probe your assumptions.</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- 22. Small models -->
+				<section>
+					<p>The smaller the model, the more important it is to <strong>divide the work well</strong>.</p>
+				</section>
+
+				<!-- 23. What is a small model -->
+				<section>
+					<h2>What is a "smaller" model?</h2>
+				</section>
+
+				<!-- 24. models.jpg -->
+				<section>
+					<div class="single-image">
+						<img src="img/models.jpg" alt="Model size comparison">
+					</div>
+				</section>
+
+				<!-- 25. deepseek-v4.jpg -->
+				<section>
+					<div class="single-image">
+						<img src="img/deepseek-v4.jpg" alt="DeepSeek V4">
+					</div>
+				</section>
+
+				<!-- 26. Section divider: Local agents -->
+				<section class="section-divider on-light" data-background-color="#02F585">
+					<span class="eyebrow">Pillar three</span>
+					<h2>Local<br>agents</h2>
+				</section>
+
+				<!-- 27. free-the-robot.jpg -->
+				<section>
+					<div class="single-image">
+						<img src="img/free-the-robot.jpg" alt="Free the robot">
+					</div>
+				</section>
+
+				<!-- 28. Hands-on: What is an agent? -->
+				<section>
+					<h2>Hands-on: what is an agent? <small>(5 min)</small></h2>
+					<ul>
+						<li class="fragment">Ask the agent what an agent is.</li>
+						<li class="fragment">Ask the agent what it can do.</li>
+						<li class="fragment">Ask the agent what tools it has.</li>
+					</ul>
+				</section>
+
+
+				<!-- 31. Agent definition -->
+				<section>
+					<h2>Agent<br>=</h2>
+					<p>a <strong>model</strong> with the ability to execute <strong>tools</strong>.</p>
+				</section>
+
+				<section>
+					<h2>Local Agent<br>=</h2>
+					<p>uses tools that can <strong>read and write files</strong> to your computer.</p>
+				</section>
+
+				<!-- 32. Plan - Implement - Review (cycle) -->
+				<section class="section-divider" data-background-color="#FF8A1F">
+					<span class="eyebrow">Pillar four</span>
+					<div class="cycle">
+						<svg viewBox="0 0 760 480" aria-hidden="true">
+							<defs>
+								<marker id="cycarr" viewBox="0 0 10 10" refX="8" refY="5"
+									markerWidth="5" markerHeight="5" orient="auto">
+									<path d="M0,0 L10,5 L0,10 Z" fill="#ffffff"/>
+								</marker>
+							</defs>
+							<g fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" marker-end="url(#cycarr)">
+								<!-- Plan -> Implement (top to bottom-right) -->
+								<path d="M 460 100 Q 700 200 615 365"/>
+								<!-- Implement -> Review (bottom-right to bottom-left) -->
+								<path d="M 555 425 Q 380 530 205 425"/>
+								<!-- Review -> Plan (bottom-left to top) -->
+								<path d="M 145 365 Q 60 200 300 100"/>
+							</g>
+						</svg>
+						<span class="node top">Plan</span>
+						<span class="node bright">Implement</span>
+						<span class="node bleft">Review</span>
+					</div>
+				</section>
+
+				<section>
+					<h2>Hands-on <small>(15 min)</small></h2>
+					<p>Make a scraper for <a href="https://books.toscrape.com/">books to scrape</a>.</p>
+					<ol>
+						<li class="fragment"><strong>Plan</strong> &mdash; discuss what needs to happen with the agent to minimise random behaviour. <em>Use "plan mode".</em></li>
+						<li class="fragment"><strong>Implement</strong> &mdash; grab the plan and have the agent implement it. <em>Use "build mode".</em></li>
+						<li class="fragment"><strong>Review</strong> the output.</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Review <small>(for larger projects)</small></h2>
+						<ul>
+								<li class="fragment">Automated testing</li>
+								<li class="fragment">Git</li>
+							</ul>
+				</section>
+
+				<section>
+					<h2>Hands-on</h2>
+					<p>Let us help!</p>
+					<ul>
+						<li class="fragment">Make a dashboard from the scraped data</li>
+						<li class="fragment">(Start) work(ing) on your own project</li>
+					</ul>
+					<small>We can share an API key for DeepSeek Pro for more ambitious projects</small>
+				</section>
+
+				<!-- More resources / closing -->
+				<section class="title-slide">
+					<span class="kicker">Join 🪷The Pond🪷!</span>
+					<p class="subtitle">
+						<ul>
+						<li><a href="https://datafrosch.beehiiv.com/">Newsletter</a></li>
+						<li><a href="https://discord.gg/NCAjxqVDH">Discord</a></li>
+						</ul>
+					</p>
+					<p class="meta">datafrosch.fun</p>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				slideNumber: 'c/t',
+				transition: 'none',
+				backgroundTransition: 'none',
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
