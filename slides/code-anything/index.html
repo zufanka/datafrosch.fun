@@ -72,6 +72,39 @@
 				color: #f5f5f5;
 			}
 
+			/* Takeaway list inside a coloured section-divider slide */
+			.reveal section.section-divider .takeaway-list {
+				list-style: none;
+				padding: 0;
+				margin: 1.2em 0 0;
+				display: block;
+				text-align: left;
+				font-family: 'Roboto Slab', Georgia, serif;
+				font-size: 0.85em;
+				font-weight: 500;
+				line-height: 1.45;
+				color: inherit;
+			}
+			.reveal section.section-divider .takeaway-list li {
+				position: relative;
+				padding-left: 1.6em;
+				margin: 0.55em 0;
+			}
+			.reveal section.section-divider .takeaway-list li::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0.55em;
+				width: 0.55em;
+				height: 0.55em;
+				background: currentColor;
+			}
+			.reveal section.section-divider .takeaway-list strong {
+				color: inherit;
+				background: none;
+				font-weight: 700;
+			}
+
 			/* Anchor heading to top — overrides reveal's vertical centering */
 			.reveal .slides section.anchor-top {
 				top: 40px !important;
@@ -230,14 +263,14 @@
 				<!-- Re-intro: title + trainers -->
 				<section class="title-slide">
 					<span class="kicker">Workshop</span>
-					<h1>Code<br>anything</h1>
+					<h1>How to code<br>anything</h1>
 					<p class="subtitle">Dataharvest 2026</p>
 				</section>
 
 				<section class="title-slide">
 					<span class="kicker">Trainer</span>
 					<h1>Ada<br>Homolova</h1>
-					<p class="subtitle">Freelance data journalist &amp; trainer.</p>
+					<p class="subtitle">Cooks with Deepseek V4 Pro</p>
 					<div class="stack">
 						<a href="https://datafrosch.fun">datafrosch.fun</a>
 					</div>
@@ -246,15 +279,62 @@
 				<section class="title-slide">
 					<span class="kicker">Trainer</span>
 					<h1>Johan<br>Schuijt</h1>
-					<p class="subtitle">Freelance developer.</p>
+					<p class="subtitle">Almost a language model himself.</p>
 					<div class="stack">
 						<a href="https://resolve.works">resolve.works</a>
 					</div>
 				</section>
 
+				<!-- What we coded with LLMs -->
+				<section>
+					<h2>What have we coded<br>with LLMs?</h2>
+				</section>
+
+				<section>
+					<p> 🌼 <strong>This presentation</strong> 🌼</p>
+				</section>
+
+				<section
+					data-background-image="img/datafrosch-page.jpg"
+					data-background-size="contain"
+					data-background-color="#020202"
+					aria-label="datafrosch.fun homepage"></section>
+
+				<section
+					data-background-image="img/media-ownership.jpg"
+					data-background-size="contain"
+					data-background-color="#020202"
+					aria-label="Media ownership project"></section>
+
+				<section
+					data-background-image="img/cap-dashboard.jpg"
+					data-background-size="contain"
+					data-background-color="#020202"
+					aria-label="CAP dashboard"></section>
+
+				<section
+					data-background-video="img/missing-voters.mp4"
+					data-background-video-loop="true"
+					data-background-video-muted="true"
+					data-background-size="contain"
+					data-background-color="#ffffff"
+					aria-label="Missing voters video"></section>
+
+				<section
+					data-background-image="img/everypolitician.jpg"
+					data-background-size="contain"
+					data-background-color="#020202"
+					aria-label="Poliloom"></section>
+
+				<section
+					data-background-image="img/poliloom.jpg"
+					data-background-size="contain"
+					data-background-color="#020202"
+					aria-label="Poliloom"></section>
+
 				<!-- 4. What is happening here? -->
 				<section class="anchor-top">
-					<h2>What is happening here?</h2>
+					<h2>What happens when we prompt for 🐍?</h2>
 					<ul>
 						<li class="fragment">The model knows what a &ldquo;snake game&rdquo; is &mdash; thanks to its training data.</li>
 						<li class="fragment">It knows how to make interactive artifacts (JavaScript).</li>
@@ -262,7 +342,7 @@
 				</section>
 
 				<section class="anchor-top">
-					<h2>What is happening here?</h2>
+					<h2>What happens when we prompt for 🐍?</h2>
 					<ul>
 						<li class="fragment">But: it will make a lot of arbitrary choices on its own.
 							<ul>
@@ -283,7 +363,7 @@
 
 				<!-- 6. The four pillars -->
 				<section class="dark" data-background-color="#020202">
-					<h2>The four pillars</h2>
+					<h2>Topics</h2>
 					<ol>
 						<li class="fragment"><strong>Prompt</strong></li>
 						<li class="fragment"><strong>Context</strong></li>
@@ -294,7 +374,7 @@
 
 				<!-- 7. Section divider: Prompt -->
 				<section class="section-divider" data-background-color="#FF8BB8">
-					<span class="eyebrow">Pillar one</span>
+					<span class="eyebrow">One</span>
 					<h2>Prompt</h2>
 				</section>
 
@@ -327,7 +407,7 @@
 
 				<!-- 12. Section divider: Context -->
 				<section class="section-divider" data-background-color="#5B8BEE">
-					<span class="eyebrow">Pillar two</span>
+					<span class="eyebrow">Two</span>
 					<h2>Context</h2>
 				</section>
 
@@ -369,32 +449,40 @@
 					<p style="text-align: center;"><small><a href="https://www.kaggle.com/benchmarks/google/facts">FACTS Benchmark Suite Leaderboard</a></small></p>
 				</section>
 
-				<!-- 17. 🐍 -->
+								<!-- 15. No context = hallucinations -->
 				<section>
-					<p class="big-emoji">&#x1F40D;</p>
+					<h2>WHY?</h2>
+					
 				</section>
 
-				<!-- 18. Core mechanics -->
+				<!-- 15. No context = hallucinations -->
 				<section>
-					<h2>Core mechanics</h2>
-					<pre class="prompt-code"><code class="language-plaintext">Build a snake game in Python. Represent the snake as a list of (x, y) grid coordinates. It moves by adding a new head in the current direction and removing the tail. Arrow keys change direction. Just a snake crawling on a blank grid — no food, walls, or scoring yet.</code></pre>
+					<h2>Mechanistic reality</h2>
+					<svg viewBox="0 0 720 400" style="display: block; margin: 0 auto; max-width: 90%; max-height: 460px;" aria-hidden="true">
+						<defs>
+							<marker id="psarr" viewBox="0 0 10 10" refX="9" refY="5"
+								markerWidth="6" markerHeight="6" orient="auto">
+								<path d="M0,0 L10,5 L0,10 Z" fill="#020202"/>
+							</marker>
+						</defs>
+						<circle cx="470" cy="200" r="180" fill="none" stroke="#FF8BB8" stroke-width="8"/>
+						<circle cx="432" cy="178" r="55"  fill="none" stroke="#02F585" stroke-width="8"/>
+						<text x="10" y="205"
+							font-family="'Roboto Slab', Georgia, serif"
+							font-size="18" font-weight="700"
+							letter-spacing="1.4" fill="#020202"
+							text-transform="uppercase">POSSIBILITY SPACE</text>
+						<line x1="240" y1="200" x2="282" y2="200"
+							stroke="#020202" stroke-width="3"
+							marker-end="url(#psarr)"/>
+					</svg>
 				</section>
 
-				<!-- 19. Basic rules -->
-				<section>
-					<h2>Basic rules</h2>
-					<pre class="prompt-code"><code class="language-plaintext">We have a snake as a list of (x, y) coordinates that moves by adding a head and removing a tail, with arrow-key control. Now add three rules, keeping that representation: (1) food at a random empty cell, (2) eating food grows the snake by skipping the tail removal that turn, (3) game ends on collision with a wall or itself.</code></pre>
-				</section>
 
-				<!-- 20. Design and polish -->
-				<section>
-					<h2>Design &amp; polish</h2>
-					<pre class="prompt-code"><code class="language-plaintext">The snake now moves, eats food to grow, and dies on collision. Keep all of that working. Add polish only: a score counter (one point per food), a game-over screen showing the score with a restart key, and simple colours for the snake, food, and background.</code></pre>
-				</section>
 
 				<!-- 21. Good practices -->
 				<section>
-					<h2>Good practices</h2>
+					<h2>Good practices <small>for context building</small></h2>
 					<div class="cols">
 						<div class="card fragment">
 							<h4>Discuss</h4>
@@ -405,6 +493,32 @@
 							<p>Make the model probe your assumptions.</p>
 						</div>
 					</div>
+				</section>
+
+				<!-- 17. 🐍 -->
+				<section>
+					<p class="big-emoji">&#x1F40D;</p>
+				</section>
+
+				<!-- Ask the model to plan the split -->
+				<section>
+					<h2>Prompt</h2>
+					<pre class="prompt-code"><code class="language-plaintext">I want to build a simple snake game. What are the steps I need to think about from the core mechanics up to the visual design?</code></pre>
+				</section>
+
+				<!-- Model's answer: the plan -->
+				<section>
+					<h2>Answer</h2>
+					<pre class="prompt-code"><code class="language-plaintext">1. Core mechanics — represent the snake, move it, handle arrow keys.
+2. Game world — define the grid; walls or wrap-around.
+3. Food &amp; growth — spawn food, eat it, grow the snake.
+4. Collisions — game over on wall or self-collision.
+5. Scoring — points, restart, maybe a high score.
+6. Visual design — colours, polish, sound.</code></pre>
+				</section>
+
+				<section>
+					<p>Each of these steps might need <strong>different context</strong>.</p>
 				</section>
 
 				<!-- 22. Small models -->
@@ -431,9 +545,20 @@
 					</div>
 				</section>
 
+				<!-- Takeaway: Context -->
+				<section class="section-divider" data-background-color="#5B8BEE">
+					<span class="eyebrow">Context &mdash; takeaway</span>
+					<ul class="takeaway-list">
+						<li class="fragment">Context is what the model can see <strong>right now</strong>.</li>
+						<li class="fragment">Build the context through a <strong>conversation</strong> with the model and external sources.</li>
+						<li class="fragment"><strong>Split big tasks</strong> and provide only the relevant context.</li>
+						<li class="fragment">The smaller the model, the <strong>smaller the chunks</strong> it can handle.</li>
+					</ul>
+				</section>
+
 				<!-- 26. Section divider: Local agents -->
 				<section class="section-divider on-light" data-background-color="#02F585">
-					<span class="eyebrow">Pillar three</span>
+					<span class="eyebrow">Three</span>
 					<h2>Local<br>agents</h2>
 				</section>
 
@@ -466,9 +591,19 @@
 					<p>uses tools that can <strong>read and write files</strong> to your computer.</p>
 				</section>
 
+				<!-- Takeaway: Local agents -->
+				<section class="section-divider on-light" data-background-color="#02F585">
+					<span class="eyebrow">Local agents &mdash; takeaway</span>
+					<ul class="takeaway-list">
+						<li class="fragment">An agent = a <strong>model</strong> + <strong>tools</strong> that can act on your computer.</li>
+						<li class="fragment">Most local agents can <strong>access your files and execute code</strong></br>❗ be aware of the risks.</li>
+						<li class="fragment">Collection of tools is called a <strong>harness</strong>.</li>
+					</ul>
+				</section>
+
 				<!-- 32. Plan - Implement - Review (cycle) -->
 				<section class="section-divider" data-background-color="#FF8A1F">
-					<span class="eyebrow">Pillar four</span>
+					<span class="eyebrow">Four</span>
 					<div class="cycle">
 						<svg viewBox="0 0 760 480" aria-hidden="true">
 							<defs>
@@ -503,22 +638,36 @@
 				</section>
 
 				<section>
-					<h2>Review <small>(for larger projects)</small></h2>
+					<h2>Iterate <small>(for larger projects)</small></h2>
 						<ul>
-								<li class="fragment">Automated testing</li>
-								<li class="fragment">Git</li>
+							<li class="fragment">Git</li>
+							<li class="fragment">Automated testing</li>
+								
 							</ul>
+				</section>
+
+								<!-- Takeaway: Plan - Implement - Review -->
+				<section class="section-divider" data-background-color="#FF8A1F">
+					<span class="eyebrow">Plan &middot; Implement &middot; Review &mdash; takeaway</span>
+					<ul class="takeaway-list">
+						<li class="fragment"><strong>Plan first</strong> &mdash; discuss before any code gets written.</li>
+						<li class="fragment"><strong>Implement second</strong> &mdash; let the agent run; you steer.</li>
+						<li class="fragment"><strong>Review always</strong> &mdash; never trust output you haven't read.</li>
+						<li class="fragment"><strong>Iterate</strong> &mdash; for bigger work, lean on tests and git.</li>
+					</ul>
 				</section>
 
 				<section>
 					<h2>Hands-on</h2>
 					<p>Let us help!</p>
+					<small>Ask us for an API key for DeepSeek V4 Pro for more ambitious projects</small>
 					<ul>
-						<li class="fragment">Make a dashboard from the scraped data</li>
-						<li class="fragment">(Start) work(ing) on your own project</li>
+						<li>Make a dashboard from the scraped data</li>
+						<li>(Start) work(ing) on your own project</li>
 					</ul>
-					<small>We can share an API key for DeepSeek Pro for more ambitious projects</small>
+					
 				</section>
+
 
 				<!-- More resources / closing -->
 				<section class="title-slide">
