@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet a random frog! A new amphibian friend every time you press the button, powered by real observations from the iNaturalist community.">
+    <meta name="keywords" content="random frog, frog generator, iNaturalist, amphibians, frogs">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Random Frog Generator | Data Frosch">
+    <meta property="og:description" content="Press the 🐸 button and meet a brand new frog from somewhere in the world.">
+    <meta property="og:image" content="https://datafrosch.fun/img/frosch.png">
+
+    <title>Random Frog Generator | Data Frosch</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
+
+    <style>
+        .frog-card {
+            background-color: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(41, 47, 54, 0.12);
+            overflow: hidden;
+            max-width: 560px;
+            margin: 0 auto;
+            border: 3px solid var(--primary-color);
+        }
+
+        .frog-photo-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background-color: #eef3e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .frog-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .frog-attribution {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            font-size: 0.7rem;
+            color: white;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+            padding: 1.2rem 0.75rem 0.5rem;
+            text-align: right;
+        }
+
+        .frog-attribution a { color: white; text-decoration: underline; }
+
+        .frog-body { padding: 1.75rem 1.5rem 2rem; text-align: center; }
+
+        .frog-sci-name { font-style: italic; color: #6b7280; }
+
+        .frog-habitat {
+            margin-top: 1rem;
+            background-color: var(--light-color);
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+        }
+
+        .frog-link { display: inline-block; margin-top: 1rem; color: var(--primary-color); font-weight: 700; }
+
+        .frog-btn {
+            background-color: var(--primary-color);
+            color: white;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            border: none;
+            border-radius: 9999px;
+            padding: 0.9rem 2rem;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #56753a;
+            transition: transform 0.08s ease, box-shadow 0.08s ease;
+        }
+
+        .frog-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 0 #56753a; }
+        .frog-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 #56753a; }
+        .frog-btn:disabled { opacity: 0.6; cursor: progress; }
+
+        @keyframes hop {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-12px); }
+        }
+        .hopping { animation: hop 0.6s ease-in-out infinite; }
+
+        .frog-error { color: var(--accent-color); font-weight: 700; }
+    </style>
+</head>
+<body>
+
+    <main class="container mx-auto px-4 py-10">
+
+        <div id="frog-card" class="frog-card">
+            <div class="frog-photo-wrap">
+                <span id="frog-emoji" class="text-7xl hopping" role="img" aria-label="frog">🐸</span>
+                <img id="frog-photo" class="frog-photo" alt="" style="display:none;">
+                <div id="frog-attribution" class="frog-attribution" style="display:none;"></div>
+            </div>
+            <div class="frog-body">
+                <h2 id="frog-name" class="text-2xl font-bold">Finding you a frog…</h2>
+                <p id="frog-sci" class="frog-sci-name"></p>
+                <div id="frog-habitat" class="frog-habitat" style="display:none;"></div>
+                <a id="frog-link" class="frog-link" href="#" target="_blank" rel="noopener" style="display:none;">See this frog on iNaturalist →</a>
+            </div>
+        </div>
+
+        <div class="text-center mt-8">
+            <button id="new-frog-btn" class="frog-btn">🐸 Another frog!</button>
+            <p class="text-sm mt-4 opacity-70">
+                Frogs come from real observations shared by the
+                <a href="https://www.inaturalist.org/" target="_blank" rel="noopener" class="underline">iNaturalist</a> community.
+            </p>
+        </div>
+
+    </main>
+
+    <script>
+    (function () {
+        // Anura = the taxonomic order containing all frogs and toads.
+        var FROG_TAXON_ID = 20979;
+        // Observation ids on iNaturalist run from ~1 up to roughly this many.
+        // Picking a random "id_below" lets us sample frogs from across the
+        // whole history of the site, not just the most recent ones.
+        var MAX_OBS_ID = 260000000;
+        var MAX_TRIES = 6;
+
+        var btn       = document.getElementById('new-frog-btn');
+        var emoji     = document.getElementById('frog-emoji');
+        var photo     = document.getElementById('frog-photo');
+        var attrib    = document.getElementById('frog-attribution');
+        var nameEl    = document.getElementById('frog-name');
+        var sciEl     = document.getElementById('frog-sci');
+        var habitatEl = document.getElementById('frog-habitat');
+        var linkEl    = document.getElementById('frog-link');
+
+        function randomId() {
+            return Math.floor(Math.random() * MAX_OBS_ID) + 1000000;
+        }
+
+        function showLoading() {
+            btn.disabled = true;
+            photo.style.display = 'none';
+            attrib.style.display = 'none';
+            habitatEl.style.display = 'none';
+            linkEl.style.display = 'none';
+            emoji.style.display = 'block';
+            emoji.classList.add('hopping');
+            sciEl.textContent = '';
+            nameEl.classList.remove('frog-error');
+            nameEl.textContent = 'Finding you a frog…';
+        }
+
+        function fetchFrog(triesLeft) {
+            var url = 'https://api.inaturalist.org/v1/observations'
+                + '?taxon_id=' + FROG_TAXON_ID
+                + '&photos=true'
+                + '&quality_grade=research'
+                + '&per_page=1'
+                + '&order_by=id&order=desc'
+                + '&id_below=' + randomId();
+
+            fetch(url)
+                .then(function (res) {
+                    if (!res.ok) throw new Error('Network response was not ok');
+                    return res.json();
+                })
+                .then(function (data) {
+                    var results = data.results || [];
+                    if (!results.length) {
+                        if (triesLeft > 0) return fetchFrog(triesLeft - 1);
+                        throw new Error('No frog found');
+                    }
+                    showFrog(results[0]);
+                })
+                .catch(function () {
+                    if (triesLeft > 0) return fetchFrog(triesLeft - 1);
+                    showError();
+                });
+        }
+
+        function showFrog(obs) {
+            var taxon = obs.taxon || {};
+            var p = (obs.photos && obs.photos[0]) || {};
+
+            // Use a larger version of the photo than the default square thumbnail.
+            var imgUrl = (p.url || '').replace('square', 'medium');
+
+            var common = taxon.preferred_common_name;
+            var sci = taxon.name;
+
+            photo.onload = function () {
+                emoji.style.display = 'none';
+                emoji.classList.remove('hopping');
+                photo.style.display = 'block';
+                btn.disabled = false;
+            };
+            photo.onerror = function () {
+                // If the image fails, just try another frog.
+                fetchFrog(MAX_TRIES);
+            };
+            photo.alt = common || sci || 'A frog';
+            photo.src = imgUrl;
+
+            nameEl.textContent = common
+                ? common.replace(/\b\w/g, function (c) { return c.toUpperCase(); })
+                : (sci || 'A mystery frog');
+            sciEl.textContent = (common && sci) ? sci : '';
+
+            var place = obs.place_guess;
+            if (place) {
+                habitatEl.innerHTML = '🌍 <strong>Spotted in:</strong> '
+                    + escapeHtml(place);
+                habitatEl.style.display = 'block';
+            } else {
+                habitatEl.style.display = 'none';
+            }
+
+            if (p.attribution) {
+                attrib.textContent = p.attribution;
+                attrib.style.display = 'block';
+            } else {
+                attrib.style.display = 'none';
+            }
+
+            if (obs.id) {
+                linkEl.href = 'https://www.inaturalist.org/observations/' + obs.id;
+                linkEl.style.display = 'inline-block';
+            } else {
+                linkEl.style.display = 'none';
+            }
+        }
+
+        function showError() {
+            emoji.classList.remove('hopping');
+            btn.disabled = false;
+            nameEl.classList.add('frog-error');
+            nameEl.textContent = 'Ribbit… that frog got away!';
+            sciEl.textContent = 'Press the button to try again.';
+        }
+
+        function escapeHtml(str) {
+            var div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function newFrog() {
+            showLoading();
+            fetchFrog(MAX_TRIES);
+        }
+
+        btn.addEventListener('click', newFrog);
+        newFrog();
+    })();
+    </script>
+
+</body>
+</html>
