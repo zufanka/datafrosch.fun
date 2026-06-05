@@ -958,6 +958,18 @@ article h2:before {
     display: none;
 }
 
+/* Events */
+.event-time { color: var(--primary-color); font-weight: 700; }
+.events-empty {
+    text-align: center;
+    background: #fff;
+    border: 2px dashed var(--primary-color);
+    border-radius: 0.75rem;
+    padding: 2rem 1.5rem;
+    color: #555;
+    grid-column: 1 / -1;
+}
+
 /* Print */
 @media print {
     .header, .navbar, .guide-sidebar, .footer, .reset-btn { display: none !important; }

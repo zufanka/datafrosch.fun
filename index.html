@@ -208,6 +208,23 @@
         </div>
     </section>
 
+    <!-- Upcoming Events (preview, 3 cards) -->
+    <section id="events" class="py-10 md:py-16 bg-white relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center">
+                <span class="section-title">Upcoming Events</span>
+            </h2>
+
+            <div id="home-upcoming-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto"></div>
+
+            <div class="mt-8 md:mt-10 text-center">
+                <a href="events.html" class="inline-block text-white font-bold text-sm md:text-base px-6 py-3 rounded-lg shadow hover:opacity-90 transition" style="background-color: var(--primary-color);">
+                    See All Events →
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Resources Section (Blog + Videos + Guides, 10 most recent) -->
     <section id="resources" class="py-10 md:py-16 bg-gray-50 relative">
         <div class="lily-pad lily-pad-1"></div>
@@ -543,6 +560,14 @@
 
 <script src="js/taglines.js"></script>
 <script src="js/testimonials.js"></script>
+<script src="js/events-data.js"></script>
+<script src="js/events-render.js"></script>
+<script>
+    DataFroschEvents.renderUpcoming(document.getElementById('home-upcoming-grid'), {
+        limit: 3,
+        emptyHtml: '<div class="events-empty">No events scheduled right now — new ones land in the Discord a couple of times a month. <a href="https://discord.com/invite/FQe2UQxE5D" target="_blank" class="text-green-700 hover:underline">Join the Pond</a> to be the first to know.</div>'
+    });
+</script>
 <script src="js/thumbs.js"></script>
 </body>
 </html>
