@@ -1,6 +1,7 @@
 (function () {
     var links = [
         ['Resources',         '/resources.html'],
+        ['Events',            '/events.html'],
         ['Mentorship & Pond', '/index.html#mentorship-pond'],
         ['The 🐸',            '/index.html#author'],
     ];

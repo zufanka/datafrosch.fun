@@ -61,13 +61,21 @@
         return Promise.resolve(null);
     }
 
+    function downgradeMaxres(img) {
+        if (img.src && img.src.indexOf('maxresdefault') !== -1) {
+            img.src = img.src.replace('maxresdefault', 'hqdefault');
+        }
+    }
+
     document.querySelectorAll('.auto-thumb').forEach(function (card) {
         var img = card.querySelector('img[data-thumb-target]');
         if (!img) return;
-        img.addEventListener('error', function () {
-            if (img.src && img.src.indexOf('maxresdefault') !== -1) {
-                img.src = img.src.replace('maxresdefault', 'hqdefault');
-            }
+        img.addEventListener('error', function () { downgradeMaxres(img); });
+        // When maxresdefault is missing, YouTube returns a 120x90 grey
+        // placeholder with HTTP 200 (so no error fires) — detect it by size
+        // and fall back to the always-present hqdefault.
+        img.addEventListener('load', function () {
+            if (img.naturalWidth <= 120 && img.naturalHeight <= 90) downgradeMaxres(img);
         });
         resolveThumb(card).then(function (src) {
             if (src) img.src = src;
