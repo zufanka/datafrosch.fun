@@ -40,8 +40,7 @@
         return '<div class="course-card block bg-white rounded-lg shadow-md overflow-hidden">' +
             '<div class="video-container">' + img + '</div>' +
             '<div class="p-4">' +
-                '<div class="flex items-center justify-between mb-2">' +
-                    '<span class="guide-badge">Upcoming</span>' +
+                '<div class="flex items-center mb-2">' +
                     '<span class="text-xs event-time">' + when + '</span>' +
                 '</div>' +
                 '<h3 class="font-bold text-base md:text-lg mb-2">' + esc(ev.title) + '</h3>' +
