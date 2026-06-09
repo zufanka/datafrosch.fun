@@ -291,6 +291,11 @@ h1, h2, h3, h4 {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 
+.course-card.static-card:hover {
+    transform: none;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+}
+
 .card-header {
     background-color: var(--primary-color);
     color: white;
@@ -878,15 +883,19 @@ article h2:before {
 .testimonial-carousel {
     position: relative;
     min-height: 120px;
+    display: grid;
 }
 
 .testimonial-slide {
-    display: none;
+    grid-area: 1 / 1;
     text-align: center;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .testimonial-slide.active {
-    display: block;
+    visibility: visible;
+    opacity: 1;
     animation: testimonialFade 0.6s ease;
 }
 
@@ -968,6 +977,18 @@ article h2:before {
     padding: 2rem 1.5rem;
     color: #555;
     grid-column: 1 / -1;
+}
+
+/* Topic chips */
+.topic-chip {
+    display: inline-block;
+    background-color: rgba(111, 148, 73, 0.1);
+    color: var(--primary-color);
+    border: 1px solid rgba(111, 148, 73, 0.3);
+    padding: 0.5rem 1.1rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 0.875rem;
 }
 
 /* Print */
