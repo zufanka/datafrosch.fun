@@ -28,15 +28,6 @@ var EVENTS = {
       meet: "https://meet.google.com/bfd-yqzv-dns"
     },
     {
-      date: "2026-06-16",
-      time: "15:00 CET",
-      title: "How to code anything",
-      desc: "A re-run of our popular Dataharvest session. No coding knowledge needed — learn a simple, systematic approach to conversations, context and prompting so you can get an LLM to code anything.",
-      image: "img/events/how-to-code-anything.png",
-      link: "https://discord.com/events/1406642598646513858/1511303745370329088",
-      meet: "https://meet.google.com/ofn-ssgz-zib"
-    },
-    {
       date: "2026-06-24",
       time: "14:30 CET",
       title: "Landscapes of data: a deep dive into maps",
@@ -48,6 +39,12 @@ var EVENTS = {
   ],
 
   past: [
+    {
+      date: "2026-06-16",
+      title: "Pondcast #6: How to code anything (with Ada & Johan)",
+      desc: "No coding knowledge needed — a simple, systematic approach to conversations, context and prompting so you can get an LLM to code anything.",
+      youtube: "https://www.youtube.com/watch?v=BHD8Cv4PvrI"
+    },
     {
       date: "2026-05-14",
       title: "Pondcast #5: Text embeddings and how to use them",
