@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Pond — a community for and by nerds in the newsroom. Join the Discord, subscribe to the newsletter, and browse past editions.">
+    <meta name="keywords" content="data journalism community, The Pond, Discord, data journalism newsletter, Data Frosch">
+    <link rel="canonical" href="https://datafrosch.fun/pond.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://datafrosch.fun/pond.html">
+    <meta property="og:title" content="The Pond | Data Frosch">
+    <meta property="og:description" content="A community for and by nerds in the newsroom — join the Discord, subscribe to the newsletter, and read past editions.">
+    <meta property="og:image" content="https://datafrosch.fun/img/kaleidoscope.jpg">
+    <meta property="og:image:width" content="2444">
+    <meta property="og:image:height" content="1556">
+    <meta property="og:image:alt" content="The Pond - Data Frosch community">
+    <meta property="og:site_name" content="Data Frosch">
+    <meta property="og:locale" content="en_US">
+
+    <title>The Pond | Data Frosch</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=20260609">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="/index.html">
+            <div class="flex items-center">
+                <div class="logo-container mr-3">
+                    <img src="img/logo.png" alt="Data Frosch logo - frog mascot for data journalism training">
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-3xl font-bold">Data Frosch</h1>
+                    <p class="text-xs sm:text-sm opacity-75">The Pond</p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar sticky top-0 z-50">
+        <div class="container mx-auto px-1 sm:px-2">
+            <div class="flex py-2 sm:py-3"></div>
+        </div>
+    </nav>
+    <script src="js/navbar.js"></script>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-2xl md:text-5xl font-bold mb-4 md:mb-6">🪷 The Pond 🪷</h2>
+            <p class="text-base md:text-xl max-w-2xl mx-auto mb-6 md:mb-8 opacity-90">
+                A community for and by nerds in the newsroom.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a target="_blank" href="https://datafrosch.beehiiv.com/subscribe" class="cta-button bounce-hover">Subscribe to the newsletter</a>
+                <a target="_blank" href="https://discord.gg/NCAjxqVDH" class="inline-block bg-white font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition" style="color: var(--primary-color)">Join the Discord</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's in the Pond -->
+    <section id="about" class="py-12 md:py-16 relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-3"></div>
+
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center">
+                <span class="section-title">What's in the Pond?</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="course-card static-card text-center">
+                    <div class="card-header">
+                        <h3 class="text-lg md:text-xl font-bold">Discord community</h3>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <p class="text-sm md:text-base">
+                            Peer feedback, questions, and connection with fellow data journalists — plus <a href="#upcoming" style="color: var(--primary-color); text-decoration: underline;">community events</a> a couple of times a month.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="course-card static-card text-center">
+                    <div class="card-header">
+                        <h3 class="text-lg md:text-xl font-bold">Newsletter</h3>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <p class="text-sm md:text-base">
+                            Tips, new tutorials, and what's happening in the data journalism world — delivered straight to your inbox.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="course-card static-card text-center">
+                    <div class="card-header">
+                        <h3 class="text-lg md:text-xl font-bold">Resources &amp; trainings</h3>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <p class="text-sm md:text-base">
+                            Curated tutorials, practical <a href="resources.html" style="color: var(--primary-color); text-decoration: underline;">guides</a>, and monthly online sessions — from spreadsheets to Python to data viz.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming events -->
+    <section id="upcoming" class="py-10 md:py-16 bg-gray-50 relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-3"></div>
+
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-10 text-center">
+                <span class="section-title">Events in June</span>
+            </h2>
+            <p class="text-base md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto text-center">
+                Community hangouts and Pondcast training sessions. Come learn, ask questions, and find stories in data with us.
+            </p>
+            <div class="mb-8 md:mb-12 flex justify-center">
+                <a target="_blank" href="https://discord.gg/NCAjxqVDH" class="cta-button inline-block bounce-hover text-sm md:text-base px-6 py-3">Join the Discord</a>
+            </div>
+            <div id="upcoming-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto"></div>
+        </div>
+    </section>
+
+    <!-- Past events -->
+    <section id="past" class="py-10 md:py-16 relative">
+        <div class="lily-pad lily-pad-2"></div>
+
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-2 md:mb-4 text-center">
+                <span class="section-title">Past events</span>
+            </h2>
+            <p class="text-center opacity-75 mb-6 md:mb-10 max-w-2xl mx-auto">Missed one? Most of our training sessions become a Pondcast episode — catch up below.</p>
+            <div id="past-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto"></div>
+        </div>
+    </section>
+
+    <!-- Newsletter editions -->
+    <section id="newsletter" class="py-10 md:py-16 bg-gray-50 relative">
+        <div class="lily-pad lily-pad-2"></div>
+
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">
+                <span class="section-title">Newsletter editions</span>
+            </h2>
+            <p class="text-base md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto text-center">
+                Catch up on past editions of The Pond.
+            </p>
+            <div class="mb-8 md:mb-12 flex justify-center">
+                <a target="_blank" href="https://datafrosch.beehiiv.com/subscribe" class="cta-button inline-block bounce-hover text-sm md:text-base px-6 py-3">Subscribe to the newsletter</a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+
+                <!-- Newsletter — The Pond #10 (2026-06-02) -->
+                <a target="_blank" href="https://datafrosch.beehiiv.com/p/the-pond-10-dataharvest-and-vibes" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-thumb="img/puppeteering-robots.jpg">
+                    <div class="video-container">
+                        <img data-thumb-target alt="The Pond #10: Dataharvest and vibes" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Newsletter</span>
+                            <span class="text-xs text-gray-500">Jun 2, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">🪷 The Pond #10: Dataharvest and vibes</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Also: come learn about maps! Now for real.</p>
+                    </div>
+                </a>
+
+                <!-- Newsletter — The Pond #9 (2026-05-06) -->
+                <a target="_blank" href="https://datafrosch.beehiiv.com/p/the-pond-9-embeddings-eggs-and-statistics" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-thumb="img/findingstories_logo.jpg">
+                    <div class="video-container">
+                        <img data-thumb-target alt="The Pond #9: Embeddings, eggs and statistics" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Newsletter</span>
+                            <span class="text-xs text-gray-500">May 6, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">🪷 The Pond #9: Embeddings, eggs and statistics</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Also: come learn about maps!</p>
+                    </div>
+                </a>
+
+                <!-- Newsletter — The Pond #8 (2026-04-08) -->
+                <a target="_blank" href="https://datafrosch.beehiiv.com/p/the-pond-8-don-t-make-unit-mistakes" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-thumb="img/unit-frogs.jpg">
+                    <div class="video-container">
+                        <img data-thumb-target alt="The Pond #8: Don't make unit mistakes!" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Newsletter</span>
+                            <span class="text-xs text-gray-500">Apr 8, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">🪷 The Pond #8: Don't make unit mistakes!</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Also: come learn about embeddings and how to find even more stories in data!</p>
+                    </div>
+                </a>
+
+                <!-- Newsletter — The Pond #7 (2026-02-26) -->
+                <a target="_blank" href="https://datafrosch.beehiiv.com/p/the-pond-7-beware-of-percentages" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-thumb="img/murder_rate.png">
+                    <div class="video-container">
+                        <img data-thumb-target alt="The Pond #7: beware of percentages!" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Newsletter</span>
+                            <span class="text-xs text-gray-500">Feb 26, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">🪷 The Pond #7: beware of percentages!</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Also: come find stories with us and learn how to calculate CO2 emissions!</p>
+                    </div>
+                </a>
+
+                <!-- Newsletter — The Pond #6 (2026-01-21) -->
+                <a target="_blank" href="https://datafrosch.beehiiv.com/p/the-pond-6-nurseries-vpns-and-color-palettes" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-thumb="img/colors_banner.png">
+                    <div class="video-container">
+                        <img data-thumb-target alt="The Pond #6: Nurseries, VPNs and color palettes" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Newsletter</span>
+                            <span class="text-xs text-gray-500">Jan 21, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">🪷 The Pond #6: Nurseries, VPNs and color palettes</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Also: Hang out with us on Mondays!</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-6 md:py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center md:flex-row md:justify-between md:items-start">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start">
+                        <div class="logo-container mr-3" style="width: 40px; height: 40px;">
+                            <img src="img/logo.png" alt="Data Frosch logo">
+                        </div>
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-white">Data Frosch</h3>
+                            <p class="text-xs text-gray-300">datafrosch.fun</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-5 md:gap-8 mb-6 md:mb-0 text-center md:text-left">
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Quick Links</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                            <li><a href="resources.html" class="text-gray-400 hover:text-white">Resources</a></li>
+                            <li><a href="#upcoming" class="text-gray-400 hover:text-white">Events</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">The Pond</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="https://datafrosch.beehiiv.com/subscribe" class="text-gray-400 hover:text-white">Newsletter</a></li>
+                            <li><a href="https://discord.gg/NCAjxqVDH" class="text-gray-400 hover:text-white">Discord</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Contact</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="mailto:ada@datafrosch.fun" class="text-gray-400 hover:text-white">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-gray-700 text-center text-xs md:text-sm text-gray-400">
+                <p>CC BY-SA 4.0</p>
+                <p class="mt-2">Made with 💚 and 🐸</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Render events from data, then resolve thumbnails -->
+    <script src="js/events-data.js"></script>
+    <script src="js/events-render.js"></script>
+    <script>
+        (function () {
+            var E = window.DataFroschEvents;
+            var upcoming = E.renderUpcoming(document.getElementById('upcoming-grid'), {
+                emptyHtml: '<div class="events-empty">No events scheduled right now — new ones land in the Discord a couple of times a month. <a href="https://discord.gg/NCAjxqVDH" target="_blank" class="text-green-700 hover:underline">Join the Pond</a> to be the first to know.</div>'
+            });
+            E.renderPast(document.getElementById('past-grid'));
+
+            // Structured data for upcoming events (SEO).
+            if (upcoming.length) {
+                var ld = {
+                    "@context": "https://schema.org",
+                    "@graph": upcoming.map(function (ev) {
+                        var e = {
+                            "@type": "Event",
+                            "name": ev.title,
+                            "startDate": ev.date,
+                            "description": ev.desc,
+                            "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+                            "organizer": { "@type": "Organization", "name": "Data Frosch", "url": "https://datafrosch.fun" }
+                        };
+                        if (ev.link) e.url = ev.link;
+                        if (ev.image) e.image = "https://datafrosch.fun/" + ev.image;
+                        return e;
+                    })
+                };
+                var s = document.createElement('script');
+                s.type = 'application/ld+json';
+                s.textContent = JSON.stringify(ld);
+                document.head.appendChild(s);
+            }
+        })();
+    </script>
+    <script src="js/thumbs.js"></script>
+</body>
+</html>
