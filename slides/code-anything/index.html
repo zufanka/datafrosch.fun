@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Code anything &mdash; datafrosch</title>
+		<title>Tracking the Money &mdash; Ukraine&rsquo;s Recovery &mdash; datafrosch</title>
 
 		<link rel="stylesheet" href="../dist/reset.css">
 		<link rel="stylesheet" href="../dist/reveal.css">
@@ -54,23 +54,6 @@
 				letter-spacing: 0.05em;
 				color: #666;
 			}
-			.reveal section .prompt-quote {
-				font-family: 'JetBrains Mono', monospace;
-				font-size: 0.65em;
-				line-height: 1.55;
-				font-style: normal;
-			}
-
-			/* Prompt examples — keep code blocks readable at slide scale */
-			.reveal pre.prompt-code {
-				width: 88%;
-				font-size: 0.42em;
-			}
-			.reveal pre.prompt-code code {
-				white-space: pre-wrap;
-				background: #020202;
-				color: #f5f5f5;
-			}
 
 			/* Takeaway list inside a coloured section-divider slide */
 			.reveal section.section-divider .takeaway-list {
@@ -113,64 +96,48 @@
 				height: auto !important;
 			}
 
-			/* Triangle / cycle diagram */
-			.reveal .cycle {
-				position: relative;
-				width: 760px;
-				height: 480px;
-				margin: 1.2em auto 0;
-				font-family: 'Bowlby One', sans-serif;
-				text-transform: uppercase;
+			/* Portal slides */
+			.reveal .portal-meta {
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 0.42em;
+				letter-spacing: 0.02em;
+				margin: 0.2em 0 0.9em;
+				word-break: break-all;
 			}
-			.reveal .cycle svg {
-				position: absolute;
-				inset: 0;
-				width: 100%;
-				height: 100%;
-				overflow: visible;
+			.reveal .portal-meta a {
+				color: #5B8BEE;
+				border-bottom: 1px solid #5B8BEE;
 			}
-			.reveal .cycle .node {
-				position: absolute;
-				transform: translate(-50%, -50%);
-				font-size: 1.7em;
-				letter-spacing: 0.01em;
-				color: #fff;
-				white-space: nowrap;
-				line-height: 1;
-				padding: 0.15em 0.4em;
-				background: #FF8A1F;
-				z-index: 2;
-			}
-			.reveal .cycle .node.top    { top: 11%;  left: 50%; }
-			.reveal .cycle .node.bright { top: 82%;  left: 78%; }
-			.reveal .cycle .node.bleft  { top: 82%;  left: 22%; }
-
-			/* Equation-style three-term cascade */
-			.reveal .equation {
-				text-align: center;
-				font-family: 'Bowlby One', sans-serif;
-				text-transform: uppercase;
-				letter-spacing: 0.01em;
-				line-height: 1.05;
-			}
-			.reveal .equation .row {
-				display: flex;
-				align-items: baseline;
-				justify-content: center;
-				gap: 0.35em;
-				margin: 0.45em 0;
-				font-size: 1.7em;
-			}
-			.reveal .equation .row .eq {
-				color: rgba(255, 255, 255, 0.55);
+			.reveal .portal-tag {
+				display: inline-block;
 				font-family: 'Roboto Slab', Georgia, serif;
-				font-weight: 700;
-				font-size: 0.85em;
+				font-size: 0.45em;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: #fff;
+				background: #020202;
+				padding: 0.25em 0.7em;
+				margin-bottom: 0.4em;
 			}
-			.reveal .equation .term { display: inline-block; }
-			.reveal .equation .pink   { color: #FF8BB8; }
-			.reveal .equation .blue   { color: #5B8BEE; }
-			.reveal .equation .orange { color: #FF8A1F; }
+			.reveal .covers {
+				font-family: 'Roboto Slab', Georgia, serif;
+				font-size: 0.8em;
+				line-height: 1.4;
+				margin: 0 0 0.6em;
+			}
+			.reveal .anchor-top ul { font-size: 0.85em; }
+			.reveal .anchor-top ul li { margin: 0.35em 0; }
+			.reveal .best-for {
+				font-family: 'Roboto Slab', Georgia, serif;
+				font-size: 0.75em;
+				margin-top: 0.7em;
+				color: #FF8BB8;
+			}
+			.reveal .figure-note {
+				font-size: 0.7em;
+				font-weight: 700;
+				color: #FF8A1F;
+			}
 
 			/* Stacked meta lines (works on title slide or its own section) */
 			.reveal .stack {
@@ -205,471 +172,279 @@
 		<div class="reveal">
 			<div class="slides">
 
-				<section>
-					<div class="stack">
-						<span>datafrosch.fun/slides/code-anything</span> 
-						
-						Either use codex or claude code, otherwise:
-						<a href="https://opencode.ai/download">Download Opencode</a>
-						<a href="https://www.python.org/downloads/">Download Python</a>
-					</div>
-				</section>
-
-				<!-- 2. Hands-on: chat-app snake game -->
-				<section>
-					<h2>Hands-on <small>(5&ndash;10 min)</small></h2>
-					<ol>
-						<li class="fragment">Open ChatGPT, Claude or DeepSeek &mdash; chat apps that make interactive artifacts.</li>
-						<li class="fragment">Prompt it to <em>&ldquo;make a snake game&rdquo;</em>.</li>
-						<li class="fragment">Have fun with the prompt &mdash; make it poop rainbows, make it a space version.</li>
-						<li class="fragment">Play it for a bit, then paste a screenshot &amp; the prompt on the <a href="https://excalidraw.com/#room=d8ba38d1d9ca3fe3c753,oGvi9P3izyrFfUyBQuSALw">shared board</a>.</li>
-					</ol>
-				</section>
-
-				<!-- 3a-3c. Snake-game image gallery, two per slide -->
-				<section>
-					<div class="image-pair">
-						<figure>
-							<img src="img/snake-plain-gpt.jpg" alt="Plain snake game (GPT)">
-							<span class="image-caption">GPT &mdash; plain</span>
-						</figure>
-						<figure>
-							<img src="img/snake-deepseek-plain.jpg" alt="Plain snake game (DeepSeek)">
-							<span class="image-caption">DeepSeek &mdash; plain</span>
-						</figure>
-					</div>
-				</section>
-
-				<section>
-					<div class="image-pair">
-						<figure>
-							<img src="img/snake-desert-claude-sonnet.jpg" alt="Desert snake (Claude Sonnet)">
-							<span class="image-caption">Claude Sonnet &mdash; desert</span>
-						</figure>
-						<figure>
-							<img src="img/snake-space-claude-opus.jpg" alt="Space snake (Claude Opus)">
-							<span class="image-caption">Claude Opus &mdash; space</span>
-						</figure>
-					</div>
-				</section>
-
-				<section>
-					<div class="single-image">
-						<img src="img/snake-teaparty-claude-haiku.jpg" alt="Tea-party snake (Claude Haiku)">
-						<span class="image-caption">Claude Haiku &mdash; tea party</span>
-					</div>
-				</section>
-
-				<!-- Re-intro: title + trainers -->
+				<!-- Title -->
 				<section class="title-slide">
-					<span class="kicker">Workshop</span>
-					<h1>How to code<br>anything</h1>
-					<p class="subtitle">Dataharvest 2026</p>
+					<span class="kicker">A reporter&rsquo;s guide</span>
+					<h1>Tracking<br>the money</h1>
+					<p class="subtitle">Datasets for reporting on Ukraine&rsquo;s recovery</p>
 				</section>
 
+				<!-- Speaker -->
 				<section class="title-slide">
-					<span class="kicker">Trainer</span>
+					<span class="kicker">Speaker</span>
 					<h1>Ada<br>Homolova</h1>
-					<p class="subtitle">Cooks with Deepseek V4 Pro</p>
+					<p class="subtitle">Tracking reconstruction money</p>
 					<div class="stack">
 						<a href="https://datafrosch.fun">datafrosch.fun</a>
 					</div>
 				</section>
 
-				<section class="title-slide">
-					<span class="kicker">Trainer</span>
-					<h1>Johan<br>Schuijt</h1>
-					<p class="subtitle">Almost a language model himself.</p>
-					<div class="stack">
-						<a href="https://resolve.works">resolve.works</a>
-					</div>
-				</section>
-
-				<!-- What we coded with LLMs -->
-				<section>
-					<h2>What have we coded<br>with LLMs?</h2>
-				</section>
-
-				<section>
-					<p> 🌼 <strong>This presentation</strong> 🌼</p>
-				</section>
-
-				<section
-					data-background-image="img/datafrosch-page.jpg"
-					data-background-size="contain"
-					data-background-color="#020202"
-					aria-label="datafrosch.fun homepage"></section>
-
-				<section
-					data-background-image="img/media-ownership.jpg"
-					data-background-size="contain"
-					data-background-color="#020202"
-					aria-label="Media ownership project"></section>
-
-				<section
-					data-background-image="img/cap-dashboard.jpg"
-					data-background-size="contain"
-					data-background-color="#020202"
-					aria-label="CAP dashboard"></section>
-
-				<section
-					data-background-video="img/missing-voters.mp4"
-					data-background-video-loop="true"
-					data-background-video-muted="true"
-					data-background-size="contain"
-					data-background-color="#ffffff"
-					aria-label="Missing voters video"></section>
-
-				<section
-					data-background-image="img/everypolitician.jpg"
-					data-background-size="contain"
-					data-background-color="#020202"
-					aria-label="Poliloom"></section>
-
-				<section
-					data-background-image="img/poliloom.jpg"
-					data-background-size="contain"
-					data-background-color="#020202"
-					aria-label="Poliloom"></section>
-
-				<!-- 4. What is happening here? -->
+				<!-- What this is -->
 				<section class="anchor-top">
-					<h2>What happens when we prompt for 🐍?</h2>
+					<h2>What this is</h2>
+					<p>A reference for journalists covering the <strong>financing</strong> and <strong>post-war reconstruction</strong> of Ukraine.</p>
+					<p>Each portal is described by its <strong>query capabilities</strong> &mdash; what you can actually search, filter, download, and link to.</p>
+				</section>
+
+				<!-- How to read -->
+				<section class="anchor-top">
+					<h2>How to read this guide</h2>
 					<ul>
-						<li class="fragment">The model knows what a &ldquo;snake game&rdquo; is &mdash; thanks to its training data.</li>
-						<li class="fragment">It knows how to make interactive artifacts (JavaScript).</li>
+						<li class="fragment">Portals are grouped by <strong>who runs them</strong>.</li>
+						<li class="fragment"><em>Query capabilities</em> = the practical handles a reporter has: filters, exports, APIs, document-level detail.</li>
+						<li class="fragment">Headline funding figures are <strong>time-sensitive snapshots</strong> (mid-2026) &mdash; re-check the live page before publishing a number.</li>
 					</ul>
 				</section>
 
-				<section class="anchor-top">
-					<h2>What happens when we prompt for 🐍?</h2>
-					<ul>
-						<li class="fragment">But: it will make a lot of arbitrary choices on its own.
-							<ul>
-								<li class="fragment">How does it look?</li>
-								<li class="fragment">How does it behave?</li>
-								<li class="fragment">Do walls end the game?</li>
-								<li class="fragment">Are there obstacles?</li>
-								<li class="fragment">Does the snake have eyes?</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-
-				<!-- 5. We don't want this -->
+				<!-- Four groups overview -->
 				<section class="dark" data-background-color="#020202">
-					<h2>We don&rsquo;t want this 🙅‍♀️</h2>
-				</section>
-
-				<!-- 6. The four pillars -->
-				<section class="dark" data-background-color="#020202">
-					<h2>Topics</h2>
+					<h2>Four families of portals</h2>
 					<ol>
-						<li class="fragment"><strong>Prompt</strong></li>
-						<li class="fragment"><strong>Context</strong></li>
-						<li class="fragment"><strong>Local agents</strong></li>
-						<li class="fragment"><strong>Plan &rarr; Implement &rarr; Review</strong></li>
+						<li class="fragment"><strong>EU institutional</strong> portals</li>
+						<li class="fragment"><strong>International financial institutions</strong> (IFIs)</li>
+						<li class="fragment"><strong>UN / humanitarian</strong></li>
+						<li class="fragment"><strong>Ukrainian government</strong> portals</li>
 					</ol>
 				</section>
 
-				<!-- 7. Section divider: Prompt -->
+				<!-- ============ SECTION ONE: EU ============ -->
 				<section class="section-divider" data-background-color="#FF8BB8">
 					<span class="eyebrow">One</span>
-					<h2>Prompt</h2>
+					<h2>EU institutional<br>portals</h2>
 				</section>
 
-				<!-- 8. Optimal prompt -->
-				<section>
-					<div class="single-image">
-						<img src="img/optimal-prompt.webp" alt="The optimal prompt sits between vague and overly prescriptive">
-					</div>
-					<p style="text-align: center;"><small><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Effective context engineering for AI agents</a></small></p>
+				<!-- Ukraine Facility Scoreboard -->
+				<section class="anchor-top">
+					<span class="portal-tag">EU</span>
+					<h2>Ukraine Facility Scoreboard</h2>
+					<p class="portal-meta"><a href="https://enlargement.ec.europa.eu/funding-technical-assistance/ukraine-facility/scoreboard-pillar-i-ukraine-plan_en">enlargement.ec.europa.eu &rarr; ukraine-facility / scoreboard</a></p>
+					<p class="covers">The flagship <strong>Ukraine Facility</strong> (&euro;50bn, 2024&ndash;2027). Pillar I = reform-conditioned budget support.</p>
+					<ul>
+						<li class="fragment">Browse the reform <strong>&ldquo;steps&rdquo;</strong> Ukraine must fulfil to unlock each payment (fulfilled / pending).</li>
+						<li class="fragment">See <strong>amounts disbursed</strong> per quarterly payment, linked to specific conditions.</li>
+						<li class="fragment">Mandated under Reg. (EU) 2024/792; updated <strong>twice a year</strong>, live since Jan 2025.</li>
+					</ul>
+					<p class="best-for">Best for: tracing whether money flows against actual reform progress.</p>
 				</section>
 
-				<!-- 9. prompt.jpg -->
-				<section>
-					<div class="single-image">
-						<img src="img/prompt.jpg" alt="Prompt example">
-					</div>
+				<!-- EU FTS -->
+				<section class="anchor-top">
+					<span class="portal-tag">EU</span>
+					<h2>EU Financial Transparency System</h2>
+					<p class="portal-meta"><a href="https://ec.europa.eu/budget/financial-transparency-system/">ec.europa.eu/budget/financial-transparency-system</a></p>
+					<p class="covers">Beneficiaries of <strong>directly-managed</strong> EU budget funds &mdash; grants and contracts paid straight from Brussels.</p>
+					<ul>
+						<li class="fragment">Search by <strong>beneficiary, country, year, budget line, managing DG</strong>, and amount.</li>
+						<li class="fragment">Filterable to recipients in or working on Ukraine. Annual data; downloadable.</li>
+						<li class="fragment"><strong>Caveat:</strong> centrally-managed funds only &mdash; not money managed by member states or Ukraine.</li>
+					</ul>
 				</section>
 
-				<!-- 10. ✍️🤖 -->
-				<section>
-					<p class="big-emoji">&#x270D;&#xFE0F;&#x1F916;</p>
+				<!-- EU Funding & Tenders Portal -->
+				<section class="anchor-top">
+					<span class="portal-tag">EU</span>
+					<h2>EU Funding &amp; Tenders Portal</h2>
+					<p class="portal-meta"><a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/">ec.europa.eu/info/funding-tenders/opportunities/portal</a></p>
+					<p class="covers">EU grant <strong>calls for proposals, awards, and beneficiaries</strong> across programmes.</p>
+					<ul>
+						<li class="fragment">Search open/closed <strong>calls</strong>; filter by programme, topic, deadline.</li>
+						<li class="fragment">Look up <strong>awarded projects</strong> and participating organisations.</li>
+						<li class="fragment">Useful for identifying Ukrainian or recovery-focused organisations receiving EU grants.</li>
+					</ul>
 				</section>
 
-				<!-- 11. prompt2.jpg -->
-				<section>
-					<div class="single-image">
-						<img src="img/prompt2.jpg" alt="Prompt example, take two">
-					</div>
+				<!-- TED -->
+				<section class="anchor-top">
+					<span class="portal-tag">EU</span>
+					<h2>TED &mdash; Tenders Electronic Daily</h2>
+					<p class="portal-meta"><a href="https://ted.europa.eu/">ted.europa.eu</a></p>
+					<p class="covers">EU <strong>public procurement</strong> &mdash; tender notices and <strong>contract awards</strong>.</p>
+					<ul>
+						<li class="fragment">Full-text and structured search by <strong>country, buyer, contractor, CPV, value, date</strong>.</li>
+						<li class="fragment">Bulk <strong>download / API access</strong> to notices &mdash; a strong machine-readable source.</li>
+					</ul>
+					<p class="best-for">Best for: finding who won reconstruction-related EU contracts.</p>
 				</section>
 
-				<!-- 12. Section divider: Context -->
+				<!-- Kohesio -->
+				<section class="anchor-top">
+					<span class="portal-tag">EU</span>
+					<h2>Kohesio</h2>
+					<p class="portal-meta"><a href="https://kohesio.ec.europa.eu/">kohesio.ec.europa.eu</a></p>
+					<p class="covers">EU <strong>cohesion-policy projects and beneficiaries</strong> across member states.</p>
+					<ul>
+						<li class="fragment">Search <strong>individual projects</strong> by country, region, fund, theme, beneficiary.</li>
+						<li class="fragment">Relevant to Ukraine indirectly &mdash; e.g. <strong>refugee-support / CARE</strong> spending inside the EU.</li>
+						<li class="fragment"><strong>Caveat:</strong> member-state projects, not spending inside Ukraine.</li>
+					</ul>
+				</section>
+
+				<!-- EU Aid Explorer / Team Europe -->
+				<section class="anchor-top">
+					<span class="portal-tag">EU</span>
+					<h2>EU Aid Explorer / Team Europe</h2>
+					<p class="portal-meta"><a href="https://team-europe-explorer.europa.eu/oda/explore-oda_en">team-europe-explorer.europa.eu</a> &mdash; ODA &amp; TOSSD</p>
+					<p class="covers">Aggregated EU <strong>development and humanitarian aid flows</strong>, including the combined &ldquo;Team Europe&rdquo; (EU + member states) contribution.</p>
+					<ul>
+						<li class="fragment">Filter aid flows by <strong>recipient country, sector, year, donor</strong>.</li>
+						<li class="fragment">Visualisations + data export.</li>
+						<li class="fragment">A channel DG ECHO now uses to centralise humanitarian reporting (with UN OCHA FTS and IATI).</li>
+					</ul>
+				</section>
+
+				<!-- ============ SECTION TWO: IFIs ============ -->
 				<section class="section-divider" data-background-color="#5B8BEE">
 					<span class="eyebrow">Two</span>
-					<h2>Context</h2>
+					<h2>International financial<br>institutions</h2>
 				</section>
 
-				<!-- 13. Definition -->
-				<section>
-					Making sure the model gets <strong>enough information</strong> to perform its task well.
+				<!-- EBRD -->
+				<section class="anchor-top">
+					<span class="portal-tag">IFI</span>
+					<h2>EBRD &mdash; Project Summary Documents</h2>
+					<p class="portal-meta"><a href="https://www.ebrd.com/work-with-us/project-finance/project-summary-documents.html?filterCountry=ukraine">ebrd.com &rarr; project-summary-documents</a> &middot; <a href="https://www.ebrd.com/where-we-are/ukraine/data.html">data</a></p>
+					<p class="covers">EBRD investments. <span class="figure-note">&euro;7.6bn cumulative wartime financing by July 2025</span> (~&euro;2.4bn in 2024, a record at the time).</p>
+					<ul>
+						<li class="fragment"><strong>Project-level</strong> documents filterable by country, sector, status, date.</li>
+						<li class="fragment">Each PSD names the <strong>client, sector, financing amount, and purpose</strong>.</li>
+					</ul>
+					<p class="best-for">Best for: identifying specific EBRD-backed projects (energy, infrastructure, private sector).</p>
 				</section>
 
-				<section>
-					<h2>Context:</h2>
-						<ul>
-								<li class="fragment">Documentation</li>
-								<li class="fragment">Methodology</li>
-								<li class="fragment">Reports</li>
-								<li class="fragment">Examples</li>
-								<li class="fragment">Tools</li>
-							</ul>
-				</section>
-
-				<!-- 14. context-vs-prompt -->
-				<section>
-					<div class="single-image">
-						<img src="img/context-vs-prompt.png" alt="Context vs prompt">
-					</div>
-					<p style="text-align: center;"><small><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Effective context engineering for AI agents</a></small></p>
-				</section>
-
-				<!-- 15. No context = hallucinations -->
-				<section>
-					No <strong>context</strong> = just <strong>training data</strong> = more <strong>randomness</strong>
-					
-				</section>
-
-				<!-- 16. context.jpg -->
-				<section>
-					<div class="single-image">
-						<img src="img/context.jpg" alt="Context benchmark">
-					</div>
-					<p style="text-align: center;"><small><a href="https://www.kaggle.com/benchmarks/google/facts">FACTS Benchmark Suite Leaderboard</a></small></p>
-				</section>
-
-								<!-- 15. No context = hallucinations -->
-				<section>
-					<h2>WHY?</h2>
-					
-				</section>
-
-				<!-- 15. No context = hallucinations -->
-				<section>
-					<h2>Mechanistic reality</h2>
-					<svg viewBox="0 0 720 400" style="display: block; margin: 0 auto; max-width: 90%; max-height: 460px;" aria-hidden="true">
-						<defs>
-							<marker id="psarr" viewBox="0 0 10 10" refX="9" refY="5"
-								markerWidth="6" markerHeight="6" orient="auto">
-								<path d="M0,0 L10,5 L0,10 Z" fill="#020202"/>
-							</marker>
-						</defs>
-						<circle cx="470" cy="200" r="180" fill="none" stroke="#FF8BB8" stroke-width="8"/>
-						<circle cx="432" cy="178" r="55"  fill="none" stroke="#02F585" stroke-width="8"/>
-						<text x="10" y="205"
-							font-family="'Roboto Slab', Georgia, serif"
-							font-size="18" font-weight="700"
-							letter-spacing="1.4" fill="#020202"
-							text-transform="uppercase">POSSIBILITY SPACE</text>
-						<line x1="240" y1="200" x2="282" y2="200"
-							stroke="#020202" stroke-width="3"
-							marker-end="url(#psarr)"/>
-					</svg>
-				</section>
-
-
-
-				<!-- 21. Good practices -->
-				<section>
-					<h2>Good practices <small>for context building</small></h2>
-					<div class="cols">
-						<div class="card fragment">
-							<h4>Discuss</h4>
-							<p>Talk through the problem with the model first.</p>
-						</div>
-						<div class="card blue fragment">
-							<h4>Ask me questions</h4>
-							<p>Make the model probe your assumptions.</p>
-						</div>
-					</div>
-				</section>
-
-				<!-- 17. 🐍 -->
-				<section>
-					<p class="big-emoji">&#x1F40D;</p>
-				</section>
-
-				<!-- Ask the model to plan the split -->
-				<section>
-					<h2>Prompt</h2>
-					<pre class="prompt-code"><code class="language-plaintext">I want to build a simple snake game. What are the steps I need to think about from the core mechanics up to the visual design?</code></pre>
-				</section>
-
-				<!-- Model's answer: the plan -->
-				<section>
-					<h2>Answer</h2>
-					<pre class="prompt-code"><code class="language-plaintext">1. Core mechanics — represent the snake, move it, handle arrow keys.
-2. Game world — define the grid; walls or wrap-around.
-3. Food &amp; growth — spawn food, eat it, grow the snake.
-4. Collisions — game over on wall or self-collision.
-5. Scoring — points, restart, maybe a high score.
-6. Visual design — colours, polish, sound.</code></pre>
-				</section>
-
-				<section>
-					<p>Each of these steps might need <strong>different context</strong>.</p>
-				</section>
-
-				<!-- 22. Small models -->
-				<section>
-					<p>The smaller the model, the more important it is to <strong>divide the work well</strong>.</p>
-				</section>
-
-				<!-- 23. What is a small model -->
-				<section>
-					<h2>What is a "smaller" model?</h2>
-				</section>
-
-				<!-- 24. models.jpg -->
-				<section>
-					<div class="single-image">
-						<img src="img/models.jpg" alt="Model size comparison">
-					</div>
-				</section>
-
-				<!-- 25. deepseek-v4.jpg -->
-				<section>
-					<div class="single-image">
-						<img src="img/deepseek-v4.jpg" alt="DeepSeek V4">
-					</div>
-				</section>
-
-				<!-- Takeaway: Context -->
-				<section class="section-divider" data-background-color="#5B8BEE">
-					<span class="eyebrow">Context &mdash; takeaway</span>
-					<ul class="takeaway-list">
-						<li class="fragment">Context is what the model can see <strong>right now</strong>.</li>
-						<li class="fragment">Build the context through a <strong>conversation</strong> with the model and external sources.</li>
-						<li class="fragment"><strong>Split big tasks</strong> and provide only the relevant context.</li>
-						<li class="fragment">The smaller the model, the <strong>smaller the chunks</strong> it can handle.</li>
+				<!-- EIB -->
+				<section class="anchor-top">
+					<span class="portal-tag">IFI</span>
+					<h2>EIB &mdash; Solidarity with Ukraine</h2>
+					<p class="portal-meta"><a href="https://www.eib.org/en/projects/topics/eib-solidarity-ukraine">eib.org &rarr; eib-solidarity-ukraine</a> &middot; <a href="https://www.eib.org/en/projects/">projects database</a></p>
+					<p class="covers">European Investment Bank lending. <span class="figure-note">EIB Group provided a record &euro;1.5bn for Ukraine in 2025.</span></p>
+					<ul>
+						<li class="fragment">Search the <strong>projects database</strong> by country, sector, status, signature date.</li>
+						<li class="fragment">Project pages list <strong>financing amount, promoter, and description</strong>.</li>
+						<li class="fragment">EIB also delivers a <strong>&euro;2bn guarantee</strong> under the Ukraine Facility&rsquo;s Investment Framework.</li>
 					</ul>
 				</section>
 
-				<!-- 26. Section divider: Local agents -->
+				<!-- ============ SECTION THREE: UN ============ -->
 				<section class="section-divider on-light" data-background-color="#02F585">
 					<span class="eyebrow">Three</span>
-					<h2>Local<br>agents</h2>
+					<h2>UN /<br>humanitarian</h2>
 				</section>
 
-				<!-- 27. free-the-robot.jpg -->
-				<section>
-					<div class="single-image">
-						<img src="img/free-the-robot.jpg" alt="Free the robot">
-					</div>
-				</section>
-
-				<!-- 28. Hands-on: What is an agent? -->
-				<section>
-					<h2>Hands-on: what is an agent? <small>(5 min)</small></h2>
+				<!-- UN OCHA FTS -->
+				<section class="anchor-top">
+					<span class="portal-tag">UN</span>
+					<h2>UN OCHA Financial Tracking System</h2>
+					<p class="portal-meta"><a href="https://fts.unocha.org/">fts.unocha.org</a></p>
+					<p class="covers"><strong>All humanitarian funding flows</strong> globally, including DG ECHO contributions to Ukraine. Now DG ECHO&rsquo;s primary channel (in-house EDRIS discontinued July 2025).</p>
 					<ul>
-						<li class="fragment">Ask the agent what an agent is.</li>
-						<li class="fragment">Ask the agent what it can do.</li>
-						<li class="fragment">Ask the agent what tools it has.</li>
+						<li class="fragment">Filter by <strong>country (Ukraine), donor, recipient organisation, year, cluster/sector</strong>.</li>
+						<li class="fragment">Track <strong>appeals vs. funding received</strong>; donor-by-donor and organisation breakdowns.</li>
+						<li class="fragment">Full <strong>data export / API</strong>.</li>
 					</ul>
+					<p class="best-for">Best for: who funded what humanitarian response, and how much of an appeal was met.</p>
 				</section>
 
-
-				<!-- 31. Agent definition -->
-				<section>
-					<h2>Agent<br>=</h2>
-					<p>a <strong>model</strong> with the ability to execute <strong>tools</strong>.</p>
-				</section>
-
-				<section>
-					<h2>Local Agent<br>=</h2>
-					<p>uses tools that can <strong>read and write files</strong> to your computer.</p>
-				</section>
-
-				<!-- Takeaway: Local agents -->
-				<section class="section-divider on-light" data-background-color="#02F585">
-					<span class="eyebrow">Local agents &mdash; takeaway</span>
-					<ul class="takeaway-list">
-						<li class="fragment">An agent = a <strong>model</strong> + <strong>tools</strong> that can act on your computer.</li>
-						<li class="fragment">Most local agents can <strong>access your files and execute code</strong></br>❗ be aware of the risks.</li>
-						<li class="fragment">Collection of tools is called a <strong>harness</strong>.</li>
-					</ul>
-				</section>
-
-				<!-- 32. Plan - Implement - Review (cycle) -->
+				<!-- ============ SECTION FOUR: Ukrainian gov ============ -->
 				<section class="section-divider" data-background-color="#FF8A1F">
 					<span class="eyebrow">Four</span>
-					<div class="cycle">
-						<svg viewBox="0 0 760 480" aria-hidden="true">
-							<defs>
-								<marker id="cycarr" viewBox="0 0 10 10" refX="8" refY="5"
-									markerWidth="5" markerHeight="5" orient="auto">
-									<path d="M0,0 L10,5 L0,10 Z" fill="#ffffff"/>
-								</marker>
-							</defs>
-							<g fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" marker-end="url(#cycarr)">
-								<!-- Plan -> Implement (top to bottom-right) -->
-								<path d="M 460 100 Q 700 200 615 365"/>
-								<!-- Implement -> Review (bottom-right to bottom-left) -->
-								<path d="M 555 425 Q 380 530 205 425"/>
-								<!-- Review -> Plan (bottom-left to top) -->
-								<path d="M 145 365 Q 60 200 300 100"/>
-							</g>
-						</svg>
-						<span class="node top">Plan</span>
-						<span class="node bright">Implement</span>
-						<span class="node bleft">Review</span>
-					</div>
+					<h2>Ukrainian<br>government portals</h2>
 				</section>
 
-				<section>
-					<h2>Hands-on <small>(15 min)</small></h2>
-					<p>Make a scraper for <a href="https://books.toscrape.com/">books to scrape</a>.</p>
-					<ol>
-						<li class="fragment"><strong>Plan</strong> &mdash; discuss what needs to happen with the agent to minimise random behaviour. <em>Use "plan mode".</em></li>
-						<li class="fragment"><strong>Implement</strong> &mdash; grab the plan and have the agent implement it. <em>Use "build mode".</em></li>
-						<li class="fragment"><strong>Review</strong> the output.</li>
-					</ol>
-				</section>
-
-				<section>
-					<h2>Iterate <small>(for larger projects)</small></h2>
-						<ul>
-							<li class="fragment">Git</li>
-							<li class="fragment">Automated testing</li>
-								
-							</ul>
-				</section>
-
-								<!-- Takeaway: Plan - Implement - Review -->
-				<section class="section-divider" data-background-color="#FF8A1F">
-					<span class="eyebrow">Plan &middot; Implement &middot; Review &mdash; takeaway</span>
-					<ul class="takeaway-list">
-						<li class="fragment"><strong>Plan first</strong> &mdash; discuss before any code gets written.</li>
-						<li class="fragment"><strong>Implement second</strong> &mdash; let the agent run; you steer.</li>
-						<li class="fragment"><strong>Review always</strong> &mdash; never trust output you haven't read.</li>
-						<li class="fragment"><strong>Iterate</strong> &mdash; for bigger work, lean on tests and git.</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Hands-on</h2>
-					<p>Let us help!</p>
-					<small>Ask us for an API key for DeepSeek V4 Pro for more ambitious projects</small>
+				<!-- DREAM -->
+				<section class="anchor-top">
+					<span class="portal-tag">UA GOV</span>
+					<h2>DREAM</h2>
+					<p class="portal-meta"><a href="https://dream.gov.ua/en">dream.gov.ua/en</a> &middot; <a href="https://bi.dream.gov.ua/#/spp">DREAM Аналітика</a></p>
+					<p class="covers">Ukraine&rsquo;s flagship <strong>reconstruction-project tracking</strong> system &mdash; every recovery project end-to-end (need &rarr; planning &rarr; procurement &rarr; construction &rarr; completion). Built on <strong>Open Contracting</strong> standards.</p>
 					<ul>
-						<li>Make a dashboard from the scraped data</li>
-						<li>(Start) work(ing) on your own project</li>
+						<li class="fragment">Track <strong>individual reconstruction projects</strong> with full lifecycle data.</li>
+						<li class="fragment">Designed for <strong>open, machine-readable</strong> data; cross-links with procurement records.</li>
 					</ul>
-					
+					<p class="best-for">Best for: the single most important portal for following reconstruction money inside Ukraine at project level.</p>
 				</section>
 
+				<!-- DREAM screenshot -->
+				<section
+					data-background-image="img/evidence-dream-spp.png"
+					data-background-size="contain"
+					data-background-color="#020202"
+					aria-label="DREAM analytics — strategic priority projects"></section>
 
-				<!-- More resources / closing -->
+				<!-- Spending.gov.ua -->
+				<section class="anchor-top">
+					<span class="portal-tag">UA GOV</span>
+					<h2>Spending.gov.ua (E-Data)</h2>
+					<p class="portal-meta"><a href="https://spending.gov.ua/">spending.gov.ua</a> &middot; <a href="https://e-data.gov.ua/">e-data.gov.ua</a></p>
+					<p class="covers">Ukraine&rsquo;s national <strong>public-spending transparency</strong> platform &mdash; transactions from the Treasury.</p>
+					<ul>
+						<li class="fragment">Search <strong>individual government payments</strong> by spending unit, recipient, amount, date.</li>
+						<li class="fragment">Covers <strong>state and local</strong> budget transactions.</li>
+					</ul>
+					<p class="best-for">Best for: granular, transaction-level view of how Ukrainian public bodies spend money.</p>
+				</section>
+
+				<!-- OpenBudget -->
+				<section class="anchor-top">
+					<span class="portal-tag">UA GOV</span>
+					<h2>OpenBudget</h2>
+					<p class="portal-meta"><a href="https://openbudget.gov.ua/">openbudget.gov.ua</a></p>
+					<p class="covers">Ukraine&rsquo;s <strong>budget</strong> portal &mdash; planned vs. executed budgets at state and local level.</p>
+					<ul>
+						<li class="fragment">Drill into <strong>budget allocations and execution</strong> by programme, region, spending unit.</li>
+					</ul>
+					<p class="best-for">Best for: the budget side (what was allocated) to pair with Spending.gov.ua (what was paid).</p>
+				</section>
+
+				<!-- Prozorro -->
+				<section class="anchor-top">
+					<span class="portal-tag">UA GOV</span>
+					<h2>Prozorro</h2>
+					<p class="portal-meta"><a href="https://prozorro.gov.ua/en">prozorro.gov.ua/en</a></p>
+					<p class="covers">Ukraine&rsquo;s <strong>public procurement</strong> system &mdash; tenders and contract awards. The backbone for reconstruction procurement.</p>
+					<ul>
+						<li class="fragment">Search <strong>tenders and awards</strong> by buyer, supplier, category, value, status.</li>
+						<li class="fragment">Open data + analytics (see also <strong>Prozorro.Sale</strong> and the <strong>DOZORRO</strong> civic-monitoring layer).</li>
+					</ul>
+					<p class="best-for">Best for: who is winning reconstruction contracts and at what price.</p>
+				</section>
+
+				<!-- ============ Recurring traps ============ -->
+				<section class="dark" data-background-color="#020202">
+					<h2>Recurring traps</h2>
+				</section>
+
+				<section class="anchor-top dark" data-background-color="#020202">
+					<h2>Recurring traps checklist</h2>
+					<ul>
+						<li class="fragment"><strong>Stage of money:</strong> pledged &ne; committed &ne; allocated &ne; disbursed &ne; spent. Pin down which one.</li>
+						<li class="fragment"><strong>Currency &amp; FX date:</strong> aid in EUR/USD, Ukrainian spending in UAH. Convert at the transaction date, not today&rsquo;s rate.</li>
+						<li class="fragment"><strong>Timing lag:</strong> money can sit in the Treasury for months before it is spent. Compare like periods.</li>
+						<li class="fragment"><strong>Fungibility:</strong> general budget support may not trace to a specific output. Be precise about what your data can and cannot prove.</li>
+					</ul>
+				</section>
+
+				<!-- Takeaway -->
+				<section class="section-divider" data-background-color="#FF8A1F">
+					<span class="eyebrow">Takeaway</span>
+					<ul class="takeaway-list">
+						<li class="fragment"><strong>Match the portal to the question</strong> &mdash; EU, IFI, UN, or Ukrainian source.</li>
+						<li class="fragment"><strong>Project-level</strong> detail lives in DREAM, EBRD, EIB and TED/Prozorro awards.</li>
+						<li class="fragment"><strong>Cross-check</strong> allocated vs. spent, and always pin the stage of money.</li>
+						<li class="fragment"><strong>Re-check live figures</strong> before publishing &mdash; the numbers move.</li>
+					</ul>
+				</section>
+
+				<!-- Closing -->
 				<section class="title-slide">
 					<span class="kicker">Join 🪷The Pond🪷!</span>
 					<p class="subtitle">

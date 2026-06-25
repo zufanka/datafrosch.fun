@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>EU databases for Ukraine&rsquo;s Recovery</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/datafrosch.css">
+
+		<style>
+			/* Reveal default slide is 960x700; keep images inside that box. */
+			.reveal .image-pair {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1.25rem;
+				align-items: center;
+				margin: 0;
+			}
+			.reveal .image-pair figure { margin: 0; text-align: center; }
+			.reveal .image-pair img {
+				margin: 0;
+				max-width: 100%;
+				max-height: 500px;
+				object-fit: contain;
+				display: block;
+			}
+			.reveal .single-image {
+				text-align: center;
+			}
+			.reveal .single-image img {
+				max-width: 90%;
+				max-height: 540px;
+				margin: 0 auto;
+				display: block;
+				object-fit: contain;
+			}
+			.reveal .big-emoji {
+				font-size: 6em;
+				text-align: center;
+				line-height: 1;
+				margin: 0;
+			}
+			.reveal .image-caption {
+				display: block;
+				text-align: center;
+				margin-top: 0.5em;
+				font-family: 'Roboto Slab', Georgia, serif;
+				font-size: 0.5em;
+				letter-spacing: 0.05em;
+				color: #666;
+			}
+
+			/* Takeaway list inside a coloured section-divider slide */
+			.reveal section.section-divider .takeaway-list {
+				list-style: none;
+				padding: 0;
+				margin: 1.2em 0 0;
+				display: block;
+				text-align: left;
+				font-family: 'Roboto Slab', Georgia, serif;
+				font-size: 0.85em;
+				font-weight: 500;
+				line-height: 1.45;
+				color: inherit;
+			}
+			.reveal section.section-divider .takeaway-list li {
+				position: relative;
+				padding-left: 1.6em;
+				margin: 0.55em 0;
+			}
+			.reveal section.section-divider .takeaway-list li::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0.55em;
+				width: 0.55em;
+				height: 0.55em;
+				background: currentColor;
+			}
+			.reveal section.section-divider .takeaway-list strong {
+				color: inherit;
+				background: none;
+				font-weight: 700;
+			}
+
+			/* Anchor heading to top — overrides reveal's vertical centering */
+			.reveal .slides section.anchor-top {
+				top: 40px !important;
+				transform: none !important;
+				bottom: auto !important;
+				height: auto !important;
+			}
+
+			/* Portal slides */
+			.reveal .portal-meta {
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 0.42em;
+				letter-spacing: 0.02em;
+				margin: 0.2em 0 0.9em;
+				word-break: break-all;
+			}
+			.reveal .portal-meta a {
+				color: #5B8BEE;
+				border-bottom: 1px solid #5B8BEE;
+			}
+			.reveal .portal-tag {
+				display: inline-block;
+				font-family: 'Roboto Slab', Georgia, serif;
+				font-size: 0.45em;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: #fff;
+				background: #020202;
+				padding: 0.25em 0.7em;
+				margin-bottom: 0.4em;
+			}
+			.reveal .covers {
+				font-family: 'Roboto Slab', Georgia, serif;
+				font-size: 0.8em;
+				line-height: 1.4;
+				margin: 0 0 0.6em;
+			}
+			.reveal .anchor-top ul { font-size: 0.85em; }
+			.reveal .anchor-top ul li { margin: 0.35em 0; }
+			.reveal .best-for {
+				font-family: 'Roboto Slab', Georgia, serif;
+				font-size: 0.75em;
+				margin-top: 0.7em;
+				color: #FF8BB8;
+			}
+			.reveal .figure-note {
+				font-size: 0.7em;
+				font-weight: 700;
+				color: #FF8A1F;
+			}
+
+			/* Stacked meta lines (works on title slide or its own section) */
+			.reveal .stack {
+				font-family: 'Roboto Slab', Georgia, serif;
+				font-size: 0.7em;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+			}
+			.reveal .title-slide .stack {
+				margin-top: 1.6em;
+				font-size: 0.55em;
+			}
+			.reveal .stack > span,
+			.reveal .stack > a {
+				display: block;
+				margin: 0.5em 0;
+				border: none;
+				color: #020202;
+				width: max-content;
+			}
+			.reveal .stack > span {
+				font-size: 1.6em;
+				margin-bottom: 1.4em;
+			}
+			.reveal .stack > a {
+				color: #FF8BB8;
+				border-bottom: 2px solid #FF8BB8;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- Title -->
+				<section class="title-slide">
+					<span class="kicker">A reporter&rsquo;s guide</span>
+					<h1>Ukraine in tenders</h1>
+					<p class="subtitle">Figuring out EU databases</p>
+				</section>
+
+				<!-- Speaker -->
+				<section class="title-slide">
+					<span class="kicker">Speaker</span>
+					<h1>Ada<br>Homolova</h1>
+					<div class="stack">
+						<a href="https://datafrosch.fun">datafrosch.fun</a>
+						<a href="https://homolova.sk">homolova.sk</a>
+					</div>
+				</section>
+
+				<!-- Groups overview -->
+				<section class="dark" data-background-color="#020202">
+					<h2>Portals</h2>
+					<ol>
+						<li class="fragment"><strong>EU institutional + member states</strong> portals</li>
+						<li class="fragment"><strong>European financial institutions</strong></li>
+					</ol>
+				</section>
+
+				<!-- ============ SECTION ONE: EU ============ -->
+				<section class="section-divider" data-background-color="#FF8BB8">
+					<span class="eyebrow">One</span>
+					<h2>EU institutional<br>portals</h2>
+				</section>
+
+				<!-- Ukraine Facility Scoreboard -->
+				<section class="anchor-top">
+					<span class="portal-tag">EU</span>
+					<h2>Ukraine Facility</h2>
+					<p class="portal-meta"><a href="https://enlargement.ec.europa.eu/funding-technical-assistance/ukraine-facility_en">Ukraine-facility</a></p>
+					<p class="covers">(&euro;50bn, 2024-2027)</p>
+					<ul>
+						<li>Pillar 1 scoreboard: <strong>amounts disbursed</strong> per quarterly payment, linked to specific conditions.</li>
+						<li>Updated twice a year</li>
+					</ul>
+				</section>
+
+				<!-- EU FTS -->
+				<section class="anchor-top">
+					<span class="portal-tag">EU</span>
+					<h2>EU Financial Transparency System</h2>
+					<p class="portal-meta"><a href="https://ec.europa.eu/budget/financial-transparency-system/">financial-transparency-system</a> &middot; <a href="https://ec.europa.eu/budget/financial-transparency-system/help.html#download-data">download full data</a> </p>
+					<p class="covers">Beneficiaries of <strong>directly-managed</strong> EU budget</p>
+					<ul>
+						<li>Search by <strong>beneficiary, country, year, budget line, managing DG</strong>, and amount.</li>
+						<li>Filterable to recipients in or working on Ukraine.</li>
+					</ul>
+				</section>
+
+				<!-- EU Funding & Tenders Portal -->
+				<section class="anchor-top">
+					<span class="portal-tag">EU</span>
+					<h2>EU Funding &amp; Tenders Portal (SEDIA)</h2>
+					<p class="portal-meta"><a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/">EC tender portal</a></p>
+					<p class="covers">More context for FTS</p>
+					<ul>
+						<li>Search open/closed <strong>calls</strong>; filter by programme, topic, deadline.</li>
+						<li>Look up <strong>deatils of awarded projects</strong>.</li>
+					</ul>
+				</section>
+
+				<!-- TED -->
+				<section class="anchor-top">
+					<span class="portal-tag">EU</span>
+					<h2>TED: Tenders Electronic Daily</h2>
+					<p class="portal-meta"><a href="https://ted.europa.eu/en/advanced-search">TED advanced search</a></p>
+					<ul>
+						<li>Member state & EU <strong>public procurement</strong> &mdash; tender notices and <strong>contract awards</strong>.</li>
+						<li>Some duplication with SEDIA.</li>
+						<li class="fragment">Full-text and structured search by <strong>country, buyer, contractor, CPV, value, date</strong>.</li>
+					</ul>
+				</section>
+				<section>
+					<div class="tip"><strong>Stage of money:</strong> pledged &ne; committed &ne; allocated &ne; disbursed &ne; spent</div>
+				</section>
+				<section>
+					<div class="tip"><strong>Timing lag:</strong> commitments and disbursements can be years apart.</div>
+				</section>
+				<section>
+				<div class="tip"><strong>Fungibility:</strong> general budget support may not trace to a specific contract or output.</div>
+				</section>
+
+				<!-- ============ SECTION TWO: EFI ============ -->
+				<section class="anchor-top dark" data-background-color="#020202">
+					<span class="eyebrow">Play with the data</span>
+					<h2>Explore 👀</h2>
+					<p class="portal-meta"><a href="https://explore.datafrosch.fun">explore.datafrosch.fun</a></p>
+					<p>ukraine@homolova.sk <br> <em>ukrainerecovery8</em></p>
+
+				</section>
+
+
+				<!-- ============ SECTION TWO: EFI ============ -->
+				<section class="section-divider" data-background-color="#02F585">
+					<span class="eyebrow">Two</span>
+					<h2>European financial institutions</h2>
+				</section>
+
+				<!-- EBRD -->
+				<section class="anchor-top">
+					<span class="portal-tag">IFI</span>
+					<h2>EBRD</h2>
+					<p class="portal-meta"><a href="https://www.ebrd.com/work-with-us/project-finance/project-summary-documents.html?filterCountry=ukraine">ebrd.com &rarr; project-summary-documents</a> &middot; <a href="https://www.ebrd.com/where-we-are/ukraine/data.html">data</a></p>
+					<ul>
+						<li>Energy, infrastructure, private sector</li>
+						<li>Filterable by country, sector, status, date.</li>
+					</ul>
+				</section>
+
+				<!-- EIB -->
+				<section class="anchor-top">
+					<span class="portal-tag">IFI</span>
+					<h2>EIB &mdash; Solidarity with Ukraine</h2>
+					<p class="portal-meta"><a href="https://www.eib.org/en/projects/topics/eib-solidarity-ukraine">eib.org &rarr; eib-solidarity-ukraine</a> &middot; <a href="https://www.eib.org/en/projects/all/index.htm?q=ukraine&sortColumn=statusDate&sortDir=desc&pageNumber=0&itemPerPage=9&pageable=false&la=EN&deLa=EN&orYearFrom=true&orYearTo=true&orStatus=true&orRegions=true&orCountries=true&orSectors=true">projects database</a></p>
+					<ul>
+						<li>Search the <strong>projects database</strong> by country, sector, status, signature date.</li>
+					</ul>
+				</section>
+
+
+
+				<!-- Closing -->
+				<section class="title-slide">
+					<span class="kicker">Stay in touch!</span>
+					<p class="subtitle">
+						<ul>
+						<li><a href="https://homolova.sk/newsletter">Newsletter</a></li>
+						<img src="img/newsletter-qr.png">
+						</ul>
+					</p>
+					<p class="meta">homolova.sk</p>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				slideNumber: 'c/t',
+				transition: 'none',
+				backgroundTransition: 'none'
+			});
+		</script>
+	</body>
+</html>
