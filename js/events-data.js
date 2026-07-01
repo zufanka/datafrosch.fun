@@ -40,6 +40,12 @@ var EVENTS = {
 
   past: [
     {
+      date: "2026-06-24",
+      title: "Pondcast #7: A deep dive into maps & QGIS intro (with Jonathan)",
+      desc: "What makes a good map for your story — what works, what to watch for, and a hands-on intro to QGIS, the best free mapping tool.",
+      youtube: "https://www.youtube.com/watch?v=NQoOe6xXN3E"
+    },
+    {
       date: "2026-06-16",
       title: "Pondcast #6: How to code anything (with Ada & Johan)",
       desc: "No coding knowledge needed — a simple, systematic approach to conversations, context and prompting so you can get an LLM to code anything.",
