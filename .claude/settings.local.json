@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/zufanka/Documents/zettelkasten/**)",
+      "Bash(git log *)",
+      "Bash(curl -s \"https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=_teY3H-sK4I&format=json\")",
+      "Bash(curl -s \"https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=DWnYlMLeG-k&format=json\")",
+      "Bash(curl -s \"https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=qE9GMVyRoEI&format=json\")",
+      "Bash(curl -sL https://www.youtube.com/watch?v=__TRACKED_VAR__ -H 'User-Agent: Mozilla/5.0 \\(X11; Linux x86_64\\) AppleWebKit/537.36')"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
