@@ -8,6 +8,7 @@ var EVENTS = {
       title: "Data cleaning is glorious",
       desc: "Ada and Jonathan on the messes you'll meet in data and how to clean them up, with practical demos.",
       image: "img/events/data-cleaning-is-glorious.png",
+      link: "https://discord.com/events/1406642598646513858/1545484398210715789",
       meet: "https://meet.google.com/hzm-ttjj-kxe"
     },
     {
