@@ -11,6 +11,7 @@
           '</div>' +
         '</div>';
     var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var MONTHS_FULL = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
     function esc(s) {
         return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -73,12 +74,23 @@
     window.DataFroschEvents = {
         upcoming: function () { return (data().upcoming || []).slice().sort(byDate(1)); },  // soonest first
         past: function () { return (data().past || []).slice().sort(byDate(-1)); },          // newest first
+        // Section headings like "Events in September" — derived from the
+        // soonest upcoming event so they never go stale in the HTML.
+        updateMonthTitles: function () {
+            var list = this.upcoming();
+            var text = list.length
+                ? 'Events in ' + MONTHS_FULL[parseInt(String(list[0].date).split('-')[1], 10) - 1]
+                : 'Upcoming events';
+            var els = document.querySelectorAll('.events-month-title');
+            for (var i = 0; i < els.length; i++) els[i].textContent = text;
+        },
         renderUpcoming: function (el, opts) {
             if (!el) return [];
             opts = opts || {};
             var list = this.upcoming();
             if (opts.limit) list = list.slice(0, opts.limit);
             el.innerHTML = list.length ? list.map(upcomingCard).join('') : (opts.emptyHtml || '');
+            try { this.updateMonthTitles(); } catch (e) { /* heading stays as-is */ }
             return list;
         },
         renderPast: function (el) {
