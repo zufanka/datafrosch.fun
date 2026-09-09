@@ -25,7 +25,7 @@ Testimonials:
 - "The data journalism mentorship with Ada is truly brilliant! Her guidance didn't just open up a door to a new skill set, it improved my way of reporting and transformed my approach to stories." — Sarah Emler, Reporter at ORF (Austria)
 - "Ada's bright personality together with her encouraging teaching style put a smile on my face at every session. I learned to work with my data, create datasets, learned to cross-reference and realized that Python is just a language, and not a monster preying on me." — Charlotte Wirth, Freelance investigative reporter
 
-Apply / Book a Call: https://calendar.app.google/ycRjeVVsaeKvV8dJ8
+Get in touch: ada@datafrosch.fun
 
 **The Pond** — A community for and by nerds in the newsroom.
 
