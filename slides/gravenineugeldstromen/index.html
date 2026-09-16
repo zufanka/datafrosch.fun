@@ -1,333 +1,511 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Graven in Europese geldstromen</title>
+		<title>Graven in Europese geldstromen &mdash; datafrosch</title>
 
 		<link rel="stylesheet" href="../dist/reset.css">
 		<link rel="stylesheet" href="../dist/reveal.css">
-		<link rel="stylesheet" href="../dist/theme/night.css">
+		<link rel="stylesheet" href="../dist/theme/datafrosch.css">
 
-		<style type="text/css">
-			section { text-align: left; }
-			section strong {
-    			color: #FE7F6E;
-			}
-			section em, i {
-    			color: #84C5E6; 
-			}
-
-
-
-		</style>
-
-		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+
+		<style>
+			/* Reveal default slide is 960x700; keep images inside that box. */
+			.reveal .single-image {
+				text-align: center;
+			}
+			.reveal .single-image img {
+				max-width: 92%;
+				max-height: 540px;
+				margin: 0 auto;
+				display: block;
+				object-fit: contain;
+			}
+			.reveal .image-caption {
+				display: block;
+				text-align: center;
+				margin-top: 0.5em;
+				font-family: 'Roboto Slab', Georgia, serif;
+				font-size: 0.5em;
+				letter-spacing: 0.05em;
+				color: #666;
+			}
+			.reveal .big-emoji {
+				font-size: 5em;
+				text-align: center;
+				line-height: 1;
+				margin: 0;
+			}
+
+			/* Takeaway / plain list inside a coloured section-divider slide */
+			.reveal section.section-divider ul.divider-list {
+				list-style: none;
+				padding: 0;
+				margin: 1.2em 0 0;
+				display: block;
+				text-align: left;
+				font-family: 'Roboto Slab', Georgia, serif;
+				font-size: 0.85em;
+				font-weight: 500;
+				line-height: 1.45;
+				color: inherit;
+			}
+			.reveal section.section-divider ul.divider-list li {
+				position: relative;
+				padding-left: 1.6em;
+				margin: 0.55em 0;
+			}
+			.reveal section.section-divider ul.divider-list li::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0.55em;
+				width: 0.55em;
+				height: 0.55em;
+				background: currentColor;
+			}
+			.reveal section.section-divider strong { color: inherit; background: none; }
+
+			/* Stacked meta lines */
+			.reveal .stack {
+				font-family: 'Roboto Slab', Georgia, serif;
+				font-size: 0.7em;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+			}
+			.reveal .title-slide .stack {
+				margin-top: 1.6em;
+				font-size: 0.55em;
+			}
+			.reveal .stack > span,
+			.reveal .stack > a {
+				display: block;
+				margin: 0.5em 0;
+				border: none;
+				color: #020202;
+				width: max-content;
+			}
+			.reveal .stack > span {
+				font-size: 1.6em;
+				margin-bottom: 1.4em;
+			}
+			.reveal .stack > a {
+				color: #FF8BB8;
+				border-bottom: 2px solid #FF8BB8;
+			}
+
+			/* Long words ("geldstromen") overflow at default h1 size */
+			.reveal .title-slide h1 {
+				font-size: 2.4em;
+			}
+
+			/* Links on coloured section-divider slides: match slide colour, dark underline */
+			.reveal section.section-divider a {
+				color: inherit;
+				font-weight: 700;
+				border-bottom: 2px solid var(--df-ink);
+				text-decoration: none;
+			}
+			.reveal section.section-divider a:hover {
+				color: var(--df-ink);
+			}
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section data-background="img/eugraven.png"></section>
-				<section 
-				data-background="img/eugraven.png"
-				data-background-opacity="0.3"
-				data-markdown
-				data-transition="none">
-				## Graven in Europese geldstromen
-				</section>
-				<section data-markdown
-				data-transition="none">
-					<script type="text/template">
-						## Ada Homolova
-						*(Slowakije - Nederland - Oostenrijk)*
-						- 10+ jaar ervaring als datajournalist & trainer
-						---
-						- **Follow The Money** Bureau Brussel : data journalist
-						- **Dataharvest** conference : data training coordinator
-						- ex *Investico, OneWorld, Pointer, OCCRP, Lost in Europe*
-						---
-						## Data Frosch
-						trainer & mentor
-						[![](img/datafrosch.png)](https://datafrosch.fun)
-						<!-- .element: class="r-stretch" -->
-						---
-						## Mentorships
-						- data journalistiek leren
-						- 8 weken 1-op-1 sessies
-						- 12 Januari 2026
-						- https://datafrosch.fun/mentorship
-						---
-						## Focus vandaag
-						- Datasets waaruit blijkt welke bedrijven, ngo's, internationale organisaties en overheden **belastinggeld hebben ontvangen**
-						- Zowel uit de _EU_-begroting als die van de _lidstaten_
-						---
-						### EU budget (20 min)
-						1. **Financial Transparency System**: Uitgaven van de Europese Commissie
-						2. **Landbouwsubsidies**: Landbouwfinanciering door heel Europa
-						- _Hands-on & QA_ (15 min)
-						---
-						## Pauze (5 min)
-						---
-						### Lidstaten budget (20 min)
-						3. **TED**: Europese aanbestedingen
-						4. **State Aid**: Staatssteun van lidstaten
-						- _Hands-on & QA_ (15 min)
-						---
-						## Je leert:
-						- Welke _inzichten_ je uit deze datasets kunt halen
-						- ... en welke niet
-						- _Waar_ je deze datasets kunt vinden en hoe je de data eruit haalt  
-						- Wat soort _verhalen_ je kunt schrijven met deze databronnen
-						---
-						## Dit is geen:
-						- Overzicht van het EU-begrotingsproces of beleidsvorming  
-						- _Volledig overzicht_ van alle beschikbare databronnen  
-						- Training in _geavanceerde_ data-analyse of programmeren
-						---
-						## Wie zijn jullie?
-						- waar werk je en waar schrijf je over?
-						- wat hoop je te leren vandaag?
-						---
-						❓ Vragen altijd welkom 💐
-					</script>
-				</section>
-				<section data-background="img/eugraven.png"></section>
-				<section 
-				data-background="img/eugraven.png"
-				data-background-opacity="0.3"
-				data-markdown
-				data-transition="none">
-				# Graven in het EU budget
-				</section>
-				<section data-markdown
-				data-transition="none">
-					<script type="text/template">
-						## Waarom is het zo verwarrend?
-						---
-| Dataset                     | Budget | Published by |
-|----------------------------|-------------------|--------------------------|
-| FTS | 🇪🇺                | 🇪🇺                       |
-| Landbouwsubsidies          | 🇪🇺                | 🇳🇱        |
-| TED                        | 🇳🇱                | 🇪🇺                       |
-| State Aid                  | 🇳🇱                | 🇪🇺                       |
 
-						---
-						## Hoe ziet er de EU budget uit?
-						---
-						![](img/eubudget.jpg)
-						<!-- .element: class="r-stretch" -->
-						---
-						![](img/eubudget1.png)
-						<!-- .element: class="r-stretch" -->
-						---
-						![](img/eubudget2.png)
-						<!-- .element: class="r-stretch" -->
-						---
-						## Financial Transparency System
-						Alle uitgaven van de Europese Commissie die *niet* onder het beheer van de lidstaten valt
+				<!-- 1. Title -->
+				<section class="title-slide">
+					<span class="kicker">Workshop</span>
+					<h1>Graven in<br>Europese geld-<br>stromen</h1>
+					<p class="subtitle">EU-budget &amp; lidstaten</p>
+				</section>
 
-						- [FAQ](https://ec.europa.eu/budget/financial-transparency-system/faq.html)
-						- [Homepage](https://ec.europa.eu/budget/financial-transparency-system)
-						---
-						#### ✅ Wat je wél kunt vinden in de database: 
-						
-						1. Gegevens vanaf _2007_ over toegekende bedragen (commitments).
-						2. Informatie over _begunstigden_ onder direct of indirect EU-beheer.
-						3. _Land_ van wettelijke vestiging van begunstigden.
-						4. Data over belangrijke _programma’s_ zoals Horizon 2020.
-						5. Gedetailleerde _financiële info_: toegekend, verbruikt, aanvullingen/reducties.						
-						---
-						#### ❌ Wat je níet kunt vinden:
-						1. _Betaalde_ bedragen. Alleen toezeggingen (commitments) vermeld.
-						2. _Type_ organisatie (zoals universiteit of consultancy)
-						3. Contracten onder _€15.000_ (vanaf 2012 niet openbaar)
-						4. Uitgaven beheerd door lidstaten of derde partijen (bv. landbouwsubsidies).
-						5. _Gevoelige_ info over bepaalde landen (zoals Afghanistan) zijn soms afgeschermd (*****).
-						---
-						![](img/eubudgetfts.png)
-						<!-- .element: class="r-stretch" -->
-						---
-						![](img/eubudgetfts2.png)
-						<!-- .element: class="r-stretch" -->
-						---
-						### Verhalen
-						<small>[Lees het hier](https://www.ftm.eu/articles/recovery-files-consultancies-follow-up?share=k%2BRGbQKLPhPS/%2BXvabI7JA3zv5NvOvcR9lPUkVGgtZ6HsMbC6r04J68pxVm7HD0%3D)</small>
-						![](img/consultanciespeter.jpg)
-						---
-						## DEMO
-						### Data:
-						- [humans 👩🏼‍💻](https://ec.europa.eu/budget/financial-transparency-system/analysis.html)
-						- [machines 🤖](https://ec.europa.eu/budget/financial-transparency-system/help.html#download-data)
-						---
-						## Landbouwsubsidies
-						---
-						![](img/eubudget3.png)
-						<!-- .element: class="r-stretch" -->
-						---
-						## Common Agricultural Policy (CAP)
-						- in het Nederlands: GLB
-						- Directe betalngen aan boeren (oa)
-						---
-						#### ✅ Wat je wél kunt vinden in de database: 
-						
-						1. Informatie over _begunstigden_ van landbouwsubsidies in heel Europa
-						2. Boeren, bedrijven, scholen, kerken, sportclubs
-						3. _Postcodes_ van deze bedrijven
-						4. Het _bedrag_ en de _schema_ waaronder die was uitgekeerd				
-						5. Data ouder dan 2 jaar (_met_ een account)
-						---
-						#### ❌ Wat je níet kunt vinden:
-						1. Exacte adressen, kvk nummers
-						2. Data ouder dan 2 jaar (_zonder_ account)
-						---
-						![](img/cap.png)
-						<!-- .element: class="r-stretch" -->
-						---
-						![](img/cap2.png)
-						<!-- .element: class="r-stretch" -->
-						---
-						![](img/cap3.png)
-						<!-- .element: class="r-stretch" -->
-						---
-						## Verhalen
-						- FTM [Landbouwmiljonairs en minimumlonen](https://www.ftm.nl/artikelen/glb-miljarden-voor-de-boer-wie-krijgt-wat-van-brussel?share=HaB6ardqmhV2mzvHziZyPW8Ayn0q3XXDzVQSkI9Z5gBc1ptvnIKxYXNhseYNyko%3D)
-						- Reuters [Greek farmers pocket over 22 million euros in EU farm aid fraud](https://www.reuters.com/world/greek-farmers-pocket-over-22-million-euros-eu-farm-aid-fraud-minister-says-2025-09-02/)
-						---
-						| Dataset                     | Budget | Published by |
-|----------------------------|-------------------|--------------------------|
-| FTS | 🇪🇺                | 🇪🇺                       |
-| Landbouwsubsidies          | 🇪🇺                | 🇳🇱   !!!     |
-| TED                        | 🇳🇱                | 🇪🇺                       |
-| State Aid                  | 🇳🇱                | 🇪🇺                       |
+				<!-- 2. Trainer -->
+				<section class="title-slide">
+					<span class="kicker">Trainer</span>
+					<h1>Ada<br>Homolova</h1>
+					<p class="subtitle">Freelance data journalist</p>
+					<div class="stack">
+						<a href="https://datafrosch.fun">datafrosch.fun</a>
+						<a href="https://homolova.sk">homolova.sk</a>
+					</div>
+				</section>
 
-						---
-						![](img/farmsubsorg.jpg)
-						---
-						### DEMO
-						- [farmsubsidy](https://farmsubsidy.org) - data ouder dan 2 jaar (met account)
-						- [RVO](https://www.rvo.nl/onderwerpen/europese-subsidiegegevens) - data tot 2 jaar geleden
-						<!-- .element: class="r-stretch" -->
-						---
-						### Hoeveel subsidie krijgen grote suikerfabrikanten?
-						Hands-on (10 min)
-						---
-						Zoek naar: Cosun (NL) / Südzucker (DE) / Tereos (FR) 
-						1. In [FTS](https://ec.europa.eu/budget/financial-transparency-system/analysis.html): Zoek naar bedrijf, filter op laatste 3 jaar. Ga naar "Project Details." Welke commitments, welke programma's, welk totaalbedrag zie je?
-   						2. In ([farmsubsidy.org](https://farmsubsidy.org)) — Zoek hetzelfde bedrijf (probeer naamvariaties!). Hoeveel geld ontvangen? Welke regelingen?
-						3. Vergelijk: Staat de naam hetzelfde in beide databases? Welk verhaal zou je pitchen?
-						---
-						[farmsubsidy](https://farmsubsidy.org)
-						- user: farmsubsidy-0130
-						- pass: xAzR4kiCxvLqHZtKsyRRoq
-						---
-						# Pauze (5 min)
-						</script>
+				<!-- 6. Focus vandaag -->
+				<section>
+					<h2>Focus vandaag</h2>
+					<p>Datasets waaruit blijkt wie belastinggeld heeft ontvangen uit de <b>EU-begroting</b>.</p>
 				</section>
-				<section data-background="img/eugraven.png"></section>
-				<section 
-				data-background="img/eugraven.png"
-				data-background-opacity="0.3"
-				data-markdown
-				data-transition="none">
-				# Graven in lidstaten data
-				</section>
-				<section data-markdown
-					data-transition="none">
-					<script type="text/template">
-						## TED
-						- tenders electronic daily
-						---
-						✅ Wat je wél kunt vinden in de database: 
 
-						1. Aanbestedingen van _lidstaten_ en _EU instituties_
-						2. Aanbestende dienst, beschrijving van de opdracht, sector, geschatte waarde,...
-						3. Partijen die aanbestedingen hebben _gewonnen_ en _bedragen_
-						4. _Contacten_ van de aanbestedende dienst (emails van ambtenaren)
-						5. Soms _geen of foutieve_ bedragen 
-						---
-						❌ Wat je níet kunt vinden:
-  
-						1. _Niet-openbare_ documenten (zoals contracten)
-						2. Aanbestedingen _onder_ [drempelwaarden EU aanbesteden](https://ecer.minbuza.nl/-/nieuwe-drempelwaarden-europees-aanbesteden-2024-2025-gepubliceerd)
-						3. _Geheime_ aanbestedingen
-						4. _Alle partijen_ die hebben ingeschreven op een opdracht
-						---
-						![](img/ted1.png)
-						drempelwaarden
-						<!-- .element: class="r-stretch" -->
-						---
-						![](img/ted2.png)
-						<!-- .element: class="r-stretch" -->
-						---
-						![](img/ted3.png)
-						<!-- .element: class="r-stretch" -->
-						---
-						![](img/ted5.png)
-						<!-- .element: class="r-stretch" -->
-						---
-						![](img/ted6.png)
-						<!-- .element: class="r-stretch" -->
-						---
-						### Verhalen
-						- FTM [Nederland is het minst transparante EU-land bij openbare aanbestedingen](https://www.ftm.nl/artikelen/nederland-meest-intransparante-eu-land-bij-openbare-aanbestedingen?share=y6n7GoVq8towFJFzEVaBdqhur7VHT5JQUyAlgnBChOILJ0xUE7FYjPk6ztEc4WE%3D)
-						- FTM [Nederland wil van Amerikaanse cloud af, maar weet niet hoe](https://www.ftm.nl/artikelen/amerikaanse-cloud-ondermijnt-de-soevereiniteit-van-europa)
-						---
-						### DEMO
-						- [Data](https://ted.europa.eu/)
-						---
-						## State aid
-						- toegekende staatssteun van lidstaten
-						---
-						✅ Wat je wél kunt vinden in de database: 
-						1. _Naam van de ontvanger_ van staatssteun
-						2. _Bedrag_ van de hulp
-						3. Doel en [sector](https://ec.europa.eu/competition/mergers/cases/index/nace_all.html) van de steun
-						4. _Locatie_ van de ontvanger
-						5. Link naar goedgekeurde _steunregelingen_ (via database of competition cases) 
-						---
-						❌ Wat je níet kunt vinden: 
-						1. Gegevens van Polen, Roemenië, Slovenië en Spanje (gebruiken eigen websites)
-						2. Steun onder _drempelbedragen_ (bv. de-minimis)
-						3. _Details_ over hoe het geld precies gebruikt is
-						4. Niet-gemelde of illegale steunmaatregelen
-						---
-						![](img/stateaidsectordarlings.jpg)
-						grootste sectors
-						---
-						![](img/stateaiddarlings.jpg)
-						grootste ontvangers
-						---
-						### Verhalen
-						- ???
-						---
-						## DEMO
-						- [Data](https://webgate.ec.europa.eu/competition/transparency/public?lang=en)
-						---
-						## Overheidssteun en aanbestedingen in de ICT-sector
-						Hands-on (10 min)
-						---
-						0. Kies een land (Nederland of ander land)
-						1. [State Aid](https://webgate.ec.europa.eu/competition/transparency/public?lang=en) - Kies een land, filter op sector *J - Information and communication*. Welke bedrijven hebben grote bedragen gekregen?
-						2. [TED](https://ted.europa.eu) → Advanced Search → "All notices" → filter op **"Result"**. Zelfde land. Zoek een van deze bedrijven in het **Text**-veld. Krjgen ze ook aanbestedingen binnen? Hoeveel? 
-					</script>
+				<section>
+					<h2>Focus vandaag</h2>
+					<p>Dit kunnen zijn: <b>overheiden, bedrijven, NGO's, internationale organisaties</b></p>
 				</section>
-				<section 
-				data-markdown
-				data-transition="none">
-				# Vragen?
-				👉 [newsletter](https://homolova.sk/newsletter) | [feedback](https://docs.google.com/forms/d/e/1FAIpQLSdpD_mqfmhHB-az2ZpWPR2HMF6xbSJplelU_3adYoeJ2YWy-g/viewform)
+
+				<section>
+					<h2>Focus vandaag</h2>
+					<ol>
+					<li>FTS</li>
+					<li>Landbouwsubsidies</li>
+					<li>Cohesiefonds</li>
+					</ol>
 				</section>
-				<section data-background="img/happydigging.jpg"></section>
-				<section 
-				data-background="img/happydigging.jpg"
-				data-background-opacity="0.3"
-				data-markdown
-				data-transition="none">
-				# Graaf ze!
+
+				<!-- 10. Wie zijn jullie -->
+				<section>
+					<h2>Wie zijn jullie?</h2>
+					<ul>
+						<li class="fragment">Waar werk je en waar schrijf je over?</li>
+						<li class="fragment">Wat hoop je te leren vandaag?</li>
+					</ul>
 				</section>
-				
+
+				<!-- Divider: EU budget -->
+				<section class="section-divider" data-background-color="#FF8BB8">
+					<span class="eyebrow">Een</span>
+					<h2>Graven in het<br>EU-budget</h2>
+				</section>
+
+				<!-- Waarom verwarrend -->
+				<section>
+					<h2>Waarom is het zo verwarrend?</h2>
+					<table>
+						<thead>
+							<tr><th>Dataset</th><th>Budget</th><th>Gepubliceerd door</th></tr>
+						</thead>
+						<tbody>
+							<tr><td>FTS</td><td>&#x1F1EA;&#x1F1FA;</td><td>&#x1F1EA;&#x1F1FA;</td></tr>
+							<tr><td>Landbouwsubsidies</td><td>&#x1F1EA;&#x1F1FA;</td><td>&#x1F1F3;&#x1F1F1;</td></tr>
+							<tr><td>Cohesiefonds</td><td>&#x1F1EA;&#x1F1FA;</td><td>&#x1F1EA;&#x1F1FA;</td></tr>
+						</tbody>
+					</table>
+				</section>
+
+				<!-- EU budget images -->
+				<section>
+					<h2>Hoe ziet de EU-begroting eruit?</h2>
+					<div class="single-image">
+						<img src="img/eubudget.jpg" alt="EU begroting">
+					</div>
+				</section>
+
+				<section>
+					<div class="single-image">
+						<img src="img/eubudget1.png" alt="EU begroting 2">
+					</div>
+				</section>
+
+				<section>
+					<div class="single-image">
+						<img src="img/eubudget2.png" alt="EU begroting 3">
+					</div>
+				</section>
+
+				<!-- FTS -->
+				<section>
+					<h2>Financial Transparency System</h2>
+					<p>Alle uitgaven van de Europese Commissie die <em>niet</em> onder het beheer van de lidstaten valt.</p>
+					<ul>
+						<li><a href="https://ec.europa.eu/budget/financial-transparency-system/faq.html">FAQ</a></li>
+						<li><a href="https://ec.europa.eu/budget/financial-transparency-system">Homepage</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>FTS <small>&mdash; w&eacute;l vinden</small></h2>
+					<div class="card green">
+						<h4>&#9989; W&eacute;l vinden in de database</h4>
+						<ol>
+							<li>Data vanaf <em>2007</em> over toegekende bedragen</li>
+							<li><em>Begunstigden</em> onder direct EU-beheer</li>
+							<li><em>Land</em> van wettelijke vestiging</li>
+							<li>Data over programma&rsquo;s zoals <em>Horizon 2020</em></li>
+							<li>Gedetailleerde <em>financi&euml;le info</em>: toegekend, verbruikt, revisies</li>
+						</ol>
+					</div>
+				</section>
+
+				<section>
+					<h2>FTS <small>&mdash; niet vinden</small></h2>
+					<div class="card orange">
+						<h4>&#10060; Wat je niet kunt vinden</h4>
+						<ol>
+							<li><em>Betaalde</em> bedragen &mdash; alleen toezeggingen</li>
+							<li>Contracten onder <em>&euro;15.000</em> (vanaf 2012)</li>
+							<li>Uitgaven beheerd door lidstaten</li>
+							<li><em>Gevoelige</em> info over bepaalde landen (*****)</li>
+						</ol>
+					</div>
+				</section>
+
+				<section>
+					<div class="single-image">
+						<img src="img/eubudgetfts.png" alt="FTS">
+					</div>
+				</section>
+
+				<section>
+					<div class="single-image">
+						<img src="img/eubudgetfts2.png" alt="FTS 2">
+					</div>
+				</section>
+
+				<!-- Verhalen FTS -->
+				<section>
+					<h2>Verhalen</h2>
+					<div class="single-image">
+						<img src="img/consultanciespeter.jpg" alt="Consultancies">
+						<span class="image-caption"><a href="https://www.ftm.eu/articles/recovery-files-consultancies-follow-up">Lees het hier</a></span>
+					</div>
+				</section>
+
+				<!-- Demo FTS -->
+				<section>
+					<h2>DEMO</h2>
+					
+					<img src="img/fts-portal.jpg">
+					
+				</section>
+
+				<section>
+					<h2>DEMO</h2>
+					<ul>
+						<li><a href="https://ec.europa.eu/budget/financial-transparency-system/analysis.html">Mens 👩🏼‍💻</a></li>
+						<li><a href="https://ec.europa.eu/budget/financial-transparency-system/help.html#download-data">Machine 🤖</a></li>
+					</ul>
+				</section>
+
+				<!-- Oefening FTS -->
+				<section>
+					<h2>Probeer het zelf <small>(5 min)</small></h2>
+					<p>In de <a href="https://ec.europa.eu/budget/financial-transparency-system/analysis.html">FTS-portal</a>:</p>
+					<ol>
+						<li class="fragment">Zoek op een grote <strong>consultancy</strong> (bv. McKinsey, Deloitte) &mdash; hoeveel kregen ze de laatste jaren?</li>
+						<li class="fragment">Welke organisatie uit <strong>jouw stad</strong> kreeg het meeste geld?</li>
+						<li class="fragment">Deel het meest verrassende bedrag dat je vond.</li>
+					</ol>
+				</section>
+
+				<!-- Kohesiefondsen -->
+				<section>
+					<div class="single-image">
+						<img src="img/eubudget3.png" alt="Kohesiefondsen">
+					</div>
+				</section>
+
+				<section>
+					<h2>Kohesiefondsen <small>&mdash; w&eacute;l vinden</small></h2>
+					<div class="card green">
+						<ol>
+							<li>Projecten uit <em>ERDF, Cohesion Fund, ESF+, Just Transition Fund</em> en <em>INTERREG</em> (2014&ndash;2020 en 2021&ndash;2027)</li>
+							<li><em>Naam van de begunstigde</em> en naam + samenvatting van het project</li>
+							<li><em>Totale kosten</em> en <em>EU-mede-financieringspercentage</em> per project</li>
+							<li><em>Locatie</em> van het project (postcode, regio, kaart)</li>
+						</ol>
+					</div>
+				</section>
+
+				<section>
+					<h2>Kohesiefondsen <small>&mdash; niet vinden</small></h2>
+					<div class="card orange">
+						<ol>
+							<li><em>EU-bijdrage per project</em> is niet verplicht = niet altijd beschikbaar</li>
+							<li><em>VAT/identificatienummers</em> van begunstigden ontbreken vaak</li>
+							<li>Niet altijd de eindontvanger</li>
+							<li>Kwaliteit en update-frequentie (4&ndash;6 mnd) <em>verschilt per lidstaat</em></li>
+						</ol>
+					</div>
+				</section>
+
+				<section>
+					<h2>DEMO</h2>
+					<ul>
+						<li><a href="https://kohesio.ec.europa.eu/en/beneficiaries">Mens 👩🏼‍💻</a></li>
+						<li><a href="https://kohesio.ec.europa.eu/en/data/projects-2021-2027/latest">Machine 🤖</a></li>
+					</ul>
+				</section>
+
+				<!-- Oefening Kohesio -->
+				<section>
+					<h2>Probeer het zelf <small>(5 min)</small></h2>
+					<p>In Kohesio <a href="https://kohesio.ec.europa.eu/en/projects">projecten</a> en <a href="https://kohesio.ec.europa.eu/en/beneficiaries">begunstigde</a>:</p>
+					<ol>
+						<li class="fragment">Wat zijn de grootste projecten die in <strong>jouw woonplaats</strong>lopen?</li>
+						<li class="fragment">Wie is de <strong>grootste begunstigde</strong> in jouw regio?</li>
+						<li class="fragment">Klik een project open: klopt de locatie met waar het geld echt terechtkomt?</li>
+					</ol>
+				</section>
+				<!-- Landbouwsubsidies -->
+				<section>
+					<div class="single-image">
+						<img src="img/eubudget3.png" alt="Landbouwsubsidies">
+					</div>
+				</section>
+
+				<section>
+					<h2>Common Agricultural Policy (CAP)</h2>
+					<ul>
+						<li class="fragment">In het Nederlands: GLB</li>
+						<li class="fragment">Directe betalingen aan boeren (o.a.)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Landbouwsubsidies <small>&mdash; w&eacute;l vinden</small></h2>
+					<div class="card green">
+						<h4>&#9989; W&eacute;l vinden in de database</h4>
+						<ol>
+							<li><em>Begunstigden</em> in heel Europa</li>
+							<li>Boeren, bedrijven, scholen, kerken, sportclubs</li>
+							<li><em>Postcodes</em> van deze bedrijven</li>
+							<li><em>Bedrag</em> en <em>regeling</em> waaruit uitgekeerd</li>
+							<li>Data ouder dan 2 jaar (<em>met</em> account)</li>
+						</ol>
+					</div>
+				</section>
+
+				<section>
+					<h2>Landbouwsubsidies <small>&mdash; niet vinden</small></h2>
+					<div class="card orange">
+						<h4>&#10060; Wat je niet kunt vinden</h4>
+						<ol>
+							<li>Exacte adressen, KvK-nummers</li>
+							<li>Data ouder dan 2 jaar (<em>zonder</em> account)</li>
+						</ol>
+					</div>
+				</section>
+
+				<section>
+					<div class="single-image">
+						<img src="img/cap.png" alt="CAP">
+					</div>
+				</section>
+
+				<section>
+					<div class="single-image">
+						<img src="img/cap2.png" alt="CAP 2">
+					</div>
+				</section>
+
+				<section>
+					<div class="single-image">
+						<img src="img/cap3.png" alt="CAP 3">
+					</div>
+				</section>
+
+				<!-- Verhalen CAP -->
+				<section>
+					<h2>Verhalen</h2>
+					<ul>
+						<li class="fragment">FTM &mdash; <a href="https://www.ftm.nl/artikelen/glb-miljarden-voor-de-boer-wie-krijgt-wat-van-brussel">Landbouwmiljonairs en minimumlonen</a></li>
+						<li class="fragment">Reuters &mdash; <a href="https://www.reuters.com/world/greek-farmers-pocket-over-22-million-euros-eu-farm-aid-fraud-minister-says-2025-09-02/">Greek farmers pocket over 22 million euros in EU farm aid fraud</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Verhalen</h2>
+					<ul>
+						<img src="img/cap-stories.jpg" alt="CAPstories">
+					</ul>
+				</section>
+
+				<!-- Verwarrend table with !!! -->
+				<section>
+					<table>
+						<thead>
+							<tr><th>Dataset</th><th>Budget</th><th>Gepubliceerd door</th></tr>
+						</thead>
+						<tbody>
+							<tr><td>FTS</td><td>&#x1F1EA;&#x1F1FA;</td><td>&#x1F1EA;&#x1F1FA;</td></tr>
+							<tr><td>Landbouwsubsidies</td><td>&#x1F1EA;&#x1F1FA;</td><td>&#x1F1F3;&#x1F1F1;</td></tr>
+							<tr><td>Cohesiefonds</td><td>&#x1F1EA;&#x1F1FA;</td><td>&#x1F1EA;&#x1F1FA;</td></tr>
+						</tbody>
+					</table>
+				</section>
+
+
+				<section>
+					<div class="single-image">
+						<img src="img/farmsubsorg.jpg" alt="Farmsubsidy.org">
+					</div>
+				</section>
+
+				<!-- Demo CAP -->
+				<section>
+					<h2>DEMO</h2>
+					<ul>
+						<li><a href="https://www.rvo.nl/onderwerpen/europese-subsidiegegevens">RVO</a>: 👩🏼‍💻 data tot 2 jaar geleden</li>
+						<li><a href="https://farmsubsidy.org">farmsubsidy.org</a>: 👩🏼‍💻 data ouder dan 2 jaar (met account)</li>
+						<li><a href="https://data.farmsubsidy.org/cleaned/">farmsubsidy.org</a>: 🤖 Ruwe data </li>
+					</ul>
+				</section>
+
+				<!-- Oefening landbouw -->
+				<section>
+					<h2>Probeer het zelf <small>(5 min)</small></h2>
+					<p>In <a href="https://europese-subsidies.rvo.nl/nl">RVO</a> of <a href="https://farmsubsidy.org">farmsubsidy.org</a>:</p>
+					<ol>
+						<li class="fragment">Zoek op <strong>jouw eigen gemeente</strong>: wie krijgt daar de meeste landbouwsubsidie?</li>
+						<li class="fragment">Zit er een <strong>bedrijf, school of sportclub</strong> tussen dat geen boerderij is?</li>
+						<li class="fragment">Deel: de gekste niet-boer die je vond.</li>
+					</ol>
+				</section>
+
+				<!-- Hands-on suiker -->
+				<section class="dark" data-background-color="#020202">
+					<h2>Hoeveel subsidie krijgen grote suikerfabrikanten?</h2>
+					<p>Hands-on (20 min)</p>
+				</section>
+
+				<section>
+					<p>Zoek naar: <strong>Cosun</strong> (NL) / <strong>S&uuml;dzucker</strong> (DE) / <strong>Tereos</strong> (FR)</p>
+					<ol>
+						<li>In <a href="https://ec.europa.eu/budget/financial-transparency-system/analysis.html">FTS</a>, <a href="https://kohesio.ec.europa.eu/en/beneficiaries">kohesio</a> en <a href="https://farmsubsidy.org">farmsubsidy.org</a></li>
+						<li>Maak een simpel tabel-overzicht met 6 kolommen: <i>bedrijf, jaar, bedrag, regeling, dataset, notitie (optioneel)</i></li>
+						<li>Welk bedrijf kreeg het meest van deze potjes in de afgelopen 5 jaar?</li>
+					</ol>
+					<ul>
+						<li>user: <code>farmsubsidy-0130</code></li>
+						<li>pass: <code>xAzR4kiCxvLqHZtKsyRRoq</code></li>
+					</ul>
+				</section>
+
+				<!-- Vooruitblik: MFF 2028-2034 -->
+				<section>
+					<h2>En de volgende cyclus? <small>MFF 2028&ndash;2034</small></h2>
+					<p>Onderhandelingen lopen nog</p>
+					<ul>
+						<li class="fragment">De oude verdeling (&frac13; landbouw, &frac13; cohesie, &frac13; rest) <b>gaat niet meer op</b></li>
+						<li class="fragment">Landbouw + cohesie samen: van <b>&plusmn;62% &rarr; &plusmn;44%</b> van de begroting</li>
+						<li class="fragment">Re&euml;le krimp: cohesie <b>ca. &minus;15%</b>, landbouw <b>ca. &minus;10%</b></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Nieuwe structuur</h2>
+					<ul>
+						<li class="fragment"><b>Nationale plannen</b>: cohesie, landbouw en visserij samengevoegd per lidstaat, geen losse programma&rsquo;s meer</li>
+						<li class="fragment"><b>Competitiviteitsfonds</b>: technologie, energie, defensie, plus verdubbeling Horizon Europe</li>
+						<li class="fragment"><b>Defensie &amp; veiligheid</b> meer dan verdrievoudigd + tot &euro;100 mrd voor Oekra&iuml;ne</li>
+					</ul>
+				</section>
+
+				<!-- Vragen -->
+				<section class="section-divider" data-background-color="#FF8A1F">
+					<span class="eyebrow">Vragen?</span>
+					<ul class="divider-list">
+						<li><a href="https://homolova.sk/newsletter">Newsletter</a></li>
+						<li><a href="https://www.linkedin.com/in/adahomolova/">LinkedIN</a></li>
+						<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdpD_mqfmhHB-az2ZpWPR2HMF6xbSJplelU_3adYoeJ2YWy-g/viewform">Feedback</a></li>
+					</ul>
+				</section>
+
+
 			</div>
 		</div>
 
@@ -336,13 +514,11 @@
 		<script src="../plugin/markdown/markdown.js"></script>
 		<script src="../plugin/highlight/highlight.js"></script>
 		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
-
-				// Learn about plugins: https://revealjs.com/plugins/
+				slideNumber: 'c/t',
+				transition: 'none',
+				backgroundTransition: 'none',
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
 		</script>
