@@ -10,6 +10,15 @@
       "thumb": null
     },
     {
+      "type": "newsletter",
+      "title": "🪷 The Pond #11: Cleaning up",
+      "alt": "The Pond #11: Cleaning up",
+      "description": "Let's dig into the dirt 🐸🧹",
+      "url": "newsletters/the-pond-11-cleaning-up.html",
+      "date": "2026-09-03",
+      "thumb": "img/cleaning-frog.jpg"
+    },
+    {
       "type": "video",
       "title": "Pondcast #7: A deep dive into maps & QGIS intro (with Jonathan)",
       "alt": "Pondcast #7: A deep dive into maps & QGIS intro (with Jonathan)",
@@ -32,7 +41,7 @@
       "title": "🪷 The Pond #10: Dataharvest and vibes",
       "alt": "The Pond #10: Dataharvest and vibes",
       "description": "Also: come learn about maps! Now for real.",
-      "url": "https://datafrosch.beehiiv.com/p/the-pond-10-dataharvest-and-vibes",
+      "url": "newsletters/the-pond-10-dataharvest-and-vibes.html",
       "date": "2026-06-02",
       "thumb": "img/puppeteering-robots.jpg"
     },
@@ -59,7 +68,7 @@
       "title": "🪷 The Pond #9: Embeddings, eggs and statistics",
       "alt": "The Pond #9: Embeddings, eggs and statistics",
       "description": "Also: come learn about maps!",
-      "url": "https://datafrosch.beehiiv.com/p/the-pond-9-embeddings-eggs-and-statistics",
+      "url": "newsletters/the-pond-9-embeddings-eggs-and-statistics.html",
       "date": "2026-05-06",
       "thumb": "img/findingstories_logo.jpg"
     },
@@ -77,7 +86,7 @@
       "title": "🪷 The Pond #8: Don't make unit mistakes!",
       "alt": "The Pond #8: Don't make unit mistakes!",
       "description": "Also: come learn about embeddings and how to find even more stories in data!",
-      "url": "https://datafrosch.beehiiv.com/p/the-pond-8-don-t-make-unit-mistakes",
+      "url": "newsletters/the-pond-8-don-t-make-unit-mistakes.html",
       "date": "2026-04-08",
       "thumb": "img/unit-frogs.jpg"
     },
@@ -131,7 +140,7 @@
       "title": "🪷 The Pond #7: beware of percentages!",
       "alt": "The Pond #7: beware of percentages!",
       "description": "Also: come find stories with us and learn how to calculate CO2 emissions!",
-      "url": "https://datafrosch.beehiiv.com/p/the-pond-7-beware-of-percentages",
+      "url": "newsletters/the-pond-7-beware-of-percentages.html",
       "date": "2026-02-26",
       "thumb": "img/murder_rate.png"
     },
@@ -149,7 +158,7 @@
       "title": "🪷 The Pond #6: Nurseries, VPNs and color palettes",
       "alt": "The Pond #6: Nurseries, VPNs and color palettes",
       "description": "Also: Hang out with us on Mondays!",
-      "url": "https://datafrosch.beehiiv.com/p/the-pond-6-nurseries-vpns-and-color-palettes",
+      "url": "newsletters/the-pond-6-nurseries-vpns-and-color-palettes.html",
       "date": "2026-01-21",
       "thumb": "img/colors_banner.png"
     },
@@ -199,6 +208,15 @@
       "thumb": null
     },
     {
+      "type": "newsletter",
+      "title": "🪷The Pond #5: Take the leap!",
+      "alt": "The Pond #5: Take the leap!",
+      "description": "Hello my dear frosches! 🐸 WebSummit stories, a Color Analyzer tool, a newsletter robot, plus tutorials and databases.",
+      "url": "newsletters/the-pond-5-take-the-leap.html",
+      "date": "2025-11-17",
+      "thumb": "img/froggie.png"
+    },
+    {
       "type": "blog",
       "title": "One Newsletter to Rule Them All",
       "alt": "One Newsletter to Rule Them All",
@@ -206,6 +224,15 @@
       "url": "blog/rss-newsletter.html",
       "date": "2025-10-22",
       "thumb": null
+    },
+    {
+      "type": "newsletter",
+      "title": "🪷 The Pond #4: On the road again",
+      "alt": "The Pond #4: On the road again",
+      "description": "Hello my lovely frosches! Travel, mentoring and community news from The Pond.",
+      "url": "newsletters/the-pond-4-on-the-road-again.html",
+      "date": "2025-10-15",
+      "thumb": "img/frogs.png"
     },
     {
       "type": "blog",
@@ -217,6 +244,24 @@
       "thumb": null
     },
     {
+      "type": "newsletter",
+      "title": "🪷The Pond #3: Mentorships open!",
+      "alt": "The Pond #3: Mentorships open!",
+      "description": "Come learn with me!",
+      "url": "newsletters/the-pond-3-mentorships-open.html",
+      "date": "2025-09-16",
+      "thumb": "img/signal-2025-09-03-090449.jpeg"
+    },
+    {
+      "type": "newsletter",
+      "title": "🪷 The Pond #2: Be unfrogettable",
+      "alt": "The Pond #2: Be unfrogettable",
+      "description": "Getting ready for summer",
+      "url": "newsletters/the-pond-2-be-unfrogettable.html",
+      "date": "2025-06-17",
+      "thumb": "img/nightingale-wtf2.jpg"
+    },
+    {
       "type": "video",
       "title": "What form to use for my data?",
       "alt": "What form to use for my data?",
@@ -224,6 +269,15 @@
       "url": "https://www.youtube.com/watch?v=1IRLqRtq0SI",
       "date": "2025-06-10",
       "thumb": null
+    },
+    {
+      "type": "newsletter",
+      "title": "🪷The Pond #1 : Making the right choices",
+      "alt": "The Pond #1 : Making the right choices",
+      "description": "Your first dip and an upcoming free course.",
+      "url": "newsletters/the-pond-1-making-the-right-choices.html",
+      "date": "2025-05-28",
+      "thumb": "img/visualelectric-1748443350644-2.jpg"
     },
     {
       "type": "video",
