@@ -1,0 +1,238 @@
+{
+  "resources": [
+    {
+      "type": "video",
+      "title": "Pondcast #8: On data cleaning (with Jonathan Stoneman and Ada Homolova)",
+      "alt": "Pondcast #8: On data cleaning (with Jonathan Stoneman and Ada Homolova)",
+      "description": "Cleaning messy datasets two ways: by hand in OpenRefine and with an LLM — and how the dirt itself hides stories.",
+      "url": "https://youtu.be/kE-uP7o6SQI",
+      "date": "2026-09-15",
+      "thumb": null
+    },
+    {
+      "type": "video",
+      "title": "Pondcast #7: A deep dive into maps & QGIS intro (with Jonathan)",
+      "alt": "Pondcast #7: A deep dive into maps & QGIS intro (with Jonathan)",
+      "description": "What makes a good map for your story, plus a hands-on intro to QGIS, the best free mapping tool.",
+      "url": "https://www.youtube.com/watch?v=NQoOe6xXN3E",
+      "date": "2026-06-24",
+      "thumb": null
+    },
+    {
+      "type": "video",
+      "title": "Pondcast #6: How to code anything (with Ada & Johan)",
+      "alt": "Pondcast #6: How to code anything (with Ada & Johan)",
+      "description": "No coding knowledge needed — a systematic approach to prompting so you can get an LLM to code anything.",
+      "url": "https://www.youtube.com/watch?v=BHD8Cv4PvrI",
+      "date": "2026-06-16",
+      "thumb": null
+    },
+    {
+      "type": "newsletter",
+      "title": "🪷 The Pond #10: Dataharvest and vibes",
+      "alt": "The Pond #10: Dataharvest and vibes",
+      "description": "Also: come learn about maps! Now for real.",
+      "url": "https://datafrosch.beehiiv.com/p/the-pond-10-dataharvest-and-vibes",
+      "date": "2026-06-02",
+      "thumb": "img/puppeteering-robots.jpg"
+    },
+    {
+      "type": "video",
+      "title": "Pondcast #5: Text embeddings and how to use them",
+      "alt": "Pondcast #5: Text embeddings and how to use them",
+      "description": "What text embeddings are and how to put them to work in practice.",
+      "url": "https://www.youtube.com/watch?v=_teY3H-sK4I",
+      "date": "2026-05-14",
+      "thumb": null
+    },
+    {
+      "type": "blog",
+      "title": "The bias hiding in your AI",
+      "alt": "The bias hiding in your AI",
+      "description": "Read the words as critically as you read the numbers — what a health-data Pondcast taught us about LLM bias.",
+      "url": "blog/bias-in-your-ai.html",
+      "date": "2026-05-06",
+      "thumb": null
+    },
+    {
+      "type": "newsletter",
+      "title": "🪷 The Pond #9: Embeddings, eggs and statistics",
+      "alt": "The Pond #9: Embeddings, eggs and statistics",
+      "description": "Also: come learn about maps!",
+      "url": "https://datafrosch.beehiiv.com/p/the-pond-9-embeddings-eggs-and-statistics",
+      "date": "2026-05-06",
+      "thumb": "img/findingstories_logo.jpg"
+    },
+    {
+      "type": "video",
+      "title": "Pondcast #4: Finding Stories in health expenses data with Ada",
+      "alt": "Pondcast #4: Finding Stories in health expenses data with Ada",
+      "description": "Uncovering narratives and insights from healthcare expenditure data.",
+      "url": "https://www.youtube.com/watch?v=DWnYlMLeG-k",
+      "date": "2026-04-17",
+      "thumb": null
+    },
+    {
+      "type": "newsletter",
+      "title": "🪷 The Pond #8: Don't make unit mistakes!",
+      "alt": "The Pond #8: Don't make unit mistakes!",
+      "description": "Also: come learn about embeddings and how to find even more stories in data!",
+      "url": "https://datafrosch.beehiiv.com/p/the-pond-8-don-t-make-unit-mistakes",
+      "date": "2026-04-08",
+      "thumb": "img/unit-frogs.jpg"
+    },
+    {
+      "type": "guide",
+      "title": "Pivot Tables",
+      "alt": "Pivot Tables",
+      "description": "Build intuition for what pivot tables do, how to read them, and how to construct them from a question.",
+      "url": "guides/pivot-tables.html",
+      "date": "2026-03-31",
+      "thumb": null
+    },
+    {
+      "type": "guide",
+      "title": "Tidy Data",
+      "alt": "Tidy Data",
+      "description": "What tidy data is, the most common ways spreadsheets go wrong, and a checklist to confirm your data is analysis-ready.",
+      "url": "guides/tidy-data.html",
+      "date": "2026-03-31",
+      "thumb": null
+    },
+    {
+      "type": "guide",
+      "title": "Finding Stories in Data",
+      "alt": "Finding Stories in Data",
+      "description": "A step-by-step checklist to interrogate any dataset and surface story angles — from first look to context checks.",
+      "url": "guides/finding-stories-in-data.html",
+      "date": "2026-03-31",
+      "thumb": null
+    },
+    {
+      "type": "blog",
+      "title": "Stop making unit mistakes!",
+      "alt": "Stop making unit mistakes!",
+      "description": "Let the computer track your units and never miscalculate gigatons vs megatons again.",
+      "url": "blog/unit-conversions.html",
+      "date": "2026-03-31",
+      "thumb": null
+    },
+    {
+      "type": "video",
+      "title": "Pondcast #3: Calculate CO2 emissions with Thomas Goorden",
+      "alt": "Pondcast #3: Calculate CO2 emissions with Thomas Goorden",
+      "description": "Discussing methods for measuring carbon dioxide emissions.",
+      "url": "https://www.youtube.com/watch?v=qE9GMVyRoEI",
+      "date": "2026-03-25",
+      "thumb": null
+    },
+    {
+      "type": "newsletter",
+      "title": "🪷 The Pond #7: beware of percentages!",
+      "alt": "The Pond #7: beware of percentages!",
+      "description": "Also: come find stories with us and learn how to calculate CO2 emissions!",
+      "url": "https://datafrosch.beehiiv.com/p/the-pond-7-beware-of-percentages",
+      "date": "2026-02-26",
+      "thumb": "img/murder_rate.png"
+    },
+    {
+      "type": "blog",
+      "title": "The Pitfalls of Percentages in the News",
+      "alt": "The Pitfalls of Percentages in the News",
+      "description": "Why percentages mislead, and what journalists can do about it.",
+      "url": "blog/pitfalls-of-percentages-in-the-news.html",
+      "date": "2026-02-18",
+      "thumb": null
+    },
+    {
+      "type": "newsletter",
+      "title": "🪷 The Pond #6: Nurseries, VPNs and color palettes",
+      "alt": "The Pond #6: Nurseries, VPNs and color palettes",
+      "description": "Also: Hang out with us on Mondays!",
+      "url": "https://datafrosch.beehiiv.com/p/the-pond-6-nurseries-vpns-and-color-palettes",
+      "date": "2026-01-21",
+      "thumb": "img/colors_banner.png"
+    },
+    {
+      "type": "video",
+      "title": "🪷 Pondcast #2: Investigating kindergartens with Freja Wedenborg",
+      "alt": "Pondcast #2: Investigating kindergartens with Freja Wedenborg",
+      "description": "What 350 evaluation reports reveal about inequality between Copenhagen neighbourhoods.",
+      "url": "https://www.youtube.com/watch?v=lvSleNCANkI",
+      "date": "2026-01-14",
+      "thumb": null
+    },
+    {
+      "type": "video",
+      "title": "The lazy journalist's secret: AI classification",
+      "alt": "The lazy journalist's secret: AI classification",
+      "description": "Behind-the-scenes from mentorship — using AI to classify a big pile of text.",
+      "url": "https://www.youtube.com/watch?v=lU49a7XbxFA",
+      "date": "2025-12-22",
+      "thumb": null
+    },
+    {
+      "type": "blog",
+      "title": "How to Choose Colors for Data Visualization",
+      "alt": "How to Choose Colors for Data Visualization",
+      "description": "Color theory fundamentals and 4 essential tools for better palettes.",
+      "url": "blog/color-palettes-for-data-visualization.html",
+      "date": "2025-12-03",
+      "thumb": null
+    },
+    {
+      "type": "video",
+      "title": "🪷 Pondcast #1: Scraper blocking and how to get around it",
+      "alt": "Pondcast #1: Scraper blocking and how to get around it",
+      "description": "Practical approaches when websites block your scraper.",
+      "url": "https://www.youtube.com/watch?v=1yCykgFrZz0",
+      "date": "2025-12-03",
+      "thumb": null
+    },
+    {
+      "type": "video",
+      "title": "Scraping from scratch in Python (beginner friendly!)",
+      "alt": "Scraping from scratch in Python (beginner friendly!)",
+      "description": "From zero to scraping a real site, step by step in Python.",
+      "url": "https://www.youtube.com/watch?v=wQ1gR6MQtFU",
+      "date": "2025-12-03",
+      "thumb": null
+    },
+    {
+      "type": "blog",
+      "title": "One Newsletter to Rule Them All",
+      "alt": "One Newsletter to Rule Them All",
+      "description": "Building an AI-powered RSS digest that summarises your favourite feeds into a weekly email.",
+      "url": "blog/rss-newsletter.html",
+      "date": "2025-10-22",
+      "thumb": null
+    },
+    {
+      "type": "blog",
+      "title": "How do I begin working with data?",
+      "alt": "How do I begin working with data?",
+      "description": "Skills and tools to consider when levelling up your data game — from spreadsheets to Python and AI chatbots.",
+      "url": "blog/skills-and-tools-for-data.html",
+      "date": "2025-10-06",
+      "thumb": null
+    },
+    {
+      "type": "video",
+      "title": "What form to use for my data?",
+      "alt": "What form to use for my data?",
+      "description": "Pick the right chart shape for what your data is trying to say.",
+      "url": "https://www.youtube.com/watch?v=1IRLqRtq0SI",
+      "date": "2025-06-10",
+      "thumb": null
+    },
+    {
+      "type": "video",
+      "title": "Chart makeover: volunteering in Austria",
+      "alt": "Chart makeover: volunteering in Austria",
+      "description": "Rework a real-world chart step by step.",
+      "url": "https://www.youtube.com/watch?v=1QxR2x9vgFg",
+      "date": "2025-03-31",
+      "thumb": null
+    }
+  ]
+}
