@@ -285,15 +285,77 @@
         </div>
     </section>
 
-    <!-- Mentorship CTA -->
-    <section class="py-10 md:py-16 bg-gray-50 relative">
+    <!-- Subscribe CTA -->
+    <section id="newsletter" class="py-10 md:py-16 bg-gray-50 relative">
         <div class="lily-pad lily-pad-1"></div>
         <div class="lily-pad lily-pad-3"></div>
 
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Take your data skills to the next level</h2>
-            <p class="text-base md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto"></p>
-            <a href="../mentorship.html" class="cta-button inline-block bounce-hover">Join the mentorship</a>
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Enjoyed this article?</h2>
+            <p class="text-base md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">Subscribe to The Pond newsletter and never miss an issue.</p>
+            <a target="_blank" href="https://datafrosch.beehiiv.com/subscribe" class="cta-button inline-block bounce-hover">Subscribe</a>
+        </div>
+    </section>
+
+    <!-- Related resources -->
+    <section class="py-10 md:py-16 bg-white relative">
+        <div class="lily-pad lily-pad-2"></div>
+
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">More resources</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+
+                <!-- related-grid count="3" -->
+                <a href="newsletters/the-pond-5-take-the-leap.html" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-thumb="img/froggie.png">
+                    <div class="video-container">
+                        <img data-thumb-target alt="The Pond #5: Take the leap!" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Newsletter</span>
+                            <span class="text-xs text-gray-500">Nov 17, 2025</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">🪷The Pond #5: Take the leap!</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Hello my dear frosches! 🐸 WebSummit stories, a Color Analyzer tool, a newsletter robot, plus tutorials and databases.</p>
+                    </div>
+                </a>
+                <a target="_blank" href="https://www.youtube.com/watch?v=1yCykgFrZz0" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Pondcast #1: Scraper blocking and how to get around it" class="w-full h-full object-cover" loading="lazy" />
+                        <div class="play-button">
+                            <div class="w-12 h-12 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm3.33 10.33l-4.73 2.83a.33.33 0 0 1-.5-.29V7.13a.33.33 0 0 1 .5-.29l4.73 2.83a.33.33 0 0 1 0 .58z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Video</span>
+                            <span class="text-xs text-gray-500">Dec 3, 2025</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">🪷 Pondcast #1: Scraper blocking and how to get around it</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Practical approaches when websites block your scraper.</p>
+                    </div>
+                </a>
+                <a href="newsletters/the-pond-4-on-the-road-again.html" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-thumb="img/frogs.png">
+                    <div class="video-container">
+                        <img data-thumb-target alt="The Pond #4: On the road again" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Newsletter</span>
+                            <span class="text-xs text-gray-500">Oct 15, 2025</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">🪷 The Pond #4: On the road again</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Hello my lovely frosches! Travel, mentoring and community news from The Pond.</p>
+                    </div>
+                </a>
+                <!-- /related-grid -->
+
+            </div>
         </div>
     </section>
 
@@ -349,5 +411,6 @@
     </footer>
 
 <script src="../js/taglines.js"></script>
+    <script src="../js/thumbs.js"></script>
 </body>
 </html>
