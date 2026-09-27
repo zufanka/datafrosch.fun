@@ -52,29 +52,36 @@
     </nav>
     <script src="../js/navbar.js"></script>
 
-    <!-- Guide layout: sidebar + main -->
-    <div class="guide-layout">
+    <!-- Guide Content Section -->
+    <section class="py-10 md:py-16 bg-white relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-2"></div>
 
-        <!-- Sidebar (populated by sidebar.js) -->
-        <aside class="guide-sidebar"></aside>
-        <script src="sidebar.js"></script>
+        <div class="container mx-auto px-4">
+            <article class="max-w-3xl mx-auto">
+                <h1 class="text-3xl md:text-4xl font-bold mb-3">
+                    Tidy Data
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-2">
+                    Most data you receive was laid out for human readers, not for machines. This guide explains what tidy data is, shows the most common ways data goes wrong with concrete examples, and ends with a checklist to confirm your dataset is ready for analysis.
+                </p>
+                <p class="text-sm text-gray-500 mb-8">by Ada Homolova &middot; March 31, 2026</p>
 
-        <!-- Main content -->
-        <main class="guide-main">
-            <p class="text-xs text-gray-500 mb-2"><a href="index.html" class="hover:underline">← All Guides</a></p>
-            <span class="guide-badge">Checklist</span>
-            <h1>Tidy Data</h1>
-            <p class="guide-intro">Most data you receive was laid out for human readers, not for machines. This guide explains what tidy data is, shows the most common ways data goes wrong with concrete examples, and ends with a checklist to confirm your dataset is ready for analysis.</p>
+                <figure class="mb-8">
+                    <img src="../img/tidyfrog.jpg" alt="Tidy Data" class="rounded-lg w-full" loading="eager">
+                </figure>
+
+                <div class="prose prose-lg max-w-none">
 
             <!-- Introduction -->
-            <section id="introduction" class="guide-section">
-                <h2>Introduction: What is tidy data and why it matters</h2>
-                <p class="text-sm md:text-base mb-3">Tidy data is a specific, consistent way of organising a dataset so that every tool be it a spreadsheet, a script, or a visualisation library can read it without surprises. The <a href="https://vita.had.co.nz/papers/tidy-data.pdf" target=_blank>concept comes from statistician Hadley Wickham</a>, but the underlying idea is simple enough to apply in Excel.</p>
+            <section id="introduction">
+                <h2 class="text-2xl font-bold mb-4 mt-10">Introduction: What is tidy data and why it matters</h2>
+                <p class="text-base md:text-lg mb-3">Tidy data is a specific, consistent way of organising a dataset so that every tool be it a spreadsheet, a script, or a visualisation library can read it without surprises. The <a href="https://vita.had.co.nz/papers/tidy-data.pdf" target=_blank>concept comes from statistician Hadley Wickham</a>, but the underlying idea is simple enough to apply in Excel.</p>
             </section>
 
             <!-- Three rules -->
-            <section id="three-rules" class="guide-section">
-                <h2>Three rules of tidy data</h2>
+            <section id="three-rules">
+                <h2 class="text-2xl font-bold mb-4 mt-10">Three rules of tidy data</h2>
                 <ol class="text-sm md:text-base mb-3" style="list-style:decimal; padding-left:1.25rem;">
                     <li class="mb-4">
                         <strong>Each variable forms one column.</strong> A variable is a single type of measurement or attribute: population, year, country name, contract value. If two different things are crammed into the same column, or if one thing is spread across several columns, the data is not tidy.
@@ -188,17 +195,17 @@
                         </div>
                     </li>
                 </ol>
-                <p class="text-sm md:text-base mb-3">Most real-world data you receive such as government spreadsheets, scraped tables, exported reports will break at least one of these rules. That is not a moral failing on anyone's part. It reflects the fact that data is often laid out for human readers, not for machines. Tidying it up is a routine part of data journalism.</p>
+                <p class="text-base md:text-lg mb-3">Most real-world data you receive such as government spreadsheets, scraped tables, exported reports will break at least one of these rules. That is not a moral failing on anyone's part. It reflects the fact that data is often laid out for human readers, not for machines. Tidying it up is a routine part of data journalism.</p>
             </section>
 
 
             <!-- Other common issues -->
-            <section id="other-issues" class="guide-section">
-                <h2>Other common issues</h2>
-                <p class="text-sm md:text-base mb-4">These problems don't break the three tidy rules, but they will break your analysis just as surely.</p>
+            <section id="other-issues">
+                <h2 class="text-2xl font-bold mb-4 mt-10">Other common issues</h2>
+                <p class="text-base md:text-lg mb-4">These problems don't break the three tidy rules, but they will break your analysis just as surely.</p>
 
                 <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.5rem;">Merged cells &amp; colour-coded meaning</h3>
-                <p class="text-sm md:text-base mb-2">Spreadsheets designed for human readers use visual tricks — merged region headers, highlighted rows — that tools cannot read. Unmerge and fill down; replace colour with a text column.</p>
+                <p class="text-base md:text-lg mb-2">Spreadsheets designed for human readers use visual tricks — merged region headers, highlighted rows — that tools cannot read. Unmerge and fill down; replace colour with a text column.</p>
                 <div class="tidy-examples" style="margin-bottom:1.5rem;">
                     <div class="tidy-example bad">
                         <p class="ex-label">✗ Merged region header + colour-coded row</p>
@@ -222,7 +229,7 @@
                 </div>
 
                 <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.5rem;">Inconsistent values &amp; typos</h3>
-                <p class="text-sm md:text-base mb-2">A group-by treats every unique string as a separate category. "Netherlands" and "The Netherlands" will produce two separate rows in any aggregate.</p>
+                <p class="text-base md:text-lg mb-2">A group-by treats every unique string as a separate category. "Netherlands" and "The Netherlands" will produce two separate rows in any aggregate.</p>
                 <div class="tidy-examples" style="margin-bottom:1.5rem;">
                     <div class="tidy-example bad">
                         <p class="ex-label">✗ Four spellings → four groups in any count</p>
@@ -247,7 +254,7 @@
                 </div>
 
                 <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.5rem;">Numbers &amp; dates stored as plain text</h3>
-                <p class="text-sm md:text-base mb-2">A currency symbol or stray space inside a cell turns a number into text. <code>SUM()</code> returns zero; sorting by date gives wrong order.</p>
+                <p class="text-base md:text-lg mb-2">A currency symbol or stray space inside a cell turns a number into text. <code>SUM()</code> returns zero; sorting by date gives wrong order.</p>
                 <div class="tidy-examples" style="margin-bottom:1.5rem;">
                     <div class="tidy-example bad">
                         <p class="ex-label">✗ Amounts and dates stored as text</p>
@@ -270,7 +277,7 @@
                 </div>
 
                 <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.5rem;">Subtotal rows mixed in with data</h3>
-                <p class="text-sm md:text-base mb-2">A grand-total or subtotal row is not an observation — it will skew every aggregate you run and produce phantom records in any join.</p>
+                <p class="text-base md:text-lg mb-2">A grand-total or subtotal row is not an observation — it will skew every aggregate you run and produce phantom records in any join.</p>
                 <div class="tidy-examples">
                     <div class="tidy-example bad">
                         <p class="ex-label">✗ Subtotal row mixed into data</p>
@@ -298,8 +305,8 @@
             </section>
 
             <!-- Final check -->
-            <section id="final-check" class="guide-section">
-                <h2>Tidy check</h2>
+            <section id="final-check">
+                <h2 class="text-2xl font-bold mb-4 mt-10">Tidy check</h2>
                 <p class="text-sm text-gray-500 mb-3 italic">Run through this confirmation list before passing the data to analysis, a visualisation tool, or a colleague.</p>
                 <ul class="checklist">
                     <li><input type="checkbox" id="fc-1"><label for="fc-1">Every column header is a variable name (not a value, not a blank, not a merged label spanning multiple columns).</label></li>
@@ -312,8 +319,10 @@
                 </ul>
             </section>
 
-        </main>
-    </div>
+                </div>
+            </article>
+        </div>
+    </section>
 
     <!-- Subscribe CTA -->
     <section id="newsletter" class="py-10 md:py-16 bg-gray-50 relative">
@@ -475,19 +484,6 @@
         });
 
         restoreCheckboxes();
-
-        // Scroll spy
-        var sections = document.querySelectorAll('.guide-section');
-        var links = document.querySelectorAll('.guide-sidebar nav a[data-section]');
-        window.addEventListener('scroll', function () {
-            var current = '';
-            sections.forEach(function (s) {
-                if (window.scrollY >= s.offsetTop - 80) current = s.id;
-            });
-            links.forEach(function (l) {
-                l.classList.toggle('active', l.dataset.section === current);
-            });
-        }, { passive: true });
     })();
     </script>
     <script src="../js/thumbs.js"></script>

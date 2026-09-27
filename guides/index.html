@@ -26,80 +26,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
 
     <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
-
-    <style>
-        .guides-index-main {
-            padding: 2.5rem 3rem;
-            max-width: 860px;
-        }
-        .guides-index-hero {
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-            margin-bottom: 3rem;
-        }
-        .guides-index-hero img {
-            width: 140px;
-            height: 140px;
-            object-fit: contain;
-            flex-shrink: 0;
-        }
-        .guides-index-hero h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 0.75rem;
-        }
-        .guides-index-hero p {
-            font-size: 1rem;
-            color: #555;
-            line-height: 1.6;
-        }
-        .guides-index-main .cat-section {
-            margin-bottom: 2.5rem;
-        }
-        .guides-index-main .cat-section h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        .guides-index-main .cat-section .cat-desc {
-            font-size: 0.95rem;
-            color: #555;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-        .guides-index-main .cat-section ol {
-            padding-left: 1.25rem;
-            margin: 0;
-        }
-        .guides-index-main .cat-section ol li {
-            font-size: 0.95rem;
-            margin-bottom: 0.4rem;
-            line-height: 1.5;
-        }
-        .guides-index-main .cat-section ol li a {
-            color: var(--primary-color);
-            font-weight: 600;
-            text-decoration: none;
-        }
-        .guides-index-main .cat-section ol li a:hover {
-            text-decoration: underline;
-        }
-        .guides-index-main hr {
-            border: none;
-            border-top: 1px solid #e5e7eb;
-            margin: 2rem 0;
-        }
-        @media (max-width: 767px) {
-            .guides-index-main { padding: 1.5rem 1rem; }
-            .guides-index-hero { flex-direction: column; text-align: center; gap: 1rem; }
-            .guides-index-hero img { width: 100px; height: 100px; }
-        }
-        @media print {
-            .guides-index-main { padding: 0; max-width: 100%; }
-        }
-    </style>
 </head>
 <body>
     <!-- Header -->
@@ -127,42 +53,79 @@
     </nav>
     <script src="../js/navbar.js"></script>
 
-    <div class="guide-layout">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-2xl md:text-5xl font-bold mb-4 md:mb-6">Practical guides for data journalists</h2>
+            <p class="text-lg md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">Not sure where to start with a dataset? Need a structured checklist to make sure you haven't missed anything? These guides give you frameworks and tools to work through data journalism challenges step by step.</p>
+        </div>
+    </section>
 
-        <!-- Sidebar (populated by sidebar.js) -->
-        <aside class="guide-sidebar"></aside>
-        <script src="sidebar.js"></script>
+    <!-- Guides Grid Section -->
+    <section id="guides" class="py-10 md:py-16 bg-white relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-2"></div>
 
-        <!-- Main -->
-        <main class="guides-index-main">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
 
-            <!-- Hero -->
-            <div class="guides-index-hero">
-                <img src="../img/frosch.png" alt="Data Frosch frog mascot">
-                <div>
-                    <h2>Practical guides for data journalists</h2>
-                    <p>Not sure where to start with a dataset? Need a structured checklist to make sure you haven't missed anything? These guides give you frameworks and tools to work through data journalism challenges step by step.</p>
-                </div>
+                <!-- resource-grid filter="guide" -->
+                <a href="guides/pivot-tables.html" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Pivot Tables" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Guide</span>
+                            <span class="text-xs text-gray-500">Mar 31, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">Pivot Tables</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Build intuition for what pivot tables do, how to read them, and how to construct them from a question.</p>
+                    </div>
+                </a>
+                <a href="guides/tidy-data.html" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Tidy Data" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Guide</span>
+                            <span class="text-xs text-gray-500">Mar 31, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">Tidy Data</h3>
+                        <p class="opacity-75 text-xs md:text-sm">What tidy data is, the most common ways spreadsheets go wrong, and a checklist to confirm your data is analysis-ready.</p>
+                    </div>
+                </a>
+                <a href="guides/finding-stories-in-data.html" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Finding Stories in Data" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Guide</span>
+                            <span class="text-xs text-gray-500">Mar 31, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">Finding Stories in Data</h3>
+                        <p class="opacity-75 text-xs md:text-sm">A step-by-step checklist to interrogate any dataset and surface story angles — from first look to context checks.</p>
+                    </div>
+                </a>
+                <!-- /resource-grid -->
+
             </div>
+        </div>
+    </section>
 
-            <hr>
+    <!-- Subscribe CTA -->
+    <section id="newsletter" class="py-10 md:py-16 bg-gray-50 relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-3"></div>
 
-            <div class="cat-section">
-                <ol>
-                    <li><a href="finding-stories-in-data.html">Finding Stories in Data</a> — interrogate a new dataset and surface story angles. Covers source interrogation, descriptive statistics, rankings, rates, time &amp; geographic patterns, outliers, missing data, verification, and the news test.</li>
-                    <li><a href="tidy-data.html">Tidy Data</a> — turn a messy spreadsheet into clean, analysis-ready data. Covers wide vs. long format, merged cells, inconsistent values, data types, and a final tidy check.</li>
-                    <li><a href="pivot-tables.html">Pivot Tables</a> — build intuition for what pivot tables do, how to read them, and how to construct them from a question rather than a menu.</li>
-                </ol>
-            </div>
-
-            <hr>
-
-            <div class="cat-section">
-                <p class="cat-desc">More free resources: tutorials and walkthroughs on the <a href="https://www.youtube.com/@datafrosch" target="_blank">YouTube channel</a>, and longer reads on the <a href="../blog/index.html">blog</a>.</p>
-            </div>
-
-        </main>
-    </div>
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Want more guidance like this?</h2>
+            <p class="text-base md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">Subscribe to The Pond newsletter and never miss an issue.</p>
+            <a target="_blank" href="https://datafrosch.beehiiv.com/subscribe" class="cta-button inline-block bounce-hover">Subscribe</a>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer py-6 md:py-8">
@@ -211,5 +174,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="../js/thumbs.js"></script>
+    <script src="../js/taglines.js"></script>
 </body>
 </html>
