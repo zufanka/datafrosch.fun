@@ -8,6 +8,14 @@
     <atom:link href="https://datafrosch.fun/blog/feed.xml" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>The same donor, three names: how clustering actually works</title>
+      <link>https://datafrosch.fun/blog/how-clustering-works.html</link>
+      <description>Lord Harris of Peckham appears under three different spellings in British donation data — pivot on that column as-is and your totals are wrong. How OpenRefine's clustering actually works: fingerprints, n-grams, phonetic matching, and nearest neighbor — plus the decisions no algorithm will make for you. From the latest Pondcast on data cleaning with Jonathan Stoneman.</description>
+      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
+      <guid>https://datafrosch.fun/blog/how-clustering-works.html</guid>
+    </item>
+
+    <item>
       <title>The bias hiding in your AI</title>
       <link>https://datafrosch.fun/blog/bias-in-your-ai.html</link>
       <description>Read the words as critically as you read the numbers. Exploring EU health spending data with Claude Code, the model framed government healthcare as money coming "out of people's pockets" — a slightly American way of looking at it. A look at the cultural bias inherent in LLMs and why we should treat their interpretations with the same scepticism as any other source.</description>

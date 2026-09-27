@@ -1,6 +1,15 @@
 {
   "resources": [
     {
+      "type": "blog",
+      "title": "The same donor, three names: how clustering actually works",
+      "alt": "The same donor, three names: how clustering actually works",
+      "description": "Cleaning messy donor names in OpenRefine, one clustering algorithm at a time — fingerprints, phonetic matching, and nearest neighbor.",
+      "url": "blog/how-clustering-works.html",
+      "date": "2026-09-27",
+      "thumb": "img/clustering-frog.jpg"
+    },
+    {
       "type": "video",
       "title": "Pondcast #8: On data cleaning (with Jonathan Stoneman and Ada Homolova)",
       "alt": "Pondcast #8: On data cleaning (with Jonathan Stoneman and Ada Homolova)",

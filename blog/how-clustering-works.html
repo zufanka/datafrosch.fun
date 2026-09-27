@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="One donor, three spellings: how OpenRefine's clustering actually works — key collision, fingerprints, phonetic matching, and nearest neighbor — on British political donation data.">
+    <meta name="keywords" content="data cleaning, OpenRefine, clustering, fingerprint, n-gram, metaphone, Levenshtein, data journalism, entity resolution">
+    <meta name="author" content="Ada Homolova">
+    <link rel="canonical" href="https://datafrosch.fun/blog/how-clustering-works.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://datafrosch.fun/blog/how-clustering-works.html">
+    <meta property="og:title" content="The Same Donor, Three Names: How Clustering Actually Works | Data Frosch">
+    <meta property="og:description" content="One donor, three spellings: how OpenRefine's clustering actually works — key collision, fingerprints, phonetic matching, and nearest neighbor.">
+    <meta property="og:image" content="https://datafrosch.fun/img/clustering-frog.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="675">
+    <meta property="og:image:alt" content="The same donor, three names: how clustering actually works">
+    <meta property="og:site_name" content="Data Frosch">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="Ada Homolova">
+    <meta property="article:published_time" content="2026-09-27">
+    <meta property="article:section" content="Data Journalism">
+    <meta property="article:tag" content="Data Cleaning">
+    <meta property="article:tag" content="OpenRefine">
+    <meta property="article:tag" content="Data Journalism">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://datafrosch.fun/blog/how-clustering-works.html">
+    <meta name="twitter:title" content="The Same Donor, Three Names: How Clustering Actually Works | Data Frosch">
+    <meta name="twitter:description" content="One donor, three spellings: how OpenRefine's clustering actually works — key collision, fingerprints, phonetic matching, and nearest neighbor.">
+    <meta name="twitter:image" content="https://datafrosch.fun/img/clustering-frog.jpg">
+    <meta name="twitter:image:alt" content="The same donor, three names: how clustering actually works">
+
+    <title>The Same Donor, Three Names: How Clustering Actually Works | Data Frosch</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The same donor, three names: how clustering actually works",
+        "description": "One donor, three spellings: how OpenRefine's clustering actually works — key collision, fingerprints, phonetic matching, and nearest neighbor — on British political donation data.",
+        "image": "https://datafrosch.fun/img/clustering-frog.jpg",
+        "datePublished": "2026-09-27",
+        "dateModified": "2026-09-27",
+        "author": {
+            "@type": "Person",
+            "name": "Ada Homolova"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Data Frosch",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://datafrosch.fun/img/logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://datafrosch.fun/blog/how-clustering-works.html"
+        },
+        "keywords": ["data cleaning", "OpenRefine", "clustering", "fingerprint", "n-gram", "metaphone", "Levenshtein", "data journalism", "entity resolution"],
+        "articleSection": "Data Journalism"
+    }
+    </script>
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="/index.html">
+            <div class="flex items-center">
+                <div class="logo-container mr-3">
+                    <img src="../img/logo.png" alt="Data Frosch logo - frog mascot for data journalism training">
+                </div>
+                <div class="text-right">
+                    <h1 class="text-xl md:text-3xl font-bold">Data Frosch</h1>
+                    <p id="changing-text" class="text-xs sm:text-sm opacity-75"></p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar sticky top-0 z-50">
+        <div class="container mx-auto px-1 sm:px-2">
+            <div class="flex py-2 sm:py-3"></div>
+        </div>
+    </nav>
+    <script src="../js/navbar.js"></script>
+
+    <!-- Blog Content Section -->
+    <section class="py-10 md:py-16 bg-white relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-2"></div>
+
+        <div class="container mx-auto px-4">
+            <article class="max-w-3xl mx-auto">
+                <h1 class="text-3xl md:text-4xl font-bold mb-3">
+                    The same donor, three names: how clustering actually works
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-2">
+                    Cleaning messy donor names in OpenRefine, one algorithm at a time
+                </p>
+                <p class="text-sm text-gray-500 mb-8">by Ada Homolova &middot; September 27, 2026</p>
+
+                <figure class="mb-8">
+                    <img src="../img/clustering-frog.jpg" alt="A frog cleaning up (cool-toned)" class="rounded-lg w-full" loading="eager">
+                    <figcaption class="text-sm text-gray-500 mt-2 text-center">Cleaning is how you get to know your data</figcaption>
+                </figure>
+
+                <div class="prose prose-lg max-w-none">
+
+                    <p class="text-base md:text-lg mb-6">
+                        British political donation data is beautiful in one specific way: it's dirty enough to teach you a lot about data cleaning.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Take donor names. In the dataset Jonathan Stoneman cleaned in our latest <a href="https://youtu.be/kE-uP7o6SQI" target="_blank" class="text-green-700 hover:underline">Pondcast session</a>, one column held 21,000 "different" donor names across 73,000 rows. Except many of them weren't different at all:
+                    </p>
+
+                    <ul class="list-disc pl-6 mb-6 space-y-2 text-base md:text-lg">
+                        <li>Lord Harris of Peckham</li>
+                        <li>Lord Philip Harris of Peckham</li>
+                        <li>Lord Phillip Harris of Peckham (two L's)</li>
+                    </ul>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Same guy, three spellings. If you pivot on this column as-is, his donations split into three piles, and your total is wrong. Jonathan took to <a href="https://openrefine.org" target="_blank" class="text-green-700 hover:underline">OpenRefine</a> to help him do the job.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-10">First, make the data comparable</h2>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Before clustering, you can do these three things to pick the most low hanging fruit:
+                    </p>
+
+                    <ol class="list-decimal pl-6 mb-6 space-y-2 text-base md:text-lg">
+                        <li><strong>Copy the column.</strong> Never clean the original. You want <code>donor_name</code> (untouched) next to <code>donors_cleaned</code> (your working copy), so you can always compare back.</li>
+                        <li><strong>Normalize case.</strong> Everything to lowercase. "Phoenix Partnership" and "phoenix partnership" become one entry, not two.</li>
+                        <li><strong>Trim whitespace.</strong> A leading space before "Christopher Harborne" makes him invisible to exact matching.</li>
+                    </ol>
+
+                    <aside class="bg-gray-50 border-l-4 border-green-500 p-4 mb-6 text-sm md:text-base text-gray-700">
+                        We are not changing the data, just removing fake differences.
+                    </aside>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-10">Then: cluster</h2>
+
+                    <p class="text-base md:text-lg mb-6">
+                        In OpenRefine, you click the column menu &rarr; Facet &rarr; Text facet, then <strong>Cluster</strong>. It's not just one algorithm, but a menu of them, in two families. Jonathan runs them in order, strictest first.
+                    </p>
+
+                    <h3 class="text-xl font-bold mb-3 mt-6">1. Key collision methods</h3>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Every value gets transformed into a simplified "key": lowercased, punctuation stripped, and values that produce the same key land in the same cluster. These are fast, but you can't tune how strict they are.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        <strong>Fingerprint</strong>: the default, and the strictest. It strips punctuation and whitespace, lowercases everything, sorts the <em>words</em> alphabetically, and joins them back. "Alan Bound Margate (Limited)", "Alan-Bound Margate Limited", and "alan bound margate limited" all produce the same fingerprint, so they're proposed as one cluster. It rarely suggests a wrong merge. Run it first.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        <strong>N-gram fingerprint</strong>: looser. Instead of sorting whole words, it chops each value into small chunks of characters (n-grams), sorts those, and compares. "Krzysztof", "Kryzysztof", and "Krzystof" have different lengths, but they use the same letters, so they share the same 1-gram fingerprint. Run it second: it catches near-misses fingerprint would miss (a typo in one word, an extra word in the middle) but proposes more false merges.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        <strong>Phonetic fingerprint</strong>: matches on <strong>how words sound</strong>, not how they're spelled. "Smith" and "Smyth" cluster. There are four phonetic algorithms to choose from, and which one works best depends on where your names come from:
+                    </p>
+
+                    <ul class="list-disc pl-6 mb-6 space-y-2 text-base md:text-lg">
+                        <li><strong>Metaphone3</strong>: the go-to for English, plus first and last names common in the United States.</li>
+                        <li><strong>Cologne phonetics</strong>: the same idea, optimized for German.</li>
+                        <li><strong>Daitch-Moktoff</strong>: a Soundex refinement built for Slavic and Yiddish surnames. Again awkwardly specific, but matching names is awkward by definition.</li>
+                        <li><strong>Beider-Morse</strong>: figures out the likely language of each name from its spelling, then applies that language's pronunciation rules. Slower, but worth it on mixed-language name columns.</li>
+                    </ul>
+
+                    <p class="text-base md:text-lg mb-6">
+                        The annoying part of phonetic matching in practice: in Jonathan's data, every donor called Christopher clustered together, and so did all the "Government of..." entries. Obviously not the same thing. But hidden in that noise you occasionally spot a real match you'd otherwise have missed. Run phonetic last, with patience.
+                    </p>
+
+                    <h3 class="text-xl font-bold mb-3 mt-6">2. Nearest neighbor methods</h3>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Key collision is all-or-nothing: same key, same cluster. Nearest neighbor methods are more flexible. They measure how far apart two strings are (the radius), and you decide how far is still "the same". A small radius merges only near-identical values. A bigger one suggests more adventurous merges (and more wrong ones).
+                    </p>
+
+                    <ul class="list-disc pl-6 mb-6 space-y-2 text-base md:text-lg">
+                        <li><strong>Levenshtein distance</strong>: the number of single-character edits needed to turn one string into another. This means: one letter added, removed, or changed. "Harris" and "Haris" are one edit apart. Simple, intuitive, and a good pick for short values.</li>
+                        <li><strong>PPM</strong>: compares strings by compressing them. Similar strings compress well together; different ones don't. This one actually comes from DNA sequencing (yes) and it's loose: the docs call it a last resort.</li>
+                    </ul>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Jonathan once timed himself doing exactly this, on a plane and again at a conference with nothing to do before dinner: about 50,000 rows of this same donation data, two and a half hours to clean every cleanable column. Worth it, because occasionally you find a gem, like the London nightclub Ministry of Sound grouped with all the other ministries, giving out free tickets to MPs.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        And you only pay that cost once. OpenRefine keeps a history of every edit you make, and you can export it as a JSON file. Next month, when the updated donation data arrives with the same mistakes in it, you apply the file and the whole cleaning replays itself.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        For the details on every method see <a href="https://openrefine.org/docs/technical-reference/clustering-in-depth" target="_blank" class="text-green-700 hover:underline">OpenRefine's clustering reference</a>.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-10">The decision is yours</h2>
+
+                    <p class="text-base md:text-lg mb-6">
+                        There are also things these algorithms won't do for you.
+                    </p>
+
+                    <h3 class="text-xl font-bold mb-3 mt-6">1. Deciding which spelling wins</h3>
+                    <p class="text-base md:text-lg mb-6">
+                        Sometimes it's pure style: "Ltd" vs "Ltd." vs "Limited." Pick one, be consistent, move on. Sometimes you need to Google the correct legal name. And sometimes it's a judgment call about your story: Jonathan renamed all the Harris variants to plain "Lord Harris" because he didn't care about the Peckham part.
+                    </p>
+
+                    <h3 class="text-xl font-bold mb-3 mt-6">2. Deciding what to clean</h3>
+                    <p class="text-base md:text-lg mb-6">
+                        You don't have to clean everything &mdash; only the names that matter for your analysis. If the Barneswick Liberal Club has a few spellings and you'll never report on them, skip them.
+                    </p>
+
+                    <h3 class="text-xl font-bold mb-3 mt-6">3. Deciding what is the same entity</h3>
+                    <p class="text-base md:text-lg mb-6">
+                        Clustering catches spelling variants. It cannot tell you whether two similar names are the same <em>entity</em> &mdash; that's entity resolution, and it's a different (harder) problem. "IBM" and "IBM Czech Republic" might be one company for your story, or two.
+                    </p>
+
+                    <h3 class="text-xl font-bold mb-3">Watch the full session on YouTube</h3>
+                    <p class="text-base md:text-lg mb-6">
+                        Including the LLM approach to the same messy data: <a href="https://youtu.be/kE-uP7o6SQI" target="_blank" class="text-green-700 hover:underline">Pondcast #8: On data cleaning</a>
+                    </p>
+                    <div class="mb-6" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+                        <iframe src="https://www.youtube.com/embed/kE-uP7o6SQI?si=JcSz5I4ia9hG-SY_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%;"></iframe>
+                    </div>
+
+                    <p class="text-base md:text-lg mb-6">
+                        🐸 Want to clean data like this live with us? Sessions happen every two weeks in The Pond! <a href="https://discord.gg/NCAjxqVDH" target="_blank" class="text-green-700 hover:underline">Come say hi</a>.
+                    </p>
+
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Subscribe CTA -->
+    <section id="newsletter" class="py-10 md:py-16 bg-gray-50 relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-3"></div>
+
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Enjoyed this article?</h2>
+            <p class="text-base md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">Subscribe to The Pond newsletter and never miss an issue.</p>
+            <a target="_blank" href="https://datafrosch.beehiiv.com/subscribe" class="cta-button inline-block bounce-hover">Subscribe</a>
+        </div>
+    </section>
+
+    <!-- Related resources -->
+    <section class="py-10 md:py-16 bg-white relative">
+        <div class="lily-pad lily-pad-2"></div>
+
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">Fresh from The Pond</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+
+                <!-- related-grid count="3" -->
+                <a target="_blank" href="https://youtu.be/kE-uP7o6SQI" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Pondcast #8: On data cleaning (with Jonathan Stoneman and Ada Homolova)" class="w-full h-full object-cover" loading="lazy" />
+                        <div class="play-button">
+                            <div class="w-12 h-12 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm3.33 10.33l-4.73 2.83a.33.33 0 0 1-.5-.29V7.13a.33.33 0 0 1 .5-.29l4.73 2.83a.33.33 0 0 1 0 .58z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Video</span>
+                            <span class="text-xs text-gray-500">Sep 15, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">Pondcast #8: On data cleaning (with Jonathan Stoneman and Ada Homolova)</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Cleaning messy datasets two ways: by hand in OpenRefine and with an LLM — and how the dirt itself hides stories.</p>
+                    </div>
+                </a>
+                <a href="newsletters/the-pond-11-cleaning-up.html" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-thumb="img/cleaning-frog.jpg">
+                    <div class="video-container">
+                        <img data-thumb-target alt="The Pond #11: Cleaning up" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Newsletter</span>
+                            <span class="text-xs text-gray-500">Sep 3, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">🪷 The Pond #11: Cleaning up</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Let&#x27;s dig into the dirt 🐸🧹</p>
+                    </div>
+                </a>
+                <a href="guides/tidy-data.html" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Tidy Data" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Guide</span>
+                            <span class="text-xs text-gray-500">Mar 31, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">Tidy Data</h3>
+                        <p class="opacity-75 text-xs md:text-sm">What tidy data is, the most common ways spreadsheets go wrong, and a checklist to confirm your data is analysis-ready.</p>
+                    </div>
+                </a>
+                <!-- /related-grid -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-6 md:py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center md:flex-row md:justify-between md:items-start">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start">
+                        <div class="logo-container mr-3" style="width: 40px; height: 40px;">
+                            <img src="../img/logo.png" alt="Data Frosch logo">
+                        </div>
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-white">Data Frosch</h3>
+                            <p class="text-xs text-gray-300">datafrosch.fun</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-5 md:gap-8 mb-6 md:mb-0 text-center md:text-left">
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Quick Links</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="../index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                            <li><a href="../index.html#about" class="text-gray-400 hover:text-white">About</a></li>
+                            <li><a href="../index.html#mentoring" class="text-gray-400 hover:text-white">Mentoring</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Resources</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white">Blog</a></li>
+                            <li><a href="../guides/index.html" class="text-gray-400 hover:text-white">Guides</a></li>
+                            <li><a href="https://www.youtube.com/@datafrosch" class="text-gray-400 hover:text-white">YouTube</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Contact</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="mailto:ada@datafrosch.fun" class="text-gray-400 hover:text-white">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-gray-700 text-center text-xs md:text-sm text-gray-400">
+                <p>CC BY-SA 4.0</p>
+                <p class="mt-2">Made with 💚 and 🐸</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="../js/taglines.js"></script>
+    <script src="../js/thumbs.js"></script>
+</body>
+</html>

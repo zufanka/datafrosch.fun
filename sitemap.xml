@@ -17,8 +17,13 @@
   </url>
   <url>
     <loc>https://datafrosch.fun/blog/</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datafrosch.fun/blog/how-clustering-works.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://datafrosch.fun/blog/bias-in-your-ai.html</loc>
