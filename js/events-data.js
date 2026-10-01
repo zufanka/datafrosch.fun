@@ -3,26 +3,44 @@
 var EVENTS = {
   upcoming: [
     {
-      date: "2026-09-10",
-      time: "14:30 CEST",
-      title: "Data cleaning is glorious",
-      desc: "Ada and Jonathan on the messes you'll meet in data and how to clean them up, with practical demos.",
-      image: "img/events/data-cleaning-is-glorious.png",
-      link: "https://discord.com/events/1406642598646513858/1545484398210715789",
-      meet: "https://meet.google.com/hzm-ttjj-kxe"
+      date: "2026-10-21",
+      time: "14:00 CEST",
+      title: "Digital sovereignty",
+      desc: "What digital sovereignty actually means, why we want it, and what stands in the way, with Santi van den Toorn.",
+      image: "img/pondcast-thumbnails-events/10-santi-event.jpg",
+      meet: "https://meet.google.com/ead-dnfi-tpj"
     },
     {
-      date: "2026-09-24",
-      time: "14:00 CEST",
-      title: "OpenRefine meets AI",
-      desc: "Hervé Letoqueux shows how to supercharge OpenRefine with LLMs to turn messy data into investigation-ready datasets.",
-      image: "img/events/openrefine-meets-ai.png",
-      link: "https://discord.com/events/1406642598646513858/1545430508639490108",
-      meet: "https://meet.google.com/krj-yuio-jzy"
+      date: "2026-10-27",
+      time: "14:00 CET",
+      title: "It's all a harness, baby",
+      desc: "What an agent harness is, and how to build your own, with Johan Schuijt.",
+      image: "img/frosches/walking-the-robots.jpg",
+      meet: "https://meet.google.com/bsw-oqds-ujm"
+    },
+    {
+      date: "2026-11-18",
+      time: "14:30 CET",
+      title: "Mining analogue data",
+      desc: "Constanze Bayer shows how old guide books and other analog materials became a data treasure trove in her story on the industrialization of ski resorts.",
+      image: "img/frosches/mining-vintage-frog.jpg",
+      meet: "https://meet.google.com/fta-krxb-xxo"
     },
   ],
 
   past: [
+    {
+      date: "2026-09-24",
+      title: "OpenRefine meets AI",
+      desc: "Hervé Letoqueux shows how to supercharge OpenRefine with LLMs to turn messy data into investigation-ready datasets.",
+      youtube: "https://youtu.be/4DMNxmHzCpU"
+    },
+    {
+      date: "2026-09-10",
+      title: "Data cleaning is glorious",
+      desc: "Ada and Jonathan on the messes you'll meet in data and how to clean them up, with practical demos.",
+      youtube: "https://youtu.be/kE-uP7o6SQI"
+    },
     {
       date: "2026-06-24",
       title: "Pondcast #7: A deep dive into maps & QGIS intro (with Jonathan)",
