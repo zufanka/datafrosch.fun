@@ -36,7 +36,7 @@
         if (ev.luma) {
             wrapStart = '<a target="_blank" href="' + esc(ev.luma) + '" class="course-card block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">';
             wrapEnd = '</a>';
-            linksHtml = '<p class="text-xs md:text-sm mt-3"><span class="text-green-700 font-medium">Sign up on Luma →</span></p>';
+            linksHtml = '<p class="text-xs md:text-sm mt-3"><span class="text-green-700 font-medium">Join the event →</span></p>';
         } else {
             var links = [];
             if (ev.link) links.push('<a target="_blank" href="' + esc(ev.link) + '" class="text-green-700 font-medium hover:underline">Discord event</a>');
