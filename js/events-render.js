@@ -11,7 +11,6 @@
           '</div>' +
         '</div>';
     var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    var MONTHS_FULL = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
     function esc(s) {
         return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -53,6 +52,22 @@
 
     function pastCard(ev) {
         // Recorded events link to their Pondcast; thumbs.js fills the YouTube thumbnail.
+        // Events that just expired (moved from upcoming) may not have a recording yet.
+        if (!ev.youtube) {
+            return '<div class="course-card block bg-white rounded-lg shadow-md overflow-hidden">' +
+                '<div class="video-container">' +
+                    '<img src="' + (ev.image ? esc(ev.image) : 'img/logo.png') + '" alt="' + esc(ev.title) + '" class="w-full h-full object-cover" loading="lazy" />' +
+                '</div>' +
+                '<div class="p-4">' +
+                    '<div class="flex items-center justify-between mb-2">' +
+                        '<span class="guide-badge">Event</span>' +
+                        '<span class="text-xs text-gray-500">' + fmtDate(ev.date) + '</span>' +
+                    '</div>' +
+                    '<h3 class="font-bold text-base md:text-lg mb-2">' + esc(ev.title) + '</h3>' +
+                    '<p class="opacity-75 text-xs md:text-sm">' + esc(ev.desc) + '</p>' +
+                '</div>' +
+            '</div>';
+        }
         return '<a target="_blank" href="' + esc(ev.youtube) + '" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden">' +
             '<div class="video-container">' +
                 '<img data-thumb-target alt="' + esc(ev.title) + '" class="w-full h-full object-cover" loading="lazy" />' +
@@ -72,17 +87,33 @@
     function data() { return (typeof EVENTS !== 'undefined') ? EVENTS : { upcoming: [], past: [] }; }
 
     window.DataFroschEvents = {
-        upcoming: function () { return (data().upcoming || []).slice().sort(byDate(1)); },  // soonest first
-        past: function () { return (data().past || []).slice().sort(byDate(-1)); },          // newest first
-        // Section headings like "Events in September" — derived from the
-        // soonest upcoming event so they never go stale in the HTML.
+        upcoming: function () {
+            // Auto-hide events once their date has passed (kept until the day
+            // after, i.e. hidden when the event date is before today).
+            var today = new Date();
+            var todayStr = today.getFullYear() + '-' +
+                String(today.getMonth() + 1).padStart(2, '0') + '-' +
+                String(today.getDate()).padStart(2, '0');
+            return (data().upcoming || [])
+                .filter(function (ev) { return String(ev.date) >= todayStr; })
+                .sort(byDate(1));  // soonest first
+        },
+        past: function () {
+            var today = new Date();
+            var todayStr = today.getFullYear() + '-' +
+                String(today.getMonth() + 1).padStart(2, '0') + '-' +
+                String(today.getDate()).padStart(2, '0');
+            // Past events from the data file, plus upcoming ones that have
+            // now happened (kept a day past their date, then moved here).
+            var expired = (data().upcoming || []).filter(function (ev) {
+                return String(ev.date) < todayStr;
+            });
+            return (data().past || []).concat(expired).sort(byDate(-1));  // newest first
+        },
+        // Static heading — no month rewriting, so it never goes stale.
         updateMonthTitles: function () {
-            var list = this.upcoming();
-            var text = list.length
-                ? 'Events in ' + MONTHS_FULL[parseInt(String(list[0].date).split('-')[1], 10) - 1]
-                : 'Upcoming events';
             var els = document.querySelectorAll('.events-month-title');
-            for (var i = 0; i < els.length; i++) els[i].textContent = text;
+            for (var i = 0; i < els.length; i++) els[i].textContent = 'Upcoming events';
         },
         renderUpcoming: function (el, opts) {
             if (!el) return [];
