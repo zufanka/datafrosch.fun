@@ -31,13 +31,23 @@
             ? '<img src="' + esc(ev.image) + '" alt="' + esc(ev.title) + '" class="w-full h-full object-cover" loading="lazy" />'
             : '<img src="img/logo.png" alt="' + esc(ev.title) + '" class="w-full h-full object-cover" loading="lazy" />';
         var when = fmtDate(ev.date) + (ev.time ? ' · ' + esc(ev.time) : '');
-        var links = [];
-        if (ev.link) links.push('<a target="_blank" href="' + esc(ev.link) + '" class="text-green-700 font-medium hover:underline">Discord event</a>');
-        if (ev.meet) links.push('<a target="_blank" href="' + esc(ev.meet) + '" class="text-green-700 font-medium hover:underline">Join call</a>');
-        var linksHtml = links.length
-            ? '<p class="text-xs md:text-sm mt-3">' + links.join(' <span class="text-gray-400">·</span> ') + '</p>'
-            : '';
-        return '<div class="course-card block bg-white rounded-lg shadow-md overflow-hidden">' +
+        // Whole card links to the Luma event when available.
+        var wrapStart, wrapEnd, linksHtml;
+        if (ev.luma) {
+            wrapStart = '<a target="_blank" href="' + esc(ev.luma) + '" class="course-card block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">';
+            wrapEnd = '</a>';
+            linksHtml = '<p class="text-xs md:text-sm mt-3"><span class="text-green-700 font-medium">Sign up on Luma →</span></p>';
+        } else {
+            var links = [];
+            if (ev.link) links.push('<a target="_blank" href="' + esc(ev.link) + '" class="text-green-700 font-medium hover:underline">Discord event</a>');
+            if (ev.meet) links.push('<a target="_blank" href="' + esc(ev.meet) + '" class="text-green-700 font-medium hover:underline">Join call</a>');
+            linksHtml = links.length
+                ? '<p class="text-xs md:text-sm mt-3">' + links.join(' <span class="text-gray-400">·</span> ') + '</p>'
+                : '';
+            wrapStart = '<div class="course-card block bg-white rounded-lg shadow-md overflow-hidden">';
+            wrapEnd = '</div>';
+        }
+        return wrapStart +
             '<div class="video-container">' + img + '</div>' +
             '<div class="p-4">' +
                 '<div class="flex items-center mb-2">' +
@@ -47,7 +57,7 @@
                 '<p class="opacity-75 text-xs md:text-sm">' + esc(ev.desc) + '</p>' +
                 linksHtml +
             '</div>' +
-        '</div>';
+        wrapEnd;
     }
 
     function pastCard(ev) {

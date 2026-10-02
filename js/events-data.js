@@ -8,6 +8,8 @@ var EVENTS = {
       title: "Digital sovereignty",
       desc: "What digital sovereignty actually means, why we want it, and what stands in the way, with Santi van den Toorn.",
       image: "img/pondcast-thumbnails-events/10-santi-event.jpg",
+      link: "https://discord.com/events/1406642598646513858/1555218437440016465",
+      luma: "https://luma.com/r4hus2wc",
       meet: "https://meet.google.com/ead-dnfi-tpj"
     },
     {
@@ -16,6 +18,8 @@ var EVENTS = {
       title: "It's all a harness, baby",
       desc: "What an agent harness is, and how to build your own, with Johan Schuijt.",
       image: "img/frosches/walking-the-robots.jpg",
+      link: "https://discord.com/events/1406642598646513858/1555218447325995069",
+      luma: "https://luma.com/unpgrv6k",
       meet: "https://meet.google.com/bsw-oqds-ujm"
     },
     {
@@ -24,6 +28,8 @@ var EVENTS = {
       title: "Mining analogue data",
       desc: "Constanze Bayer shows how old guide books and other analog materials became a data treasure trove in her story on the industrialization of ski resorts.",
       image: "img/frosches/mining-vintage-frog.jpg",
+      link: "https://discord.com/events/1406642598646513858/1555218462748708985",
+      luma: "https://luma.com/8unfuo0i",
       meet: "https://meet.google.com/fta-krxb-xxo"
     },
   ],
