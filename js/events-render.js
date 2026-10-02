@@ -85,7 +85,7 @@
             '</div>' +
             '<div class="p-4">' +
                 '<div class="flex items-center justify-between mb-2">' +
-                    '<span class="guide-badge">Recording</span>' +
+                    '<span class="guide-badge">Video</span>' +
                     '<span class="text-xs text-gray-500">' + fmtDate(ev.date) + '</span>' +
                 '</div>' +
                 '<h3 class="font-bold text-base md:text-lg mb-2">' + esc(ev.title) + '</h3>' +

@@ -1,6 +1,15 @@
 {
   "resources": [
     {
+      "type": "newsletter",
+      "title": "🧽 The Pond #12: Taming robots",
+      "alt": "The Pond #12: Taming robots",
+      "description": "Also: come learn about digital independence 🐸",
+      "url": "newsletters/the-pond-12-taming-robots.html",
+      "date": "2026-10-02",
+      "thumb": "img/frosches/walking-the-robots.jpg"
+    },
+    {
       "type": "blog",
       "title": "The same donor, three names: how clustering actually works",
       "alt": "The same donor, three names: how clustering actually works",
@@ -8,6 +17,15 @@
       "url": "blog/how-clustering-works.html",
       "date": "2026-09-27",
       "thumb": "img/clustering-frog.jpg"
+    },
+    {
+      "type": "video",
+      "title": "Pondcast #9: OpenRefine meets AI (with Hervé Letoqueux)",
+      "alt": "Pondcast #9: OpenRefine meets AI (with Hervé Letoqueux)",
+      "description": "Extract routes, compensation and discrimination signals from messy free text — with OpenRefine, a local LLM, and reproducibility intact.",
+      "url": "https://youtu.be/4DMNxmHzCpU",
+      "date": "2026-09-24",
+      "thumb": null
     },
     {
       "type": "video",
@@ -173,7 +191,7 @@
     },
     {
       "type": "video",
-      "title": "🪷 Pondcast #2: Investigating kindergartens with Freja Wedenborg",
+      "title": "Pondcast #2: Investigating kindergartens with Freja Wedenborg",
       "alt": "Pondcast #2: Investigating kindergartens with Freja Wedenborg",
       "description": "What 350 evaluation reports reveal about inequality between Copenhagen neighbourhoods.",
       "url": "https://www.youtube.com/watch?v=lvSleNCANkI",
@@ -200,7 +218,7 @@
     },
     {
       "type": "video",
-      "title": "🪷 Pondcast #1: Scraper blocking and how to get around it",
+      "title": "Pondcast #1: Scraper blocking and how to get around it",
       "alt": "Pondcast #1: Scraper blocking and how to get around it",
       "description": "Practical approaches when websites block your scraper.",
       "url": "https://www.youtube.com/watch?v=1yCykgFrZz0",
@@ -218,7 +236,7 @@
     },
     {
       "type": "newsletter",
-      "title": "🪷The Pond #5: Take the leap!",
+      "title": "🪷 The Pond #5: Take the leap!",
       "alt": "The Pond #5: Take the leap!",
       "description": "Hello my dear frosches! 🐸 WebSummit stories, a Color Analyzer tool, a newsletter robot, plus tutorials and databases.",
       "url": "newsletters/the-pond-5-take-the-leap.html",
@@ -254,7 +272,7 @@
     },
     {
       "type": "newsletter",
-      "title": "🪷The Pond #3: Mentorships open!",
+      "title": "🪷 The Pond #3: Mentorships open!",
       "alt": "The Pond #3: Mentorships open!",
       "description": "Come learn with me!",
       "url": "newsletters/the-pond-3-mentorships-open.html",
@@ -281,7 +299,7 @@
     },
     {
       "type": "newsletter",
-      "title": "🪷The Pond #1 : Making the right choices",
+      "title": "🪷 The Pond #1: Making the right choices",
       "alt": "The Pond #1 : Making the right choices",
       "description": "Your first dip and an upcoming free course.",
       "url": "newsletters/the-pond-1-making-the-right-choices.html",
