@@ -24,11 +24,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css?v=20260609">
+    <link rel="stylesheet" href="css/pond.css?v=26f1f8ea5d44">
 
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
 
     <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
+    <script src="js/vendor/add-to-calendar-button-3.3.0/atcb.js" defer></script>
 </head>
 <body>
     <!-- Header with Logo -->
@@ -56,17 +58,66 @@
     </nav>
     <script src="js/navbar.js"></script>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container mx-auto px-4 text-center relative z-10">
-            <h2 class="text-2xl md:text-5xl font-bold mb-4 md:mb-6">🪷 The Pond 🪷</h2>
-            <p class="text-base md:text-xl max-w-2xl mx-auto mb-6 md:mb-8 opacity-90">
-                A community for and by nerds in the newsroom.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a target="_blank" href="https://datafrosch.beehiiv.com/subscribe" class="cta-button bounce-hover">Subscribe to the newsletter</a>
-                <a target="_blank" href="https://discord.com/invite/FQe2UQxE5D" class="inline-block bg-white font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition" style="color: var(--primary-color)">Join the Discord</a>
+    <!-- Hero: compact centered intro (the signup form lives in its own
+         section just below) -->
+    <section class="hero pond-hero" id="pond-intro">
+        <div class="pond-hero-container mx-auto px-4 relative z-10">
+            <div class="pond-hero-intro">
+                <h2 class="text-3xl md:text-5xl font-bold">The Pond</h2>
+                <p id="pond-subscribe-promise" class="pond-subscribe-label">
+                    Data journalism tips, useful links, and upcoming online sessions.
+                </p>
+                <p class="pond-hero-tagline">A community for and by nerds in the newsroom.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- Newsletter signup: minimal form between the hero and the events.
+         JS submits to Ada's subscribe API (The Pond only, double
+         opt-in). There is deliberately no native form action: without
+         JavaScript a GET submit would pass the typed email as a URL
+         query parameter. The controls stay hidden until
+         pond-subscribe.js initializes; the noscript note below
+         carries the fallback link and instructions. -->
+    <section id="subscribe" class="pond-signup">
+        <form id="pond-subscribe-form" class="pond-subscribe" novalidate>
+            <div class="pond-honeypot" aria-hidden="true">
+                <label for="pond-website">Website (leave empty)</label>
+                <input id="pond-website" type="text" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+            <label class="pond-email-label" for="pond-email">Email address</label>
+            <div class="pond-subscribe-row" id="pond-subscribe-row" hidden>
+                <input id="pond-email" type="email" name="email" required placeholder="your@email.com" autocomplete="email" aria-describedby="pond-subscribe-note pond-subscribe-status" />
+                <button type="submit" class="cta-button pond-subscribe-button">Subscribe to The Pond</button>
+            </div>
+            <p id="pond-subscribe-note" class="pond-subscribe-note" hidden>
+                Free, once a month + event reminders. <a href="privacy-policy.html#newsletter-privacy">Privacy</a>
+            </p>
+            <p id="pond-subscribe-status" class="pond-subscribe-status" role="status" aria-live="polite"></p>
+            <noscript>
+                <p class="pond-subscribe-noscript">
+                    The quick form needs JavaScript. To subscribe, open
+                    <a href="https://homolova.sk/newsletter" target="_blank" rel="noopener">homolova.sk/newsletter</a>
+                    &mdash; that page needs JavaScript too, and it preselects both of Ada&rsquo;s newsletters, so untick &ldquo;Hi! It&rsquo;s Ada&rdquo; if you only want The Pond.
+                </p>
+            </noscript>
+        </form>
+    </section>
+
+    <!-- Upcoming events (right after the signup form: the calendar actions
+         here replaced the old section-level Discord CTA) -->
+    <section id="upcoming" class="py-10 md:py-16 bg-gray-50 relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-3"></div>
+
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-10 text-center">
+                <span class="section-title events-month-title">Upcoming events</span>
+            </h2>
+            <p class="text-base md:text-lg upcoming-desc mb-6 md:mb-8 max-w-2xl mx-auto text-center">
+                Community hangouts and Pondcast training sessions. Come learn, ask questions, and find stories in data with us.
+            </p>
+            <div id="upcoming-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto"></div>
         </div>
     </section>
 
@@ -117,25 +168,6 @@
         </div>
     </section>
 
-    <!-- Upcoming events -->
-    <section id="upcoming" class="py-10 md:py-16 bg-gray-50 relative">
-        <div class="lily-pad lily-pad-1"></div>
-        <div class="lily-pad lily-pad-3"></div>
-
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-10 text-center">
-                <span class="section-title events-month-title">Upcoming events</span>
-            </h2>
-            <p class="text-base md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto text-center">
-                Community hangouts and Pondcast training sessions. Come learn, ask questions, and find stories in data with us.
-            </p>
-            <div class="mb-8 md:mb-12 flex justify-center">
-                <a target="_blank" href="https://discord.com/invite/FQe2UQxE5D" class="cta-button inline-block bounce-hover text-sm md:text-base px-6 py-3">Join the Discord</a>
-            </div>
-            <div id="upcoming-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto"></div>
-        </div>
-    </section>
-
     <!-- Past events -->
     <section id="past" class="py-10 md:py-16 relative">
         <div class="lily-pad lily-pad-2"></div>
@@ -161,7 +193,7 @@
                 Catch up on past editions of The Pond.
             </p>
             <div class="mb-8 md:mb-12 flex justify-center">
-                <a target="_blank" href="https://datafrosch.beehiiv.com/subscribe" class="cta-button inline-block bounce-hover text-sm md:text-base px-6 py-3">Subscribe to the newsletter</a>
+                <a href="#subscribe" class="cta-button inline-block bounce-hover text-sm md:text-base px-6 py-3">Subscribe to the newsletter</a>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
@@ -357,7 +389,7 @@
                     <div>
                         <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">The Pond</h4>
                         <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
-                            <li><a href="https://datafrosch.beehiiv.com/subscribe" class="text-gray-400 hover:text-white">Newsletter</a></li>
+                            <li><a href="#subscribe" class="text-gray-400 hover:text-white">Newsletter</a></li>
                             <li><a href="https://discord.com/invite/FQe2UQxE5D" class="text-gray-400 hover:text-white">Discord</a></li>
                         </ul>
                     </div>
@@ -377,14 +409,16 @@
         </div>
     </footer>
 
-    <!-- Render events from data, then resolve thumbnails -->
-    <script src="js/events-data.js?v=d8a14c4e8271"></script>
-    <script src="js/events-render.js?v=e47c1cc12d93"></script>
+    <!-- Render events from data (calendar actions on), resolve thumbnails,
+         then wire the inline newsletter form -->
+    <script src="js/events-data.js?v=d9fbfe1d9f1e"></script>
+    <script src="js/events-render.js?v=d232f6833505"></script>
     <script>
         (function () {
             var E = window.DataFroschEvents;
             var upcoming = E.renderUpcoming(document.getElementById('upcoming-grid'), {
-                emptyHtml: '<div class="events-empty">No events scheduled right now — new ones land in the Discord a couple of times a month. <a href="https://discord.com/invite/FQe2UQxE5D" target="_blank" class="text-green-700 hover:underline">Join the Pond</a> to be the first to know.</div>'
+                calendarActions: true,
+                emptyHtml: '<div class="events-empty">No events scheduled right now &mdash; <a href="#subscribe" class="text-green-700 hover:underline">subscribe to the newsletter</a> and you&rsquo;ll hear about the next ones first.</div>'
             });
             E.renderPast(document.getElementById('past-grid'));
 
@@ -413,6 +447,7 @@
             }
         })();
     </script>
+    <script src="js/pond-subscribe.js?v=655ff66966b9"></script>
     <script src="js/thumbs.js"></script>
 </body>
 </html>

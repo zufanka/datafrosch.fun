@@ -12,7 +12,10 @@ var EVENTS = {
       meet: "https://meet.google.com/ead-dnfi-tpj",
       url: "events/digital-sovereignty.html",
       start: "2026-10-21T14:00:00+02:00",
-      end: "2026-10-21T15:00:00+02:00"
+      end: "2026-10-21T15:00:00+02:00",
+      uid: "8a86cbdd-d8f5-5838-97ab-f3c0a2c6979e",
+      sequence: "1",
+      ics_updated: "20261010T092147Z"
     },
     {
       date: "2026-10-27",
@@ -24,7 +27,10 @@ var EVENTS = {
       meet: "https://meet.google.com/bsw-oqds-ujm",
       url: "events/agent-harnesses.html",
       start: "2026-10-27T14:00:00+01:00",
-      end: "2026-10-27T15:00:00+01:00"
+      end: "2026-10-27T15:00:00+01:00",
+      uid: "4e8a58c9-d9e7-53aa-8e04-23637197a07d",
+      sequence: "0",
+      ics_updated: "20261027T130000Z"
     },
     {
       date: "2026-11-18",
@@ -36,7 +42,10 @@ var EVENTS = {
       meet: "https://meet.google.com/fta-krxb-xxo",
       url: "events/mining-analogue-data.html",
       start: "2026-11-18T14:30:00+01:00",
-      end: "2026-11-18T15:30:00+01:00"
+      end: "2026-11-18T15:30:00+01:00",
+      uid: "bd0645f9-9087-59f4-9b0a-df7c3a7e274c",
+      sequence: "0",
+      ics_updated: "20261118T133000Z"
     },
   ],
 

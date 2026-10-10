@@ -5,8 +5,15 @@
 // Card data comes in two generations:
 //   current — every event carries `url` (its local page, "events/<slug>.html")
 //             plus full ISO `start`/`end` timestamps next to the plain
-//             date/time/title/desc/image fields;
+//             date/time/title/desc/image fields, and — supplied by the
+//             generator from the same source as the generated .ics — the
+//             calendar identity: `uid`, `sequence` and `ics_updated`
+//             (see tools/events/event_site.py ics_uid / _ics_dt);
 //   legacy  — date/time only. Cards then fall back to the inline link row.
+//
+// renderUpcoming(opts) accepts an opt-in `calendarActions: true` (pond.html)
+// that renders non-anchor cards with an add-to-calendar-button per event,
+// mirroring the generated event pages. The default stays whole-card anchors.
 (function () {
     var PLAY_BUTTON =
         '<div class="play-button">' +
@@ -81,8 +88,123 @@
         return '<img src="' + esc(src) + '" alt="' + esc(ev.title) + '" class="w-full h-full object-cover" loading="lazy" />';
     }
 
-    function upcomingCard(ev) {
+    // --- opt-in calendar cards (pond.html) -------------------------------
+    // Attribute conventions follow tools/events/event_site.py so a card
+    // button produces the same event as the generated event page + .ics.
+    // The identity fields (uid, sequence, ics-updated) come precomputed in
+    // the data; entries without them are legacy and get plain anchor cards.
+
+    var SITE_URL = 'https://datafrosch.fun';
+
+    function slugOf(ev) {
+        var m = String(ev.url || '').match(/^events\/([^\/]+)\.html$/);
+        return m ? m[1] : '';
+    }
+
+    function berlinParts(iso) {
+        // Wall-clock date/time in Europe/Berlin — the timezone event pages
+        // publish in. Always converts via Intl so any input offset is
+        // handled; the raw-ISO fallback below only runs where Intl is
+        // unavailable and then trusts the authored wall-clock fields
+        // (best-effort — inputs are not guaranteed to be Berlin-offset).
+        var ms = Date.parse(iso);
+        if (!isNaN(ms)) {
+            try {
+                var p = {};
+                new Intl.DateTimeFormat('en-CA', {
+                    timeZone: 'Europe/Berlin', year: 'numeric', month: '2-digit',
+                    day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false
+                }).formatToParts(new Date(ms)).forEach(function (x) { p[x.type] = x.value; });
+                var hour = p.hour === '24' ? '00' : p.hour;
+                if (p.year && p.month && p.day && hour && p.minute) {
+                    return { date: p.year + '-' + p.month + '-' + p.day, time: hour + ':' + p.minute };
+                }
+            } catch (e) { /* no Intl: fall through */ }
+        }
+        var s = String(iso);
+        return { date: s.slice(0, 10), time: s.slice(11, 16) };
+    }
+
+    function icsHref(slug) {
+        // Hosted .ics files must be HTTPS for the calendar component (same
+        // rule as js/event-page.js): production keeps the canonical absolute
+        // URL, other HTTPS origins point at their co-deployed copy, and plain
+        // HTTP/file previews drop the attribute so the component generates
+        // the ICS client-side instead.
+        if (typeof location === 'undefined') return SITE_URL + '/events/' + slug + '.ics';
+        if (location.protocol === 'https:') {
+            if (location.hostname === 'datafrosch.fun') return SITE_URL + '/events/' + slug + '.ics';
+            return new URL('events/' + slug + '.ics', location.href).href;
+        }
+        return '';
+    }
+
+    function calendarCard(ev) {
+        var slug = slugOf(ev);
         var when = fmtDate(dateOf(ev)) + (ev.time ? ' · ' + esc(ev.time) : '');
+        var start = berlinParts(ev.start);
+        var end = berlinParts(ev.end);
+        var pageUrl = SITE_URL + '/' + ev.url;
+        // atcb-flavored description, matching the generated event pages.
+        var desc = [esc(ev.desc)];
+        if (ev.meet) desc.push('[br]Join the call: [url]' + esc(ev.meet) + '[/url]');
+        desc.push('[br]Event page: [url]' + esc(pageUrl) + '[/url]');
+        var icsFile = icsHref(slug);
+        var uid = ev.uid;
+        return '<article class="course-card event-card--calendar bg-white rounded-lg shadow-md overflow-hidden">' +
+            '<a href="' + esc(ev.url) + '" class="block">' +
+                '<div class="video-container">' + cardImage(ev) + '</div>' +
+            '</a>' +
+            '<div class="p-4">' +
+                '<div class="flex items-center justify-between gap-2 mb-2">' +
+                    '<span class="text-xs event-time">' + when + '</span>' +
+                    (ev.meet ? '<span class="event-free-badge">Free · Online</span>' : '') +
+                '</div>' +
+                '<h3 class="font-bold text-base md:text-lg mb-2 event-card-title"><a href="' + esc(ev.url) + '">' + esc(ev.title) + '</a></h3>' +
+                '<p class="opacity-75 text-xs md:text-sm">' + esc(ev.desc) + '</p>' +
+                '<div class="event-card-actions">' +
+                    '<add-to-calendar-button' +
+                    ' name="' + esc(ev.title) + '"' +
+                    ' description="' + desc.join(' ') + '"' +
+                    ' start-date="' + start.date + '"' +
+                    ' start-time="' + start.time + '"' +
+                    ' end-date="' + end.date + '"' +
+                    ' end-time="' + end.time + '"' +
+                    ' time-zone="Europe/Berlin"' +
+                    (ev.meet ? ' location="' + esc(ev.meet) + '"' : '') +
+                    ' options="[\'apple\',\'google\',\'ical\',\'ms365\',\'outlookcom\']"' +
+                    (icsFile ? ' ics-file="' + esc(icsFile) + '"' : '') +
+                    ' uid="' + esc(uid) + '"' +
+                    (ev.sequence != null ? ' sequence="' + esc(String(ev.sequence)) + '"' : '') +
+                    (ev.ics_updated ? ' ics-updated="' + esc(ev.ics_updated) + '"' : '') +
+                    ' ics-url="' + esc(pageUrl) + '"' +
+                    ' ical-file-name="' + esc(slug) + '"' +
+                    ' ics-reminder="15"' +
+                    ' trigger="click"' +
+                    ' list-style="modal"' +
+                    ' size="4"' +
+                    ' hide-rich-data' +
+                    ' hide-checkmark' +
+                    ' past-date-handling="disable"' +
+                    ' style-light="--btn-background: #ffffff; --btn-text: #476332; --btn-border: #dfe7d9; --font: \'Nunito\', sans-serif;"' +
+                    '></add-to-calendar-button>' +
+                    '<a href="' + esc(ev.url) + '" class="event-card-details-link">Details →</a>' +
+                    '<a href="events/' + esc(slug) + '.ics" class="event-card-ics-link">Download .ics</a>' +
+                '</div>' +
+            '</div>' +
+        '</article>';
+    }
+
+    function upcomingCard(ev, opts) {
+        var when = fmtDate(dateOf(ev)) + (ev.time ? ' · ' + esc(ev.time) : '');
+        // Opt-in (pond.html): cards with an interactive calendar button are
+        // never whole-card anchors — nested interactive controls inside an
+        // anchor are unreachable from the keyboard. Requires the generator-
+        // supplied calendar identity (`uid`, plus sequence/ics_updated when
+        // present); legacy data without it falls back to the plain anchor card.
+        if (opts && opts.calendarActions && ev.url && ev.start && ev.end && ev.uid && slugOf(ev)) {
+            return calendarCard(ev);
+        }
         // The whole card links to the event's local page, in the same tab.
         // The page carries the join link, calendar buttons and guest info —
         // no nested anchors inside the card.
@@ -213,7 +335,9 @@
             opts = opts || {};
             var list = this.upcoming();
             if (opts.limit) list = list.slice(0, opts.limit);
-            el.innerHTML = list.length ? list.map(upcomingCard).join('') : (opts.emptyHtml || '');
+            el.innerHTML = list.length
+                ? list.map(function (ev) { return upcomingCard(ev, opts); }).join('')
+                : (opts.emptyHtml || '');
             try { this.updateMonthTitles(); } catch (e) { /* heading stays as-is */ }
             return list;
         },

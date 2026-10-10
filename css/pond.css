@@ -1,0 +1,307 @@
+/* Pond page additions: hero intro, compact newsletter signup panel, and
+   calendar-action event cards. Loaded only by pond.html next to the shared
+   style.css. All selectors here stay page-scoped. */
+
+/* --- Hero: original brand green + compact centered intro --------------- */
+
+/* Inherit the original shared hero color and frog decorations. */
+.pond-hero {
+    padding: 1.5rem 1rem;
+}
+
+@media (min-width: 768px) {
+    .pond-hero {
+        padding: 2.5rem 1.5rem;
+    }
+}
+
+.pond-hero-container {
+    width: 100%;
+    max-width: 1120px;
+}
+
+/* Intro: centered title, one description, and a small supporting tagline.
+   The signup form moved to its own compact section below the hero. */
+.pond-hero-intro {
+    text-align: center;
+    max-width: 36rem;
+    margin: 0 auto;
+}
+
+.pond-hero-intro h2 {
+    margin-bottom: 0.75rem;
+}
+
+.pond-subscribe-label {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    opacity: 0.95;
+    margin: 0 auto 0.5rem;
+}
+
+.pond-hero-tagline {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 0;
+}
+
+/* --- Signup section: compact panel between hero and events ------------- */
+
+/* Light brand mint band that keeps the form feeling like page content,
+   not a second hero. */
+.pond-signup {
+    background: #f2f6ee;
+    padding: 1.5rem 1rem;
+    /* Keep the form heading clear of the sticky navigation on anchor jumps. */
+    scroll-margin-top: 5.5rem;
+}
+
+/* --- Minimal signup directly on the section background --------------- */
+
+.pond-subscribe {
+    color: var(--dark-color);
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.pond-email-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+
+/* Stacked on small screens; email and button share one line from 640px up
+   so the panel stays compact on desktop. */
+.pond-subscribe-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+@media (min-width: 640px) {
+    .pond-subscribe-row {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .pond-subscribe-row input[type="email"] {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .pond-subscribe-row .pond-subscribe-button {
+        width: auto;
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+}
+
+/* The row ships hidden until pond-subscribe.js initializes; keep the
+   hidden attribute winning over the display rule above. */
+.pond-subscribe-row[hidden] {
+    display: none;
+}
+
+.pond-subscribe input[type="email"] {
+    width: 100%;
+    /* 16px keeps iOS Safari from zooming on focus */
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+    color: var(--dark-color);
+    background: #ffffff;
+    border: 2px solid #c8d4bc;
+    border-radius: 8px;
+    padding: 0.7rem 0.9rem;
+}
+
+.pond-subscribe input[type="email"]::placeholder {
+    color: #6b7280;
+}
+
+.pond-subscribe input[type="email"]:focus {
+    outline: 3px solid #476332;
+    outline-offset: 2px;
+    border-color: #476332;
+}
+
+.pond-subscribe input[type="email"][aria-invalid="true"] {
+    border-color: #c0392b;
+}
+
+.pond-subscribe-button {
+    width: 100%;
+    /* Dark text on the coral accent (~4.9:1) instead of white (~2.8:1). */
+    color: var(--dark-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.pond-subscribe-button:focus-visible {
+    outline: 3px solid #476332;
+    outline-offset: 2px;
+}
+
+.pond-subscribe-button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+    transform: none;
+}
+
+/* Fine print sits directly on the light mint background. */
+.pond-subscribe-note {
+    font-size: 0.8rem;
+    color: #5e6673;
+    margin-top: 0.75rem;
+}
+
+.pond-subscribe-note a {
+    color: #476332;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* Announced via role="status"; dark text on the section background. */
+.pond-subscribe-status {
+    margin: 0.75rem 0 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.pond-subscribe-status:empty {
+    display: none;
+}
+
+.pond-subscribe-status.is-ok {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 0.6rem;
+}
+
+.pond-subscribe-status.is-err {
+    border-left: 4px solid var(--accent-color);
+    padding-left: 0.6rem;
+}
+
+.pond-subscribe-status a {
+    color: #476332;
+    text-decoration: underline;
+}
+
+/* Honeypot: present in the DOM for bots, invisible to people. */
+.pond-honeypot {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.pond-subscribe-noscript {
+    background: #f2f6ee;
+    border: 1px solid #c8d4bc;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    margin-top: 0.75rem;
+    text-align: left;
+}
+
+.pond-subscribe-noscript a {
+    color: #476332;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* --- Upcoming events: bring the section closer to the hero ------------- */
+
+#upcoming {
+    padding-top: 2.25rem;
+    padding-bottom: 2.5rem;
+}
+
+#upcoming h2 {
+    margin-bottom: 0.75rem;
+}
+
+#upcoming .upcoming-desc {
+    margin-bottom: 1.75rem;
+}
+
+@media (min-width: 768px) {
+    #upcoming {
+        padding-top: 2.75rem;
+        padding-bottom: 3rem;
+    }
+
+    #upcoming h2 {
+        margin-bottom: 1rem;
+    }
+
+    #upcoming .upcoming-desc {
+        margin-bottom: 2rem;
+    }
+}
+
+/* --- Calendar-action event cards -------------------------------------- */
+
+/* No lift-on-hover: the card hosts interactive controls that shouldn't move
+   under the pointer. */
+.event-card--calendar:hover {
+    transform: none;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+}
+
+.event-card-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.event-card-title a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.event-free-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #476332;
+    background: rgba(111, 148, 73, 0.12);
+    border-radius: 999px;
+    padding: 2px 8px;
+    white-space: nowrap;
+}
+
+.event-card-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+    margin-top: 0.85rem;
+}
+
+.event-card-details-link {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #476332;
+    text-decoration: underline;
+}
+
+.event-card-details-link:hover {
+    text-decoration: none;
+}
+
+/* Plain ICS fallback for when the calendar chooser script can't run. */
+.event-card-ics-link {
+    font-size: 0.75rem;
+    color: #6b7280;
+    text-decoration: underline;
+}
+
+.event-card-ics-link:hover {
+    color: #476332;
+}
