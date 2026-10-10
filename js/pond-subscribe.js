@@ -1,4 +1,4 @@
-/* Inline newsletter signup for The Pond (pond.html).
+/* Shared newsletter signup for The Pond (index.html and pond.html).
    Posts to the homolova.sk subscribe API — the same signup flow as
    homolova.sk/newsletter — for The Pond only, never "Hi! It's Ada".
    No secrets client-side; the API key lives on the Vercel function. */
