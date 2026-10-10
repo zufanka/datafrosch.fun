@@ -1,5 +1,5 @@
 /* Inline newsletter signup for The Pond (pond.html).
-   Posts to the homolova.sk subscribe API — the same double opt-in flow as
+   Posts to the homolova.sk subscribe API — the same signup flow as
    homolova.sk/newsletter — for The Pond only, never "Hi! It's Ada".
    No secrets client-side; the API key lives on the Vercel function. */
 (function () {
@@ -49,7 +49,7 @@
 
         // Honeypot filled: a bot. Pretend success, send nothing.
         if (honeypot && honeypot.value) {
-            setStatus('ok', 'Almost there &mdash; check your inbox and click the confirmation link to finish subscribing.');
+            setStatus('ok', 'Thanks for signing up!');
             return;
         }
 
@@ -66,15 +66,28 @@
             })
         }).then(function (res) {
             if (!res.ok) throw new Error('http ' + res.status);
-            // The API keeps double opt-in on: confirmation is still pending.
-            setStatus('ok', 'Almost there &mdash; check your inbox and click the confirmation link to finish subscribing.');
+            return res.json();
+        }).then(function (data) {
+            var subscription = data.subscriptions && data.subscriptions.find(function (s) {
+                return s.newsletter === 'the-pond';
+            });
+            if (!data.ok || !subscription) throw new Error('missing subscription result');
+            if (subscription.status === 'active') {
+                setStatus('ok', 'You&rsquo;re subscribed to The Pond. Thanks for joining!');
+            } else if (subscription.status === 'pending') {
+                setStatus('ok', 'Almost there &mdash; check your inbox and click the confirmation link to finish subscribing.');
+            } else if (subscription.status === 'validating') {
+                setStatus('ok', 'Thanks for signing up! Your signup is being checked.');
+            } else {
+                throw new Error('subscription not accepted');
+            }
             form.reset();
         }).catch(function () {
-            // Network/CORS failure (blocked or pending deployment): offer the
+            // Signup or network/CORS failure: offer the
             // hosted signup page as the way in. It preselects both of Ada's
             // newsletters, so say so.
             setStatus('err',
-                'The signup service isn&rsquo;t reachable right now. Try again in a minute, or ' +
+                'We couldn&rsquo;t complete your signup. Try again in a minute, or ' +
                 '<a href="' + EXTERNAL_SIGNUP + '" target="_blank" rel="noopener">sign up at homolova.sk/newsletter</a>' +
                 ' &mdash; that page preselects both of Ada&rsquo;s newsletters, so untick &ldquo;Hi! It&rsquo;s Ada&rdquo; if you only want The Pond.');
         }).then(function () {
