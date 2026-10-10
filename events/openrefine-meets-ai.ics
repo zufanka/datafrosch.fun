@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Data Frosch//The Pond Events//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:d6a63c80-bb96-54bc-a9e0-cc00fae0ff5a
+DTSTAMP:20260924T120000Z
+DTSTART:20260924T120000Z
+DTEND:20260924T130000Z
+SUMMARY:OpenRefine meets AI
+DESCRIPTION:We are joined by Hervé Letoqueux from Checkfirst who will demo
+ nstrate how you can enhance the data cleaning power house OpenRefine with 
+ Large Language Models and turn messy data into investigation-ready dataset
+ s\, one practical AI-assisted workflow at a time.\nJoin the call: https://
+ meet.google.com/krj-yuio-jzy\nEvent page: https://datafrosch.fun/events/op
+ enrefine-meets-ai.html
+LOCATION:https://meet.google.com/krj-yuio-jzy
+URL:https://datafrosch.fun/events/openrefine-meets-ai.html
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SEQUENCE:0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:OpenRefine meets AI starts in 15 minutes.
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

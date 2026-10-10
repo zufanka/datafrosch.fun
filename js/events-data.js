@@ -9,8 +9,10 @@ var EVENTS = {
       desc: "What digital sovereignty actually means, why we want it, and what stands in the way, with Santi van den Toorn.",
       image: "img/pondcast-thumbnails-events/10-santi-event.jpg",
       link: "https://discord.com/events/1406642598646513858/1555218437440016465",
-      luma: "https://luma.com/r4hus2wc",
-      meet: "https://meet.google.com/ead-dnfi-tpj"
+      meet: "https://meet.google.com/ead-dnfi-tpj",
+      url: "events/digital-sovereignty.html",
+      start: "2026-10-21T14:00:00+02:00",
+      end: "2026-10-21T15:00:00+02:00"
     },
     {
       date: "2026-10-27",
@@ -19,8 +21,10 @@ var EVENTS = {
       desc: "What an agent harness is, and how to build your own, with Johan Schuijt.",
       image: "img/frosches/walking-the-robots.jpg",
       link: "https://discord.com/events/1406642598646513858/1555218447325995069",
-      luma: "https://luma.com/unpgrv6k",
-      meet: "https://meet.google.com/bsw-oqds-ujm"
+      meet: "https://meet.google.com/bsw-oqds-ujm",
+      url: "events/agent-harnesses.html",
+      start: "2026-10-27T14:00:00+01:00",
+      end: "2026-10-27T15:00:00+01:00"
     },
     {
       date: "2026-11-18",
@@ -29,8 +33,10 @@ var EVENTS = {
       desc: "Constanze Bayer shows how old guide books and other analog materials became a data treasure trove in her story on the industrialization of ski resorts.",
       image: "img/frosches/mining-vintage-frog.jpg",
       link: "https://discord.com/events/1406642598646513858/1555218462748708985",
-      luma: "https://luma.com/8unfuo0i",
-      meet: "https://meet.google.com/fta-krxb-xxo"
+      meet: "https://meet.google.com/fta-krxb-xxo",
+      url: "events/mining-analogue-data.html",
+      start: "2026-11-18T14:30:00+01:00",
+      end: "2026-11-18T15:30:00+01:00"
     },
   ],
 
@@ -39,55 +45,78 @@ var EVENTS = {
       date: "2026-09-24",
       title: "OpenRefine meets AI",
       desc: "Hervé Letoqueux shows how to supercharge OpenRefine with LLMs to turn messy data into investigation-ready datasets.",
-      youtube: "https://youtu.be/4DMNxmHzCpU"
+      youtube: "https://youtu.be/4DMNxmHzCpU",
+      image: "img/frosches/diamond-inspecting.jpg",
+      url: "events/openrefine-meets-ai.html",
+      start: "2026-09-24T14:00:00+02:00",
+      end: "2026-09-24T15:00:00+02:00"
     },
     {
       date: "2026-09-10",
       title: "Data cleaning is glorious",
       desc: "Ada and Jonathan on the messes you'll meet in data and how to clean them up, with practical demos.",
-      youtube: "https://youtu.be/kE-uP7o6SQI"
+      youtube: "https://youtu.be/kE-uP7o6SQI",
+      image: "img/frosches/cleaning-frog.jpg",
+      url: "events/data-cleaning-is-glorious.html",
+      start: "2026-09-10T14:30:00+02:00",
+      end: "2026-09-10T15:15:00+02:00"
     },
     {
       date: "2026-06-24",
       title: "Pondcast #7: A deep dive into maps & QGIS intro (with Jonathan)",
       desc: "What makes a good map for your story — what works, what to watch for, and a hands-on intro to QGIS, the best free mapping tool.",
-      youtube: "https://www.youtube.com/watch?v=NQoOe6xXN3E"
+      youtube: "https://www.youtube.com/watch?v=NQoOe6xXN3E",
+      url: "events/pondcast-7-maps-qgis.html",
+      start: "2026-06-24T14:30:00+02:00"
     },
     {
       date: "2026-06-16",
       title: "Pondcast #6: How to code anything (with Ada & Johan)",
       desc: "No coding knowledge needed — a simple, systematic approach to conversations, context and prompting so you can get an LLM to code anything.",
-      youtube: "https://www.youtube.com/watch?v=BHD8Cv4PvrI"
+      youtube: "https://www.youtube.com/watch?v=BHD8Cv4PvrI",
+      image: "img/frosches/puppeteering-robots.jpg",
+      url: "events/pondcast-6-how-to-code-anything.html",
+      start: "2026-06-16T00:00:00+02:00"
     },
     {
       date: "2026-05-14",
       title: "Pondcast #5: Text embeddings and how to use them",
       desc: "What text embeddings are and how to put them to work in practice.",
-      youtube: "https://www.youtube.com/watch?v=_teY3H-sK4I"
+      youtube: "https://www.youtube.com/watch?v=_teY3H-sK4I",
+      url: "events/pondcast-5-text-embeddings.html",
+      start: "2026-05-14T00:00:00+02:00"
     },
     {
       date: "2026-04-17",
       title: "Pondcast #4: Finding Stories in health expenses data with Ada",
       desc: "Uncovering narratives and insights from healthcare expenditure data.",
-      youtube: "https://www.youtube.com/watch?v=DWnYlMLeG-k"
+      youtube: "https://www.youtube.com/watch?v=DWnYlMLeG-k",
+      url: "events/pondcast-4-health-expenses-data.html",
+      start: "2026-04-17T00:00:00+02:00"
     },
     {
       date: "2026-03-25",
       title: "Pondcast #3: Calculate CO2 emissions with Thomas Goorden",
       desc: "Discussing methods for measuring carbon dioxide emissions.",
-      youtube: "https://www.youtube.com/watch?v=qE9GMVyRoEI"
+      youtube: "https://www.youtube.com/watch?v=qE9GMVyRoEI",
+      url: "events/pondcast-3-co2-emissions.html",
+      start: "2026-03-25T00:00:00+01:00"
     },
     {
       date: "2026-01-14",
       title: "Pondcast #2: Investigating kindergartens with Freja Wedenborg",
       desc: "What 350 evaluation reports reveal about inequality between Copenhagen neighbourhoods.",
-      youtube: "https://www.youtube.com/watch?v=lvSleNCANkI"
+      youtube: "https://www.youtube.com/watch?v=lvSleNCANkI",
+      url: "events/pondcast-2-kindergartens.html",
+      start: "2026-01-14T00:00:00+01:00"
     },
     {
       date: "2025-12-03",
       title: "Pondcast #1: Scraper blocking and how to get around it",
       desc: "Practical approaches when websites block your scraper.",
-      youtube: "https://www.youtube.com/watch?v=1yCykgFrZz0"
+      youtube: "https://www.youtube.com/watch?v=1yCykgFrZz0",
+      url: "events/pondcast-1-scraper-blocking.html",
+      start: "2025-12-03T00:00:00+01:00"
     },
   ]
 };

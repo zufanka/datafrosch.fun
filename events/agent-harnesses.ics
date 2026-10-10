@@ -1,0 +1,29 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Data Frosch//The Pond Events//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:4e8a58c9-d9e7-53aa-8e04-23637197a07d
+DTSTAMP:20261027T130000Z
+DTSTART:20261027T130000Z
+DTEND:20261027T140000Z
+SUMMARY:It's all a harness\, baby
+DESCRIPTION:Ever heard of an AI harness? They're everywhere\, and you're pr
+ obably already working with one\, even if you don't recognize it yet. Toge
+ ther with our in-house robot-whisperer Johan Schuijt we'll look at a few d
+ ifferent ones and learn what a harness actually is. Once we're all comfy w
+ ith that\, we'll build our own. Come hack with us at The Pond!\nJoin the c
+ all: https://meet.google.com/bsw-oqds-ujm\nEvent page: https://datafrosch.
+ fun/events/agent-harnesses.html
+LOCATION:https://meet.google.com/bsw-oqds-ujm
+URL:https://datafrosch.fun/events/agent-harnesses.html
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SEQUENCE:0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:It's all a harness\, baby starts in 15 minutes.
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

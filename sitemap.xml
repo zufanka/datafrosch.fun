@@ -130,4 +130,53 @@
     <lastmod>2026-03-31</lastmod>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://datafrosch.fun/events/pondcast-1-scraper-blocking.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://datafrosch.fun/events/pondcast-2-kindergartens.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://datafrosch.fun/events/pondcast-3-co2-emissions.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://datafrosch.fun/events/pondcast-4-health-expenses-data.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://datafrosch.fun/events/pondcast-5-text-embeddings.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://datafrosch.fun/events/pondcast-6-how-to-code-anything.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://datafrosch.fun/events/pondcast-7-maps-qgis.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://datafrosch.fun/events/data-cleaning-is-glorious.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://datafrosch.fun/events/openrefine-meets-ai.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://datafrosch.fun/events/digital-sovereignty.html</loc>
+    <lastmod>2026-10-10</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://datafrosch.fun/events/agent-harnesses.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://datafrosch.fun/events/mining-analogue-data.html</loc>
+    <priority>0.7</priority>
+  </url>
 </urlset>

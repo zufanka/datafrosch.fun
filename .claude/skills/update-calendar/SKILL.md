@@ -1,153 +1,104 @@
 ---
 name: update-calendar
-description: Update the datafrosch.fun Events page from Discord. Use when Ada wants to refresh the events calendar, publish upcoming Pond events, or archive a past event with its Pondcast recording. Reads the live Discord scheduled events with the chrome-devtools MCP tools, downloads their cover images, and rewrites js/events-data.js. Trigger on "update the calendar", "refresh events", "add the new events", "update the events page".
-allowed-tools: mcp__chrome-devtools__*, WebFetch, Read, Write, Edit, Bash
+description: Publish, update, and archive datafrosch.fun events from the markdown source of truth in docs/events/ (main repo). Runs tools/events/publish.py to regenerate js/events-data.js, the static event pages under events/, their .ics calendar files and the sitemap, and optionally reconciles Discord scheduled events. Trigger on "update the calendar", "refresh events", "add the new event", "update the events page", "archive the pondcast".
+allowed-tools: Read, Write, Edit, Bash, Grep, WebFetch
 ---
 
 # Update Calendar
 
-Refresh the **Events page** (`/events.html`) on datafrosch.fun from the Pond's Discord.
-The page renders from `js/events-data.js` (via the shared renderer `js/events-render.js`),
-which has two lists:
+Events are markdown files in `docs/events/` of the **main repo**
+(`/home/ada/Projects/datafrosch`) — that is the single source of truth
+(schema: `tools/events/SCHEMA.md`). `tools/events/publish.py` generates
+everything this website shows from those files:
 
-- `EVENTS.upcoming` — events still to come (pulled from Discord's Events view).
-- `EVENTS.past` — recorded events, i.e. the numbered **Pondcasts**, each linking its
-  YouTube episode (thumbnail auto-resolved by `js/thumbs.js`).
+- `js/events-data.js` — card data for the events grids,
+- `events/<slug>.html` — one static page per event (join link, calendar
+  buttons, guest, description) with its calendar file `events/<slug>.ics`,
+- sitemap entries for the event pages,
+- cover image sync into `img/`.
 
-`js/events-data.js` drives **two places**, so one update refreshes both:
-- the full **Events page** (`events.html`) — all upcoming + all past, and
-- the homepage **Upcoming Events** preview (`index.html`, `#home-upcoming-grid`) — the
-  3 soonest upcoming events only.
+`js/events-render.js` renders the cards from that data: upcoming cards link
+the local event page in the same tab, past cards link the page (with the
+YouTube thumbnail when there's a recording), and cards auto-expire once the
+event's `end` timestamp passes (Europe/Berlin fallback for older entries).
 
-This skill owns `js/events-data.js` end to end: it rewrites `upcoming` from Discord and
-moves events whose date has passed into `past` with the matching Pondcast link.
-
-> **Why scrape, not store?** Discord scheduled events are **ephemeral** — they disappear
-> from the Events view the moment their date passes. So we capture them while upcoming and
-> persist them here; they can never be re-fetched later.
+**Never edit `js/events-data.js` or `events/*` by hand — they are generated.**
+Change the markdown, then re-run publish.py.
 
 ## Workflow
 
-### 1. Read the current data
-Read `js/events-data.js` so you know what's already listed (don't duplicate, and so you can
-detect which previously-upcoming events have now passed). Today's date is your cutoff.
+### 1. Dry-run, review, write
 
-### 2. Fetch upcoming events from Discord
-Use the chrome-devtools MCP tools (same access pattern as the `newsletter` command).
-
-1. `navigate_page` to the Pond general channel:
-   `https://discord.com/channels/1406642598646513858/1406642600399867907`
-2. **Open the Events modal.** The sidebar has an "N Events" button, but Discord intercepts
-   synthetic clicks — `mcp__chrome-devtools__click` on it **times out**. Instead open it with
-   a real DOM click via `evaluate_script`:
-   ```js
-   () => {
-     const el = [...document.querySelectorAll('*')]
-       .filter(e => /^\d+ Events$/.test((e.textContent || '').trim()) && e.children.length <= 3)
-       .pop();
-     if (!el) return { found: false };
-     el.click();
-     return { found: true };
-   }
-   ```
-   (The `/api/v9/guilds/.../scheduled-events` REST route returns **401** here — the web
-   session cookie isn't enough without the auth-token header — so read the modal DOM, don't
-   call the API.)
-3. **Read the event details** from the open modal with `evaluate_script`:
-   ```js
-   () => (document.querySelector('[role="dialog"]') || document.body).innerText
-   ```
-   This yields every event's **title**, **date** (e.g. "Wed Jun 24th"), **start time**
-   (convert to `HH:MM CET`), **description**, and its **Google Meet** link. Recurring events
-   show "Repeats monthly on …" and a series list — use the **next** occurrence's date.
-   Ada's `@everyone` announcement in the channel also lists the
-   `https://discord.com/events/1406642598646513858/<event-id>` links — grab those as the
-   `link` field (or read them from each event's "Copy Link").
-4. **Get the cover-image URLs.** They are CSS backgrounds, not `<img>`, so collect them with
-   `evaluate_script`:
-   ```js
-   () => {
-     const urls = new Set();
-     for (const el of document.querySelectorAll('*')) {
-       const m = getComputedStyle(el).backgroundImage.match(/url\("?(.*?)"?\)/);
-       if (m && /guild-events/.test(m[1])) urls.add(m[1]);  // .../guild-events/<event-id>/<hash>
-     }
-     return [...urls];
-   }
-   ```
-   Each URL's `<event-id>` ties the image back to its event.
-
-**Login / browser gotchas (same as the newsletter command):**
-- If Discord shows a login page, ask Ada to log in first, then retry.
-- If chrome-devtools errors with *"browser is already running for … chrome-profile"*, ask
-  Ada to close her open Chrome window (or open the events tab herself), then retry.
-
-### 3. Download cover images
-Discord cover images live on `cdn.discordapp.com/guild-events/...` and can rotate/expire —
-never reference them directly. Download each into the repo, requesting a sized **PNG**
-(append `.png` + `?size=1024`; the bare URL has no extension):
+Run from the main repo:
 
 ```bash
-curl -sL "https://cdn.discordapp.com/guild-events/<event-id>/<hash>.png?size=1024" \
-  -o "img/events/<slug>.png"
+cd /home/ada/Projects/datafrosch
+python3 tools/events/publish.py                 # dry-run (default) — review the plan
+python3 tools/events/publish.py --write         # apply: site + Discord reconcile
+python3 tools/events/publish.py --site-only --write   # website only, no Discord, no token
+python3 tools/events/publish.py --check         # drift check only; exit 1 when stale
 ```
 
-Pick a short kebab-case `<slug>` from the event title (e.g. `how-to-code-anything`). Verify
-with `file img/events/*.png` (should be real PNGs, ~1280×… — not a tiny error page). If an
-event has no cover image, omit the `image` field — the card falls back to the logo.
+Review the planned changes (event pages, `.ics`, `js/events-data.js`, sitemap,
+image syncs, removals) and any Discord actions before writing. `--site-only`
+skips the Discord client entirely — use it when there's no token or Discord
+was already handled; `--check` is the CI-friendly no-write drift test.
 
-### 4. Rewrite `EVENTS.upcoming`
-Replace the `upcoming` array in `js/events-data.js` with the events you just fetched, each:
+### 2. Authoring / editing an event
 
-```js
-{ date: "YYYY-MM-DD", time: "16:30 CET", title: "...", desc: "...",
-  image: "img/events/<slug>.png",
-  link: "https://discord.com/events/1406642598646513858/<event-id>",  // Discord event (RSVP)
-  meet: "https://meet.google.com/..." }                               // the call link
+Edit or create `docs/events/<YYYY-MM-DD>-<slug>.md` per `tools/events/SCHEMA.md`:
+
+- `date`/`end` carry the explicit Europe/Berlin offset for that date
+  (`+02:00` CEST summer, `+01:00` CET winter — DST ends the last Sunday of
+  October). A wrong offset shifts the event by an hour everywhere.
+- `end` and `meet` are required for `status: upcoming`.
+- `guest:` names the guest (shown as "With …" on the event page).
+- Slugs are permanent — the page URL and calendar UID derive from them.
+- Not ready? `status: draft` — excluded from the site and Discord until
+  flipped to `upcoming`.
+
+Then run the dry-run → review → `--write` flow above.
+
+### 3. Archiving (dates passed)
+
+- **Recorded**: `status: past` + `youtube` (+ `pondcast_nr`). Find the episode
+  on `https://datafrosch.fun/resources.html` first and reuse its title, date
+  and description verbatim; remind Ada if it's missing there.
+- **Unrecorded** (hangouts, recording pending): `status: finished` — the page
+  stays as an archive without join/calendar actions. Don't delete the file;
+  the archive is the record. Only delete events that never happened (ask Ada).
+- **Cancelled**: `status: cancelled` — page and calendar entry stay, marked
+  cancelled, no join actions.
+
+Then re-run `python3 tools/events/publish.py --write`.
+
+### 4. Preview and deploy
+
+```bash
+cd /home/ada/Projects/datafrosch/website && python3 -m http.server
 ```
 
-Both `link` and `meet` render as the card's "Discord event · Join call" text links; either is
-optional. Keep descriptions tight and in Ada's voice. The page sorts by date, so order doesn't
-matter.
+Check `pond.html#upcoming` and `index.html` (cards link the local pages) and
+one `events/<slug>.html` page. On plain HTTP the add-to-calendar button uses
+its built-in exporter instead of the hosted `.ics` — expected, same entries.
+Commit `docs/events/*.md` (main repo) together with the generated
+`js/events-data.js`, `events/*`, sitemap and synced images; pushing
+auto-deploys GitHub Pages.
 
-### 5. Auto-archive passed events
-For every event that was previously in `upcoming` (from step 1) whose `date` is now **before
-today**, move it into `EVENTS.past`. Most training sessions become a numbered Pondcast — find
-its recording and attach the YouTube link:
+## Safety rails
 
-1. **Look in `resources.html` first** (canonical, curated):
-   `WebFetch https://datafrosch.fun/resources.html`. Find the `data-type="video"` card whose
-   Pondcast number / title matches the event. **Reuse its YouTube URL, date, title and
-   description verbatim** so the two pages stay consistent.
-2. **Fallback to the channel** only if it isn't on `resources.html` yet: `navigate_page` to
-   `https://www.youtube.com/@datafrosch` and find the matching recent video. If you use this
-   fallback, **remind Ada to also add the episode to `resources.html`** (it's missing there).
-3. Add the past entry as:
-   ```js
-   { date: "YYYY-MM-DD", title: "Pondcast #N: ...", desc: "...",
-     youtube: "https://www.youtube.com/watch?v=..." }
-   ```
-   No `image` field — `js/thumbs.js` derives the YouTube thumbnail automatically.
-
-If a passed event has **no** recording (e.g. an informal hangout), ask Ada whether to drop it
-or keep it in `past` without a `youtube` link. Don't invent a link.
-
-### 6. Report and hand off
-Summarize what changed: events added to `upcoming`, images downloaded, events archived (with
-which Pondcast), and any reminders (e.g. "Pondcast #6 isn't on resources.html yet"). Then tell
-Ada to:
-1. Preview locally — `python3 -m http.server` in the repo root, open `/events.html` **and**
-   `/index.html` (the homepage shows the 3 soonest events from the same data).
-2. Commit and push (GitHub Pages auto-deploys; new files include `img/events/*`).
+- Never print `DISCORD_BOT_TOKEN`.
+- Never hand-edit `js/events-data.js` or `events/*` — generated files.
+- Never bypass the dry-run review step.
+- Luma is retired — never publish to or link it; old `luma_url` fields are
+  history only.
+- LinkedIn (via `tools/events/linkedin.py` from the main repo) uses the
+  frontmatter text verbatim — nothing invented.
 
 ## Reference
-- Data: `js/events-data.js` (the `EVENTS` object — the only file you normally edit).
-- Shared renderer: `js/events-render.js` (`window.DataFroschEvents.renderUpcoming/renderPast`),
-  used by both `events.html` (full) and `index.html` (`#home-upcoming-grid`, 3 soonest).
-- Thumbnails: `js/thumbs.js` resolves YouTube thumbnails for `past` cards. It already handles
-  the case where `maxresdefault.jpg` is missing (YouTube serves a 120×90 grey placeholder
-  with HTTP 200) by downgrading to `hqdefault` — so a recorded event only needs its `youtube`
-  URL, no image.
-- Discord access pattern mirrors the marketing repo's `newsletter` command
-  (`.claude/commands/newsletter.md`), which uses the same server/channel IDs.
-- Pond Discord server ID: `1406642598646513858`; general channel: `1406642600399867907`.
+- Source of truth: `docs/events/*.md` + `tools/events/SCHEMA.md` (main repo).
+- Publisher: `tools/events/publish.py` (main repo).
+- Renderer: `js/events-render.js` (`window.DataFroschEvents.renderUpcoming/renderPast`),
+  used by `pond.html` and `index.html`.
+- Thumbnails: `js/thumbs.js` — recorded-event cards carry an explicit
+  `data-thumb` (YouTube thumbnail URL) because their href is the local page.

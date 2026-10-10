@@ -1,6 +1,12 @@
-// Shared renderer for event cards, used by events.html (full page) and
-// index.html (upcoming preview). Requires js/events-data.js (the EVENTS global)
-// to be loaded first. Exposes window.DataFroschEvents.
+// Shared renderer for event cards, used by pond.html (full page) and
+// index.html (upcoming preview). Requires js/events-data.js (the EVENTS
+// global) to be loaded first. Exposes window.DataFroschEvents.
+//
+// Card data comes in two generations:
+//   current — every event carries `url` (its local page, "events/<slug>.html")
+//             plus full ISO `start`/`end` timestamps next to the plain
+//             date/time/title/desc/image fields;
+//   legacy  — date/time only. Cards then fall back to the inline link row.
 (function () {
     var PLAY_BUTTON =
         '<div class="play-button">' +
@@ -22,56 +28,143 @@
         if (p.length !== 3) return iso || '';
         return MONTHS[parseInt(p[1], 10) - 1] + ' ' + parseInt(p[2], 10) + ', ' + p[0];
     }
-    function byDate(dir) {
-        return function (a, b) { return dir * String(a.date).localeCompare(String(b.date)); };
+    function dateOf(ev) {
+        // Plain calendar date; derived from the start timestamp when the
+        // legacy `date` field is absent.
+        if (ev.date) return String(ev.date);
+        if (ev.start) return String(ev.start).slice(0, 10);
+        return '';
+    }
+    function sortKey(ev) {
+        // Prefer the precise start instant; fall back to the date string.
+        if (ev.start) {
+            var ms = Date.parse(ev.start);
+            if (!isNaN(ms)) return new Date(ms).toISOString();
+        }
+        return dateOf(ev);
+    }
+    function byStart(dir) {
+        return function (a, b) {
+            var ka = sortKey(a), kb = sortKey(b);
+            return dir * (ka < kb ? -1 : ka > kb ? 1 : 0);
+        };
+    }
+    function berlinToday() {
+        // "Today" in Europe/Berlin — the timezone the site publishes event
+        // times in — rather than the visitor's local timezone.
+        try {
+            return new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Berlin' })
+                .format(new Date());
+        } catch (e) { /* pre-Intl browsers: best effort below */ }
+        var t = new Date();
+        return t.getFullYear() + '-' +
+            String(t.getMonth() + 1).padStart(2, '0') + '-' +
+            String(t.getDate()).padStart(2, '0');
+    }
+    function hasEnded(ev) {
+        // An event is over once its scheduled end instant has passed — true
+        // even if the page loads years later. Entries without an `end`
+        // (legacy data) fall back to the Europe/Berlin calendar date.
+        if (ev.end) {
+            var ms = Date.parse(ev.end);
+            if (!isNaN(ms)) return ms <= Date.now();
+        }
+        return dateOf(ev) < berlinToday();
+    }
+    function ytThumbUrl(url) {
+        var m = String(url || '').match(/[?&]v=([^&]+)/) ||
+                String(url || '').match(/youtu\.be\/([^?]+)/);
+        return m ? 'https://img.youtube.com/vi/' + m[1] + '/maxresdefault.jpg' : '';
+    }
+    function cardImage(ev) {
+        var src = ev.image || 'img/logo.png';
+        return '<img src="' + esc(src) + '" alt="' + esc(ev.title) + '" class="w-full h-full object-cover" loading="lazy" />';
     }
 
     function upcomingCard(ev) {
-        var img = ev.image
-            ? '<img src="' + esc(ev.image) + '" alt="' + esc(ev.title) + '" class="w-full h-full object-cover" loading="lazy" />'
-            : '<img src="img/logo.png" alt="' + esc(ev.title) + '" class="w-full h-full object-cover" loading="lazy" />';
-        var when = fmtDate(ev.date) + (ev.time ? ' · ' + esc(ev.time) : '');
-        // Whole card links to the Luma event when available.
-        var wrapStart, wrapEnd, linksHtml;
-        if (ev.luma) {
-            wrapStart = '<a target="_blank" href="' + esc(ev.luma) + '" class="course-card block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">';
-            wrapEnd = '</a>';
-            linksHtml = '<p class="text-xs md:text-sm mt-3"><span class="text-green-700 font-medium">Join the event →</span></p>';
-        } else {
-            var links = [];
-            if (ev.link) links.push('<a target="_blank" href="' + esc(ev.link) + '" class="text-green-700 font-medium hover:underline">Discord event</a>');
-            if (ev.meet) links.push('<a target="_blank" href="' + esc(ev.meet) + '" class="text-green-700 font-medium hover:underline">Join call</a>');
-            linksHtml = links.length
-                ? '<p class="text-xs md:text-sm mt-3">' + links.join(' <span class="text-gray-400">·</span> ') + '</p>'
-                : '';
-            wrapStart = '<div class="course-card block bg-white rounded-lg shadow-md overflow-hidden">';
-            wrapEnd = '</div>';
+        var when = fmtDate(dateOf(ev)) + (ev.time ? ' · ' + esc(ev.time) : '');
+        // The whole card links to the event's local page, in the same tab.
+        // The page carries the join link, calendar buttons and guest info —
+        // no nested anchors inside the card.
+        if (ev.url) {
+            return '<a href="' + esc(ev.url) + '" class="course-card block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">' +
+                '<div class="video-container">' + cardImage(ev) + '</div>' +
+                '<div class="p-4">' +
+                    '<div class="flex items-center mb-2">' +
+                        '<span class="text-xs event-time">' + when + '</span>' +
+                    '</div>' +
+                    '<h3 class="font-bold text-base md:text-lg mb-2">' + esc(ev.title) + '</h3>' +
+                    '<p class="opacity-75 text-xs md:text-sm">' + esc(ev.desc) + '</p>' +
+                    '<p class="text-xs md:text-sm mt-3"><span class="text-green-700 font-medium">Event details →</span></p>' +
+                '</div>' +
+            '</a>';
         }
-        return wrapStart +
-            '<div class="video-container">' + img + '</div>' +
+        // Legacy entry without a local page: inline link row.
+        var links = [];
+        if (ev.link) links.push('<a target="_blank" href="' + esc(ev.link) + '" class="text-green-700 font-medium hover:underline">Discord event</a>');
+        if (ev.meet) links.push('<a target="_blank" href="' + esc(ev.meet) + '" class="text-green-700 font-medium hover:underline">Join call</a>');
+        return '<div class="course-card block bg-white rounded-lg shadow-md overflow-hidden">' +
+            '<div class="video-container">' + cardImage(ev) + '</div>' +
             '<div class="p-4">' +
                 '<div class="flex items-center mb-2">' +
                     '<span class="text-xs event-time">' + when + '</span>' +
                 '</div>' +
                 '<h3 class="font-bold text-base md:text-lg mb-2">' + esc(ev.title) + '</h3>' +
                 '<p class="opacity-75 text-xs md:text-sm">' + esc(ev.desc) + '</p>' +
-                linksHtml +
+                (links.length
+                    ? '<p class="text-xs md:text-sm mt-3">' + links.join(' <span class="text-gray-400">·</span> ') + '</p>'
+                    : '') +
             '</div>' +
-        wrapEnd;
+        '</div>';
     }
 
     function pastCard(ev) {
-        // Recorded events link to their Pondcast; thumbs.js fills the YouTube thumbnail.
-        // Events that just expired (moved from upcoming) may not have a recording yet.
-        if (!ev.youtube) {
-            return '<div class="course-card block bg-white rounded-lg shadow-md overflow-hidden">' +
-                '<div class="video-container">' +
-                    '<img src="' + (ev.image ? esc(ev.image) : 'img/logo.png') + '" alt="' + esc(ev.title) + '" class="w-full h-full object-cover" loading="lazy" />' +
-                '</div>' +
+        // Recorded events link to their local page. thumbs.js resolves the
+        // YouTube thumbnail from the card's data-thumb attribute — the href
+        // is local, so it can't derive it from the link itself.
+        if (ev.url) {
+            var open = '<a href="' + esc(ev.url) + '" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden"';
+            var thumb = ytThumbUrl(ev.youtube);
+            if (thumb) open += ' data-thumb="' + esc(thumb) + '"';
+            open += '>';
+            if (ev.youtube) {
+                return open +
+                    '<div class="video-container">' +
+                        '<img data-thumb-target alt="' + esc(ev.title) + '" class="w-full h-full object-cover" loading="lazy" />' +
+                        PLAY_BUTTON +
+                    '</div>' +
+                    '<div class="p-4">' +
+                        '<div class="flex items-center justify-between mb-2">' +
+                            '<span class="guide-badge">Video</span>' +
+                            '<span class="text-xs text-gray-500">' + fmtDate(dateOf(ev)) + '</span>' +
+                        '</div>' +
+                        '<h3 class="font-bold text-base md:text-lg mb-2">' + esc(ev.title) + '</h3>' +
+                        '<p class="opacity-75 text-xs md:text-sm">' + esc(ev.desc) + '</p>' +
+                    '</div>' +
+                '</a>';
+            }
+            // No recording (yet): plain event card, still linking to the page.
+            return open +
+                '<div class="video-container">' + cardImage(ev) + '</div>' +
                 '<div class="p-4">' +
                     '<div class="flex items-center justify-between mb-2">' +
                         '<span class="guide-badge">Event</span>' +
-                        '<span class="text-xs text-gray-500">' + fmtDate(ev.date) + '</span>' +
+                        '<span class="text-xs text-gray-500">' + fmtDate(dateOf(ev)) + '</span>' +
+                    '</div>' +
+                    '<h3 class="font-bold text-base md:text-lg mb-2">' + esc(ev.title) + '</h3>' +
+                    '<p class="opacity-75 text-xs md:text-sm">' + esc(ev.desc) + '</p>' +
+                '</div>' +
+            '</a>';
+        }
+        // Legacy entry: link the recording directly; thumbs.js reads the
+        // YouTube URL from the href. Without a recording, a plain card.
+        if (!ev.youtube) {
+            return '<div class="course-card block bg-white rounded-lg shadow-md overflow-hidden">' +
+                '<div class="video-container">' + cardImage(ev) + '</div>' +
+                '<div class="p-4">' +
+                    '<div class="flex items-center justify-between mb-2">' +
+                        '<span class="guide-badge">Event</span>' +
+                        '<span class="text-xs text-gray-500">' + fmtDate(dateOf(ev)) + '</span>' +
                     '</div>' +
                     '<h3 class="font-bold text-base md:text-lg mb-2">' + esc(ev.title) + '</h3>' +
                     '<p class="opacity-75 text-xs md:text-sm">' + esc(ev.desc) + '</p>' +
@@ -86,7 +179,7 @@
             '<div class="p-4">' +
                 '<div class="flex items-center justify-between mb-2">' +
                     '<span class="guide-badge">Video</span>' +
-                    '<span class="text-xs text-gray-500">' + fmtDate(ev.date) + '</span>' +
+                    '<span class="text-xs text-gray-500">' + fmtDate(dateOf(ev)) + '</span>' +
                 '</div>' +
                 '<h3 class="font-bold text-base md:text-lg mb-2">' + esc(ev.title) + '</h3>' +
                 '<p class="opacity-75 text-xs md:text-sm">' + esc(ev.desc) + '</p>' +
@@ -98,27 +191,17 @@
 
     window.DataFroschEvents = {
         upcoming: function () {
-            // Auto-hide events once their date has passed (kept until the day
-            // after, i.e. hidden when the event date is before today).
-            var today = new Date();
-            var todayStr = today.getFullYear() + '-' +
-                String(today.getMonth() + 1).padStart(2, '0') + '-' +
-                String(today.getDate()).padStart(2, '0');
+            // Auto-hide events once their scheduled end instant has passed.
             return (data().upcoming || [])
-                .filter(function (ev) { return String(ev.date) >= todayStr; })
-                .sort(byDate(1));  // soonest first
+                .filter(function (ev) { return !hasEnded(ev); })
+                .sort(byStart(1));  // soonest first
         },
         past: function () {
-            var today = new Date();
-            var todayStr = today.getFullYear() + '-' +
-                String(today.getMonth() + 1).padStart(2, '0') + '-' +
-                String(today.getDate()).padStart(2, '0');
-            // Past events from the data file, plus upcoming ones that have
-            // now happened (kept a day past their date, then moved here).
-            var expired = (data().upcoming || []).filter(function (ev) {
-                return String(ev.date) < todayStr;
-            });
-            return (data().past || []).concat(expired).sort(byDate(-1));  // newest first
+            // Past events from the data file, plus upcoming ones whose end
+            // instant has now passed (they show here until re-published
+            // with status past/finished).
+            var expired = (data().upcoming || []).filter(hasEnded);
+            return (data().past || []).concat(expired).sort(byStart(-1));  // newest first
         },
         // Static heading — no month rewriting, so it never goes stale.
         updateMonthTitles: function () {

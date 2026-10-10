@@ -1,0 +1,4 @@
+# Calendar exports require CRLF and significant spaces in folded lines.
+events/*.ics -text -whitespace
+# Keep third-party source and license files verbatim.
+js/vendor/** -whitespace

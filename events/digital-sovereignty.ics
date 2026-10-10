@@ -1,0 +1,29 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Data Frosch//The Pond Events//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:8a86cbdd-d8f5-5838-97ab-f3c0a2c6979e
+DTSTAMP:20261010T092147Z
+DTSTART:20261021T120000Z
+DTEND:20261021T130000Z
+SUMMARY:Digital sovereignty
+DESCRIPTION:Digital sovereignty is the talk of the town in Europe. But what
+  does it actually look like in practice? We talk to Santi van den Toorn\, 
+ who helps organisations get closer to sovereignty: what digital sovereignt
+ y is in the first place\, why we want it\, and what stands in the way. Joi
+ n us in this discussion at The Pond!\nJoin the call: https://meet.google.c
+ om/ead-dnfi-tpj\nEvent page: https://datafrosch.fun/events/digital-soverei
+ gnty.html
+LOCATION:https://meet.google.com/ead-dnfi-tpj
+URL:https://datafrosch.fun/events/digital-sovereignty.html
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SEQUENCE:1
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Digital sovereignty starts in 15 minutes.
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

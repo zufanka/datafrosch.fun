@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Data Frosch//The Pond Events//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:2ceb7380-b846-5d03-80a9-aafa4fbf624d
+DTSTAMP:20260910T123000Z
+DTSTART:20260910T123000Z
+DTEND:20260910T131500Z
+SUMMARY:Data cleaning is glorious
+DESCRIPTION:What sort of a mess can you come across and how do you deal wit
+ h that 💩? What is data cleaning really good for? Join Ada and Jonathan 
+ in a conversation and practical demonstration of data cleaning with variou
+ s tools.\nJoin the call: https://meet.google.com/hzm-ttjj-kxe\nEvent page:
+  https://datafrosch.fun/events/data-cleaning-is-glorious.html
+LOCATION:https://meet.google.com/hzm-ttjj-kxe
+URL:https://datafrosch.fun/events/data-cleaning-is-glorious.html
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SEQUENCE:0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Data cleaning is glorious starts in 15 minutes.
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

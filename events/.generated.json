@@ -1,0 +1,21 @@
+{
+  "generated": [
+    "events/agent-harnesses.html",
+    "events/agent-harnesses.ics",
+    "events/data-cleaning-is-glorious.html",
+    "events/data-cleaning-is-glorious.ics",
+    "events/digital-sovereignty.html",
+    "events/digital-sovereignty.ics",
+    "events/mining-analogue-data.html",
+    "events/mining-analogue-data.ics",
+    "events/openrefine-meets-ai.html",
+    "events/openrefine-meets-ai.ics",
+    "events/pondcast-1-scraper-blocking.html",
+    "events/pondcast-2-kindergartens.html",
+    "events/pondcast-3-co2-emissions.html",
+    "events/pondcast-4-health-expenses-data.html",
+    "events/pondcast-5-text-embeddings.html",
+    "events/pondcast-6-how-to-code-anything.html",
+    "events/pondcast-7-maps-qgis.html"
+  ]
+}
