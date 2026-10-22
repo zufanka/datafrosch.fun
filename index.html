@@ -24,7 +24,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css?v=20260609">
-    <link rel="stylesheet" href="css/pond.css?v=26f1f8ea5d44">
+    <link rel="stylesheet" href="css/pond.css?v=ba90763a902c">
+    <link rel="stylesheet" href="css/event-cards.css?v=7657d2231938">
 
     <!-- Modern PNG favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
@@ -34,6 +35,9 @@
     <link rel="alternate" type="application/rss+xml" title="Data Frosch Blog" href="https://datafrosch.fun/blog/feed.xml">
 
     <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
+
+    <!-- Local calendar chooser for the event cards (same copy as pond.html) -->
+    <script src="js/vendor/add-to-calendar-button-3.3.0/atcb.js" defer></script>
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -630,10 +634,11 @@
 <script src="js/taglines.js"></script>
 <script src="js/testimonials.js"></script>
 <script src="js/events-data.js?v=d9fbfe1d9f1e"></script>
-<script src="js/events-render.js?v=d232f6833505"></script>
+<script src="js/events-render.js?v=c3bef9e48b94"></script>
 <script>
     DataFroschEvents.renderUpcoming(document.getElementById('home-upcoming-grid'), {
         limit: 3,
+        calendarActions: true,
         emptyHtml: '<div class="events-empty">No events scheduled right now — new ones land in the Discord a couple of times a month. <a href="https://discord.com/invite/FQe2UQxE5D" target="_blank" class="text-green-700 hover:underline">Join the Pond</a> to be the first to know.</div>'
     });
 </script>

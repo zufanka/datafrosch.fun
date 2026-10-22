@@ -1,6 +1,8 @@
 /* Pond page additions: hero intro, compact newsletter signup panel, and
-   calendar-action event cards. Loaded only by pond.html next to the shared
-   style.css. All selectors here stay page-scoped. */
+   upcoming-section spacing. Loaded only by pond.html next to the shared
+   style.css. All selectors here stay page-scoped; the calendar-action
+   event cards live in the shared css/event-cards.css (also loaded by
+   index.html). */
 
 /* --- Hero: original brand green + compact centered intro --------------- */
 
@@ -243,65 +245,4 @@
     #upcoming .upcoming-desc {
         margin-bottom: 2rem;
     }
-}
-
-/* --- Calendar-action event cards -------------------------------------- */
-
-/* No lift-on-hover: the card hosts interactive controls that shouldn't move
-   under the pointer. */
-.event-card--calendar:hover {
-    transform: none;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
-}
-
-.event-card-title a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.event-card-title a:hover {
-    color: var(--primary-color);
-    text-decoration: underline;
-}
-
-.event-free-badge {
-    font-size: 0.68rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    color: #476332;
-    background: rgba(111, 148, 73, 0.12);
-    border-radius: 999px;
-    padding: 2px 8px;
-    white-space: nowrap;
-}
-
-.event-card-actions {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem 0.75rem;
-    margin-top: 0.85rem;
-}
-
-.event-card-details-link {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #476332;
-    text-decoration: underline;
-}
-
-.event-card-details-link:hover {
-    text-decoration: none;
-}
-
-/* Plain ICS fallback for when the calendar chooser script can't run. */
-.event-card-ics-link {
-    font-size: 0.75rem;
-    color: #6b7280;
-    text-decoration: underline;
-}
-
-.event-card-ics-link:hover {
-    color: #476332;
 }

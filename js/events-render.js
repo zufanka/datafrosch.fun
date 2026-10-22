@@ -11,9 +11,10 @@
 //             (see tools/events/event_site.py ics_uid / _ics_dt);
 //   legacy  — date/time only. Cards then fall back to the inline link row.
 //
-// renderUpcoming(opts) accepts an opt-in `calendarActions: true` (pond.html)
-// that renders non-anchor cards with an add-to-calendar-button per event,
-// mirroring the generated event pages. The default stays whole-card anchors.
+// renderUpcoming(opts) accepts an opt-in `calendarActions: true` (both
+// pond.html and the index.html preview) that renders non-anchor cards with
+// an add-to-calendar-button per event, mirroring the generated event pages.
+// The default stays whole-card anchors for legacy/other callers.
 (function () {
     var PLAY_BUTTON =
         '<div class="play-button">' +
@@ -151,17 +152,23 @@
         desc.push('[br]Event page: [url]' + esc(pageUrl) + '[/url]');
         var icsFile = icsHref(slug);
         var uid = ev.uid;
+        // Structure: media / meta / title / desc / actions parts, each with
+        // its own hook class, so css/event-cards.css can give every card in
+        // a grid row equal part heights and bottom-aligned buttons — no
+        // clipping, long text simply grows the row. The plain "Download
+        // .ics" link lives on the event pages only; cards keep the calendar
+        // button (hosted ICS via ics-file where HTTPS allows) and Details.
         return '<article class="course-card event-card--calendar bg-white rounded-lg shadow-md overflow-hidden">' +
             '<a href="' + esc(ev.url) + '" class="block">' +
-                '<div class="video-container">' + cardImage(ev) + '</div>' +
+                '<div class="video-container event-card-media">' + cardImage(ev) + '</div>' +
             '</a>' +
-            '<div class="p-4">' +
-                '<div class="flex items-center justify-between gap-2 mb-2">' +
+            '<div class="p-4 event-card-body">' +
+                '<div class="flex items-center justify-between gap-2 mb-2 event-card-meta">' +
                     '<span class="text-xs event-time">' + when + '</span>' +
                     (ev.meet ? '<span class="event-free-badge">Free · Online</span>' : '') +
                 '</div>' +
                 '<h3 class="font-bold text-base md:text-lg mb-2 event-card-title"><a href="' + esc(ev.url) + '">' + esc(ev.title) + '</a></h3>' +
-                '<p class="opacity-75 text-xs md:text-sm">' + esc(ev.desc) + '</p>' +
+                '<p class="opacity-75 text-xs md:text-sm event-card-desc">' + esc(ev.desc) + '</p>' +
                 '<div class="event-card-actions">' +
                     '<add-to-calendar-button' +
                     ' name="' + esc(ev.title) + '"' +
@@ -189,7 +196,6 @@
                     ' style-light="--btn-background: #ffffff; --btn-text: #476332; --btn-border: #dfe7d9; --font: \'Nunito\', sans-serif;"' +
                     '></add-to-calendar-button>' +
                     '<a href="' + esc(ev.url) + '" class="event-card-details-link">Details →</a>' +
-                    '<a href="events/' + esc(slug) + '.ics" class="event-card-ics-link">Download .ics</a>' +
                 '</div>' +
             '</div>' +
         '</article>';

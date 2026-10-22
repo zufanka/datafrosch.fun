@@ -1,0 +1,103 @@
+/* Shared calendar-action event cards — loaded by BOTH index.html and
+   pond.html next to style.css, so the homepage preview and the Pond grid
+   render the exact same cards. Keep selectors card-scoped: no page-level
+   (hero/signup) rules belong here. */
+
+/* --- Card scaffold: equal part heights per grid row ------------------- */
+
+/* Cards stretch to the row height (grid default); the body grows to fill,
+   so the actions row bottoms out at the same line on every card in the row
+   no matter how long title or description are. */
+.event-card--calendar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* No lift-on-hover: the card hosts interactive controls that shouldn't move
+   under the pointer. */
+.event-card--calendar:hover {
+    transform: none;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* 16:9 media area keeps its aspect ratio and never flexes. */
+.event-card--calendar .event-card-media {
+    flex: 0 0 auto;
+}
+
+/* Text block: meta/title/desc/actions stacked; the description takes the
+   remaining space so the actions stay bottom-aligned. */
+.event-card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+/* One-line date/badge row: cards without the badge still reserve the slot,
+   so titles start at the same height across the row. */
+.event-card-meta {
+    min-height: 1.25rem;
+}
+
+/* Two-line title slot (text-base lines on small screens, text-lg from
+   md up). Longer titles simply grow the whole row of cards. */
+.event-card-title {
+    min-height: 3rem;
+}
+
+@media (min-width: 768px) {
+    .event-card-title {
+        min-height: 3.5rem;
+    }
+}
+
+/* Description fills the space between title and actions — no clipping, no
+   line clamping; short descriptions leave the gap above the buttons. */
+.event-card-desc {
+    flex: 1 1 auto;
+}
+
+/* --- Card chrome ------------------------------------------------------- */
+
+.event-card-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.event-card-title a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.event-free-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #476332;
+    background: rgba(111, 148, 73, 0.12);
+    border-radius: 999px;
+    padding: 2px 8px;
+    white-space: nowrap;
+}
+
+.event-card-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+    margin-top: 0.85rem;
+}
+
+.event-card-details-link {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #476332;
+    text-decoration: underline;
+}
+
+.event-card-details-link:hover {
+    text-decoration: none;
+}
