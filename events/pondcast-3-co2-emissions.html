@@ -26,7 +26,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/events.css?v=e0dc66132067">
+    <link rel="stylesheet" href="../css/events.css?v=1c11910aa0fe">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
 
@@ -83,10 +83,14 @@
     <main class="event-main">
         <a href="../pond.html#upcoming" class="event-back">← All events at The Pond</a>
         <article class="event-layout" aria-labelledby="event-title">
-            <div class="auto-thumb" data-thumb="https://img.youtube.com/vi/qE9GMVyRoEI/maxresdefault.jpg">
-                <img class="event-cover" data-thumb-target src="https://img.youtube.com/vi/qE9GMVyRoEI/maxresdefault.jpg"
-                    alt="Pondcast #3: Calculate CO2 emissions with Thomas Goorden — video thumbnail"
-                    fetchpriority="high">
+            <div>
+                <div class="event-embed">
+                    <iframe src="https://www.youtube-nocookie.com/embed/qE9GMVyRoEI"
+                        title="Pondcast #3: Calculate CO2 emissions with Thomas Goorden" loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+
                 <p class="event-label">The Pond · Pondcast #3</p>
                 <h1 id="event-title" class="event-title">Pondcast #3: Calculate CO2 emissions with Thomas Goorden</h1>
 
@@ -145,6 +149,5 @@
         </div>
     </footer>
     <script src="../js/taglines.js"></script>
-    <script src="../js/thumbs.js?v=512475427bbc"></script>
 </body>
 </html>

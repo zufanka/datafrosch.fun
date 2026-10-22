@@ -3,21 +3,6 @@
 var EVENTS = {
   upcoming: [
     {
-      date: "2026-10-21",
-      time: "14:00 CEST",
-      title: "Digital sovereignty",
-      desc: "What digital sovereignty actually means, why we want it, and what stands in the way, with Santi van den Toorn.",
-      image: "img/pondcast-thumbnails-events/10-santi-event.jpg",
-      link: "https://discord.com/events/1406642598646513858/1555218437440016465",
-      meet: "https://meet.google.com/ead-dnfi-tpj",
-      url: "events/digital-sovereignty.html",
-      start: "2026-10-21T14:00:00+02:00",
-      end: "2026-10-21T15:00:00+02:00",
-      uid: "8a86cbdd-d8f5-5838-97ab-f3c0a2c6979e",
-      sequence: "1",
-      ics_updated: "20261010T092147Z"
-    },
-    {
       date: "2026-10-27",
       time: "14:00 CET",
       title: "It's all a harness, baby",
@@ -50,6 +35,16 @@ var EVENTS = {
   ],
 
   past: [
+    {
+      date: "2026-10-21",
+      title: "Digital sovereignty",
+      desc: "What digital sovereignty actually means, why we want it, and what stands in the way, with Santi van den Toorn.",
+      youtube: "https://youtu.be/p0RM4yar5mo",
+      image: "img/pondcast-thumbnails-events/10-santi-event.jpg",
+      url: "events/digital-sovereignty.html",
+      start: "2026-10-21T14:00:00+02:00",
+      end: "2026-10-21T15:00:00+02:00"
+    },
     {
       date: "2026-09-24",
       title: "OpenRefine meets AI",

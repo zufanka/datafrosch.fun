@@ -19,24 +19,6 @@
       "thumb": "img/clustering-frog.jpg"
     },
     {
-      "type": "video",
-      "title": "Pondcast #9: OpenRefine meets AI (with Hervé Letoqueux)",
-      "alt": "Pondcast #9: OpenRefine meets AI (with Hervé Letoqueux)",
-      "description": "Extract routes, compensation and discrimination signals from messy free text — with OpenRefine, a local LLM, and reproducibility intact.",
-      "url": "https://youtu.be/4DMNxmHzCpU",
-      "date": "2026-09-24",
-      "thumb": null
-    },
-    {
-      "type": "video",
-      "title": "Pondcast #8: On data cleaning (with Jonathan Stoneman and Ada Homolova)",
-      "alt": "Pondcast #8: On data cleaning (with Jonathan Stoneman and Ada Homolova)",
-      "description": "Cleaning messy datasets two ways: by hand in OpenRefine and with an LLM — and how the dirt itself hides stories.",
-      "url": "https://youtu.be/kE-uP7o6SQI",
-      "date": "2026-09-15",
-      "thumb": null
-    },
-    {
       "type": "newsletter",
       "title": "🪷 The Pond #11: Cleaning up",
       "alt": "The Pond #11: Cleaning up",
@@ -46,24 +28,6 @@
       "thumb": "img/cleaning-frog.jpg"
     },
     {
-      "type": "video",
-      "title": "Pondcast #7: A deep dive into maps & QGIS intro (with Jonathan)",
-      "alt": "Pondcast #7: A deep dive into maps & QGIS intro (with Jonathan)",
-      "description": "What makes a good map for your story, plus a hands-on intro to QGIS, the best free mapping tool.",
-      "url": "https://www.youtube.com/watch?v=NQoOe6xXN3E",
-      "date": "2026-06-24",
-      "thumb": null
-    },
-    {
-      "type": "video",
-      "title": "Pondcast #6: How to code anything (with Ada & Johan)",
-      "alt": "Pondcast #6: How to code anything (with Ada & Johan)",
-      "description": "No coding knowledge needed — a systematic approach to prompting so you can get an LLM to code anything.",
-      "url": "https://www.youtube.com/watch?v=BHD8Cv4PvrI",
-      "date": "2026-06-16",
-      "thumb": null
-    },
-    {
       "type": "newsletter",
       "title": "🪷 The Pond #10: Dataharvest and vibes",
       "alt": "The Pond #10: Dataharvest and vibes",
@@ -71,15 +35,6 @@
       "url": "newsletters/the-pond-10-dataharvest-and-vibes.html",
       "date": "2026-06-02",
       "thumb": "img/puppeteering-robots.jpg"
-    },
-    {
-      "type": "video",
-      "title": "Pondcast #5: Text embeddings and how to use them",
-      "alt": "Pondcast #5: Text embeddings and how to use them",
-      "description": "What text embeddings are and how to put them to work in practice.",
-      "url": "https://www.youtube.com/watch?v=_teY3H-sK4I",
-      "date": "2026-05-14",
-      "thumb": null
     },
     {
       "type": "blog",
@@ -98,15 +53,6 @@
       "url": "newsletters/the-pond-9-embeddings-eggs-and-statistics.html",
       "date": "2026-05-06",
       "thumb": "img/findingstories_logo.jpg"
-    },
-    {
-      "type": "video",
-      "title": "Pondcast #4: Finding Stories in health expenses data with Ada",
-      "alt": "Pondcast #4: Finding Stories in health expenses data with Ada",
-      "description": "Uncovering narratives and insights from healthcare expenditure data.",
-      "url": "https://www.youtube.com/watch?v=DWnYlMLeG-k",
-      "date": "2026-04-17",
-      "thumb": null
     },
     {
       "type": "newsletter",
@@ -154,15 +100,6 @@
       "thumb": null
     },
     {
-      "type": "video",
-      "title": "Pondcast #3: Calculate CO2 emissions with Thomas Goorden",
-      "alt": "Pondcast #3: Calculate CO2 emissions with Thomas Goorden",
-      "description": "Discussing methods for measuring carbon dioxide emissions.",
-      "url": "https://www.youtube.com/watch?v=qE9GMVyRoEI",
-      "date": "2026-03-25",
-      "thumb": null
-    },
-    {
       "type": "newsletter",
       "title": "🪷 The Pond #7: beware of percentages!",
       "alt": "The Pond #7: beware of percentages!",
@@ -191,15 +128,6 @@
     },
     {
       "type": "video",
-      "title": "Pondcast #2: Investigating kindergartens with Freja Wedenborg",
-      "alt": "Pondcast #2: Investigating kindergartens with Freja Wedenborg",
-      "description": "What 350 evaluation reports reveal about inequality between Copenhagen neighbourhoods.",
-      "url": "https://www.youtube.com/watch?v=lvSleNCANkI",
-      "date": "2026-01-14",
-      "thumb": null
-    },
-    {
-      "type": "video",
       "title": "The lazy journalist's secret: AI classification",
       "alt": "The lazy journalist's secret: AI classification",
       "description": "Behind-the-scenes from mentorship — using AI to classify a big pile of text.",
@@ -213,15 +141,6 @@
       "alt": "How to Choose Colors for Data Visualization",
       "description": "Color theory fundamentals and 4 essential tools for better palettes.",
       "url": "blog/color-palettes-for-data-visualization.html",
-      "date": "2025-12-03",
-      "thumb": null
-    },
-    {
-      "type": "video",
-      "title": "Pondcast #1: Scraper blocking and how to get around it",
-      "alt": "Pondcast #1: Scraper blocking and how to get around it",
-      "description": "Practical approaches when websites block your scraper.",
-      "url": "https://www.youtube.com/watch?v=1yCykgFrZz0",
       "date": "2025-12-03",
       "thumb": null
     },

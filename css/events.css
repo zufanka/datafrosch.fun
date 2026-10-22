@@ -6,6 +6,9 @@
 .event-back:hover, .event-link:hover { text-decoration: underline; }
 .event-layout { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
 .event-cover { width: 100%; height: auto; border-radius: 1rem; }
+/* Recorded events: responsive 16:9 no-cookie YouTube embed in place of the cover. */
+.event-embed { position: relative; width: 100%; padding-top: 56.25%; border-radius: 1rem; overflow: hidden; background: #292f36; }
+.event-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 .event-label { color: #476332; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin: 1.75rem 0 .5rem; }
 .event-title { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; font-weight: 700; margin-bottom: .75rem; }
 .event-guest { color: #52604b; font-size: 1.2rem; margin-bottom: 1.5rem; }
