@@ -22,7 +22,7 @@ var EVENTS = {
       time: "14:30 CET",
       title: "Mining analogue data",
       desc: "Constanze Bayer shows how old guide books and other analog materials became a data treasure trove in her story on the industrialization of ski resorts.",
-      image: "img/frosches/mining-vintage-frog.jpg",
+      image: "img/pondcast-thumbnails-events/12-mining-analogue-data.jpg",
       link: "https://discord.com/events/1406642598646513858/1555218462748708985",
       meet: "https://meet.google.com/fta-krxb-xxo",
       url: "events/mining-analogue-data.html",
