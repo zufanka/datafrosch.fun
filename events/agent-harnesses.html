@@ -26,7 +26,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/events.css?v=1c11910aa0fe">
+    <link rel="stylesheet" href="../css/events.css?v=a10bbe8c4fbe">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
     <script src="../js/event-page.js?v=98b6c60ffa45" defer></script>
@@ -114,11 +114,8 @@
                         <dd><time datetime="2026-10-27T14:00:00+01:00">14:00</time>–<time datetime="2026-10-27T15:00:00+01:00">15:00</time> CET
                         <span class="event-timezone">Europe/Berlin · UTC+1 · 1 hour</span>
                         </dd>
-                        <dt>Where</dt>
-                        <dd>Online</dd>
-                        <dt>Cost</dt>
-                        <dd>Free</dd>
                     </dl>
+                    <p class="event-access">Online · Free · No registration needed</p>
 
                 <div class="event-actions" data-event-actions data-event-end="2026-10-27T15:00:00+01:00">
                     <add-to-calendar-button
@@ -142,29 +139,26 @@
                         trigger="click"
                         list-style="modal"
                         size="5"
+                        label="Add to calendar"
+                        custom-labels='{"ical":"Download .ics file"}'
                         hide-rich-data
                         hide-checkmark
                         past-date-handling="disable"
-                        style-light="--btn-background: #ffffff; --btn-text: #476332; --btn-border: #dfe7d9; --font: 'Nunito', sans-serif;"
+                        style-light="--btn-background: #476332; --btn-text: #ffffff; --btn-border: #476332; --btn-hover-background: #364c26; --btn-hover-text: #ffffff; --btn-hover-border: #364c26; --btn-border-radius: 8px; --btn-font-weight: 700; --btn-shadow: none; --btn-hover-shadow: none; --font: 'Nunito', sans-serif;"
                     ></add-to-calendar-button>
-                    <a href="https://meet.google.com/bsw-oqds-ujm" class="event-join" target="_blank" rel="noopener noreferrer">Join the call →</a>
-                    <p class="event-note">No registration needed.</p>
-                    <div class="event-secondary">
-                        <a href="agent-harnesses.ics" class="event-link">Download calendar file (.ics)</a>
-                        <a href="https://discord.com/events/1406642598646513858/1555218447325995069" class="event-link" target="_blank" rel="noopener noreferrer">View the Discord event →</a>
-                    </div>
+                    <a href="https://meet.google.com/bsw-oqds-ujm" class="event-join" target="_blank" rel="noopener noreferrer">Join the call directly ↗</a>
+                    <noscript><a href="agent-harnesses.ics" class="event-link">Download calendar file (.ics)</a></noscript>
                 </div>
+                    <div class="event-reminder" data-event-reminder>
+                        <a href="https://datafrosch.beehiiv.com/subscribe" class="event-newsletter-button"
+                            target="_blank" rel="noopener noreferrer">Subscribe to the newsletter</a>
+                        <p class="event-note">A monthly newsletter, plus event reminders.</p>
+                    </div>
 
                 <div class="event-finished" data-event-finished hidden>
                     <p class="event-note">This event has ended.</p>
                 </div>
                 </section>
-                <div class="event-reminder" data-event-reminder>
-                    <a href="https://datafrosch.beehiiv.com/subscribe" class="event-newsletter-button"
-                        aria-label="Subscribe to the newsletter for an email reminder 24 hours before the event"
-                        target="_blank" rel="noopener noreferrer">Subscribe to the newsletter</a>
-                    <p class="event-note">And receive a reminder 24 hours before the event.</p>
-                </div>
             </div>
         </article>
     </main>
