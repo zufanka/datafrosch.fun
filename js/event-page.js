@@ -25,8 +25,9 @@
 
     // Hide join/calendar/download actions once the event's end instant has
     // passed — whenever the page happens to be loaded — and show the finished
-    // state instead. Generation stays wall-clock independent; this only runs
-    // in the visitor's browser.
+    // state instead. The newsletter reminder stays visible so archived
+    // pages match generated past/finished pages. Generation stays wall-clock
+    // independent; this only runs in the visitor's browser.
     function applyLifecycle() {
         var actions = document.querySelector('[data-event-actions]');
         if (!actions) return;
@@ -35,8 +36,6 @@
         var end = Date.parse(endAttr);
         if (isNaN(end) || Date.now() < end) return;
         actions.hidden = true;
-        var reminder = document.querySelector('[data-event-reminder]');
-        if (reminder) reminder.hidden = true;
         var finished = document.querySelector('[data-event-finished]');
         if (finished) finished.hidden = false;
         var heading = document.querySelector('[data-ended-heading]');
