@@ -1,9 +1,10 @@
 (function () {
     var links = [
-        ['Resources',  '/resources.html'],
-        ['The Pond',   '/pond.html'],
-        ['Mentorship', '/index.html#mentorship-pond'],
-        ['The 🐸',     '/index.html#author'],
+        ['Resources',   '/resources.html'],
+        ['The Pond',    '/pond.html'],
+        ['Newsletter',  '/pond.html#subscribe'],
+        ['Mentorship',  '/mentorship.html'],
+        ['The 🐸',      '/index.html#author'],
     ];
 
     var container = document.querySelector('.navbar .flex');
