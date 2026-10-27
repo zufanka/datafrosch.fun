@@ -3,7 +3,7 @@
         ['Resources',   '/resources.html'],
         ['The Pond',    '/pond.html'],
         ['Newsletter',  '/pond.html#subscribe'],
-        ['Mentorship',  '/mentorship.html'],
+        ['Mentoring',   '/mentorship.html'],
         ['The 🐸',      '/index.html#author'],
     ];
 
