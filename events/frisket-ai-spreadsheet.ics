@@ -1,0 +1,31 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Data Frosch//The Pond Events//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:143519bb-fceb-5147-a23d-60d74dcedc00
+DTSTAMP:20261124T140000Z
+DTSTART:20261124T140000Z
+DTEND:20261124T150000Z
+SUMMARY:Frisket: an AI-powered spreadsheet for investigations
+DESCRIPTION:Frisket is an open-source\, AI-powered spreadsheet for investig
+ ative reporting. Throw in a disorganized mountain of PDFs\, transcripts\, 
+ audio\, video\, emails or spreadsheets\, then use AI to search\, sort\, cl
+ assify\, and cross-reference your way through the mess! Instead of bouncin
+ g between Pinpoint\, NotebookLM\, pandas\, and a half-dozen other tools\, 
+ Frisket brings everything together into one (painfully complicated?) inter
+ face.\nJoin the call: https://meet.google.com/evq-jfrb-wmc\nEvent page: ht
+ tps://datafrosch.fun/events/frisket-ai-spreadsheet.html
+LOCATION:https://meet.google.com/evq-jfrb-wmc
+URL:https://datafrosch.fun/events/frisket-ai-spreadsheet.html
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SEQUENCE:0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Frisket: an AI-powered spreadsheet for investigations starts in
+  15 minutes.
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

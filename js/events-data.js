@@ -32,6 +32,20 @@ var EVENTS = {
       sequence: "0",
       ics_updated: "20261118T133000Z"
     },
+    {
+      date: "2026-11-24",
+      time: "15:00 CET",
+      title: "Frisket: an AI-powered spreadsheet for investigations",
+      desc: "Jonathan Soma introduces Frisket, an open-source, AI-powered spreadsheet for investigative reporting to search, sort, classify and cross-reference your way through a mountain of messy documents.",
+      image: "img/pondcast-thumbnails-events/13-frisket.jpg",
+      meet: "https://meet.google.com/evq-jfrb-wmc",
+      url: "events/frisket-ai-spreadsheet.html",
+      start: "2026-11-24T15:00:00+01:00",
+      end: "2026-11-24T16:00:00+01:00",
+      uid: "143519bb-fceb-5147-a23d-60d74dcedc00",
+      sequence: "0",
+      ics_updated: "20261124T140000Z"
+    },
   ],
 
   past: [
