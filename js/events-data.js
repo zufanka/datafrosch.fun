@@ -3,21 +3,6 @@
 var EVENTS = {
   upcoming: [
     {
-      date: "2026-10-27",
-      time: "14:00 CET",
-      title: "It's all a harness, baby",
-      desc: "What an agent harness is, and how to build your own, with Johan Schuijt.",
-      image: "img/frosches/walking-the-robots.jpg",
-      link: "https://discord.com/events/1406642598646513858/1555218447325995069",
-      meet: "https://meet.google.com/bsw-oqds-ujm",
-      url: "events/agent-harnesses.html",
-      start: "2026-10-27T14:00:00+01:00",
-      end: "2026-10-27T15:00:00+01:00",
-      uid: "4e8a58c9-d9e7-53aa-8e04-23637197a07d",
-      sequence: "0",
-      ics_updated: "20261027T130000Z"
-    },
-    {
       date: "2026-11-18",
       time: "14:30 CET",
       title: "Mining analogue data",
@@ -38,6 +23,7 @@ var EVENTS = {
       title: "Frisket: an AI-powered spreadsheet for investigations",
       desc: "Jonathan Soma introduces Frisket, an open-source, AI-powered spreadsheet for investigative reporting to search, sort, classify and cross-reference your way through a mountain of messy documents.",
       image: "img/pondcast-thumbnails-events/13-frisket.jpg",
+      link: "https://discord.com/events/1406642598646513858/1564979885540253766",
       meet: "https://meet.google.com/evq-jfrb-wmc",
       url: "events/frisket-ai-spreadsheet.html",
       start: "2026-11-24T15:00:00+01:00",
@@ -49,6 +35,15 @@ var EVENTS = {
   ],
 
   past: [
+    {
+      date: "2026-10-27",
+      title: "It's all a harness, baby",
+      desc: "What an agent harness is, and how to build your own, with Johan Schuijt.",
+      image: "img/frosches/walking-the-robots.jpg",
+      url: "events/agent-harnesses.html",
+      start: "2026-10-27T14:00:00+01:00",
+      end: "2026-10-27T15:00:00+01:00"
+    },
     {
       date: "2026-10-21",
       title: "Digital sovereignty",
