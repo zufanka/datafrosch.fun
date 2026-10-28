@@ -182,6 +182,39 @@
         </div>
     </section>
 
+    <!-- Session Video Section -->
+    <section id="session-video" class="py-10 md:py-16 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center">
+                <span class="section-title">See a mentoring session</span>
+            </h2>
+
+            <div class="max-w-3xl mx-auto text-center">
+                <div id="mentorship-video-frame" class="video-container rounded-lg shadow-md">
+                    <img src="img/mentorship-session-preview.jpg" alt="Preview of the session video: exploring a dataset that mixes people and companies" loading="lazy">
+                    <button id="mentorship-video-load" type="button" aria-label="Play the session video (loads the YouTube player)" class="absolute inset-0 w-full h-full">
+                        <div class="play-button" aria-hidden="true">
+                            <div class="w-12 h-12 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm3.33 10.33l-4.73 2.83a.33.33 0 0 1-.5-.29V7.13a.33.33 0 0 1 .5-.29l4.73 2.83a.33.33 0 0 1 0 .58z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                <p class="text-base md:text-lg mt-4">
+                    Charlotte brought a dataset with people and companies mixed together. Here’s how we explored a way to tell them apart.
+                </p>
+                <p class="text-sm mt-2">
+                    <a href="https://youtu.be/lU49a7XbxFA" target="_blank" rel="noopener" style="color: var(--primary-color); text-decoration: underline;">Watch on YouTube ↗</a>
+                </p>
+                <noscript>
+                    <p class="text-sm mt-2 text-gray-600">JavaScript is off, so the video can’t play here — the link above opens it on YouTube.</p>
+                </noscript>
+            </div>
+        </div>
+    </section>
+
     <!-- Program Details Section -->
     <section id="info" class="py-10 md:py-16 bg-white relative">
         <div class="lily-pad lily-pad-2"></div>
@@ -465,5 +498,6 @@
 
 <script src="js/taglines.js"></script>
 <script src="js/testimonials.js"></script>
+<script src="js/mentorship-video.js"></script>
 </body>
 </html>
