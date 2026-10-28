@@ -15,11 +15,13 @@ Hands-on data training for journalists and (aspiring) data specialists.
 
 ### Services
 
-**Data Journalism Mentorship** — The deep end of The Pond. A structured, 1-on-1 program to level up your data skills.
+**Data Journalism Mentorship** — The deep end of The Pond. Self-paced 1-on-1 mentoring to level up your data skills.
 
-- 1-on-1 Sessions: Regular online meetings to review your progress, tackle challenges, and refine your work. Daily support via Discord.
-- Custom Learning Path: Personalized 9-week program covering topics chosen to accelerate your growth as a data storyteller.
-- Full Pond Access: Mentorship includes full access to The Pond community — trainings, resources, Discord, and networking with other data professionals.
+- 1-on-1 Sessions: 1-hour online sessions, as few or as many as you need — no fixed program length or start dates. Work on your real projects, built around your goals.
+- Quick Questions: Occasional quick questions answered via Discord between sessions.
+- The Pond Community: Free for anyone to join — trainings, resources, Discord, and networking — with or without a mentorship.
+- Pricing: Session bundles paid per bundle — 1 call €180, 2 calls €340, 3 calls €500, 4 calls €640. Installments possible on request.
+- How to Start: Email ada@datafrosch.fun to discuss what would help, or buy a bundle directly on the mentorship page. After payment, Ada emails you to arrange your first session.
 
 Testimonials:
 - "The data journalism mentorship with Ada is truly brilliant! Her guidance didn't just open up a door to a new skill set, it improved my way of reporting and transformed my approach to stories." — Sarah Emler, Reporter at ORF (Austria)
@@ -33,8 +35,10 @@ Get in touch: ada@datafrosch.fun
 - Resources & Tools: Curated resources, tutorials, and practical guides.
 - Discord Community: Connect with fellow data journalists. Ask questions, share your work, and get peer feedback.
 - Newsletter: Tips, new tutorials, and what's happening in the data journalism world.
+- All free content — videos (Pondcasts), articles, guides, and newsletters — is collected at https://datafrosch.fun/resources.html
 
-Join: https://datafrosch.beehiiv.com/subscribe
+Join the community: https://datafrosch.fun/pond.html
+Subscribe to the newsletter: https://datafrosch.fun/pond.html#subscribe
 
 ### About Ada Homolova
 

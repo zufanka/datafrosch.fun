@@ -5,20 +5,21 @@
 ## Site
 
 - [Homepage](https://datafrosch.fun/) — Overview of all offerings: mentorship, community, free resources
+- [Resources](https://datafrosch.fun/resources.html) — All videos (Pondcasts), blog posts, guides, and newsletters in one place
 
 ## Mentorship
 
-- [Data Journalism Mentorship](https://datafrosch.fun/#mentorship) — Structured 1-on-1 program (9 weeks), custom learning path, daily Discord support, full Pond community access
+- [Data Journalism Mentorship](https://datafrosch.fun/mentorship.html) — Self-paced 1-on-1 mentoring: 1-hour online sessions, as few or as many as you need, plus occasional quick questions via Discord between sessions. Bundles: 1 session €180, 2 sessions €340, 3 sessions €500, 4 sessions €640. Email first to discuss, or buy directly and Ada emails you to schedule.
 - [Get in touch](mailto:ada@datafrosch.fun) — Email Ada
 
 ## The Pond Community
 
-- [The Pond](https://datafrosch.fun/#the-pond) — Community for newsroom data nerds: 2 monthly online trainings, Discord, resources & newsletter
-- [Join the Pond](https://datafrosch.beehiiv.com/subscribe) — Sign up for the community newsletter
+- [The Pond](https://datafrosch.fun/pond.html) — Free community for newsroom data nerds: 2 monthly online trainings, Discord, resources & newsletter
+- [Subscribe to the newsletter](https://datafrosch.fun/pond.html#subscribe) — The Pond newsletter, free and monthly
+- [Upcoming events](https://datafrosch.fun/pond.html#upcoming) — Live online sessions and community hangouts
 
 ## Blog
 
-- [Blog Index](https://datafrosch.fun/blog/) — All articles on data journalism, tools, and storytelling
 - [The Pitfalls of Percentages in the News](https://datafrosch.fun/blog/pitfalls-of-percentages-in-the-news.html) — Why percentages mislead in journalism and how to report them correctly (by Jonathan Stoneman, 2026-02-18)
 - [How to Choose Colors for Data Visualization](https://datafrosch.fun/blog/color-palettes-for-data-visualization.html) — HSL color theory, why lightness matters, and 4 tools for accessible palettes (2025-12-03)
 - [One Newsletter to Rule Them All](https://datafrosch.fun/blog/rss-newsletter.html) — Building an AI-powered RSS digest with GitHub Actions and DeepSeek
@@ -26,7 +27,6 @@
 
 ## Guides
 
-- [Guides Index](https://datafrosch.fun/guides/) — Practical checklists, templates, and frameworks for data journalists
 - [Finding Stories in Data](https://datafrosch.fun/guides/finding-stories-in-data.html) — Step-by-step checklist for interrogating a new dataset: first look, time patterns, geography, rankings, outliers, missing data, context
 
 ## Videos
