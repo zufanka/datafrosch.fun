@@ -39,6 +39,7 @@ var EVENTS = {
       date: "2026-10-27",
       title: "It's all a harness, baby",
       desc: "What an agent harness is, and how to build your own, with Johan Schuijt.",
+      youtube: "https://youtu.be/38JTw5DRwjI",
       image: "img/frosches/walking-the-robots.jpg",
       url: "events/agent-harnesses.html",
       start: "2026-10-27T14:00:00+01:00",
