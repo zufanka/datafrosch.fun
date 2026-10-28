@@ -24,6 +24,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css?v=20260609">
+    <link rel="stylesheet" href="css/pond.css?v=ba90763a902c">
 
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
@@ -697,10 +698,36 @@
 
             </div>
 
-            <!-- Subscribe CTA -->
+            <!-- Subscribe CTA: the same inline Pond signup as pond.html.
+                 pond-subscribe.js posts to Ada's subscribe API (The Pond only).
+                 There is deliberately no native form action: without JavaScript a
+                 GET submit would pass the typed email as a URL query parameter.
+                 The controls stay hidden until pond-subscribe.js initializes; the
+                 noscript note below carries the fallback link and instructions. -->
             <div class="mt-10 md:mt-14 text-center">
-                <p class="text-base md:text-lg mb-4 opacity-90">Want new resources delivered to your inbox?</p>
-                <a href="pond.html#subscribe" class="cta-button inline-block bounce-hover">🪷 Subscribe to the newsletter 🪷</a>
+                <p class="text-base md:text-lg mb-4 opacity-90">Data journalism tips, useful links, and upcoming online sessions.</p>
+                <form id="pond-subscribe-form" class="pond-subscribe" novalidate>
+                    <div class="pond-honeypot" aria-hidden="true">
+                        <label for="pond-website">Website (leave empty)</label>
+                        <input id="pond-website" type="text" name="website" tabindex="-1" autocomplete="off" />
+                    </div>
+                    <label class="pond-email-label" for="pond-email">Email address</label>
+                    <div class="pond-subscribe-row" id="pond-subscribe-row" hidden>
+                        <input id="pond-email" type="email" name="email" required placeholder="your@email.com" autocomplete="email" aria-describedby="pond-subscribe-note pond-subscribe-status" />
+                        <button type="submit" class="cta-button pond-subscribe-button">Subscribe to The Pond</button>
+                    </div>
+                    <p id="pond-subscribe-note" class="pond-subscribe-note" hidden>
+                        Free, once a month + event reminders. <a href="privacy-policy.html#newsletter-privacy">Privacy</a>
+                    </p>
+                    <p id="pond-subscribe-status" class="pond-subscribe-status" role="status" aria-live="polite"></p>
+                    <noscript>
+                        <p class="pond-subscribe-noscript">
+                            The quick form needs JavaScript. To subscribe, open
+                            <a href="https://homolova.sk/newsletter" target="_blank" rel="noopener">homolova.sk/newsletter</a>
+                            &mdash; that page needs JavaScript too, and it preselects both of Ada&rsquo;s newsletters, so untick &ldquo;Hi! It&rsquo;s Ada&rdquo; if you only want The Pond.
+                        </p>
+                    </noscript>
+                </form>
                 <p class="mt-4 text-xs md:text-sm opacity-75">
                     Prefer a feed reader? Subscribe to the <a href="blog/feed.xml" class="text-green-700 hover:underline">blog RSS feed</a>.
                 </p>
@@ -758,6 +785,7 @@
     </footer>
 
     <script src="js/thumbs.js"></script>
+    <script src="js/pond-subscribe.js?v=9ce962ff9f8e"></script>
     <script>
         (function () {
             var buttons = document.querySelectorAll('.resource-filter');
