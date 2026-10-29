@@ -1,6 +1,15 @@
 {
   "resources": [
     {
+      "type": "newsletter",
+      "title": "🎿 The Pond #13: Ski resorts, murder mysteries and Frisket",
+      "alt": "The Pond #13: Ski resorts, murder mysteries and Frisket",
+      "description": "Also: how much Big Tech can you ditch? 🦵",
+      "url": "newsletters/the-pond-13-ski-resorts-murder-mysteries-and-frisket.html",
+      "date": "2026-10-29",
+      "thumb": "img/frosches/mining-vintage-frog.jpg"
+    },
+    {
       "type": "blog",
       "title": "Digital independence: start with the easy wins",
       "alt": "Digital independence: start with the easy wins",
