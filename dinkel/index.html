@@ -23,6 +23,10 @@
         :root {
             --stage: 720px;
             --s: 1;
+            /* breathing pacer: 1 = resting, >1 = expanded. Set in JS while breathing. */
+            --breath: 1;
+            --breath-ms: 4000ms;
+            --calm: cubic-bezier(0.37, 0, 0.63, 1);
         }
 
         body {
@@ -61,6 +65,10 @@
             width: calc(var(--stage) * var(--s));
             height: calc(var(--stage) * var(--s));
             margin: 0.25rem auto 0;
+            /* the spinning pills stay inside the stage box; clip keeps a
+               rotating-transform overflow quirk from widening the page */
+            overflow: hidden;
+            overflow: clip;
         }
 
         .orbit-stage {
@@ -72,13 +80,15 @@
             transform: translate(-50%, -50%) scale(var(--s));
         }
 
+        /* the dashed circles double as the breathing pacer */
         .ring-line {
             position: absolute;
             top: 50%;
             left: 50%;
             border: 2px dashed rgba(111, 148, 73, 0.28);
             border-radius: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%) scale(var(--breath, 1));
+            transition: transform var(--breath-ms) var(--calm);
             pointer-events: none;
         }
 
@@ -96,11 +106,11 @@
             pointer-events: none;
         }
 
-        .orbit--outer { animation: spin 88s linear infinite; }
-        .orbit--outer .pill-in { animation: spin 88s linear infinite reverse; }
+        .orbit--outer { animation: spin 40s linear infinite; }
+        .orbit--outer .pill-in { animation: spin 40s linear infinite reverse; }
 
-        .orbit--inner { animation: spin 64s linear infinite reverse; }
-        .orbit--inner .pill-in { animation: spin 64s linear infinite; }
+        .orbit--inner { animation: spin 28s linear infinite reverse; }
+        .orbit--inner .pill-in { animation: spin 28s linear infinite; }
 
         @keyframes spin {
             from { transform: rotate(0deg); }
@@ -123,7 +133,7 @@
             box-shadow: 0 4px 12px rgba(41, 47, 54, 0.10);
             font-family: 'Quicksand', sans-serif;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 17px;
             line-height: 1.2;
             color: var(--dark-color);
             white-space: nowrap;
@@ -131,20 +141,27 @@
 
         /* ---- Dinkel ----------------------------------------------------- */
 
-        .dinkel {
+        .dinkel-spot {
             position: absolute;
             top: 50%;
             left: 50%;
             width: calc(var(--stage) * 0.229);
             height: calc(var(--stage) * 0.229);
             transform: translate(-50%, -50%);
+            z-index: 3;
+        }
+
+        .dinkel {
+            display: block;
+            width: 100%;
+            height: 100%;
             background: none;
             border: 0;
             padding: 0;
             cursor: pointer;
+            transform-origin: 50% 100%;
             animation: bob 3.4s ease-in-out infinite;
             filter: drop-shadow(0 10px 14px rgba(41, 47, 54, 0.16));
-            z-index: 3;
         }
 
         .dinkel:focus-visible {
@@ -161,8 +178,53 @@
         }
 
         @keyframes bob {
-            0%, 100% { transform: translate(-50%, -50%) translateY(0); }
-            50%      { transform: translate(-50%, -50%) translateY(-10px); }
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-10px); }
+        }
+
+        .dinkel.hop { animation: hop 0.55s ease-out; }
+
+        @keyframes hop {
+            0%   { transform: translateY(0) scale(1); }
+            30%  { transform: translateY(-18px) scale(1.03); }
+            55%  { transform: translateY(2px) scale(0.99); }
+            78%  { transform: translateY(-6px) scale(1); }
+            100% { transform: translateY(0) scale(1); }
+        }
+
+        .heart {
+            position: absolute;
+            left: 50%;
+            top: 12%;
+            z-index: 5;
+            font-size: 1.15rem;
+            line-height: 1;
+            pointer-events: none;
+            animation: float-up 1.3s ease-out forwards;
+        }
+
+        @keyframes float-up {
+            0%   { opacity: 0; transform: translate(-50%, 0) scale(0.7); }
+            25%  { opacity: 1; }
+            100% { opacity: 0; transform: translate(-50%, -52px) scale(1.15); }
+        }
+
+        /* soft circle pacer for the small-screen (fortune) layout */
+        .pacer-soft {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* stays inside the viewport even at full inhale */
+            width: min(80vw, 320px);
+            aspect-ratio: 1 / 1;
+            z-index: -1;
+            border: 2px dashed rgba(111, 148, 73, 0.30);
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(111, 148, 73, 0.11) 0%, rgba(111, 148, 73, 0.05) 60%, rgba(111, 148, 73, 0) 72%);
+            transform: translate(-50%, -50%) scale(var(--breath, 1));
+            transition: transform var(--breath-ms) var(--calm);
+            pointer-events: none;
         }
 
         /* ---- speech bubble (bottom band, clear of both rings) ----------- */
@@ -219,10 +281,88 @@
             100% { transform: translate(-50%, -50%) scale(1); }
         }
 
+        /* ---- breathing controls ----------------------------------------- */
+
+        /* the height is reserved so the button never jumps when the phase
+           line appears below it */
+        .controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.3rem;
+            min-height: 4rem;
+            margin-top: 0.7rem;
+        }
+
+        .breathe-btn {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            line-height: 1.2;
+            color: var(--primary-color);
+            background: #fff;
+            border: 2px solid rgba(111, 148, 73, 0.45);
+            border-radius: 9999px;
+            padding: 0.5rem 1.15rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .breathe-btn:hover { background: rgba(111, 148, 73, 0.10); }
+
+        .breathe-btn:focus-visible {
+            outline: 3px solid var(--secondary-color);
+            outline-offset: 3px;
+        }
+
+        .breathe-btn.is-on {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .breathe-ui {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breathe-ui[hidden] { display: none; }
+
+        .breath-phase {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            line-height: 1.2;
+            color: var(--primary-color);
+            margin: 0;
+            min-width: 6.5rem;
+            text-align: left;
+        }
+
+        .breath-dots {
+            display: flex;
+            gap: 0.35rem;
+        }
+
+        .breath-dots span {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(111, 148, 73, 0.25);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .breath-dots span.on {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+
         .hint {
             font-size: 0.85rem;
             opacity: 0.55;
-            margin: 0.4rem 0 0;
+            margin: 0.5rem 0 0;
         }
 
         .page-footer {
@@ -236,12 +376,125 @@
             text-decoration: underline;
         }
 
+        /* ---- small screens: fortune mode -------------------------------- */
+
+        @media (max-width: 767px) {
+            .orbit-wrap {
+                width: 100%;
+                height: auto;
+                margin-top: 0.6rem;
+            }
+
+            .orbit-stage {
+                position: static;
+                width: 100%;
+                height: auto;
+                transform: none;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.15rem;
+                padding: 0.5rem 0 0;
+            }
+
+            .ring-line,
+            .orbit,
+            .pill {
+                display: none;
+            }
+
+            .dinkel-spot {
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+                width: min(64vw, 260px);
+                height: auto;
+                aspect-ratio: 1 / 1;
+            }
+
+            .dinkel { animation-name: bob-fortune; animation-duration: 4.2s; }
+
+            @keyframes bob-fortune {
+                0%, 100% { transform: translateY(0) scale(1); }
+                50%      { transform: translateY(-8px) scale(1.01); }
+            }
+
+            .pacer-soft { display: block; }
+
+            .bubble,
+            .bubble.show {
+                position: static;
+                top: auto;
+                left: auto;
+                transform: none;
+                max-width: 100%;
+                white-space: normal;
+                overflow: visible;
+                text-overflow: clip;
+                font-size: clamp(20px, 6.2vw, 26px);
+                padding: 0.65rem 1.25rem;
+                opacity: 1;
+            }
+
+            .bubble.show { animation: pop-plain 0.3s ease-out; }
+
+            .bubble::before { left: 50%; }
+
+            @keyframes pop-plain {
+                0%   { transform: scale(0.82); }
+                60%  { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+
+            .controls { margin-top: 0.5rem; }
+            .breath-phase { text-align: center; }
+        }
+
+        /* ---- breathing session: rings pause, Dinkel bobs in rhythm ------ */
+
+        body.breathing .orbit,
+        body.breathing .orbit .pill-in {
+            animation-play-state: paused;
+        }
+
+        body.breathing .dinkel {
+            animation: breathe-bob var(--breath-cycle, 16s) ease-in-out infinite;
+        }
+
+        @keyframes breathe-bob {
+            0%   { transform: translateY(0); }
+            25%  { transform: translateY(-7px); }
+            50%  { transform: translateY(-7px); }
+            75%  { transform: translateY(0); }
+            100% { transform: translateY(0); }
+        }
+
+        /* ---- reduced motion --------------------------------------------- */
+
         @media (prefers-reduced-motion: reduce) {
             .orbit,
             .pill-in,
             .dinkel,
-            .bubble.show {
+            .bubble.show,
+            .heart,
+            .pacer-soft {
                 animation: none !important;
+            }
+
+            .ring-line,
+            .pacer-soft {
+                transition: none !important;
+                transform: translate(-50%, -50%) !important;
+            }
+
+            body.breathing .breath-phase {
+                animation: calm-pulse 4s ease-in-out infinite;
+            }
+
+            @keyframes calm-pulse {
+                0%, 100% { opacity: 1; }
+                50%      { opacity: 0.6; }
             }
         }
     </style>
@@ -261,11 +514,24 @@
                 <div class="orbit orbit--outer" id="orbit-outer" aria-hidden="true"></div>
                 <div class="orbit orbit--inner" id="orbit-inner" aria-hidden="true"></div>
 
-                <button class="dinkel" id="dinkel" type="button" aria-label="Tap Dinkel for a small reminder">
-                    <img src="/img/team/dinkel-cutout.png" alt="Dinkel, a plush frog" width="640" height="640">
-                </button>
+                <div class="dinkel-spot">
+                    <div class="pacer-soft" aria-hidden="true"></div>
+                    <button class="dinkel" id="dinkel" type="button" aria-label="Tap Dinkel for a small reminder">
+                        <img src="/img/team/dinkel-cutout.png" alt="Dinkel, a plush frog" width="640" height="640">
+                    </button>
+                </div>
 
                 <div class="bubble show" id="bubble" role="status" aria-live="polite">tap Dinkel for a reminder 🐸</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="breathe-btn" id="breathe-btn" type="button">breathe with Dinkel 🌬️</button>
+            <div class="breathe-ui" id="breathe-ui" hidden>
+                <p class="breath-phase" id="breath-phase" role="status" aria-live="polite">breathe in</p>
+                <div class="breath-dots" id="breath-dots" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                </div>
             </div>
         </div>
 
@@ -286,14 +552,42 @@
         var MAX_INNER = 6;
         var MAX_OUTER = 10;
 
+        var PLACEHOLDER = 'tap Dinkel for a reminder 🐸';
+        var IDLE_LABEL = 'breathe with Dinkel 🌬️';
+        var CLOSING = "that's it. carried by a frog 🐸";
+
+        // one box-breathing round: inhale / hold / exhale / hold
+        var PHASES = [
+            { label: 'breathe in',  breath: 1.12 },
+            { label: 'hold',        breath: 1.12 },
+            { label: 'breathe out', breath: 1 },
+            { label: 'hold',        breath: 1 }
+        ];
+
         var page = document.querySelector('.page');
         var wrap = document.getElementById('orbit-wrap');
+        var stage = document.getElementById('orbit-stage');
         var outer = document.getElementById('orbit-outer');
         var inner = document.getElementById('orbit-inner');
         var dinkel = document.getElementById('dinkel');
         var bubble = document.getElementById('bubble');
+        var breatheBtn = document.getElementById('breathe-btn');
+        var breatheUI = document.getElementById('breathe-ui');
+        var phaseLabel = document.getElementById('breath-phase');
+        var dots = Array.prototype.slice.call(document.querySelectorAll('.breath-dots span'));
+
+        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        var mqFortune = window.matchMedia('(max-width: 767px)');
+
+        // the page always runs 4s phases over 3 rounds; tests may shrink this
+        var timing = { phase: 4000, rounds: 3 };
+        window.dinkelTiming = timing;
 
         var list = (typeof SLOGANS !== 'undefined' && SLOGANS.length) ? SLOGANS : ['ribbit 🐸'];
+
+        function isFortune() {
+            return mqFortune.matches;
+        }
 
         function fillRing(el, radius, texts) {
             el.innerHTML = '';
@@ -330,7 +624,7 @@
             var s = Math.min(1, availW / STAGE);
             wrap.style.setProperty('--s', s.toFixed(4));
 
-            // second pass: make sure heading + scene + footer fit the viewport
+            // second pass: make sure heading + scene + controls fit the viewport
             var extras = page.scrollHeight - wrap.offsetHeight;
             var byHeight = (window.innerHeight - extras - 8) / STAGE;
             if (byHeight < s) {
@@ -339,29 +633,169 @@
             }
         }
 
+        /* ---- slogans ---------------------------------------------------- */
+
         fillRing(outer, R_OUTER, outerTexts);
         fillRing(inner, R_INNER, innerTexts);
         layout();
-        window.addEventListener('resize', layout);
-        window.addEventListener('load', layout);
 
         var last = -1;
+        var hasSlogan = false;
 
-        function saySomething() {
+        function pickSlogan() {
             var i = Math.floor(Math.random() * list.length);
             if (list.length > 1 && i === last) {
                 i = (i + 1) % list.length;
             }
             last = i;
+            return list[i];
+        }
 
-            bubble.textContent = list[i];
+        function setBubble(text) {
+            bubble.textContent = text;
             bubble.classList.remove('show');
-            // force a reflow so the pop animation restarts on every tap
+            // force a reflow so the pop animation restarts on every change
             void bubble.offsetWidth;
             bubble.classList.add('show');
         }
 
-        dinkel.addEventListener('click', saySomething);
+        function saySomething() {
+            setBubble(pickSlogan());
+            hasSlogan = true;
+        }
+
+        function applyMode() {
+            if (isFortune()) {
+                if (!hasSlogan) {
+                    saySomething();
+                }
+            } else if (!hasSlogan) {
+                setBubble(PLACEHOLDER);
+            }
+            layout();
+        }
+
+        /* ---- tapping Dinkel --------------------------------------------- */
+
+        function hopAndHeart() {
+            dinkel.classList.remove('hop');
+            void dinkel.offsetWidth;
+            dinkel.classList.add('hop');
+
+            var heart = document.createElement('span');
+            heart.className = 'heart';
+            heart.textContent = '💚';
+            heart.setAttribute('aria-hidden', 'true');
+            dinkel.parentNode.appendChild(heart);
+            setTimeout(function () {
+                if (heart.parentNode) {
+                    heart.parentNode.removeChild(heart);
+                }
+            }, 1400);
+        }
+
+        dinkel.addEventListener('animationend', function (e) {
+            if (e.animationName === 'hop') {
+                dinkel.classList.remove('hop');
+            }
+        });
+
+        dinkel.addEventListener('click', function () {
+            saySomething();
+            if (isFortune() && !reduceMotion.matches) {
+                hopAndHeart();
+            }
+        });
+
+        /* ---- breathe with Dinkel ---------------------------------------- */
+
+        var session = null;
+
+        function updateDots(round) {
+            for (var i = 0; i < dots.length; i++) {
+                dots[i].classList.toggle('on', i < round);
+            }
+        }
+
+        function setPhase(phase) {
+            phaseLabel.textContent = phase.label;
+            if (!reduceMotion.matches) {
+                stage.style.setProperty('--breath', phase.breath);
+            }
+        }
+
+        function step() {
+            var phase = PHASES[session.i];
+            setPhase(phase);
+
+            session.timer = setTimeout(function () {
+                session.i += 1;
+                if (session.i >= PHASES.length) {
+                    session.i = 0;
+                    session.round += 1;
+                    if (session.round > timing.rounds) {
+                        finishBreathing();
+                        return;
+                    }
+                    updateDots(session.round);
+                }
+                step();
+            }, timing.phase);
+        }
+
+        function startBreathing() {
+            if (session) {
+                return;
+            }
+            stage.style.setProperty('--breath-ms', timing.phase + 'ms');
+            stage.style.setProperty('--breath-cycle', (timing.phase * 4) + 'ms');
+
+            session = { round: 1, i: 0, timer: null };
+            document.body.classList.add('breathing');
+            breatheUI.hidden = false;
+            breatheBtn.textContent = 'stop';
+            breatheBtn.classList.add('is-on');
+            updateDots(1);
+            step();
+        }
+
+        function stopBreathing() {
+            if (!session) {
+                return;
+            }
+            clearTimeout(session.timer);
+            session = null;
+            document.body.classList.remove('breathing');
+            breatheUI.hidden = true;
+            breatheBtn.textContent = IDLE_LABEL;
+            breatheBtn.classList.remove('is-on');
+            stage.style.setProperty('--breath', 1);
+        }
+
+        function finishBreathing() {
+            stopBreathing();
+            setBubble(CLOSING);
+            hasSlogan = true;
+        }
+
+        breatheBtn.addEventListener('click', function () {
+            if (session) {
+                stopBreathing();
+            } else {
+                startBreathing();
+            }
+        });
+
+        if (mqFortune.addEventListener) {
+            mqFortune.addEventListener('change', applyMode);
+        } else {
+            mqFortune.addListener(applyMode);
+        }
+
+        window.addEventListener('resize', layout);
+        window.addEventListener('load', layout);
+
+        applyMode();
     })();
     </script>
 
