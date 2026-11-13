@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dinkel is a plush frog and your emotional support frosch. Tap her for a small reminder to be kind to yourself.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dinkel — Emotional Support Frosch">
+    <meta property="og:description" content="A plush frog with self-care slogans floating around her. Tap her for a reminder.">
+    <meta property="og:image" content="https://datafrosch.fun/img/team/dinkel-cutout.png">
+
+    <title>Dinkel — Emotional Support Frosch</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css?v=20260609">
+
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
+
+    <style>
+        :root {
+            --stage: 720px;
+            --s: 1;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem 0.75rem 2rem;
+            text-align: center;
+        }
+
+        .page-title {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1.9rem;
+            line-height: 1.1;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .page-sub {
+            font-size: 0.95rem;
+            opacity: 0.7;
+            margin: 0.35rem 0 0;
+        }
+
+        /* ---- orbit scene ------------------------------------------------ */
+
+        .orbit-wrap {
+            position: relative;
+            width: calc(var(--stage) * var(--s));
+            height: calc(var(--stage) * var(--s));
+            margin: 0.25rem auto 0;
+        }
+
+        .orbit-stage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: var(--stage);
+            height: var(--stage);
+            transform: translate(-50%, -50%) scale(var(--s));
+        }
+
+        .ring-line {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 2px dashed rgba(111, 148, 73, 0.28);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .ring-line--inner { width: calc(var(--r-inner) * 2); height: calc(var(--r-inner) * 2); }
+        .ring-line--outer { width: calc(var(--r-outer) * 2); height: calc(var(--r-outer) * 2); }
+
+        /* zero-size anchor at the centre of the scene: rotating it spins the
+           pills around the middle without adding layout overflow */
+        .orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+        }
+
+        .orbit--outer { animation: spin 88s linear infinite; }
+        .orbit--outer .pill-in { animation: spin 88s linear infinite reverse; }
+
+        .orbit--inner { animation: spin 64s linear infinite reverse; }
+        .orbit--inner .pill-in { animation: spin 64s linear infinite; }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        .pill {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .pill-in {
+            display: block;
+            background: #fff;
+            border: 2px solid rgba(111, 148, 73, 0.45);
+            border-radius: 9999px;
+            padding: 0.42rem 0.95rem;
+            box-shadow: 0 4px 12px rgba(41, 47, 54, 0.10);
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            line-height: 1.2;
+            color: var(--dark-color);
+            white-space: nowrap;
+        }
+
+        /* ---- Dinkel ----------------------------------------------------- */
+
+        .dinkel {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: calc(var(--stage) * 0.229);
+            height: calc(var(--stage) * 0.229);
+            transform: translate(-50%, -50%);
+            background: none;
+            border: 0;
+            padding: 0;
+            cursor: pointer;
+            animation: bob 3.4s ease-in-out infinite;
+            filter: drop-shadow(0 10px 14px rgba(41, 47, 54, 0.16));
+            z-index: 3;
+        }
+
+        .dinkel:focus-visible {
+            outline: 3px solid var(--secondary-color);
+            outline-offset: 8px;
+            border-radius: 50%;
+        }
+
+        .dinkel img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+        }
+
+        @keyframes bob {
+            0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+            50%      { transform: translate(-50%, -50%) translateY(-10px); }
+        }
+
+        /* ---- speech bubble (bottom band, clear of both rings) ----------- */
+
+        .bubble {
+            position: absolute;
+            top: calc(50% + var(--stage) * 0.464);
+            left: 50%;
+            z-index: 4;
+            max-width: 90%;
+            padding: 0.5rem 1.1rem;
+            background: #fff;
+            border: 2px solid var(--primary-color);
+            border-radius: 18px;
+            box-shadow: 0 6px 18px rgba(41, 47, 54, 0.14);
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 1.3;
+            color: var(--dark-color);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.85);
+            transition: opacity 0.18s ease;
+            pointer-events: none;
+        }
+
+        .bubble::before {
+            content: "";
+            position: absolute;
+            top: -8px;
+            left: 32%;
+            width: 12px;
+            height: 12px;
+            margin-left: -6px;
+            background: #fff;
+            border-left: 2px solid var(--primary-color);
+            border-top: 2px solid var(--primary-color);
+            transform: rotate(45deg);
+            border-radius: 2px;
+        }
+
+        .bubble.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            animation: pop 0.3s ease-out;
+        }
+
+        @keyframes pop {
+            0%   { transform: translate(-50%, -50%) scale(0.7); }
+            60%  { transform: translate(-50%, -50%) scale(1.06); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        .hint {
+            font-size: 0.85rem;
+            opacity: 0.55;
+            margin: 0.4rem 0 0;
+        }
+
+        .page-footer {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            margin-top: 1.4rem;
+        }
+
+        .page-footer a {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .orbit,
+            .pill-in,
+            .dinkel,
+            .bubble.show {
+                animation: none !important;
+            }
+        }
+    </style>
+    <link rel="me" href="https://datasci.social/@adahomolova">
+</head>
+<body>
+
+    <main class="page">
+        <h1 class="page-title">Dinkel 🐸</h1>
+        <p class="page-sub">emotional support frosch, on duty</p>
+
+        <div class="orbit-wrap" id="orbit-wrap">
+            <div class="orbit-stage" id="orbit-stage">
+                <div class="ring-line ring-line--outer"></div>
+                <div class="ring-line ring-line--inner"></div>
+
+                <div class="orbit orbit--outer" id="orbit-outer" aria-hidden="true"></div>
+                <div class="orbit orbit--inner" id="orbit-inner" aria-hidden="true"></div>
+
+                <button class="dinkel" id="dinkel" type="button" aria-label="Tap Dinkel for a small reminder">
+                    <img src="/img/team/dinkel-cutout.png" alt="Dinkel, a plush frog" width="640" height="640">
+                </button>
+
+                <div class="bubble show" id="bubble" role="status" aria-live="polite">tap Dinkel for a reminder 🐸</div>
+            </div>
+        </div>
+
+        <p class="hint">she's not in a hurry. neither are you.</p>
+
+        <p class="page-footer">
+            a small side quest from <a href="/">datafrosch.fun</a>
+        </p>
+    </main>
+
+    <script src="slogans.js"></script>
+    <script>
+    (function () {
+        var STAGE = 720;
+        var R_INNER = 152;
+        var R_OUTER = 280;
+        // hard caps so a longer slogan list can't crowd the rings
+        var MAX_INNER = 6;
+        var MAX_OUTER = 10;
+
+        var page = document.querySelector('.page');
+        var wrap = document.getElementById('orbit-wrap');
+        var outer = document.getElementById('orbit-outer');
+        var inner = document.getElementById('orbit-inner');
+        var dinkel = document.getElementById('dinkel');
+        var bubble = document.getElementById('bubble');
+
+        var list = (typeof SLOGANS !== 'undefined' && SLOGANS.length) ? SLOGANS : ['ribbit 🐸'];
+
+        function fillRing(el, radius, texts) {
+            el.innerHTML = '';
+            for (var i = 0; i < texts.length; i++) {
+                var angle = (i / texts.length) * Math.PI * 2 - Math.PI / 2;
+                var x = Math.round(Math.cos(angle) * radius);
+                var y = Math.round(Math.sin(angle) * radius);
+
+                var pill = document.createElement('div');
+                pill.className = 'pill';
+                pill.style.left = x + 'px';
+                pill.style.top = y + 'px';
+
+                var badge = document.createElement('span');
+                badge.className = 'pill-in';
+                badge.textContent = texts[i];
+
+                pill.appendChild(badge);
+                el.appendChild(pill);
+            }
+        }
+
+        // The inner ring has less room, so the shortest slogans go there
+        // (the rest fill the outer ring).
+        var byLength = list.slice().sort(function (a, b) { return a.length - b.length; });
+        var innerTexts = byLength.slice(0, Math.min(MAX_INNER, byLength.length));
+        var outerTexts = byLength.slice(innerTexts.length, innerTexts.length + MAX_OUTER);
+
+        function layout() {
+            wrap.style.setProperty('--r-inner', R_INNER + 'px');
+            wrap.style.setProperty('--r-outer', R_OUTER + 'px');
+
+            var availW = document.documentElement.clientWidth - 24;
+            var s = Math.min(1, availW / STAGE);
+            wrap.style.setProperty('--s', s.toFixed(4));
+
+            // second pass: make sure heading + scene + footer fit the viewport
+            var extras = page.scrollHeight - wrap.offsetHeight;
+            var byHeight = (window.innerHeight - extras - 8) / STAGE;
+            if (byHeight < s) {
+                s = Math.max(0.3, byHeight);
+                wrap.style.setProperty('--s', s.toFixed(4));
+            }
+        }
+
+        fillRing(outer, R_OUTER, outerTexts);
+        fillRing(inner, R_INNER, innerTexts);
+        layout();
+        window.addEventListener('resize', layout);
+        window.addEventListener('load', layout);
+
+        var last = -1;
+
+        function saySomething() {
+            var i = Math.floor(Math.random() * list.length);
+            if (list.length > 1 && i === last) {
+                i = (i + 1) % list.length;
+            }
+            last = i;
+
+            bubble.textContent = list[i];
+            bubble.classList.remove('show');
+            // force a reflow so the pop animation restarts on every tap
+            void bubble.offsetWidth;
+            bubble.classList.add('show');
+        }
+
+        dinkel.addEventListener('click', saySomething);
+    })();
+    </script>
+
+</body>
+</html>
