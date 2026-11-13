@@ -4,7 +4,7 @@
         ['The Pond',    '/pond.html'],
         ['Newsletter',  '/pond.html#subscribe'],
         ['Mentoring',   '/mentorship.html'],
-        ['The 🐸',      '/index.html#author'],
+        ['Team',        '/team.html'],
     ];
 
     var socialLinks = [
