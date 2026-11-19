@@ -8,6 +8,14 @@
     <atom:link href="https://datafrosch.fun/blog/feed.xml" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>How much coding do you need to build your own reporting tools?</title>
+      <link>https://datafrosch.fun/blog/how-much-coding-do-you-need.html</link>
+      <description>You can start building a small reporting tool before you understand every line of its code. Describe the job first, build one checkable part at a time, learn just enough to run and inspect it — and know when a tool needs a proper review. From the Pondcast on building agent harnesses with Johan Schuijt.</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+      <guid>https://datafrosch.fun/blog/how-much-coding-do-you-need.html</guid>
+    </item>
+
+    <item>
       <title>Digital independence: start with the easy wins</title>
       <link>https://datafrosch.fun/blog/digital-independence-easy-wins.html</link>
       <description>Digital independence is a scale, not a state. With ethical tech consultant Santi van den Toorn: the three questions to ask of every tool — who owns it, where the data sits, whether you can leave — plus the alternatives worth swapping to first, from newsletters and e-signing to automation and hosting.</description>

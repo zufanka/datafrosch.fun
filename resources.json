@@ -1,6 +1,15 @@
 {
   "resources": [
     {
+      "type": "blog",
+      "title": "How much coding do you need to build your own reporting tools?",
+      "alt": "How much coding do you need to build your own reporting tools?",
+      "description": "You can start small: describe the job, build one checkable part at a time, and learn just enough to run and inspect what the agent wrote.",
+      "url": "blog/how-much-coding-do-you-need.html",
+      "date": "2026-11-19",
+      "thumb": "img/frosches/walking-the-robots-teal.jpg"
+    },
+    {
       "type": "newsletter",
       "title": "🎿 The Pond #13: Ski resorts, murder mysteries and Frisket",
       "alt": "The Pond #13: Ski resorts, murder mysteries and Frisket",

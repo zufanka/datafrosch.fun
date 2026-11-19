@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="You can start building a reporting tool before you understand every line of its code. How much you need to know, and how to check what the coding agent builds for you.">
+    <meta name="keywords" content="coding agents, reporting tools, AI, data journalism, source verification, agent harness">
+    <meta name="author" content="Ada Homolova">
+    <link rel="canonical" href="https://datafrosch.fun/blog/how-much-coding-do-you-need.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://datafrosch.fun/blog/how-much-coding-do-you-need.html">
+    <meta property="og:title" content="How much coding do you need to build your own reporting tools? | Data Frosch">
+    <meta property="og:description" content="You can start building a reporting tool before you understand every line of its code. How much you need to know, and how to check what the coding agent builds for you.">
+    <meta property="og:image" content="https://datafrosch.fun/img/frosches/walking-the-robots-teal.jpg">
+    <meta property="og:image:width" content="2816">
+    <meta property="og:image:height" content="1536">
+    <meta property="og:image:alt" content="The Data Frosch mascot walking with robots">
+    <meta property="og:site_name" content="Data Frosch">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="Ada Homolova">
+    <meta property="article:published_time" content="2026-11-19">
+    <meta property="article:section" content="Data Journalism">
+    <meta property="article:tag" content="Coding Agents">
+    <meta property="article:tag" content="Reporting Tools">
+    <meta property="article:tag" content="Data Journalism">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://datafrosch.fun/blog/how-much-coding-do-you-need.html">
+    <meta name="twitter:title" content="How much coding do you need to build your own reporting tools? | Data Frosch">
+    <meta name="twitter:description" content="You can start building a reporting tool before you understand every line of its code. How much you need to know, and how to check what the coding agent builds for you.">
+    <meta name="twitter:image" content="https://datafrosch.fun/img/frosches/walking-the-robots-teal.jpg">
+    <meta name="twitter:image:alt" content="The Data Frosch mascot walking with robots">
+
+    <title>How much coding do you need to build your own reporting tools? | Data Frosch</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pond.css?v=ba90763a902c">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4b20fe04-a75e-40ca-bcd7-aea5d282623c"></script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How much coding do you need to build your own reporting tools?",
+        "description": "You can start building a reporting tool before you understand every line of its code. How much you need to know, and how to check what the coding agent builds for you.",
+        "image": "https://datafrosch.fun/img/frosches/walking-the-robots-teal.jpg",
+        "datePublished": "2026-11-19",
+        "dateModified": "2026-11-19",
+        "author": {
+            "@type": "Person",
+            "name": "Ada Homolova"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Data Frosch",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://datafrosch.fun/img/logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://datafrosch.fun/blog/how-much-coding-do-you-need.html"
+        },
+        "keywords": ["coding agents", "reporting tools", "AI", "data journalism", "source verification", "agent harness"],
+        "articleSection": "Data Journalism"
+    }
+    </script>
+    <link rel="me" href="https://datasci.social/@adahomolova">
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="/index.html">
+            <div class="flex items-center">
+                <div class="logo-container mr-3">
+                    <img src="../img/logo.png" alt="Data Frosch logo - frog mascot for data journalism training">
+                </div>
+                <div class="text-right">
+                    <h1 class="text-xl md:text-3xl font-bold">Data Frosch</h1>
+                    <p id="changing-text" class="text-xs sm:text-sm opacity-75"></p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar sticky top-0 z-50">
+        <div class="container mx-auto px-1 sm:px-2">
+            <div class="flex py-2 sm:py-3"></div>
+        </div>
+    </nav>
+    <script src="../js/navbar.js"></script>
+
+    <!-- Blog Content Section -->
+    <section class="py-10 md:py-16 bg-white relative">
+        <div class="lily-pad lily-pad-1"></div>
+        <div class="lily-pad lily-pad-2"></div>
+
+        <div class="container mx-auto px-4">
+            <article class="max-w-3xl mx-auto">
+                <h1 class="text-3xl md:text-4xl font-bold mb-3">
+                    How much coding do you need to build your own reporting tools?
+                </h1>
+                <p class="text-sm text-gray-500 mb-8">by Ada Homolova &middot; November 19, 2026</p>
+
+                <figure class="mb-8">
+                    <img src="../img/frosches/walking-the-robots-teal.jpg" alt="The Data Frosch mascot walking with robots" class="rounded-lg w-full" loading="eager">
+                </figure>
+
+                <div class="prose prose-lg max-w-none">
+
+                    <p class="text-base md:text-lg mb-6">
+                        You can start building a small reporting tool before you understand every line of its code. A coding agent can help choose libraries, write the code and explain how to run it. You still need to define the job and check whether the result is useful.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        The amount you need to understand depends on what you're building. A personal tool for exploring public information gives you room to experiment.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-10">Describe the job before choosing the technology</h2>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Let's say you want to build an app that helps you gather data on people or organisations and build a network of relationships.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Start with what you want to put in and get out. In this case, you would:
+                    </p>
+
+                    <ol class="list-decimal pl-6 mb-6 space-y-2 text-base md:text-lg">
+                        <li>enter a person's name</li>
+                        <li>have the tool search public sources</li>
+                        <li>get back a network graph of their affiliations, with links to the evidence</li>
+                    </ol>
+
+                    <p class="text-base md:text-lg mb-6">
+                        The neat thing is that you don't need to know exactly which technologies to use. Instead, you can ask the coding agent to suggest an approach and explain the choices:
+                    </p>
+
+                    <pre class="bg-gray-100 rounded-lg p-4 text-sm mb-6 whitespace-pre-wrap"><code>I want to build a small research tool for my own use.
+It should take a person's name and show their public affiliations
+with source links. What is the simplest version I could build?
+Explain the parts and what I'd need to install. Don't write code yet.</code></pre>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Read the proposed plan. If it includes features you don't need, remove them. The robots will often design the task too big, so ask them to simplify. Telling it you just want a small personal tool can also help.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Technical experience helps you make these decisions faster. If you don't have it yet, you'll need to ask more questions and test smaller pieces. Ask what each component does, where information is stored, and how it all works.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-10">Build one checkable part at a time</h2>
+
+                    <p class="text-base md:text-lg mb-6">
+                        A research tool has several jobs. It needs to find pages, read their contents, extract information and display it. Each part can fail separately. So it helps to break the work into smaller problems, where each has a clear input (a person's name) and output (a list of websites with that name).
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Split the work. First, fetch one page, then open the saved result and check whether it contains the actual information you need. A successful web request might have returned a bot-protection notice instead, so check each step before moving on.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Then extract information from a page you've already read. Compare the output with the text. Check names and roles, and whether an old affiliation has been presented as current. How do you want to handle it? Old affiliations are often worth keeping if they are clearly dated. Building tools involves many small decisions like these.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        You can then add broader searches once those parts work. Keep in mind the limitations of the approach, for example that the results may concern a different person with the same name. Keep source links and the fetched material attached to the findings so you can check the results.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-10">Learn enough to run and inspect it</h2>
+
+                    <p class="text-base md:text-lg mb-6">
+                        You don't have to follow every coding decision, but a few concepts are worth learning:
+                    </p>
+
+                    <ol class="list-decimal pl-6 mb-6 space-y-2 text-base md:text-lg">
+                        <li><strong>variable</strong> stores a value under a name</li>
+                        <li><strong>function</strong> does one job and passes back a result</li>
+                        <li><strong>loop</strong> repeats the same steps over a list</li>
+                    </ol>
+
+                    <p class="text-base md:text-lg mb-6">
+                        You won't write these from scratch, but recognising them makes the agent's code readable when you come back to it. You also need to know:
+                    </p>
+
+                    <ol class="list-decimal pl-6 mb-6 space-y-2 text-base md:text-lg">
+                        <li>how to start and stop the tool</li>
+                        <li>where it saves data</li>
+                        <li>how to tell when something has failed</li>
+                    </ol>
+
+                    <p class="text-base md:text-lg mb-6">
+                        When building anything, ask the agent for a short set of instructions you can follow yourself. When you hit an error, share the <strong>error message</strong> and ask what it means before fixing it. Keep working copies or use version control (like <a href="https://git-scm.com/" target="_blank" class="text-green-700 hover:underline">Git</a>) so you can return to a previous version.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Watch the agent's plan as well as its output. If it starts building something you didn't ask for, stop it early. If your coding tool supports conversation branching or rewinding, you can return to any point in the conversation, but be aware that changing the conversation doesn't necessarily undo code changes.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        If you keep repeating a rule, save it in your coding tool's persistent project instructions, like a system prompt or an AGENTS.md file in the folder you work in.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mb-4 mt-10">Know when to get help</h2>
+
+                    <p class="text-base md:text-lg mb-6">
+                        To start, begin with a narrow task while learning the code behind it. Aim for something you can run, inspect and get working again when it breaks. Use public material and keep copies of your data. As your understanding grows, you can add complexity.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Keep in mind where the model runs. If it's hosted somewhere else, like on OpenAI's or Anthropic's servers, everything you send goes there too. Think twice before working on confidential documents, personal data and never expose any secrets like passwords or API keys.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Being able to make a tool for yourself doesn't tell you whether the software is secure or will work reliably for other people. Software your colleagues rely on, or that handles confidential material, needs a more careful review.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        And last but not least: keep on learning. If the plan contains things you don't understand, ask it to explain them to you. Here is a <a href="https://www.youtube.com/watch?v=uXC7OuCas2Q" target="_blank" class="text-green-700 hover:underline">wonderful talk on why we should keep on learning</a> with AI and how to do it.
+                    </p>
+
+                    <hr class="my-8">
+
+                    <p class="text-base md:text-lg mb-6">
+                        These ideas come from our Pondcast on building agent harnesses. If you're trying a reporting tool of your own, talk it through with us in <a href="https://datafrosch.fun/pond" target="_blank" class="text-green-700 hover:underline">The Pond</a>.
+                    </p>
+
+                    <p class="text-base md:text-lg mb-6">
+                        Sessions like this happen twice a month. See the full session with Johan Schuijt:
+                    </p>
+                    <div class="mb-6" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+                        <iframe src="https://www.youtube.com/embed/38JTw5DRwjI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%;"></iframe>
+                    </div>
+
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Newsletter signup: the same inline Pond form as the homepage and
+         pond.html. pond-subscribe.js submits to Ada's subscribe API (The
+         Pond only). The controls stay hidden until the script initializes;
+         the noscript note carries the fallback link. -->
+    <section id="newsletter" class="pond-signup" aria-labelledby="newsletter-title" aria-describedby="newsletter-desc">
+        <div class="max-w-2xl mx-auto text-center mb-5">
+            <h2 id="newsletter-title" class="text-2xl md:text-3xl font-bold mb-3">The Pond newsletter</h2>
+            <p id="newsletter-desc" class="text-base md:text-lg">Data journalism tips, useful links, and free online sessions.</p>
+        </div>
+        <form id="pond-subscribe-form" class="pond-subscribe" novalidate>
+            <div class="pond-honeypot" aria-hidden="true">
+                <label for="pond-website">Website (leave empty)</label>
+                <input id="pond-website" type="text" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+            <label class="pond-email-label" for="pond-email">Email address</label>
+            <div class="pond-subscribe-row" id="pond-subscribe-row" hidden>
+                <input id="pond-email" type="email" name="email" required placeholder="your@email.com" autocomplete="email" aria-describedby="pond-subscribe-note pond-subscribe-status" />
+                <button type="submit" class="cta-button pond-subscribe-button">Subscribe to The Pond</button>
+            </div>
+            <p id="pond-subscribe-note" class="pond-subscribe-note" hidden>
+                Free, once a month + event reminders. <a href="../privacy-policy.html#newsletter-privacy">Privacy</a>
+            </p>
+            <p id="pond-subscribe-status" class="pond-subscribe-status" role="status" aria-live="polite"></p>
+            <noscript>
+                <p class="pond-subscribe-noscript">
+                    The quick form needs JavaScript. To subscribe, open
+                    <a href="https://homolova.sk/newsletter" target="_blank" rel="noopener">homolova.sk/newsletter</a>
+                    &mdash; that page needs JavaScript too, and it preselects both of Ada&rsquo;s newsletters, so untick &ldquo;Hi! It&rsquo;s Ada&rdquo; if you only want The Pond.
+                </p>
+            </noscript>
+        </form>
+        <p class="text-center text-sm mt-4"><a class="text-green-700 hover:underline" href="../newsletters/the-pond-13-ski-resorts-murder-mysteries-and-frisket.html">Read the latest issue</a></p>
+    </section>
+
+    <!-- Related resources -->
+    <section class="py-10 md:py-16 bg-white relative">
+        <div class="lily-pad lily-pad-2"></div>
+
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">Fresh from The Pond</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+
+                <!-- related-grid count="3" -->
+                <a href="../newsletters/the-pond-13-ski-resorts-murder-mysteries-and-frisket.html" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-thumb="../img/frosches/mining-vintage-frog.jpg">
+                    <div class="video-container">
+                        <img data-thumb-target alt="The Pond #13: Ski resorts, murder mysteries and Frisket" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Newsletter</span>
+                            <span class="text-xs text-gray-500">Oct 29, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">🎿 The Pond #13: Ski resorts, murder mysteries and Frisket</h3>
+                        <p class="opacity-75 text-xs md:text-sm">Also: how much Big Tech can you ditch? 🦵</p>
+                    </div>
+                </a>
+                <a href="../events/agent-harnesses.html" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden" data-thumb="https://img.youtube.com/vi/38JTw5DRwjI/maxresdefault.jpg">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Pondcast #11: It&#x27;s all a harness, baby (with Johan Schuijt)" class="w-full h-full object-cover" loading="lazy" />
+                        <div class="play-button">
+                            <div class="w-12 h-12 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm3.33 10.33l-4.73 2.83a.33.33 0 0 1-.5-.29V7.13a.33.33 0 0 1 .5-.29l4.73 2.83a.33.33 0 0 1 0 .58z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Video</span>
+                            <span class="text-xs text-gray-500">Oct 27, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">Pondcast #11: It&#x27;s all a harness, baby (with Johan Schuijt)</h3>
+                        <p class="opacity-75 text-xs md:text-sm">What an agent harness is, and how to build your own, with Johan Schuijt.</p>
+                    </div>
+                </a>
+                <a href="../guides/tidy-data.html" class="course-card auto-thumb block bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="video-container">
+                        <img data-thumb-target alt="Tidy Data" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="guide-badge">Guide</span>
+                            <span class="text-xs text-gray-500">Mar 31, 2026</span>
+                        </div>
+                        <h3 class="font-bold text-base md:text-lg mb-2">Tidy Data</h3>
+                        <p class="opacity-75 text-xs md:text-sm">What tidy data is, the most common ways spreadsheets go wrong, and a checklist to confirm your data is analysis-ready.</p>
+                    </div>
+                </a>
+                <!-- /related-grid -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-6 md:py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center md:flex-row md:justify-between md:items-start">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start">
+                        <div class="logo-container mr-3" style="width: 40px; height: 40px;">
+                            <img src="../img/logo.png" alt="Data Frosch logo">
+                        </div>
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-white">Data Frosch</h3>
+                            <p class="text-xs text-gray-300">datafrosch.fun</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-5 md:gap-8 mb-6 md:mb-0 text-center md:text-left">
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Quick Links</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="../index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                            <li><a href="../index.html#about" class="text-gray-400 hover:text-white">About</a></li>
+                            <li><a href="../index.html#mentoring" class="text-gray-400 hover:text-white">Mentoring</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Resources</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white">Blog</a></li>
+                            <li><a href="../guides/index.html" class="text-gray-400 hover:text-white">Guides</a></li>
+                            <li><a href="https://www.youtube.com/@datafrosch" class="text-gray-400 hover:text-white">YouTube</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-medium mb-2 text-xs md:text-sm text-gray-300">Contact</h4>
+                        <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+                            <li><a href="mailto:ada@datafrosch.fun" class="text-gray-400 hover:text-white">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-gray-700 text-center text-xs md:text-sm text-gray-400">
+                <p>CC BY-SA 4.0</p>
+                <p class="mt-2">Made with 💚 and 🐸</p>
+                <p class="mt-3"><a href="https://kagi.com/smallweb" target="_blank" rel="noopener"><img src="../img/small-web-badge.png" alt="Small Web" width="88" height="31" loading="lazy" class="inline-block"></a></p>
+            </div>
+        </div>
+    </footer>
+
+<script src="../js/taglines.js"></script>
+    <script src="../js/thumbs.js"></script>
+<script src="../js/pond-subscribe.js?v=9ce962ff9f8e"></script>
+</body>
+</html>
