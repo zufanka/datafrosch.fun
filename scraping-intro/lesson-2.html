@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Lesson 2: inspect a frog listing, scope a selector to its frog links, extract text and href, and follow one link to the family on its detail page. A DataFrosch prototype.">
-  <title>Select targeted elements · DataFrosch</title>
+  <title>Follow a link · DataFrosch</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐸%3C/text%3C%3C/svg%3E">
   <link rel="stylesheet" href="course.css">
   <script src="course.js" defer></script>
@@ -20,7 +20,7 @@
   <div class="shell">
     <aside class="sidebar" aria-label="Course navigation and progress">
       <p class="sidebar-label">Scraping from scratch</p>
-      <nav class="course-nav" aria-label="Lessons"><a href="index.html">Course overview</a><a href="lesson-1.html"><span class="step-number" data-lesson-number="1">01</span><span>Write your first scraper<small>20–30 min · inspect and extract one value</small></span></a><a href="lesson-2.html" aria-current="page"><span class="step-number" data-lesson-number="2">02</span><span>Select targeted elements<small>20–30 min · text, links and family</small></span></a><a href="lesson-3.html"><span class="step-number" data-lesson-number="3">03</span><span>Implement loops<small>20–30 min · ten frogs, one listing</small></span></a></nav>
+      <nav class="course-nav" aria-label="Lessons"><a href="index.html">Course overview</a><a href="lesson-1.html"><span class="step-number" data-lesson-number="1">01</span><span>Write your first scraper<small>20–30 min</small></span></a><a href="lesson-2.html" aria-current="page"><span class="step-number" data-lesson-number="2">02</span><span>Follow a link<small>20–30 min</small></span></a><a href="lesson-3.html"><span class="step-number" data-lesson-number="3">03</span><span>Collect ten frogs<small>20–30 min</small></span></a></nav>
       <div class="progress-box">
         <p class="small" id="progress-label" data-progress-label>0 of 3 lessons marked complete</p>
         <progress value="0" max="3" data-progress aria-labelledby="progress-label"></progress>
@@ -32,8 +32,7 @@
     <main id="main">
       <noscript><p class="note">The Python exercise, quizzes and progress saving need JavaScript. You can still read the notes, open the practice pages and use the YouTube links — but the code won’t run.</p></noscript>
       <div class="breadcrumb"><a href="index.html">Course overview</a> / Lesson 2 of 3</div>
-      <header class="lesson-header"><span class="eyebrow">Lesson 02 · about 20–30 min</span><h1>Select targeted elements</h1><p class="lead">Inspect a repeated card, scope the selector to its links, then follow one link and read the family from the new page.</p></header>
-      <p>The <a href="practice/frogs-1.html" target="_blank" rel="noopener">first listing page ↗</a> has ten frog links alongside navigation and other links. Select only the frogs, then follow the first link to find its family. No loop yet.</p>
+      <header class="lesson-header"><span class="eyebrow">Lesson 02 · about 20–30 min</span><h1>Follow a link</h1><p class="lead">Find a frog’s family.</p></header>
       <p class="small">Clips load only when you choose to watch; YouTube may use cookies or other storage.</p>
       <section class="section" aria-labelledby="inspect-heading">
         <div class="section-heading"><span class="section-index">01</span><h2 id="inspect-heading">Inspect the repeated card</h2></div>
@@ -41,9 +40,8 @@
           <div class="video-placeholder"><span class="play-circle" aria-hidden="true">▶</span><h3>Scoped selectors</h3><p>Excerpt from the edited recording · about 11:03–13:30</p><button class="button button-lime" type="button" data-load-video>Load excerpt</button></div>
         </div>
         <p class="video-caption">Stops at <strong>13:30</strong>. Then inspect the listing below. <a href="https://www.youtube.com/watch?v=wQ1gR6MQtFU&amp;t=663s" target="_blank" rel="noopener">Watch on YouTube ↗</a> from 11:03; pause at 13:30.</p>
-        <p class="note">The video selects departments and finds commissioners; we select frogs and find families. The HTML differs, so derive your selector from the practice page rather than copying the video’s tree traversal.</p>
         <div class="card">
-          <p class="task-time">5–10 minutes · browser inspector, no Python yet</p>
+          <p class="task-time">5–10 minutes</p>
           <ol>
             <li>Open the <a href="practice/frogs-1.html" target="_blank" rel="noopener">first listing page ↗</a>. Right-click Common frog’s name and choose <strong>Inspect</strong>.</li>
             <li>Identify the link: its tag, its class, and the attribute that holds the destination. An <code>a</code> is a tag, not a class.</li>
@@ -51,7 +49,7 @@
             <li>Focus the Elements or Inspector panel. Press <kbd>Ctrl</kbd>+<kbd>F</kbd> (<kbd>Cmd</kbd>+<kbd>F</kbd> on Mac) and search for <code>a[href]</code>: all links with destinations. Then use the class you found to select only frog links.</li>
             <li>Confirm you highlighted ten <code>a</code> elements, not ten cards. Use the same selector in <code>soup.select()</code>.</li>
           </ol>
-          <p><strong>Selector reference:</strong> <code>tag.class</code> means a tag with that class. <code>.class tag</code> means a tag inside that class. Avoid copied full paths and <code>nth-child</code>.</p>
+          <p>A <strong>selector</strong> describes which HTML to find. <code>tag.class</code> means a tag with that class; <code>.class tag</code> means a tag inside it.</p>
           <p class="small">Inspector search can also match text, so use a class or attribute selector rather than a bare <code>a</code>. These observation answers are not saved.</p>
           <table class="observation-table">
             <caption>What I found on the listing page</caption>
@@ -91,10 +89,9 @@
           <div class="video-placeholder"><span class="play-circle" aria-hidden="true">▶</span><h3>Element, href and relative URLs</h3><p>Excerpt from the edited recording · about 15:24–18:48</p><button class="button button-lime" type="button" data-load-video>Load excerpt</button></div>
         </div>
         <p class="video-caption">Stops at <strong>18:48</strong>. Then inspect the family and try the code. <a href="https://www.youtube.com/watch?v=wQ1gR6MQtFU&amp;t=924s" target="_blank" rel="noopener">Watch on YouTube ↗</a> from 15:24; pause at 18:48.</p>
-        <p class="note">This clip resumes a failed request: it received a whole link element instead of a URL. We’ll read <code>href</code> and use <code>urljoin</code> to build the URL, rather than joining strings as in the video.</p>
         <div class="card">
-          <p>A selected link is not a URL. It is an element that contains text and attributes. Read the destination with <code>get('href')</code>. The listing’s href is relative — <code>frog-rana-temporaria.html</code> — so resolve it against the listing URL before making another request.</p>
-          <p>Then inspect Common frog’s detail page. Find the family value, <strong>Ranidae</strong>. Note its tag and class, and compare it with the scientific name <em>Rana temporaria</em> just below the heading. The family sits in a definition list, not in the heading.</p>
+          <p><code>get('href')</code> reads a link’s address. Here it’s a filename; <code>urljoin</code> turns it into a full URL.</p>
+          <p>Open Common frog’s link and inspect <strong>Ranidae</strong>, its family. Find the tag and class around it.</p>
           <table class="observation-table">
             <caption>What I found on the link and the detail page</caption>
             <thead><tr><th scope="col">Look for</th><th scope="col">Your observation</th></tr></thead>
@@ -137,15 +134,13 @@ family_element = detail_soup.select_one('css selector')</code></pre>
       <section class="section" data-python-exercise="single" aria-labelledby="try-heading">
         <div class="section-heading"><span class="section-index">03</span><h2 id="try-heading">Try it yourself</h2></div>
         <div class="card">
-          <p class="task-time">10–15 minutes · real Python, runs in this page</p>
-          <p><strong>Goal:</strong> produce <code>Common frog</code>, its href, the resolved detail URL, and <code>Ranidae</code>.</p>
+          <p class="task-time">10–15 minutes</p>
+          <p>Use the link to find <code>Common frog → Ranidae</code>.</p>
           <ol>
-            <li><strong>Run the starter unchanged.</strong> It selects ten cards and prints <code>10</code>, but the first match is an <code>&lt;li&gt;</code> card. The href placeholder is empty, so it stops before the detail request. Ten is the right count, but the elements are wrong.</li>
-            <li>Fix the four TODO lines using your observations: the link selector, visible text, href and family selector. Keep the supplied variable names for the automatic checks.</li>
-            <li>Before running, predict the difference between printing <code>link</code>, its text and its href.</li>
-            <li><strong>Run again.</strong> You should have ten links, <code>Common frog</code>, the relative href, the full detail URL and <code>Ranidae</code>.</li>
+            <li>Run the code. It finds ten cards, not their links, and stops.</li>
+            <li>Fix the four TODO lines: find the links, read the name, read the address, find the family. Keep the variable names.</li>
+            <li>Run again and compare your output below.</li>
           </ol>
-          <p class="small">The first Run loads Python and its packages from jsDelivr. You need an internet connection, but nothing to install.</p>
         </div>
         <div class="card">
           <label for="python-code-single">Scraper code — fix the four lines marked TODO, then run it</label>
@@ -237,18 +232,17 @@ print(detail_url)
 print(family)</code></pre></details>
         <div class="card">
           <p><strong>Check against the source</strong></p>
-          <p>After your edits, the output should look like this. The host in the detail URL depends on where the course is running.</p>
+          <p>Expected output (your URL will start differently):</p>
           <pre tabindex="0" aria-label="Expected output"><code>10
 &lt;a class="frog-link" href="frog-rana-temporaria.html"&gt;Common frog&lt;/a&gt;
 Common frog
 frog-rana-temporaria.html
 …/practice/frog-rana-temporaria.html
 Ranidae</code></pre>
-          <p>Compare the first match with the link you inspected, then open its detail URL and confirm <code>Ranidae</code>. Ten matches alone are not enough: the starter also found ten, but they were cards.</p>
+          <p>Check the first match is a link, not a card. Open its URL and confirm the family.</p>
         </div>
-        <div class="success"><strong>You’re ready when:</strong> you have <code>Common frog → Ranidae</code> with the resolved source URL, and you can explain each selector using the HTML you inspected. The family needed its own request and its own soup.</div>
       </section>
-      <section class="section" aria-labelledby="check-heading"><div class="section-heading"><span class="section-index">04</span><h2 id="check-heading">Check your understanding</h2></div><p class="small">Two questions now that you’ve run the code. No score to pass — answer, read the explanation, try again if you like.</p><div class="card"><form class="quiz" id="l2q1" data-quiz data-answer="b" data-explanation="get_text returns what a reader sees. get('href') returns the destination attribute. Printing the element itself shows the tags as well." data-hint="One starts with the visible word, the other with frog- and ends in .html.">
+      <section class="section" aria-labelledby="check-heading"><div class="section-heading"><span class="section-index">04</span><h2 id="check-heading">Check your understanding</h2></div><div class="card"><form class="quiz" id="l2q1" data-quiz data-answer="b" data-explanation="get_text returns what a reader sees. get('href') returns the destination attribute. Printing the element itself shows the tags as well." data-hint="One starts with the visible word, the other with frog- and ends in .html.">
       <fieldset><legend>1. You have <code>link = links[0]</code>. Which pair gives the visible name and the destination?</legend><label class="option"><input type="radio" name="l2q1" value="a"><span><code>link.get('href')</code> gives the name; <code>link.get_text(strip=True)</code> gives the destination.</span></label><label class="option"><input type="radio" name="l2q1" value="b"><span><code>link.get_text(strip=True)</code> gives the name; <code>link.get('href')</code> gives the destination.</span></label><label class="option"><input type="radio" name="l2q1" value="c"><span><code>print(link)</code> gives the name; the destination is already inside <code>link</code> as a URL that Requests can use directly.</span></label></fieldset>
       <button class="button button-secondary" type="submit">Check answer</button>
       <p class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
@@ -257,7 +251,7 @@ Ranidae</code></pre>
       <button class="button button-secondary" type="submit">Check answer</button>
       <p class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
     </form></div></section>
-      <section class="lesson-end" aria-label="Continue the course"><p>Next, we’ll repeat this tested one-frog extraction for all ten links on page 1, then look at pagination as an optional stretch.</p><div class="actions"><button class="button button-secondary" type="button" data-complete-lesson="2" aria-pressed="false">Mark this lesson complete</button><a class="button" href="lesson-3.html">Next: Implement loops →</a></div><p class="small" data-completion-status role="status" aria-live="polite">Marking complete is your own check-in, not a test of your work. You can move on without it.</p></section>
+      <section class="lesson-end" aria-label="Continue the course"><div class="actions"><button class="button button-secondary" type="button" data-complete-lesson="2" aria-pressed="false">Mark this lesson complete</button><a class="button" href="lesson-3.html">Next: Collect ten frogs →</a></div><p class="small" data-completion-status role="status" aria-live="polite">You can move on without marking complete.</p></section>
     </main>
   </div>
   <footer class="footer"><span>Made by Ada Homolova · DataFrosch 🐸</span><span>Private review prototype · no payments or accounts</span></footer>

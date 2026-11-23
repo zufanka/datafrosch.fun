@@ -20,7 +20,7 @@
   <div class="shell">
     <aside class="sidebar" aria-label="Course navigation and progress">
       <p class="sidebar-label">Scraping from scratch</p>
-      <nav class="course-nav" aria-label="Lessons"><a href="index.html">Course overview</a><a href="lesson-1.html" aria-current="page"><span class="step-number" data-lesson-number="1">01</span><span>Write your first scraper<small>20–30 min · inspect and extract one value</small></span></a><a href="lesson-2.html"><span class="step-number" data-lesson-number="2">02</span><span>Select targeted elements<small>20–30 min · text, links and family</small></span></a><a href="lesson-3.html"><span class="step-number" data-lesson-number="3">03</span><span>Implement loops<small>20–30 min · ten frogs, one listing</small></span></a></nav>
+      <nav class="course-nav" aria-label="Lessons"><a href="index.html">Course overview</a><a href="lesson-1.html" aria-current="page"><span class="step-number" data-lesson-number="1">01</span><span>Write your first scraper<small>20–30 min</small></span></a><a href="lesson-2.html"><span class="step-number" data-lesson-number="2">02</span><span>Follow a link<small>20–30 min</small></span></a><a href="lesson-3.html"><span class="step-number" data-lesson-number="3">03</span><span>Collect ten frogs<small>20–30 min</small></span></a></nav>
       <div class="progress-box">
         <p class="small" id="progress-label" data-progress-label>0 of 3 lessons marked complete</p>
         <progress value="0" max="3" data-progress aria-labelledby="progress-label"></progress>
@@ -32,25 +32,24 @@
     <main id="main">
       <noscript><p class="note">The Python exercise, quizzes and progress saving need JavaScript. You can still read the notes, open the practice pages and use the YouTube links — but the code won’t run.</p></noscript>
       <div class="breadcrumb"><a href="index.html">Course overview</a> / Lesson 1 of 3</div>
-      <header class="lesson-header"><span class="eyebrow">Lesson 01 · about 20–30 min</span><h1>Write your first scraper</h1><p class="lead">Inspect one heading, fetch the page it sits on, and print that value. One page, one value, no links or loops yet.</p></header>
-      <p>We’re working towards collecting frog families from the <a href="practice/frogs-1.html" target="_blank" rel="noopener">practice directory ↗</a>. Start with something smaller: print <code>Common frog</code> from one detail page.</p>
+      <header class="lesson-header"><span class="eyebrow">Lesson 01 · about 20–30 min</span><h1>Write your first scraper</h1><p class="lead">Learn about the Inspector.</p></header>
+      <p>We’ll practise with this <a href="practice/frogs-1.html" target="_blank" rel="noopener">frog directory ↗</a>.</p>
       <p class="small">Clips load only when you choose to watch; YouTube may use cookies or other storage.</p>
       <section class="section" aria-labelledby="inspect-heading">
-        <div class="section-heading"><span class="section-index">01</span><h2 id="inspect-heading">Inspect the heading</h2></div>
+        <div class="section-heading"><span class="section-index">01</span><h2 id="inspect-heading">Open the Inspector</h2></div>
         <div class="video-frame" data-video data-video-id="wQ1gR6MQtFU" data-start="0" data-end="216" data-title="Lesson 1: Introduction and HTML tree — Ada Homolova">
           <div class="video-placeholder"><span class="play-circle" aria-hidden="true">▶</span><h3>Introduction and HTML tree</h3><p>Excerpt from the edited recording · 00:00–03:36</p><button class="button button-lime" type="button" data-load-video>Load excerpt</button></div>
         </div>
         <p class="video-caption">Stops at <strong>03:36</strong>. Then try the inspector task. <a href="https://www.youtube.com/watch?v=wQ1gR6MQtFU&amp;t=0s" target="_blank" rel="noopener">Watch on YouTube ↗</a> from 00:00; pause at 03:36.</p>
         <div class="card">
-          <p class="task-time">5–10 minutes · browser inspector, no Python yet</p>
-          <p>Use desktop Chrome or Firefox for this. A phone is fine for reading and watching, but the inspector is cramped.</p>
+          <p class="task-time">5–10 minutes</p>
           <ol>
-            <li>Open <a href="practice/frog-rana-temporaria.html" target="_blank" rel="noopener">Common frog’s page ↗</a> in a new tab so you can keep this lesson open.</li>
-            <li>Right-click the visible <strong>Common frog</strong> heading and choose <strong>Inspect</strong>. Or open the browser’s developer tools and use the element-picker button.</li>
-            <li>Hover the highlighted HTML line to see which part of the page it represents. Find its opening tag, text and closing tag.</li>
-            <li>Expand the parent element above it. The common name and scientific name are separate children of that parent. We want <strong>Common frog</strong>, not <em>Rana temporaria</em>.</li>
+            <li>Open <a href="practice/frog-rana-temporaria.html" target="_blank" rel="noopener">Common frog’s page ↗</a> in a new tab.</li>
+            <li>Right-click <strong>Common frog</strong> and choose <strong>Inspect</strong>.</li>
+            <li>The Inspector shows the page’s HTML. Hover the highlighted line to see which part of the page it represents.</li>
+            <li>Find the tag around <strong>Common frog</strong>, not <em>Rana temporaria</em>.</li>
           </ol>
-          <p>Check what you found. Enter the tag name without brackets. This answer is not saved.</p>
+          <p>Enter the tag name without brackets. These answers aren’t saved.</p>
           <table class="observation-table">
             <caption>What I found in the inspector</caption>
             <thead><tr><th scope="col">Look for</th><th scope="col">Your observation</th></tr></thead>
@@ -68,16 +67,16 @@
               </tr>
             </tbody>
           </table>
-          <details><summary>Hint: the heading element</summary><p>The visible name is the page’s only <code>h1</code>. Its class is <code>frog-name</code>, but here the tag alone is enough. The scientific name uses a <code>p</code> element with a class.</p></details>
+          <details><summary>Hint: the heading tag</summary><p>Look for <code>h1</code>.</p></details>
           <details><summary>If you can’t open the inspector</summary><p>The detail page’s heading block looks like this:</p><pre><code>&lt;article class="frog-detail"&gt;
   &lt;p class="detail-kicker"&gt;Frog 1 of 30 · page 1 of 3&lt;/p&gt;
   &lt;h1 class="frog-name"&gt;Common frog&lt;/h1&gt;
   &lt;p class="scientific-name"&gt;&lt;em&gt;Rana temporaria&lt;/em&gt;&lt;/p&gt;
-&lt;/article&gt;</code></pre><p><code>h1</code> is the tag, <code>frog-name</code> is a class, and <code>Common frog</code> is the text between the opening and closing tags. The <code>article</code> is the parent. The <code>h1</code> and the two <code>p</code> elements are its children, so the heading and scientific name are siblings.</p></details>
+&lt;/article&gt;</code></pre><p><code>Common frog</code> sits between <code>&lt;h1&gt;</code> and <code>&lt;/h1&gt;</code>, its opening and closing tags.</p></details>
         </div>
       </section>
       <section class="section" aria-labelledby="fetch-heading">
-        <div class="section-heading"><span class="section-index">02</span><h2 id="fetch-heading">Fetch the HTML</h2></div>
+        <div class="section-heading"><span class="section-index">02</span><h2 id="fetch-heading">Get the page with Python</h2></div>
         <div class="video-frame" data-video data-video-id="wQ1gR6MQtFU" data-start="299" data-end="384" data-title="Lesson 1: Requests and BeautifulSoup — Ada Homolova">
           <div class="video-placeholder"><span class="play-circle" aria-hidden="true">▶</span><h3>Requests and BeautifulSoup</h3><p>Excerpt from the edited recording · about 04:59–06:24</p><button class="button button-lime" type="button" data-load-video>Load excerpt</button></div>
         </div>
@@ -113,13 +112,11 @@
           </form>
         </details>
         <div class="card">
-          <p>The setup does two things:</p>
           <ul>
-            <li><code>requests.get(url)</code> asks the server for the page. It returns a response with a status code and a body.</li>
-            <li><code>BeautifulSoup(response.text, 'html.parser')</code> parses that downloaded text so you can search its HTML.</li>
+            <li><code>requests.get(url)</code> downloads the page.</li>
+            <li><code>BeautifulSoup(response.text, 'html.parser')</code> makes its HTML searchable.</li>
           </ul>
-          <p class="small">This setup is supplied. <code>timeout=10</code> limits how long a request can wait; <code>raise_for_status()</code> stops on an HTTP error.</p>
-          <p>Our static practice pages have the same content in the inspector and the downloaded HTML. Other sites may add content with JavaScript that Requests won’t run.</p>
+          <p class="small">This code is supplied. Requests won’t run a website’s JavaScript, so some sites may look different from their downloaded HTML.</p>
         </div>
       </section>
       <section class="section" aria-labelledby="extract-heading">
@@ -128,19 +125,17 @@
           <div class="video-placeholder"><span class="play-circle" aria-hidden="true">▶</span><h3>Response text and parsing</h3><p>Excerpt from the edited recording · about 09:41–11:03</p><button class="button button-lime" type="button" data-load-video>Load excerpt</button></div>
         </div>
         <p class="video-caption">Stops at <strong>11:03</strong>. Then try the code below. <a href="https://www.youtube.com/watch?v=wQ1gR6MQtFU&amp;t=581s" target="_blank" rel="noopener">Watch on YouTube ↗</a> from 09:41; pause at 11:03.</p>
-        <p class="note">The recording already has a loop. For now, just follow the response and parsing steps; our exercise fetches one page.</p>
       </section>
       <section class="section" data-python-exercise="heading" aria-labelledby="try-heading">
         <div class="section-heading"><span class="section-index">04</span><h2 id="try-heading">Try it yourself</h2></div>
         <div class="card">
-          <p class="task-time">10–15 minutes · real Python, runs in this page</p>
-          <p><strong>Goal:</strong> print <code>Common frog</code> from the page you just inspected.</p>
-          <p>The request, the parsing and the page URL are supplied. You write the selection and the text extraction.</p>
+          <p class="task-time">10–15 minutes</p>
+          <p>Change two lines to print <code>Common frog</code>.</p>
           <ol>
-            <li><strong>Run the starter unchanged.</strong> It prints the first <code>p</code> element twice: the small “Frog 1 of 30” kicker, not the visible name.</li>
-            <li>Replace the starter selector with the tag you found in the inspector. Check the hint if you need it.</li>
-            <li>The next line currently prints the element, not its text. Replace it with the extraction from the reference. Run again.</li>
-            <li>Compare the printed value with the highlighted heading in your browser. It should be exactly <code>Common frog</code>.</li>
+            <li>Click <strong>Run Python</strong>. It prints “Frog 1 of 30” instead of the name.</li>
+            <li>Replace <code>'p'</code> with the tag you found in the Inspector.</li>
+            <li>Use <code>get_text</code> below to put just the text into <code>name</code>.</li>
+            <li>Run again. Does the last line match the name on the page?</li>
           </ol>
           <div class="note">
             <p><strong>Syntax reference</strong></p>
@@ -206,9 +201,8 @@ print(name)</code></pre></details>
 Common frog</code></pre>
           <p>If the element prints as <code>None</code>, your selector matched nothing. Check the tag in the inspector. The last output line should be the name you see on the page.</p>
         </div>
-        <div class="success"><strong>You’re ready when:</strong> you can point from the highlighted heading to the selector, and from the selector to the printed <code>Common frog</code>, and say what changed when you stopped printing the element and started printing its text.</div>
       </section>
-      <section class="section" aria-labelledby="check-heading"><div class="section-heading"><span class="section-index">05</span><h2 id="check-heading">Check your understanding</h2></div><p class="small">Two questions now that you’ve run the code. No score to pass — answer, read the explanation, try again if you like.</p><div class="card"><form class="quiz" id="l1q1" data-quiz data-answer="a" data-explanation="The visible common name sits between the opening and closing h1 tags. A class is part of the tag, and the em element holds the scientific name." data-hint="Look at the line the inspector highlighted. What is the tag name at the start and end of it?">
+      <section class="section" aria-labelledby="check-heading"><div class="section-heading"><span class="section-index">05</span><h2 id="check-heading">Check your understanding</h2></div><div class="card"><form class="quiz" id="l1q1" data-quiz data-answer="a" data-explanation="The visible common name sits between the opening and closing h1 tags. A class is part of the tag, and the em element holds the scientific name." data-hint="Look at the line the inspector highlighted. What is the tag name at the start and end of it?">
       <fieldset><legend>1. Which inspected element identifies the visible common name?</legend><label class="option"><input type="radio" name="l1q1" value="a"><span>The <code>h1</code> element whose text is Common frog.</span></label><label class="option"><input type="radio" name="l1q1" value="b"><span>The <code>class="frog-name"</code> attribute on its own.</span></label><label class="option"><input type="radio" name="l1q1" value="c"><span>The <code>em</code> element that holds Rana temporaria.</span></label></fieldset>
       <button class="button button-secondary" type="submit">Check answer</button>
       <p class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
@@ -217,7 +211,7 @@ Common frog</code></pre>
       <button class="button button-secondary" type="submit">Check answer</button>
       <p class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
     </form></div></section>
-      <section class="lesson-end" aria-label="Continue the course"><p>Next, we’ll select the links on a listing page, read their text and destinations, and follow one to its family.</p><div class="actions"><button class="button button-secondary" type="button" data-complete-lesson="1" aria-pressed="false">Mark this lesson complete</button><a class="button" href="lesson-2.html">Next: Select targeted elements →</a></div><p class="small" data-completion-status role="status" aria-live="polite">Marking complete is your own check-in, not a test of your work. You can move on without it.</p></section>
+      <section class="lesson-end" aria-label="Continue the course"><div class="actions"><button class="button button-secondary" type="button" data-complete-lesson="1" aria-pressed="false">Mark this lesson complete</button><a class="button" href="lesson-2.html">Next: Follow a link →</a></div><p class="small" data-completion-status role="status" aria-live="polite">You can move on without marking complete.</p></section>
     </main>
   </div>
   <footer class="footer"><span>Made by Ada Homolova · DataFrosch 🐸</span><span>Private review prototype · no payments or accounts</span></footer>

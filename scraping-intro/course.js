@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const storageKey = 'datafrosch-scraping-prototype-v4';
-  const lessonNames = ['Write your first scraper', 'Select targeted elements', 'Implement loops'];
+  const lessonNames = ['Write your first scraper', 'Follow a link', 'Collect ten frogs'];
   const freshState = () => ({ completed: [], lastLesson: null, answers: {} });
   let state = freshState();
   let storageAvailable = true;

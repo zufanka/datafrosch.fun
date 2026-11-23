@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="Three inspector-first scraping lessons: extract one value, follow one link, then write a loop for ten frogs. Runs real Python in the browser. A DataFrosch prototype.">
+  <meta name="description" content="Learn to scrape webpages in three short lessons. Practise in your browser. A DataFrosch prototype.">
   <title>Understand your scraper · DataFrosch</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐸%3C/text%3C%3C/svg%3E">
   <link rel="stylesheet" href="course.css">
@@ -19,7 +19,7 @@
   <div class="shell">
     <aside class="sidebar" aria-label="Course navigation and progress">
       <p class="sidebar-label">Scraping from scratch</p>
-      <nav class="course-nav" aria-label="Lessons"><a href="index.html" aria-current="page">Course overview</a><a href="lesson-1.html"><span class="step-number" data-lesson-number="1">01</span><span>Write your first scraper<small>20–30 min · one page, one value</small></span></a><a href="lesson-2.html"><span class="step-number" data-lesson-number="2">02</span><span>Select targeted elements<small>20–30 min · follow one link</small></span></a><a href="lesson-3.html"><span class="step-number" data-lesson-number="3">03</span><span>Implement loops<small>20–30 min · collect ten frogs</small></span></a></nav>
+      <nav class="course-nav" aria-label="Lessons"><a href="index.html" aria-current="page">Course overview</a><a href="lesson-1.html"><span class="step-number" data-lesson-number="1">01</span><span>Write your first scraper<small>20–30 min</small></span></a><a href="lesson-2.html"><span class="step-number" data-lesson-number="2">02</span><span>Follow a link<small>20–30 min</small></span></a><a href="lesson-3.html"><span class="step-number" data-lesson-number="3">03</span><span>Collect ten frogs<small>20–30 min</small></span></a></nav>
       <div class="progress-box">
         <p class="small" id="progress-label" data-progress-label>0 of 3 lessons marked complete</p>
         <progress value="0" max="3" data-progress aria-labelledby="progress-label"></progress>
@@ -34,26 +34,25 @@
 <section class="hero" aria-labelledby="course-title">
   <span class="eyebrow">Scraping from scratch · three lessons</span>
   <h1 id="course-title">Understand your scraper.</h1>
-  <p class="lead">For journalists who use AI to write scraping code and want to understand what happens between a webpage and their data.</p>
+  <p class="lead">Learn to collect data from webpages.</p>
   <div class="meta"><span>3 hands-on lessons</span><span>About 60–90 minutes</span><span>No installation or account</span></div>
   <a class="button button-lime" href="lesson-1.html" data-resume>Start lesson 1 →</a>
 </section>
 <section class="section" aria-labelledby="learn-heading">
   <h2 id="learn-heading">What we’ll do</h2>
-  <p>Collect the name, family and source URL for <strong>ten frogs on one listing page</strong>. In each lesson, inspect the page, write Python, then compare the result with the source.</p>
+  <p>Practise with a directory of frogs.</p>
   <div class="lesson-cards">
-<a class="lesson-card" href="lesson-1.html"><span class="step-number" data-lesson-number="1">01</span><div><h3>Write your first scraper</h3><p>Inspect Common frog’s heading, fetch its page and extract its name.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a><a class="lesson-card" href="lesson-2.html"><span class="step-number" data-lesson-number="2">02</span><div><h3>Select targeted elements</h3><p>Inspect tags, classes and nesting. Extract a link’s text and destination, then follow it to find one family.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a><a class="lesson-card" href="lesson-3.html"><span class="step-number" data-lesson-number="3">03</span><div><h3>Implement loops</h3><p>Turn your tested one-frog code into a loop for ten records. Explore pagination as an optional stretch.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a></div>
+<a class="lesson-card" href="lesson-1.html"><span class="step-number" data-lesson-number="1">01</span><div><h3>Write your first scraper</h3><p>Learn about the Inspector.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a><a class="lesson-card" href="lesson-2.html"><span class="step-number" data-lesson-number="2">02</span><div><h3>Follow a link</h3><p>Find a frog’s family.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a><a class="lesson-card" href="lesson-3.html"><span class="step-number" data-lesson-number="3">03</span><div><h3>Collect ten frogs</h3><p>Repeat your code for ten frogs.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a></div>
 </section>
 <section class="section two-columns" aria-label="Preparation">
-  <div class="card"><h2>Before you start</h2><p>Use desktop Chrome or Firefox with an internet connection. You’ll inspect a practice page in another tab. Basic Python helps; setup code, syntax references and hints are supplied.</p></div>
-  <div class="card"><h2>Run Python here</h2><p>Use the code box in each lesson. The first run downloads Python from jsDelivr; your code runs in your browser against the practice pages. Code and progress are saved in this browser only.</p></div>
+  <div class="card"><h2>Before you start</h2><p>Use Chrome or Firefox on a computer with internet access. Basic Python helps.</p></div>
+  <div class="card"><h2>Nothing to install</h2><p>Run the code here in your browser. Your work is saved on this device.</p></div>
 </section>
 <section class="section" aria-labelledby="how-heading"><h2 id="how-heading">Inspect → write → compare</h2>
-  <p>Watch a short clip, inspect the practice page, then try the code. Hints and solutions stay closed until you need them. Finish with two questions. There’s no passing score.</p>
-  <p>Check your output against the page, even if you use AI for help. A passing code check cannot tell whether you understand the selector.</p>
-  <details><summary>About the video and practice pages</summary><p>The <a href="https://youtu.be/wQ1gR6MQtFU" target="_blank" rel="noopener">recording</a> uses Commission departments and commissioners; we practise with frogs and families. Notes explain the differences between clips and exercises.</p><p>Frog facts come from Wikipedia and photos from Wikimedia Commons, with credits on each detail page. Exercises fetch only the practice HTML. YouTube connects only when you load a clip and may use cookies or other storage.</p></details>
+  <p>Watch a clip, try the task, then check your result against the page. Hints are there if you get stuck.</p>
+  <details><summary>About the video and practice pages</summary><p>The <a href="https://youtu.be/wQ1gR6MQtFU" target="_blank" rel="noopener">recording</a> uses Commission departments and commissioners; we practise with frogs and families.</p><p>Frog facts come from Wikipedia and photos from Wikimedia Commons, with credits on each detail page. Exercises fetch only the practice HTML. YouTube connects only when you load a clip and may use cookies or other storage.</p></details>
 </section>
-<section class="section card" data-all-complete hidden><h2>That’s the first three lessons.</h2><p>You’ve marked all three complete. Can you trace one of your ten records from its inspected link to its family and source URL, and explain what runs once versus ten times?</p><a href="mailto:ada@datafrosch.fun?subject=Scraping%20prototype%20feedback">Tell Ada what worked or where you got stuck →</a></section>
+<section class="section card" data-all-complete hidden><h2>All three lessons complete.</h2><a href="mailto:ada@datafrosch.fun?subject=Scraping%20prototype%20feedback">Tell Ada how it went →</a></section>
 
     </main>
   </div>
