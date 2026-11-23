@@ -1,0 +1,59 @@
+:root {
+  color-scheme: light;
+  --ink: #173d32;
+  --muted: #52655d;
+  --green: #245c42;
+  --green-hover: #17462f;
+  --lime: #ddeb9b;
+  --paper: #fafbf6;
+  --line: #dce3d6;
+  --soft: #edf2e5;
+  --white: #fff;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+a { color: var(--green); text-underline-offset: .2em; }
+a:hover { color: var(--green-hover); }
+:focus-visible { outline: 3px solid #a5551f; outline-offset: 4px; }
+.skip-link { position: absolute; top: -100px; left: 16px; background: var(--white); padding: 10px 20px; z-index: 10; }
+.skip-link:focus { top: 10px; }
+.site-nav { max-width: 860px; margin: auto; padding: 18px 24px 0; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; }
+.site-nav-link { color: var(--muted); }
+.site-nav-link[aria-current="page"] { color: var(--green); font-weight: 700; text-decoration: none; }
+.practice-header, main, .practice-footer { max-width: 860px; margin: auto; padding-inline: 24px; }
+.practice-header { padding-top: 38px; }
+.practice-kicker, .detail-kicker, .eyebrow { margin: 0 0 8px; color: var(--muted); font-size: 12px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+h1 { margin: 0 0 10px; font-size: clamp(32px, 5vw, 46px); line-height: 1.1; letter-spacing: -.03em; }
+.note { margin: 18px 0 28px; padding: 14px 18px; border-left: 3px solid #98b267; border-radius: 0 8px 8px 0; background: var(--soft); font-size: 15px; }
+.listing-meta { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+.frog-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.frog-card { padding: 18px 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+.frog-link { font-size: 19px; font-weight: 750; }
+.frog-scientific { margin: 3px 0 6px; color: var(--muted); }
+.frog-teaser { margin: 0; color: var(--muted); font-size: 15px; }
+.pagination { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 28px 0 0; padding-top: 18px; border-top: 1px solid var(--line); }
+.page-status { margin-right: 6px; color: var(--muted); font-size: 14px; }
+.page-link { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0 12px; border: 1px solid #b9c8ae; border-radius: 8px; background: var(--white); color: var(--green); font-size: 14px; font-weight: 650; text-decoration: none; }
+.page-link:hover { background: var(--soft); color: var(--ink); }
+.page-link[aria-current="page"] { border-color: var(--green); background: var(--green); color: var(--white); }
+.frog-detail { padding: 38px 0 12px; }
+.frog-name { margin-bottom: 2px; }
+.scientific-name { margin: 0 0 24px; color: var(--muted); font-size: 20px; }
+.frog-photo { margin: 0 0 24px; }
+.frog-image { display: block; width: 100%; max-width: 640px; height: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--soft); }
+figcaption { max-width: 640px; margin-top: 8px; color: var(--muted); font-size: 13px; }
+.frog-summary { max-width: 680px; font-size: 18px; }
+.frog-facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 8px 24px; max-width: 680px; margin: 24px 0; padding: 20px 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+.frog-facts dt { font-weight: 700; }
+.frog-facts dd { margin: 0; }
+.frog-source { max-width: 680px; font-size: 14px; color: var(--muted); }
+.frog-nav { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 15px; }
+.practice-footer { margin-top: 40px; padding-top: 18px; padding-bottom: 36px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+.practice-footer p { margin: 0 0 8px; }
+@media (max-width: 600px) {
+  .site-nav { padding-inline: 20px; }
+  .practice-header, main, .practice-footer { padding-inline: 20px; }
+  .frog-facts { grid-template-columns: 1fr; gap: 2px; }
+  .frog-facts dd { margin-bottom: 10px; }
+  .page-status { width: 100%; }
+}

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Lesson 1: inspect a frog detail page, fetch it with Requests, parse it with BeautifulSoup and print the common name from its h1 heading. A DataFrosch prototype.">
+  <title>Write your first scraper · DataFrosch</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐸%3C/text%3C%3C/svg%3E">
+  <link rel="stylesheet" href="course.css">
+  <script src="course.js" defer></script>
+  <script src="python-editor.js" defer></script>
+</head>
+<body data-lesson="1">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar"><div class="topbar-inner">
+    <a class="brand" href="index.html"><span aria-hidden="true">🐸</span>datafrosch</a>
+    <span class="prototype">Course prototype</span>
+  </div></header>
+  <div class="shell">
+    <aside class="sidebar" aria-label="Course navigation and progress">
+      <p class="sidebar-label">Scraping from scratch</p>
+      <nav class="course-nav" aria-label="Lessons"><a href="index.html">Course overview</a><a href="lesson-1.html" aria-current="page"><span class="step-number" data-lesson-number="1">01</span><span>Write your first scraper<small>20–30 min · inspect and extract one value</small></span></a><a href="lesson-2.html"><span class="step-number" data-lesson-number="2">02</span><span>Select targeted elements<small>20–30 min · text, links and family</small></span></a><a href="lesson-3.html"><span class="step-number" data-lesson-number="3">03</span><span>Implement loops<small>20–30 min · ten frogs, one listing</small></span></a></nav>
+      <div class="progress-box">
+        <p class="small" id="progress-label" data-progress-label>0 of 3 lessons marked complete</p>
+        <progress value="0" max="3" data-progress aria-labelledby="progress-label"></progress>
+        <p class="small">Saved in this browser only. No account needed.</p>
+        <button class="text-button" type="button" data-reset>Reset progress &amp; answers</button>
+        <p class="small storage-notice" data-storage-notice hidden>Browser storage is unavailable. You can still use the course; progress will not be saved between pages.</p>
+      </div>
+    </aside>
+    <main id="main">
+      <noscript><p class="note">The Python exercise, quizzes and progress saving need JavaScript. You can still read the notes, open the practice pages and use the YouTube links — but the code won’t run.</p></noscript>
+      <div class="breadcrumb"><a href="index.html">Course overview</a> / Lesson 1 of 3</div>
+      <header class="lesson-header"><span class="eyebrow">Lesson 01 · about 20–30 min</span><h1>Write your first scraper</h1><p class="lead">Inspect one heading, fetch the page it sits on, and print that value. One page, one value, no links or loops yet.</p></header>
+      <p>We’re working towards collecting frog families from the <a href="practice/frogs-1.html" target="_blank" rel="noopener">practice directory ↗</a>. Start with something smaller: print <code>Common frog</code> from one detail page.</p>
+      <p class="small">Clips load only when you choose to watch; YouTube may use cookies or other storage.</p>
+      <section class="section" aria-labelledby="inspect-heading">
+        <div class="section-heading"><span class="section-index">01</span><h2 id="inspect-heading">Inspect the heading</h2></div>
+        <div class="video-frame" data-video data-video-id="wQ1gR6MQtFU" data-start="0" data-end="216" data-title="Lesson 1: Introduction and HTML tree — Ada Homolova">
+          <div class="video-placeholder"><span class="play-circle" aria-hidden="true">▶</span><h3>Introduction and HTML tree</h3><p>Excerpt from the edited recording · 00:00–03:36</p><button class="button button-lime" type="button" data-load-video>Load excerpt</button></div>
+        </div>
+        <p class="video-caption">Stops at <strong>03:36</strong>. Then try the inspector task. <a href="https://www.youtube.com/watch?v=wQ1gR6MQtFU&amp;t=0s" target="_blank" rel="noopener">Watch on YouTube ↗</a> from 00:00; pause at 03:36.</p>
+        <div class="card">
+          <p class="task-time">5–10 minutes · browser inspector, no Python yet</p>
+          <p>Use desktop Chrome or Firefox for this. A phone is fine for reading and watching, but the inspector is cramped.</p>
+          <ol>
+            <li>Open <a href="practice/frog-rana-temporaria.html" target="_blank" rel="noopener">Common frog’s page ↗</a> in a new tab so you can keep this lesson open.</li>
+            <li>Right-click the visible <strong>Common frog</strong> heading and choose <strong>Inspect</strong>. Or open the browser’s developer tools and use the element-picker button.</li>
+            <li>Hover the highlighted HTML line to see which part of the page it represents. Find its opening tag, text and closing tag.</li>
+            <li>Expand the parent element above it. The common name and scientific name are separate children of that parent. We want <strong>Common frog</strong>, not <em>Rana temporaria</em>.</li>
+          </ol>
+          <p>Check what you found. Enter the tag name without brackets. This answer is not saved.</p>
+          <table class="observation-table">
+            <caption>What I found in the inspector</caption>
+            <thead><tr><th scope="col">Look for</th><th scope="col">Your observation</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row" id="inspector-heading-question">Which tag wraps the visible common name? What is its exact text?</th>
+                <td><form data-inspector-check aria-labelledby="inspector-heading-question" data-success="That’s right. The h1 heading contains Common frog.">
+                  <label for="inspector-heading-tag">Heading tag</label>
+                  <input id="inspector-heading-tag" type="text" data-inspector-field="tag" data-accepted="h1" data-label="the heading tag" data-hint="Check the tag around the Common frog heading again." maxlength="100" spellcheck="false" aria-describedby="inspector-heading-feedback">
+                  <label for="inspector-heading-text">Text inside it</label>
+                  <input id="inspector-heading-text" type="text" data-inspector-field="text" data-accepted="common frog" data-label="the heading text" data-hint="Copy the visible common name, not the scientific name." maxlength="100" aria-describedby="inspector-heading-feedback">
+                  <button class="button button-secondary" type="submit">Check answer</button>
+                  <p id="inspector-heading-feedback" class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
+                </form></td>
+              </tr>
+            </tbody>
+          </table>
+          <details><summary>Hint: the heading element</summary><p>The visible name is the page’s only <code>h1</code>. Its class is <code>frog-name</code>, but here the tag alone is enough. The scientific name uses a <code>p</code> element with a class.</p></details>
+          <details><summary>If you can’t open the inspector</summary><p>The detail page’s heading block looks like this:</p><pre><code>&lt;article class="frog-detail"&gt;
+  &lt;p class="detail-kicker"&gt;Frog 1 of 30 · page 1 of 3&lt;/p&gt;
+  &lt;h1 class="frog-name"&gt;Common frog&lt;/h1&gt;
+  &lt;p class="scientific-name"&gt;&lt;em&gt;Rana temporaria&lt;/em&gt;&lt;/p&gt;
+&lt;/article&gt;</code></pre><p><code>h1</code> is the tag, <code>frog-name</code> is a class, and <code>Common frog</code> is the text between the opening and closing tags. The <code>article</code> is the parent. The <code>h1</code> and the two <code>p</code> elements are its children, so the heading and scientific name are siblings.</p></details>
+        </div>
+      </section>
+      <section class="section" aria-labelledby="fetch-heading">
+        <div class="section-heading"><span class="section-index">02</span><h2 id="fetch-heading">Fetch the HTML</h2></div>
+        <div class="video-frame" data-video data-video-id="wQ1gR6MQtFU" data-start="299" data-end="384" data-title="Lesson 1: Requests and BeautifulSoup — Ada Homolova">
+          <div class="video-placeholder"><span class="play-circle" aria-hidden="true">▶</span><h3>Requests and BeautifulSoup</h3><p>Excerpt from the edited recording · about 04:59–06:24</p><button class="button button-lime" type="button" data-load-video>Load excerpt</button></div>
+        </div>
+        <p class="video-caption">Stops at <strong>06:24</strong>. Then read the setup below. <a href="https://www.youtube.com/watch?v=wQ1gR6MQtFU&amp;t=299s" target="_blank" rel="noopener">Watch on YouTube ↗</a> from 04:59; pause at 06:24.</p>
+        <details>
+          <summary>Optional: check what the libraries do</summary>
+          <form class="quiz" id="l1v2q1" data-quiz data-answer="a" data-explanation="A library provides reusable code you can import. A script contains instructions for a task; the Python interpreter runs those instructions." data-hint="Think about what importing Requests adds to your own program.">
+            <fieldset><legend>1. What is a library?</legend>
+              <label class="option"><input type="radio" name="l1v2q1" value="a"><span>A collection of reusable code you can import into different programs.</span></label>
+              <label class="option"><input type="radio" name="l1v2q1" value="b"><span>A sequence of instructions you write to complete one specific task.</span></label>
+              <label class="option"><input type="radio" name="l1v2q1" value="c"><span>The software that reads and runs your Python code.</span></label>
+            </fieldset>
+            <button class="button button-secondary" type="submit">Check answer</button>
+            <p class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
+          </form>
+          <form class="quiz" id="l1v2q2" data-quiz data-answer="a" data-explanation="Requests fetches the page from the server. Beautiful Soup then works with the HTML in that response." data-hint="Requests handles the network request, not searching the HTML or controlling a browser.">
+            <fieldset><legend>2. What does Requests do?</legend>
+              <label class="option"><input type="radio" name="l1v2q2" value="a"><span>Fetch a web page from a server.</span></label>
+              <label class="option"><input type="radio" name="l1v2q2" value="b"><span>Parse downloaded HTML so you can find elements in it.</span></label>
+              <label class="option"><input type="radio" name="l1v2q2" value="c"><span>Run a website’s JavaScript and click its buttons.</span></label>
+            </fieldset>
+            <button class="button button-secondary" type="submit">Check answer</button>
+            <p class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
+          </form>
+          <form class="quiz" id="l1v2q3" data-quiz data-answer="b" data-explanation="Beautiful Soup parses HTML you already have, so you can find elements and extract their text or attributes. It does not fetch the page." data-hint="Beautiful Soup works on the downloaded HTML, not the network or the browser.">
+            <fieldset><legend>3. What does Beautiful Soup do?</legend>
+              <label class="option"><input type="radio" name="l1v2q3" value="a"><span>Fetch a web page from a server.</span></label>
+              <label class="option"><input type="radio" name="l1v2q3" value="b"><span>Parse downloaded HTML so you can find elements in it.</span></label>
+              <label class="option"><input type="radio" name="l1v2q3" value="c"><span>Run a website’s JavaScript and click its buttons.</span></label>
+            </fieldset>
+            <button class="button button-secondary" type="submit">Check answer</button>
+            <p class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
+          </form>
+        </details>
+        <div class="card">
+          <p>The setup does two things:</p>
+          <ul>
+            <li><code>requests.get(url)</code> asks the server for the page. It returns a response with a status code and a body.</li>
+            <li><code>BeautifulSoup(response.text, 'html.parser')</code> parses that downloaded text so you can search its HTML.</li>
+          </ul>
+          <p class="small">This setup is supplied. <code>timeout=10</code> limits how long a request can wait; <code>raise_for_status()</code> stops on an HTTP error.</p>
+          <p>Our static practice pages have the same content in the inspector and the downloaded HTML. Other sites may add content with JavaScript that Requests won’t run.</p>
+        </div>
+      </section>
+      <section class="section" aria-labelledby="extract-heading">
+        <div class="section-heading"><span class="section-index">03</span><h2 id="extract-heading">Extract the value</h2></div>
+        <div class="video-frame" data-video data-video-id="wQ1gR6MQtFU" data-start="581" data-end="663" data-title="Lesson 1: Response text and parsing — Ada Homolova">
+          <div class="video-placeholder"><span class="play-circle" aria-hidden="true">▶</span><h3>Response text and parsing</h3><p>Excerpt from the edited recording · about 09:41–11:03</p><button class="button button-lime" type="button" data-load-video>Load excerpt</button></div>
+        </div>
+        <p class="video-caption">Stops at <strong>11:03</strong>. Then try the code below. <a href="https://www.youtube.com/watch?v=wQ1gR6MQtFU&amp;t=581s" target="_blank" rel="noopener">Watch on YouTube ↗</a> from 09:41; pause at 11:03.</p>
+        <p class="note">The recording already has a loop. For now, just follow the response and parsing steps; our exercise fetches one page.</p>
+      </section>
+      <section class="section" data-python-exercise="heading" aria-labelledby="try-heading">
+        <div class="section-heading"><span class="section-index">04</span><h2 id="try-heading">Try it yourself</h2></div>
+        <div class="card">
+          <p class="task-time">10–15 minutes · real Python, runs in this page</p>
+          <p><strong>Goal:</strong> print <code>Common frog</code> from the page you just inspected.</p>
+          <p>The request, the parsing and the page URL are supplied. You write the selection and the text extraction.</p>
+          <ol>
+            <li><strong>Run the starter unchanged.</strong> It prints the first <code>p</code> element twice: the small “Frog 1 of 30” kicker, not the visible name.</li>
+            <li>Replace the starter selector with the tag you found in the inspector. Check the hint if you need it.</li>
+            <li>The next line currently prints the element, not its text. Replace it with the extraction from the reference. Run again.</li>
+            <li>Compare the printed value with the highlighted heading in your browser. It should be exactly <code>Common frog</code>.</li>
+          </ol>
+          <div class="note">
+            <p><strong>Syntax reference</strong></p>
+            <pre><code>soup.select_one('tag')         # first matching element, or None
+element.get_text(strip=True)  # the text inside an element
+print(value)                  # show it in the output</code></pre>
+          </div>
+        </div>
+        <div class="card">
+          <label for="python-code-heading">Scraper code — fix the two lines marked TODO, then run it</label>
+          <textarea id="python-code-heading" data-python-code spellcheck="false" rows="18">import requests
+from bs4 import BeautifulSoup
+
+detail_url = BASE_URL + 'practice/frog-rana-temporaria.html'
+response = requests.get(detail_url, timeout=10)
+response.raise_for_status()
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# A short slice of the HTML the server sent, from the start of the main content.
+print(response.text[response.text.find('<main'):response.text.find('<main') + 700])
+
+# TODO 1: replace 'p' with the tag that wraps the visible common name.
+# The automatic check reads `heading`.
+heading = soup.select_one('p')
+
+# TODO 2: heading is an element. Extract its text into `name`.
+name = heading
+
+print(heading)
+print(name)</textarea>
+          <div class="actions">
+            <button class="button button-lime" type="button" data-python-run>Run Python</button>
+            <button class="button button-secondary" type="button" data-python-stop disabled>Stop</button>
+            <button class="button button-secondary" type="button" data-python-reset>Reset code</button>
+          </div>
+          <p class="small" data-python-status role="status" aria-live="polite">Python loads when you run the code.</p>
+          <pre data-python-output tabindex="0" aria-label="Python output">Your output will appear here.</pre>
+          <div data-python-result role="status" aria-live="polite" hidden></div>
+        </div>
+        <details><summary>Hint: the heading selector</summary><p>The visible name is the page’s only <code>h1</code>, so <code>soup.select_one('h1')</code> is enough. You don’t need the class for this page.</p></details>
+        <details><summary>Hint: element to text</summary><p><code>heading</code> is a BeautifulSoup element. <code>heading.get_text(strip=True)</code> returns just the text inside it, without the tags or extra whitespace.</p></details>
+        <details><summary>See a worked solution</summary><pre><code data-python-solution>import requests
+from bs4 import BeautifulSoup
+
+detail_url = BASE_URL + 'practice/frog-rana-temporaria.html'
+response = requests.get(detail_url, timeout=10)
+response.raise_for_status()
+soup = BeautifulSoup(response.text, 'html.parser')
+
+print(response.text[response.text.find('&lt;main'):response.text.find('&lt;main') + 700])
+
+heading = soup.select_one('h1')
+name = heading.get_text(strip=True)
+
+print(heading)
+print(name)</code></pre></details>
+        <div class="card">
+          <p><strong>Check against the source</strong></p>
+          <p>After your edit, the output should end with the element and the text:</p>
+          <pre tabindex="0" aria-label="Expected output"><code>… &lt;p class="detail-kicker"&gt;Frog 1 of 30 · page 1 of 3&lt;/p&gt;
+      &lt;h1 class="frog-name"&gt;Common frog&lt;/h1&gt; …
+&lt;h1 class="frog-name"&gt;Common frog&lt;/h1&gt;
+Common frog</code></pre>
+          <p>If the element prints as <code>None</code>, your selector matched nothing. Check the tag in the inspector. The last output line should be the name you see on the page.</p>
+        </div>
+        <div class="success"><strong>You’re ready when:</strong> you can point from the highlighted heading to the selector, and from the selector to the printed <code>Common frog</code>, and say what changed when you stopped printing the element and started printing its text.</div>
+      </section>
+      <section class="section" aria-labelledby="check-heading"><div class="section-heading"><span class="section-index">05</span><h2 id="check-heading">Check your understanding</h2></div><p class="small">Two questions now that you’ve run the code. No score to pass — answer, read the explanation, try again if you like.</p><div class="card"><form class="quiz" id="l1q1" data-quiz data-answer="a" data-explanation="The visible common name sits between the opening and closing h1 tags. A class is part of the tag, and the em element holds the scientific name." data-hint="Look at the line the inspector highlighted. What is the tag name at the start and end of it?">
+      <fieldset><legend>1. Which inspected element identifies the visible common name?</legend><label class="option"><input type="radio" name="l1q1" value="a"><span>The <code>h1</code> element whose text is Common frog.</span></label><label class="option"><input type="radio" name="l1q1" value="b"><span>The <code>class="frog-name"</code> attribute on its own.</span></label><label class="option"><input type="radio" name="l1q1" value="c"><span>The <code>em</code> element that holds Rana temporaria.</span></label></fieldset>
+      <button class="button button-secondary" type="submit">Check answer</button>
+      <p class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
+    </form><form class="quiz" id="l1q2" data-quiz data-answer="b" data-explanation="Requests fetches over the network. BeautifulSoup searches the HTML that is already in your variable. Selecting an element never asks the server for anything." data-hint="One of these lines caused internet traffic. The other searched a variable.">
+      <fieldset><legend>2. Which line fetches the page, and which searches the downloaded HTML?</legend><label class="option"><input type="radio" name="l1q2" value="a"><span><code>soup.select_one('h1')</code> fetches the page; <code>requests.get(detail_url)</code> searches the HTML.</span></label><label class="option"><input type="radio" name="l1q2" value="b"><span><code>requests.get(detail_url)</code> fetches the page; <code>soup.select_one('h1')</code> searches the HTML already in <code>soup</code>.</span></label><label class="option"><input type="radio" name="l1q2" value="c"><span>Both fetch the page — <code>select_one</code> sends the tag name to the server.</span></label></fieldset>
+      <button class="button button-secondary" type="submit">Check answer</button>
+      <p class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
+    </form></div></section>
+      <section class="lesson-end" aria-label="Continue the course"><p>Next, we’ll select the links on a listing page, read their text and destinations, and follow one to its family.</p><div class="actions"><button class="button button-secondary" type="button" data-complete-lesson="1" aria-pressed="false">Mark this lesson complete</button><a class="button" href="lesson-2.html">Next: Select targeted elements →</a></div><p class="small" data-completion-status role="status" aria-live="polite">Marking complete is your own check-in, not a test of your work. You can move on without it.</p></section>
+    </main>
+  </div>
+  <footer class="footer"><span>Made by Ada Homolova · DataFrosch 🐸</span><span>Private review prototype · no payments or accounts</span></footer>
+</body>
+</html>

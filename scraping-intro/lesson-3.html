@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Lesson 3: turn tested single-frog code into a loop, collect ten frog, family and source URL records from listing page 1, and try all three listing pages as a stretch. A DataFrosch prototype.">
+  <title>Implement loops · DataFrosch</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐸%3C/text%3C%3C/svg%3E">
+  <link rel="stylesheet" href="course.css">
+  <script src="course.js" defer></script>
+  <script src="python-editor.js" defer></script>
+</head>
+<body data-lesson="3">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar"><div class="topbar-inner">
+    <a class="brand" href="index.html"><span aria-hidden="true">🐸</span>datafrosch</a>
+    <span class="prototype">Course prototype</span>
+  </div></header>
+  <div class="shell">
+    <aside class="sidebar" aria-label="Course navigation and progress">
+      <p class="sidebar-label">Scraping from scratch</p>
+      <nav class="course-nav" aria-label="Lessons"><a href="index.html">Course overview</a><a href="lesson-1.html"><span class="step-number" data-lesson-number="1">01</span><span>Write your first scraper<small>20–30 min · inspect and extract one value</small></span></a><a href="lesson-2.html"><span class="step-number" data-lesson-number="2">02</span><span>Select targeted elements<small>20–30 min · text, links and family</small></span></a><a href="lesson-3.html" aria-current="page"><span class="step-number" data-lesson-number="3">03</span><span>Implement loops<small>20–30 min · ten frogs, one listing</small></span></a></nav>
+      <div class="progress-box">
+        <p class="small" id="progress-label" data-progress-label>0 of 3 lessons marked complete</p>
+        <progress value="0" max="3" data-progress aria-labelledby="progress-label"></progress>
+        <p class="small">Saved in this browser only. No account needed.</p>
+        <button class="text-button" type="button" data-reset>Reset progress &amp; answers</button>
+        <p class="small storage-notice" data-storage-notice hidden>Browser storage is unavailable. You can still use the course; progress will not be saved between pages.</p>
+      </div>
+    </aside>
+    <main id="main">
+      <noscript><p class="note">The Python exercise, quizzes and progress saving need JavaScript. You can still read the notes, open the practice pages and use the YouTube links — but the code won’t run.</p></noscript>
+      <div class="breadcrumb"><a href="index.html">Course overview</a> / Lesson 3 of 3</div>
+      <header class="lesson-header"><span class="eyebrow">Lesson 03 · about 20–30 min</span><h1>Implement loops</h1><p class="lead">Take the tested single-frog steps, repeat them for each link on page 1, and keep one record per frog. Pagination is an optional stretch.</p></header>
+      <p>Lesson 2 gave us <code>Common frog → Ranidae</code>. Now repeat those steps for all ten links on page 1. Keep each frog’s <code>frog</code>, <code>family</code> and <code>source_url</code> in one record.</p>
+      <p class="small">Clips load only when you choose to watch; YouTube may use cookies or other storage.</p>
+      <section class="section" aria-labelledby="repeated-heading">
+        <div class="section-heading"><span class="section-index">01</span><h2 id="repeated-heading">Find the repeated element</h2></div>
+        <div class="card">
+          <p class="task-time">3–5 minutes · browser inspector</p>
+          <ol>
+            <li>Reopen the <a href="practice/frogs-1.html" target="_blank" rel="noopener">first listing page ↗</a> and inspect Common frog’s card.</li>
+            <li>Highlight the whole card, then its link. Inspect a second card and compare. The same card and link structure repeats for all ten frogs.</li>
+            <li>Use the Elements panel search to confirm your link selector still matches ten elements on this page. A selector that works for one card is not proof it works for the rest.</li>
+          </ol>
+          <p>The links give us the collection to loop over. Decide which steps repeat below. These answers are not saved.</p>
+          <table class="observation-table">
+            <caption>What repeats on the listing page</caption>
+            <thead><tr><th scope="col">Look for</th><th scope="col">Your observation</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row" id="l3-loop-steps-question">Which steps should run once, and which should run once per frog?</th>
+                <td><form data-inspector-check id="l3-loop-steps" aria-labelledby="l3-loop-steps-question" data-success="That’s right. The listing setup, empty results list and final output run once. The detail request, family extraction and append run once per frog.">
+                  <label for="l3-step-fetch">Fetch and parse the listing</label>
+                  <select id="l3-step-fetch" data-inspector-field="text" data-accepted="once" data-label="when the listing is fetched" data-hint="One listing response gives you all ten links, so this does not repeat." aria-describedby="l3-loop-steps-feedback">
+                    <option value="">Choose an answer first</option>
+                    <option value="once">Once</option>
+                    <option value="each">Once per frog</option>
+                  </select>
+                  <label for="l3-step-detail">Request the detail page and extract the family</label>
+                  <select id="l3-step-detail" data-inspector-field="text" data-accepted="each" data-label="when the detail page is requested" data-hint="Each frog has its own detail page, so this step repeats." aria-describedby="l3-loop-steps-feedback">
+                    <option value="">Choose an answer first</option>
+                    <option value="once">Once</option>
+                    <option value="each">Once per frog</option>
+                  </select>
+                  <label for="l3-step-append">Add the record to the list</label>
+                  <select id="l3-step-append" data-inspector-field="text" data-accepted="each" data-label="when a record is added" data-hint="You add one record for each frog as the loop runs." aria-describedby="l3-loop-steps-feedback">
+                    <option value="">Choose an answer first</option>
+                    <option value="once">Once</option>
+                    <option value="each">Once per frog</option>
+                  </select>
+                  <label for="l3-step-setup">Create the empty results list and print the final output</label>
+                  <select id="l3-step-setup" data-inspector-field="text" data-accepted="once" data-label="when the empty list and final output are set up" data-hint="The empty list and final output sit outside the loop. They must not be recreated for each frog." aria-describedby="l3-loop-steps-feedback">
+                    <option value="">Choose an answer first</option>
+                    <option value="once">Once</option>
+                    <option value="each">Once per frog</option>
+                  </select>
+                  <button class="button button-secondary" type="submit">Check answer</button>
+                  <p id="l3-loop-steps-feedback" class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
+                </form></td>
+              </tr>
+            </tbody>
+          </table>
+          <details><summary>Hint: what belongs outside the loop</summary><p>The listing request, the parsed listing soup, the list of links, <code>records = []</code> and the final print all run once. The detail request, detail parse, family selection and <code>append</code> run once per link.</p></details>
+        </div>
+      </section>
+      <section class="section" aria-labelledby="loop-heading">
+        <div class="section-heading"><span class="section-index">02</span><h2 id="loop-heading">Build the loop</h2></div>
+        <div class="video-frame" data-video data-video-id="wQ1gR6MQtFU" data-start="810" data-end="858" data-title="Lesson 3: Loop over links and request each page — Ada Homolova">
+          <div class="video-placeholder"><span class="play-circle" aria-hidden="true">▶</span><h3>Loop over links and request each page</h3><p>Excerpt from the edited recording · about 13:30–14:18</p><button class="button button-lime" type="button" data-load-video>Load excerpt</button></div>
+        </div>
+        <p class="video-caption">Stops at <strong>14:18</strong>. Then build your loop below. <a href="https://www.youtube.com/watch?v=wQ1gR6MQtFU&amp;t=810s" target="_blank" rel="noopener">Watch on YouTube ↗</a> from 13:30; pause at 14:18.</p>
+        <p class="note">The video writes a loop with a temporary <code>break</code> to test one item; it does not show the run yet. Our starter already works for one frog. Add a loop without <code>break</code> to collect all ten.</p>
+        <div class="card">
+          <p>A <code>for</code> line ends with a colon. The indented lines below it repeat for each item; unindented lines run outside the loop.</p>
+          <div class="note">
+            <p><strong>Syntax reference</strong></p>
+            <pre><code>for item in items:          # colon at the end
+    do_something(item)      # four spaces, inside the loop
+    records.append({...})   # one dictionary per iteration
+
+print(len(records))         # after the loop, unindented
+print(records)</code></pre>
+          </div>
+        </div>
+      </section>
+      <section class="section" data-python-exercise="details" aria-labelledby="try-heading">
+        <div class="section-heading"><span class="section-index">03</span><h2 id="try-heading">Try it yourself: ten page-1 records</h2></div>
+        <div class="card">
+          <p class="task-time">15–20 minutes · real Python, runs in this page</p>
+          <p><strong>Goal:</strong> collect ten records, each with the frog’s name, its family and the detail page you used.</p>
+          <ol>
+            <li><strong>Run the starter unchanged.</strong> It prints one record for Common frog, using one detail request. The steps work; they just aren’t repeated yet.</li>
+            <li>Replace <code>link = links[0]</code> with a <code>for</code> loop over <code>links</code>.</li>
+            <li>Select the block from <code>detail_url</code> down to the closing <code>})</code>. Choose <strong>Indent selected lines</strong> to add four spaces. Tab moves between controls; it does not indent code.</li>
+            <li>Keep <code>records = []</code> above the loop and the final <code>print</code> after it. Run again. You should get ten records.</li>
+            <li>Compare the names and families with the detail pages. The source URL should be unique for each frog.</li>
+          </ol>
+          <p class="small">The core run makes one listing request and ten detail requests. That is eleven, well inside this page’s request limit.</p>
+        </div>
+        <div class="card">
+          <label for="python-code-details">Scraper code — add the loop and indent the block, then run it</label>
+          <textarea id="python-code-details" data-python-code spellcheck="false" rows="30">import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+
+listing_url = BASE_URL + 'practice/frogs-1.html'
+response = requests.get(listing_url, timeout=10)
+response.raise_for_status()
+soup = BeautifulSoup(response.text, 'html.parser')
+links = soup.select('a.frog-link')
+
+records = []
+
+# These steps worked once for links[0]. TODO: repeat them for every link.
+# Add a for-loop over links above this block and indent the block.
+# Keep records = [] above the loop and the final prints after it.
+link = links[0]
+detail_url = urljoin(listing_url, link.get('href'))
+detail_response = requests.get(detail_url, timeout=10)
+detail_response.raise_for_status()
+detail_soup = BeautifulSoup(detail_response.text, 'html.parser')
+
+family_element = detail_soup.select_one('.frog-family')
+family = family_element.get_text(strip=True)
+
+records.append({
+    'frog': link.get_text(strip=True),
+    'family': family,
+    'source_url': detail_url,
+})
+
+print(len(records))
+print(records)</textarea>
+          <div class="actions">
+            <button class="button button-lime" type="button" data-python-run>Run Python</button>
+            <button class="button button-secondary" type="button" data-python-stop disabled>Stop</button>
+            <button class="button button-secondary" type="button" data-python-reset>Reset code</button>
+            <button class="button button-secondary" type="button" data-python-indent>Indent selected lines</button>
+            <button class="button button-secondary" type="button" data-python-unindent>Unindent selected lines</button>
+          </div>
+          <p class="small" data-python-status role="status" aria-live="polite">Python loads when you run the code.</p>
+          <pre data-python-output tabindex="0" aria-label="Python output">Your output will appear here.</pre>
+          <div data-python-result role="status" aria-live="polite" hidden></div>
+        </div>
+        <details><summary>Need a smaller step? Loop over names and URLs first</summary><p>Replace everything below <code>records = []</code> with this loop. It makes no detail requests, so the family checks won’t pass yet. Once you understand it, reset the code and add the loop to the detail steps.</p><pre><code data-stage-one>for link in links:
+    frog = link.get_text(strip=True)
+    href = link.get('href')
+    print(frog, urljoin(listing_url, href))</code></pre><p>Expected: ten lines, each with a frog name and a full detail URL. This run makes one listing request and no detail requests.</p></details>
+        <details><summary>Hint: the loop line and indentation</summary><p>Replace <code>link = links[0]</code> with <code>for link in links:</code>. Select the whole block below it — from <code>detail_url</code> down to the closing <code>})</code> — and indent it four spaces. Don’t indent <code>records = []</code> or the final prints.</p></details>
+        <details><summary>See a worked solution</summary><pre><code data-python-solution>import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+
+listing_url = BASE_URL + 'practice/frogs-1.html'
+response = requests.get(listing_url, timeout=10)
+response.raise_for_status()
+soup = BeautifulSoup(response.text, 'html.parser')
+links = soup.select('a.frog-link')
+
+records = []
+
+for link in links:
+    detail_url = urljoin(listing_url, link.get('href'))
+    detail_response = requests.get(detail_url, timeout=10)
+    detail_response.raise_for_status()
+    detail_soup = BeautifulSoup(detail_response.text, 'html.parser')
+
+    family_element = detail_soup.select_one('.frog-family')
+    family = family_element.get_text(strip=True)
+
+    records.append({
+        'frog': link.get_text(strip=True),
+        'family': family,
+        'source_url': detail_url,
+    })
+
+print(len(records))
+print(records)</code></pre></details>
+        <div class="card">
+          <p><strong>Check against the source</strong></p>
+          <p>The output starts with <code>10</code>. The list contains ten dictionaries in listing order. The host in each source URL depends on where the course is running.</p>
+          <pre tabindex="0" aria-label="Expected output"><code>10
+[{'frog': 'Common frog', 'family': 'Ranidae', 'source_url': '…/practice/frog-rana-temporaria.html'},
+ {'frog': 'American bullfrog', 'family': 'Ranidae', 'source_url': '…/practice/frog-lithobates-catesbeianus.html'},
+ …
+ {'frog': "Cranwell's horned frog", 'family': 'Ceratophryidae', 'source_url': '…/practice/frog-ceratophrys-cranwelli.html'}]</code></pre>
+          <details><summary>Check all ten rows against their pages</summary><table class="observation-table"><caption>Answer key for page 1, in listing order</caption><thead><tr><th scope="col">Frog</th><th scope="col">Family</th><th scope="col">Source file</th></tr></thead><tbody><tr><th scope="row">Common frog</th><td>Ranidae</td><td><a href="practice/frog-rana-temporaria.html" target="_blank" rel="noopener"><code>frog-rana-temporaria.html</code></a></td></tr><tr><th scope="row">American bullfrog</th><td>Ranidae</td><td><a href="practice/frog-lithobates-catesbeianus.html" target="_blank" rel="noopener"><code>frog-lithobates-catesbeianus.html</code></a></td></tr><tr><th scope="row">Spring peeper</th><td>Hylidae</td><td><a href="practice/frog-pseudacris-crucifer.html" target="_blank" rel="noopener"><code>frog-pseudacris-crucifer.html</code></a></td></tr><tr><th scope="row">Red-eyed tree frog</th><td>Hylidae</td><td><a href="practice/frog-agalychnis-callidryas.html" target="_blank" rel="noopener"><code>frog-agalychnis-callidryas.html</code></a></td></tr><tr><th scope="row">Australian green tree frog</th><td>Pelodryadidae</td><td><a href="practice/frog-pelodryas-caerulea.html" target="_blank" rel="noopener"><code>frog-pelodryas-caerulea.html</code></a></td></tr><tr><th scope="row">Golden poison frog</th><td>Dendrobatidae</td><td><a href="practice/frog-phyllobates-terribilis.html" target="_blank" rel="noopener"><code>frog-phyllobates-terribilis.html</code></a></td></tr><tr><th scope="row">Goliath frog</th><td>Conrauidae</td><td><a href="practice/frog-conraua-goliath.html" target="_blank" rel="noopener"><code>frog-conraua-goliath.html</code></a></td></tr><tr><th scope="row">Southern corroboree frog</th><td>Myobatrachidae</td><td><a href="practice/frog-pseudophryne-corroboree.html" target="_blank" rel="noopener"><code>frog-pseudophryne-corroboree.html</code></a></td></tr><tr><th scope="row">Wallace's flying frog</th><td>Rhacophoridae</td><td><a href="practice/frog-rhacophorus-nigropalmatus.html" target="_blank" rel="noopener"><code>frog-rhacophorus-nigropalmatus.html</code></a></td></tr><tr><th scope="row">Cranwell's horned frog</th><td>Ceratophryidae</td><td><a href="practice/frog-ceratophrys-cranwelli.html" target="_blank" rel="noopener"><code>frog-ceratophrys-cranwelli.html</code></a></td></tr></tbody></table></details>
+          <p>Check the structure, not just the count:</p>
+          <ul>
+            <li>Ten records, ten different <code>source_url</code> values, and names in the same order as the listing.</li>
+            <li>Every family is non-empty. Repeated families are fine: American bullfrog is Ranidae too. Unique frog URLs, not unique families, identify the records.</li>
+            <li>A family that repeats the frog name means the selector is still on the heading, not the family.</li>
+          </ul>
+          <p class="small">The automatic check compares the ten names, families and source URLs, not one exact loop layout.</p>
+        </div>
+        <div class="success"><strong>You’re ready when:</strong> you have ten distinct frog records, can trace one iteration from an inspected link to its record, and can say what runs once versus ten times.</div>
+      </section>
+      <section class="section" aria-labelledby="diagnose-heading">
+        <div class="section-heading"><span class="section-index">04</span><h2 id="diagnose-heading">Diagnose a missing family</h2></div>
+        <div class="video-frame" data-video data-video-id="wQ1gR6MQtFU" data-start="1128" data-end="1222" data-title="Lesson 3: Diagnose an absent field — Ada Homolova">
+          <div class="video-placeholder"><span class="play-circle" aria-hidden="true">▶</span><h3>Diagnose an absent field</h3><p>Excerpt from the edited recording · about 18:48–20:22</p><button class="button button-lime" type="button" data-load-video>Load excerpt</button></div>
+        </div>
+        <p class="video-caption">Stops at <strong>20:22</strong>. Then try the diagnosis below. <a href="https://www.youtube.com/watch?v=wQ1gR6MQtFU&amp;t=1128s" target="_blank" rel="noopener">Watch on YouTube ↗</a> from 18:48; pause at 20:22.</p>
+        <p class="note">The video has a genuinely missing commissioner. Every practice frog has a family, so a missing match here needs investigation.</p>
+        <div class="card">
+          <p>Test the failure on purpose. In your working code, change <code>.frog-family</code> to a misspelled class such as <code>.frog-famly</code> and run it. <code>select_one</code> finds nothing and returns <code>None</code>; calling <code>get_text</code> on <code>None</code> stops the run. That is a diagnostic signal, not a fact about the frogs.</p>
+          <ol>
+            <li>Read the error and note which line it points to.</li>
+            <li>Open <a href="practice/frog-rana-temporaria.html" target="_blank" rel="noopener">Common frog’s page ↗</a>. Inspect Ranidae and confirm its tag and class.</li>
+            <li>Restore the selector, run again, and confirm all ten families return.</li>
+          </ol>
+          <p>Before saving any empty value, check one page where you can see the value with your own eyes. A successful HTTP 200 and ten records do not prove the extraction is right.</p>
+          <p><strong>Try a new field:</strong> inspect Common frog’s conservation status and write a selector for it.</p><details><summary>Compare your status selector</summary><p>The status is a <code>dd</code> with the class <code>frog-status</code>: <code>detail_soup.select_one('.frog-status')</code>.</p></details>
+        </div>
+      </section>
+      <section class="section" aria-labelledby="check-heading"><div class="section-heading"><span class="section-index">05</span><h2 id="check-heading">Check your understanding</h2></div><p class="small">Two questions now that you’ve built the loop. No score to pass — answer, read the explanation, try again if you like.</p><div class="card"><form class="quiz" id="l3q1" data-quiz data-answer="c" data-explanation="records = [] inside the loop creates a fresh empty list on every iteration, so each append is thrown away when the next iteration starts. The final print sees only the last one." data-hint="What happens to the previous rows when the loop starts again?">
+      <fieldset><legend>1. Your loop works, but it prints one record instead of ten. The code has <code>records = []</code> indented inside the loop. Why?</legend><label class="option"><input type="radio" name="l3q1" value="a"><span>The loop only repeats once because <code>links</code> contains one element.</span></label><label class="option"><input type="radio" name="l3q1" value="b"><span>Requests caches the first detail page, so the later iterations reuse the same record.</span></label><label class="option"><input type="radio" name="l3q1" value="c"><span>Each iteration resets <code>records</code> to an empty list, discarding the rows from earlier iterations.</span></label></fieldset>
+      <button class="button button-secondary" type="submit">Check answer</button>
+      <p class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
+    </form><form class="quiz" id="l3q2" data-quiz data-answer="b" data-explanation="Every frog in this directory has a family. A None or empty family means the selector probably missed. Inspect a page with a visible family and compare its HTML with your selector before recording anything." data-hint="Common frog’s page clearly shows Ranidae. Would you accept an empty family without checking that page?">
+      <fieldset><legend>2. Your run stopped, or returned an empty family, for a frog whose page clearly shows one. What should you do before saving that value?</legend><label class="option"><input type="radio" name="l3q2" value="a"><span>Accept it as missing data: the scraper reached the page, so the page must not have a family.</span></label><label class="option"><input type="radio" name="l3q2" value="b"><span>Inspect the family on a page where you can see it, compare its tag and class with your selector, and fix the selector if it doesn’t match.</span></label><label class="option"><input type="radio" name="l3q2" value="c"><span>Remove the family key from every record so the empty value doesn’t break the output.</span></label></fieldset>
+      <button class="button button-secondary" type="submit">Check answer</button>
+      <p class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
+    </form></div></section>
+      <details class="section" id="pagination-stretch">
+        <summary>Optional stretch: names and URLs from all three pages</summary>
+      <section aria-labelledby="stretch-heading">
+        <h2 id="stretch-heading">Explore pagination</h2>
+        <p>Done with ten families? This extra task collects 30 names and URLs from three listings, without fetching their detail pages.</p>
+        <div class="video-frame" data-video data-video-id="wQ1gR6MQtFU" data-start="245" data-end="299" data-title="Lesson 3 stretch: Pagination evidence — Ada Homolova">
+          <div class="video-placeholder"><span class="play-circle" aria-hidden="true">▶</span><h3>Pagination evidence</h3><p>Excerpt from the edited recording · about 04:05–04:59</p><button class="button button-lime" type="button" data-load-video>Load excerpt</button></div>
+        </div>
+        <p class="video-caption">Stops at <strong>04:59</strong>. Then inspect the pagination links. <a href="https://www.youtube.com/watch?v=wQ1gR6MQtFU&amp;t=245s" target="_blank" rel="noopener">Watch on YouTube ↗</a> from 04:05; pause at 04:59.</p>
+        <p class="note">The video starts at <code>?page=0</code>. Our filenames start at 1: <code>frogs-1.html</code>, <code>frogs-2.html</code>, <code>frogs-3.html</code>.</p>
+        <div class="card">
+          <p class="task-time">5–10 minutes extra · browser inspector, then Python</p>
+          <ol>
+            <li>Inspect the pagination links on page 1. Click pages 2 and 3 and compare their hrefs with the address bar.</li>
+            <li>Notice that “Next →” points to the same page as the numbered link. If you select every pagination link, you will collect page 2 twice.</li>
+            <li>Test a selector that keeps the three numbered links and excludes Previous/Next. One route is a class filter; another keeps only links whose visible text is a number.</li>
+          </ol>
+          <p class="small">These answers are about page 1. Fill them in, then use each <strong>Check answer</strong> button. They are not saved.</p>
+          <table class="observation-table">
+            <caption>What I found in the pagination</caption>
+            <thead><tr><th scope="col">Look for</th><th scope="col">Your observation</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row" id="l3-pagination-links-question">On page 1, what are the hrefs of the three numbered links, and which extra link also points to page 2?</th>
+                <td><form data-inspector-check id="l3-pagination-links" aria-labelledby="l3-pagination-links-question" data-success="That’s right. The numbered links point to frogs-1.html, frogs-2.html and frogs-3.html, and Next also points to page 2.">
+                  <label for="l3-page-href-1">First numbered link</label>
+                  <input id="l3-page-href-1" type="text" data-inspector-field="literal" data-accepted="frogs-1.html" data-label="the first page href" data-hint="Copy the href of the numbered link 1 exactly as the inspector shows it." maxlength="100" spellcheck="false" aria-describedby="l3-pagination-links-feedback">
+                  <label for="l3-page-href-2">Second numbered link</label>
+                  <input id="l3-page-href-2" type="text" data-inspector-field="literal" data-accepted="frogs-2.html" data-label="the second page href" data-hint="Copy the href of the numbered link 2 exactly as the inspector shows it." maxlength="100" spellcheck="false" aria-describedby="l3-pagination-links-feedback">
+                  <label for="l3-page-href-3">Third numbered link</label>
+                  <input id="l3-page-href-3" type="text" data-inspector-field="literal" data-accepted="frogs-3.html" data-label="the third page href" data-hint="Copy the href of the numbered link 3 exactly as the inspector shows it." maxlength="100" spellcheck="false" aria-describedby="l3-pagination-links-feedback">
+                  <label for="l3-page-extra">Extra link that also points to page 2</label>
+                  <select id="l3-page-extra" data-inspector-field="text" data-accepted="next" data-label="the extra link" data-hint="Compare each extra link’s destination with page 2. Next repeats it; there is no Previous on page 1." aria-describedby="l3-pagination-links-feedback">
+                    <option value="">Choose an answer first</option>
+                    <option value="next">Next →</option>
+                    <option value="previous">Previous</option>
+                    <option value="none">No other link</option>
+                  </select>
+                  <button class="button button-secondary" type="submit">Check answer</button>
+                  <p id="l3-pagination-links-feedback" class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
+                </form></td>
+              </tr>
+              <tr>
+                <th scope="row" id="l3-page-count-question">How many resolved page URLs should the list contain?</th>
+                <td><form data-inspector-check id="l3-page-count" aria-labelledby="l3-page-count-question" data-success="That’s right. After dropping the duplicate Next link, the list holds three resolved page URLs.">
+                  <label for="l3-page-count-value">Number of page URLs</label>
+                  <input id="l3-page-count-value" type="number" min="0" step="1" data-inspector-field="text" data-accepted="3" data-label="the number of page URLs" data-hint="The directory has three numbered pages. Next duplicates page 2, so do not count it twice." aria-describedby="l3-page-count-feedback">
+                  <button class="button button-secondary" type="submit">Check answer</button>
+                  <p id="l3-page-count-feedback" class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
+                </form></td>
+              </tr>
+            </tbody>
+          </table>
+          <details><summary>Hint: excluding Previous and Next</summary><p>Their classes are <code>page-prev</code> and <code>page-next</code>. The numbered links only have <code>page-link</code>. A selector such as <code>.pagination a.page-link:not(.page-prev):not(.page-next)</code> keeps the three numbered ones. Filtering on the visible text being <code>1</code>, <code>2</code> or <code>3</code> works too.</p></details>
+        </div>
+        <div class="video-frame" data-video data-video-id="wQ1gR6MQtFU" data-start="427" data-end="481" data-title="Lesson 3 stretch: Generate page URLs — Ada Homolova">
+          <div class="video-placeholder"><span class="play-circle" aria-hidden="true">▶</span><h3>Generate page URLs</h3><p>Excerpt from the edited recording · about 07:07–08:01</p><button class="button button-lime" type="button" data-load-video>Load excerpt</button></div>
+        </div>
+        <p class="video-caption">Stops at <strong>08:01</strong>. Then try the stretch below. <a href="https://www.youtube.com/watch?v=wQ1gR6MQtFU&amp;t=427s" target="_blank" rel="noopener">Watch on YouTube ↗</a> from 07:07; pause at 08:01.</p>
+        <p>Now use those resolved page URLs as the outer collection. Loop over each listing, collect its frog names and detail URLs, and stop there. This stretch does not request the 30 detail pages.</p>
+      </section>
+      <section class="section" data-python-exercise="stretch" aria-labelledby="stretch-try-heading">
+        <div class="section-heading"><span class="section-index">+</span><h2 id="stretch-try-heading">Try the stretch</h2></div>
+        <div class="card">
+          <p><strong>Goal:</strong> <code>listing_urls</code> holds the three resolved numbered pages. <code>records</code> holds 30 dictionaries with <code>frog</code> and <code>source_url</code>. Only listing pages are requested.</p>
+          <ol>
+            <li><strong>Run the starter unchanged.</strong> It prints four page URLs, then 40 records and 30 unique URLs. “Next →” duplicated page 2.</li>
+            <li>Narrow the page-link selection so <code>listing_urls</code> has exactly three resolved URLs. Check them before collecting any frogs.</li>
+            <li>Run again. Check 30 records, 30 unique source URLs and ten frogs from each page.</li>
+          </ol>
+          <p class="small">The solution makes four listing requests, including pagination discovery. Fetching all 30 families would exceed the runner’s 20-request cap; leave that for later.</p>
+        </div>
+        <div class="card">
+          <label for="python-code-stretch">Stretch code — narrow the page-link selection, then run it</label>
+          <textarea id="python-code-stretch" data-python-code spellcheck="false" rows="25">import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+
+listing_url = BASE_URL + 'practice/frogs-1.html'
+response = requests.get(listing_url, timeout=10)
+response.raise_for_status()
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# TODO: keep the three numbered page links and drop Previous/Next.
+page_links = soup.select('.pagination a.page-link')
+listing_urls = [urljoin(listing_url, link.get('href')) for link in page_links]
+
+print(listing_urls)
+
+records = []
+for url in listing_urls:
+    listing_response = requests.get(url, timeout=10)
+    listing_response.raise_for_status()
+    listing_soup = BeautifulSoup(listing_response.text, 'html.parser')
+
+    for link in listing_soup.select('a.frog-link'):
+        records.append({
+            'frog': link.get_text(strip=True),
+            'source_url': urljoin(url, link.get('href')),
+        })
+
+print(len(records))
+print(len({row['source_url'] for row in records}))</textarea>
+          <div class="actions">
+            <button class="button button-lime" type="button" data-python-run>Run Python</button>
+            <button class="button button-secondary" type="button" data-python-stop disabled>Stop</button>
+            <button class="button button-secondary" type="button" data-python-reset>Reset code</button>
+          </div>
+          <p class="small" data-python-status role="status" aria-live="polite">Python loads when you run the code.</p>
+          <pre data-python-output tabindex="0" aria-label="Python output">Your output will appear here.</pre>
+          <div data-python-result role="status" aria-live="polite" hidden></div>
+        </div>
+        <details><summary>See a worked solution</summary><pre><code data-python-solution>import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+
+listing_url = BASE_URL + 'practice/frogs-1.html'
+response = requests.get(listing_url, timeout=10)
+response.raise_for_status()
+soup = BeautifulSoup(response.text, 'html.parser')
+
+page_links = soup.select('.pagination a.page-link:not(.page-prev):not(.page-next)')
+listing_urls = [urljoin(listing_url, link.get('href')) for link in page_links]
+
+print(listing_urls)
+
+records = []
+for url in listing_urls:
+    listing_response = requests.get(url, timeout=10)
+    listing_response.raise_for_status()
+    listing_soup = BeautifulSoup(listing_response.text, 'html.parser')
+
+    for link in listing_soup.select('a.frog-link'):
+        records.append({
+            'frog': link.get_text(strip=True),
+            'source_url': urljoin(url, link.get('href')),
+        })
+
+print(len(records))
+print(len({row['source_url'] for row in records}))</code></pre></details>
+        <div class="card">
+          <p><strong>Check against the source</strong></p>
+          <pre tabindex="0" aria-label="Expected output"><code>['…/practice/frogs-1.html', '…/practice/frogs-2.html', '…/practice/frogs-3.html']
+30
+30</code></pre>
+          <p>The first line must contain three URLs, in page order, without a duplicate. The last two lines must both be <code>30</code>. To check ten per page, print a count inside the outer loop; page 1 should give 10 names, page 2 another 10, page 3 the last 10.</p>
+          <p class="small">The check compares the three listing URLs and the 30 unique frog source URLs. It does not require one exact selector spelling.</p>
+        </div>
+        <div class="success"><strong>Stretch ready when:</strong> you have three listing URLs, 30 frog records, 30 unique detail URLs, and you can explain how the tested detail loop would sit inside this listing loop to collect all 30 families later.</div>
+      </section>
+      </details>
+      <section class="lesson-end" aria-label="Continue the course"><p>That’s the three lessons. You can inspect a page, select a targeted value, follow a link, and repeat the extraction with a loop.</p><div class="actions"><button class="button button-secondary" type="button" data-complete-lesson="3" aria-pressed="false">Mark this lesson complete</button><a class="button" href="index.html">Back to course overview →</a></div><p class="small" data-completion-status role="status" aria-live="polite">Marking complete is your own check-in, not a test of your work. You can move on without it.</p></section>
+      <p class="small"><a href="mailto:ada@datafrosch.fun?subject=Scraping%20prototype%20feedback">Tell Ada what worked or where you got stuck →</a></p>
+    </main>
+  </div>
+  <footer class="footer"><span>Made by Ada Homolova · DataFrosch 🐸</span><span>Private review prototype · no payments or accounts</span></footer>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Lesson 2: inspect a frog listing, scope a selector to its frog links, extract text and href, and follow one link to the family on its detail page. A DataFrosch prototype.">
+  <title>Select targeted elements · DataFrosch</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐸%3C/text%3C%3C/svg%3E">
+  <link rel="stylesheet" href="course.css">
+  <script src="course.js" defer></script>
+  <script src="python-editor.js" defer></script>
+</head>
+<body data-lesson="2">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar"><div class="topbar-inner">
+    <a class="brand" href="index.html"><span aria-hidden="true">🐸</span>datafrosch</a>
+    <span class="prototype">Course prototype</span>
+  </div></header>
+  <div class="shell">
+    <aside class="sidebar" aria-label="Course navigation and progress">
+      <p class="sidebar-label">Scraping from scratch</p>
+      <nav class="course-nav" aria-label="Lessons"><a href="index.html">Course overview</a><a href="lesson-1.html"><span class="step-number" data-lesson-number="1">01</span><span>Write your first scraper<small>20–30 min · inspect and extract one value</small></span></a><a href="lesson-2.html" aria-current="page"><span class="step-number" data-lesson-number="2">02</span><span>Select targeted elements<small>20–30 min · text, links and family</small></span></a><a href="lesson-3.html"><span class="step-number" data-lesson-number="3">03</span><span>Implement loops<small>20–30 min · ten frogs, one listing</small></span></a></nav>
+      <div class="progress-box">
+        <p class="small" id="progress-label" data-progress-label>0 of 3 lessons marked complete</p>
+        <progress value="0" max="3" data-progress aria-labelledby="progress-label"></progress>
+        <p class="small">Saved in this browser only. No account needed.</p>
+        <button class="text-button" type="button" data-reset>Reset progress &amp; answers</button>
+        <p class="small storage-notice" data-storage-notice hidden>Browser storage is unavailable. You can still use the course; progress will not be saved between pages.</p>
+      </div>
+    </aside>
+    <main id="main">
+      <noscript><p class="note">The Python exercise, quizzes and progress saving need JavaScript. You can still read the notes, open the practice pages and use the YouTube links — but the code won’t run.</p></noscript>
+      <div class="breadcrumb"><a href="index.html">Course overview</a> / Lesson 2 of 3</div>
+      <header class="lesson-header"><span class="eyebrow">Lesson 02 · about 20–30 min</span><h1>Select targeted elements</h1><p class="lead">Inspect a repeated card, scope the selector to its links, then follow one link and read the family from the new page.</p></header>
+      <p>The <a href="practice/frogs-1.html" target="_blank" rel="noopener">first listing page ↗</a> has ten frog links alongside navigation and other links. Select only the frogs, then follow the first link to find its family. No loop yet.</p>
+      <p class="small">Clips load only when you choose to watch; YouTube may use cookies or other storage.</p>
+      <section class="section" aria-labelledby="inspect-heading">
+        <div class="section-heading"><span class="section-index">01</span><h2 id="inspect-heading">Inspect the repeated card</h2></div>
+        <div class="video-frame" data-video data-video-id="wQ1gR6MQtFU" data-start="663" data-end="810" data-title="Lesson 2: Scoped selectors — Ada Homolova">
+          <div class="video-placeholder"><span class="play-circle" aria-hidden="true">▶</span><h3>Scoped selectors</h3><p>Excerpt from the edited recording · about 11:03–13:30</p><button class="button button-lime" type="button" data-load-video>Load excerpt</button></div>
+        </div>
+        <p class="video-caption">Stops at <strong>13:30</strong>. Then inspect the listing below. <a href="https://www.youtube.com/watch?v=wQ1gR6MQtFU&amp;t=663s" target="_blank" rel="noopener">Watch on YouTube ↗</a> from 11:03; pause at 13:30.</p>
+        <p class="note">The video selects departments and finds commissioners; we select frogs and find families. The HTML differs, so derive your selector from the practice page rather than copying the video’s tree traversal.</p>
+        <div class="card">
+          <p class="task-time">5–10 minutes · browser inspector, no Python yet</p>
+          <ol>
+            <li>Open the <a href="practice/frogs-1.html" target="_blank" rel="noopener">first listing page ↗</a>. Right-click Common frog’s name and choose <strong>Inspect</strong>.</li>
+            <li>Identify the link: its tag, its class, and the attribute that holds the destination. An <code>a</code> is a tag, not a class.</li>
+            <li>Look at the element around the link. Then inspect a second card and check that the same structure repeats.</li>
+            <li>Focus the Elements or Inspector panel. Press <kbd>Ctrl</kbd>+<kbd>F</kbd> (<kbd>Cmd</kbd>+<kbd>F</kbd> on Mac) and search for <code>a[href]</code>: all links with destinations. Then use the class you found to select only frog links.</li>
+            <li>Confirm you highlighted ten <code>a</code> elements, not ten cards. Use the same selector in <code>soup.select()</code>.</li>
+          </ol>
+          <p><strong>Selector reference:</strong> <code>tag.class</code> means a tag with that class. <code>.class tag</code> means a tag inside that class. Avoid copied full paths and <code>nth-child</code>.</p>
+          <p class="small">Inspector search can also match text, so use a class or attribute selector rather than a bare <code>a</code>. These observation answers are not saved.</p>
+          <table class="observation-table">
+            <caption>What I found on the listing page</caption>
+            <thead><tr><th scope="col">Look for</th><th scope="col">Your observation</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row" id="l2-link-structure-question">What wraps one frog’s name? Which tag and class does the link use, and which attribute holds its destination?</th>
+                <td><form data-inspector-check id="l2-link-structure" aria-labelledby="l2-link-structure-question" data-success="That’s right. The name sits in an a element with the class frog-link, and href holds its destination.">
+                  <label for="l2-link-tag">Link tag</label>
+                  <input id="l2-link-tag" type="text" data-inspector-field="tag" data-accepted="a" data-label="the link tag" data-hint="Inspect Common frog’s name again. The link starts with an opening tag and ends with a closing one." maxlength="100" spellcheck="false" aria-describedby="l2-link-structure-feedback">
+                  <label for="l2-link-class">Link class</label>
+                  <input id="l2-link-class" type="text" data-inspector-field="class" data-accepted="frog-link" data-label="the link class" data-hint="Look at the class attribute on the a element. Write the class name without a dot." maxlength="100" spellcheck="false" aria-describedby="l2-link-structure-feedback">
+                  <label for="l2-link-attribute">Attribute that holds the destination</label>
+                  <input id="l2-link-attribute" type="text" data-inspector-field="text" data-accepted="href" data-label="the destination attribute" data-hint="The destination is in an attribute on the a element. Look for the part that comes before the URL in the inspector." maxlength="100" spellcheck="false" aria-describedby="l2-link-structure-feedback">
+                  <button class="button button-secondary" type="submit">Check answer</button>
+                  <p id="l2-link-structure-feedback" class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
+                </form></td>
+              </tr>
+              <tr>
+                <th scope="row" id="l2-link-selector-question">Which selector highlighted exactly ten frog links when you tested it?</th>
+                <td><form data-inspector-check id="l2-link-selector" aria-labelledby="l2-link-selector-question" data-success="That’s right. That selector matches the ten frog links on page 1. The check compares it with the practice page.">
+                  <label for="l2-link-selector-value">CSS selector</label>
+                  <input id="l2-link-selector-value" type="text" data-inspector-field="selector" data-page="practice/frogs-1.html" data-target="a.frog-link" data-label="a CSS selector" data-hint="Start from the link’s tag and class. Keep the selection on the ten frog links." maxlength="100" spellcheck="false" aria-describedby="l2-link-selector-feedback">
+                  <button class="button button-secondary" type="submit">Check answer</button>
+                  <p id="l2-link-selector-feedback" class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
+                </form></td>
+              </tr>
+            </tbody>
+          </table>
+          <details><summary>Hint: a selector for the ten links</summary><p>The wanted links are anchors with the class <code>frog-link</code>: <code>a.frog-link</code>. On page 1 that matches ten elements. <code>.frog-card a.frog-link</code> narrows it further by saying “inside a frog card”, which is useful when a page has other links with the same class.</p></details>
+          <details><summary>Hint: why the bare tag is too broad</summary><p><code>soup.select('a')</code> returns every anchor on the page. Count them, then inspect the first one. A count alone does not tell you what you selected.</p></details>
+        </div>
+      </section>
+      <section class="section" aria-labelledby="follow-heading">
+        <div class="section-heading"><span class="section-index">02</span><h2 id="follow-heading">Read text, then follow one link</h2></div>
+        <div class="video-frame" data-video data-video-id="wQ1gR6MQtFU" data-start="924" data-end="1128" data-title="Lesson 2: Element, href and relative URLs — Ada Homolova">
+          <div class="video-placeholder"><span class="play-circle" aria-hidden="true">▶</span><h3>Element, href and relative URLs</h3><p>Excerpt from the edited recording · about 15:24–18:48</p><button class="button button-lime" type="button" data-load-video>Load excerpt</button></div>
+        </div>
+        <p class="video-caption">Stops at <strong>18:48</strong>. Then inspect the family and try the code. <a href="https://www.youtube.com/watch?v=wQ1gR6MQtFU&amp;t=924s" target="_blank" rel="noopener">Watch on YouTube ↗</a> from 15:24; pause at 18:48.</p>
+        <p class="note">This clip resumes a failed request: it received a whole link element instead of a URL. We’ll read <code>href</code> and use <code>urljoin</code> to build the URL, rather than joining strings as in the video.</p>
+        <div class="card">
+          <p>A selected link is not a URL. It is an element that contains text and attributes. Read the destination with <code>get('href')</code>. The listing’s href is relative — <code>frog-rana-temporaria.html</code> — so resolve it against the listing URL before making another request.</p>
+          <p>Then inspect Common frog’s detail page. Find the family value, <strong>Ranidae</strong>. Note its tag and class, and compare it with the scientific name <em>Rana temporaria</em> just below the heading. The family sits in a definition list, not in the heading.</p>
+          <table class="observation-table">
+            <caption>What I found on the link and the detail page</caption>
+            <thead><tr><th scope="col">Look for</th><th scope="col">Your observation</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row" id="l2-link-values-question">What is the visible link text, and what is the raw <code>href</code> value?</th>
+                <td><form data-inspector-check id="l2-link-values" aria-labelledby="l2-link-values-question" data-success="That’s right. The link says Common frog and points to frog-rana-temporaria.html.">
+                  <label for="l2-link-text">Visible link text</label>
+                  <input id="l2-link-text" type="text" data-inspector-field="text" data-accepted="common frog" data-label="the visible link text" data-hint="Copy the words a reader sees on the link, not the destination." maxlength="100" aria-describedby="l2-link-values-feedback">
+                  <label for="l2-link-href">Raw href value</label>
+                  <input id="l2-link-href" type="text" data-inspector-field="literal" data-accepted="frog-rana-temporaria.html" data-label="the raw href value" data-hint="Copy the href exactly as the inspector shows it, before it is resolved into a full URL." maxlength="100" spellcheck="false" aria-describedby="l2-link-values-feedback">
+                  <button class="button button-secondary" type="submit">Check answer</button>
+                  <p id="l2-link-values-feedback" class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
+                </form></td>
+              </tr>
+              <tr>
+                <th scope="row" id="l2-family-element-question">Which tag and class wrap <strong>Ranidae</strong> on the detail page?</th>
+                <td><form data-inspector-check id="l2-family-element" aria-labelledby="l2-family-element-question" data-success="That’s right. Ranidae is in a dd element with the class frog-family.">
+                  <label for="l2-family-tag">Family tag</label>
+                  <input id="l2-family-tag" type="text" data-inspector-field="tag" data-accepted="dd" data-label="the family tag" data-hint="Ranidae sits in the definition list on the detail page. Check the tag around the value." maxlength="100" spellcheck="false" aria-describedby="l2-family-element-feedback">
+                  <label for="l2-family-class">Family class</label>
+                  <input id="l2-family-class" type="text" data-inspector-field="class" data-accepted="frog-family" data-label="the family class" data-hint="Read the class attribute on the element around Ranidae. Write it without a dot." maxlength="100" spellcheck="false" aria-describedby="l2-family-element-feedback">
+                  <button class="button button-secondary" type="submit">Check answer</button>
+                  <p id="l2-family-element-feedback" class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
+                </form></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="note">
+            <p><strong>Syntax reference</strong></p>
+            <pre><code>links = soup.select('css selector')   # a list of elements
+link = links[0]                        # the first element
+text = link.get_text(strip=True)       # visible text
+href = link.get('href')                # an attribute value
+url = urljoin(base_url, href)          # resolve a relative URL
+family_element = detail_soup.select_one('css selector')</code></pre>
+          </div>
+        </div>
+      </section>
+      <section class="section" data-python-exercise="single" aria-labelledby="try-heading">
+        <div class="section-heading"><span class="section-index">03</span><h2 id="try-heading">Try it yourself</h2></div>
+        <div class="card">
+          <p class="task-time">10–15 minutes · real Python, runs in this page</p>
+          <p><strong>Goal:</strong> produce <code>Common frog</code>, its href, the resolved detail URL, and <code>Ranidae</code>.</p>
+          <ol>
+            <li><strong>Run the starter unchanged.</strong> It selects ten cards and prints <code>10</code>, but the first match is an <code>&lt;li&gt;</code> card. The href placeholder is empty, so it stops before the detail request. Ten is the right count, but the elements are wrong.</li>
+            <li>Fix the four TODO lines using your observations: the link selector, visible text, href and family selector. Keep the supplied variable names for the automatic checks.</li>
+            <li>Before running, predict the difference between printing <code>link</code>, its text and its href.</li>
+            <li><strong>Run again.</strong> You should have ten links, <code>Common frog</code>, the relative href, the full detail URL and <code>Ranidae</code>.</li>
+          </ol>
+          <p class="small">The first Run loads Python and its packages from jsDelivr. You need an internet connection, but nothing to install.</p>
+        </div>
+        <div class="card">
+          <label for="python-code-single">Scraper code — fix the four lines marked TODO, then run it</label>
+          <textarea id="python-code-single" data-python-code spellcheck="false" rows="30">import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+
+listing_url = BASE_URL + 'practice/frogs-1.html'
+response = requests.get(listing_url, timeout=10)
+response.raise_for_status()
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# TODO 1: this selects the ten frog cards (li elements), not their links.
+# Narrow it to the ten frog links you found in the inspector.
+links = soup.select('.frog-card')
+
+link = links[0]
+
+# TODO 2: frog should be the visible name, not an attribute.
+frog = link.get('href')
+
+# TODO 3: read the link's href attribute into href.
+# The id placeholder usually returns None, so the request waits safely.
+href = link.get('id')
+
+print(len(links))
+print(links[0])
+print(frog)
+print(href)
+
+detail_url = None
+family = None
+if href:
+    detail_url = urljoin(listing_url, href)
+    detail_response = requests.get(detail_url, timeout=10)
+    detail_response.raise_for_status()
+    detail_soup = BeautifulSoup(detail_response.text, 'html.parser')
+
+    # TODO 4: 'h1' is the frog's heading. Select the family instead.
+    family_element = detail_soup.select_one('h1')
+    family = family_element.get_text(strip=True)
+
+    print(detail_url)
+    print(family)
+else:
+    print('No href yet, so no detail request.')</textarea>
+          <div class="actions">
+            <button class="button button-lime" type="button" data-python-run>Run Python</button>
+            <button class="button button-secondary" type="button" data-python-stop disabled>Stop</button>
+            <button class="button button-secondary" type="button" data-python-reset>Reset code</button>
+          </div>
+          <p class="small" data-python-status role="status" aria-live="polite">Python loads when you run the code.</p>
+          <pre data-python-output tabindex="0" aria-label="Python output">Your output will appear here.</pre>
+          <div data-python-result role="status" aria-live="polite" hidden></div>
+        </div>
+        <details><summary>Hint: the ten frog links</summary><p>Use the anchors inside the cards: <code>soup.select('.frog-card a.frog-link')</code>. <code>soup.select('a.frog-link')</code> also matches the ten links here; the scoped version makes the parent–child relationship explicit.</p></details>
+        <details><summary>Hint: text versus href</summary><p><code>link.get_text(strip=True)</code> gives <code>Common frog</code>. <code>link.get('href')</code> gives <code>frog-rana-temporaria.html</code>. Printing the whole <code>link</code> shows the element with both.</p></details>
+        <details><summary>Hint: the family selector</summary><p>The family is a <code>dd</code> element with the class <code>frog-family</code>: <code>detail_soup.select_one('.frog-family')</code>. Selecting <code>h1</code> returns the frog’s name instead.</p></details>
+        <details><summary>See a worked solution</summary><pre><code data-python-solution>import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+
+listing_url = BASE_URL + 'practice/frogs-1.html'
+response = requests.get(listing_url, timeout=10)
+response.raise_for_status()
+soup = BeautifulSoup(response.text, 'html.parser')
+
+links = soup.select('.frog-card a.frog-link')
+
+link = links[0]
+
+frog = link.get_text(strip=True)
+href = link.get('href')
+
+print(len(links))
+print(links[0])
+print(frog)
+print(href)
+
+detail_url = urljoin(listing_url, href)
+detail_response = requests.get(detail_url, timeout=10)
+detail_response.raise_for_status()
+detail_soup = BeautifulSoup(detail_response.text, 'html.parser')
+
+family_element = detail_soup.select_one('.frog-family')
+family = family_element.get_text(strip=True)
+
+print(detail_url)
+print(family)</code></pre></details>
+        <div class="card">
+          <p><strong>Check against the source</strong></p>
+          <p>After your edits, the output should look like this. The host in the detail URL depends on where the course is running.</p>
+          <pre tabindex="0" aria-label="Expected output"><code>10
+&lt;a class="frog-link" href="frog-rana-temporaria.html"&gt;Common frog&lt;/a&gt;
+Common frog
+frog-rana-temporaria.html
+…/practice/frog-rana-temporaria.html
+Ranidae</code></pre>
+          <p>Compare the first match with the link you inspected, then open its detail URL and confirm <code>Ranidae</code>. Ten matches alone are not enough: the starter also found ten, but they were cards.</p>
+        </div>
+        <div class="success"><strong>You’re ready when:</strong> you have <code>Common frog → Ranidae</code> with the resolved source URL, and you can explain each selector using the HTML you inspected. The family needed its own request and its own soup.</div>
+      </section>
+      <section class="section" aria-labelledby="check-heading"><div class="section-heading"><span class="section-index">04</span><h2 id="check-heading">Check your understanding</h2></div><p class="small">Two questions now that you’ve run the code. No score to pass — answer, read the explanation, try again if you like.</p><div class="card"><form class="quiz" id="l2q1" data-quiz data-answer="b" data-explanation="get_text returns what a reader sees. get('href') returns the destination attribute. Printing the element itself shows the tags as well." data-hint="One starts with the visible word, the other with frog- and ends in .html.">
+      <fieldset><legend>1. You have <code>link = links[0]</code>. Which pair gives the visible name and the destination?</legend><label class="option"><input type="radio" name="l2q1" value="a"><span><code>link.get('href')</code> gives the name; <code>link.get_text(strip=True)</code> gives the destination.</span></label><label class="option"><input type="radio" name="l2q1" value="b"><span><code>link.get_text(strip=True)</code> gives the name; <code>link.get('href')</code> gives the destination.</span></label><label class="option"><input type="radio" name="l2q1" value="c"><span><code>print(link)</code> gives the name; the destination is already inside <code>link</code> as a URL that Requests can use directly.</span></label></fieldset>
+      <button class="button button-secondary" type="submit">Check answer</button>
+      <p class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
+    </form><form class="quiz" id="l2q2" data-quiz data-answer="a" data-explanation="The family arrived in the detail response. Searching the listing’s soup would still search the old page. Selecting a link does not fetch it." data-hint="Which request returned the page where Ranidae is visible?">
+      <fieldset><legend>2. Which soup contains the family <code>Ranidae</code>?</legend><label class="option"><input type="radio" name="l2q2" value="a"><span><code>detail_soup</code>, parsed from the response after requesting the detail URL.</span></label><label class="option"><input type="radio" name="l2q2" value="b"><span>The original <code>soup</code> from the listing, because the link points to the family.</span></label><label class="option"><input type="radio" name="l2q2" value="c"><span>Neither — <code>select('a.frog-link')</code> already downloads the family with each link.</span></label></fieldset>
+      <button class="button button-secondary" type="submit">Check answer</button>
+      <p class="feedback" data-feedback role="status" aria-live="polite" hidden></p>
+    </form></div></section>
+      <section class="lesson-end" aria-label="Continue the course"><p>Next, we’ll repeat this tested one-frog extraction for all ten links on page 1, then look at pagination as an optional stretch.</p><div class="actions"><button class="button button-secondary" type="button" data-complete-lesson="2" aria-pressed="false">Mark this lesson complete</button><a class="button" href="lesson-3.html">Next: Implement loops →</a></div><p class="small" data-completion-status role="status" aria-live="polite">Marking complete is your own check-in, not a test of your work. You can move on without it.</p></section>
+    </main>
+  </div>
+  <footer class="footer"><span>Made by Ada Homolova · DataFrosch 🐸</span><span>Private review prototype · no payments or accounts</span></footer>
+</body>
+</html>
