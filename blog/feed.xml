@@ -8,6 +8,14 @@
     <atom:link href="https://datafrosch.fun/blog/feed.xml" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Is this AI tool good enough?</title>
+      <link>https://datafrosch.fun/blog/is-this-ai-tool-good-enough.html</link>
+      <description>Do you ever evaluate your workflow? A checklist from Jay Barchas-Lichtenstein (CNTI) at the Journalism AI Festival: why benchmarks mislead, five values to test an AI tool against — accuracy, neutrality, transparency, autonomy, efficiency — and a test you can build in one afternoon with ten examples from your own work.</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+      <guid>https://datafrosch.fun/blog/is-this-ai-tool-good-enough.html</guid>
+    </item>
+
+    <item>
       <title>How much coding do you need to build your own reporting tools?</title>
       <link>https://datafrosch.fun/blog/how-much-coding-do-you-need.html</link>
       <description>You can start building a small reporting tool before you understand every line of its code. Describe the job first, build one checkable part at a time, learn just enough to run and inspect it — and know when a tool needs a proper review. From the Pondcast on building agent harnesses with Johan Schuijt.</description>

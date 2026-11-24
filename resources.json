@@ -2,6 +2,15 @@
   "resources": [
     {
       "type": "blog",
+      "title": "Is this AI tool good enough?",
+      "alt": "Is this AI tool good enough?",
+      "description": "A checklist for deciding whether an AI tool is good enough: why benchmarks mislead, five values to test against, and a test you can build in one afternoon.",
+      "url": "blog/is-this-ai-tool-good-enough.html",
+      "date": "2026-11-24",
+      "thumb": "img/frosches/robot-and-microscope.jpg"
+    },
+    {
+      "type": "blog",
       "title": "How much coding do you need to build your own reporting tools?",
       "alt": "How much coding do you need to build your own reporting tools?",
       "description": "You can start small: describe the job, build one checkable part at a time, and learn just enough to run and inspect what the agent wrote.",
