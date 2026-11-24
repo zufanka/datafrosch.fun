@@ -801,6 +801,48 @@ article h2:before {
     grid-column: 1 / -1;
 }
 
+.events-winter-break {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    padding: 0.5rem 0;
+    width: 100%;
+    max-width: 56rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1.5rem, 5vw, 4rem);
+    text-align: left;
+}
+.events-winter-break img {
+    width: 42%;
+    max-width: 360px;
+    height: auto;
+    flex-shrink: 0;
+}
+.events-winter-break h3 {
+    color: var(--dark-color);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+}
+.events-winter-break p {
+    max-width: 25rem;
+    font-size: 1.125rem;
+    line-height: 1.65;
+}
+@media (max-width: 639px) {
+    .events-winter-break {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    .events-winter-break img { width: min(100%, 300px); }
+    .events-winter-break p { font-size: 1rem; }
+}
+
 /* Topic chips */
 .topic-chip {
     display: inline-block;

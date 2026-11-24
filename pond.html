@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=20260609">
+    <link rel="stylesheet" href="css/style.css?v=20261124-winter2">
     <link rel="stylesheet" href="css/pond.css?v=ba90763a902c">
     <link rel="stylesheet" href="css/event-cards.css?v=7657d2231938">
 
@@ -431,7 +431,7 @@
             var E = window.DataFroschEvents;
             var upcoming = E.renderUpcoming(document.getElementById('upcoming-grid'), {
                 calendarActions: true,
-                emptyHtml: '<div class="events-empty">No events scheduled right now &mdash; <a href="#subscribe" class="text-green-700 hover:underline">subscribe to the newsletter</a> and you&rsquo;ll hear about the next ones first.</div>'
+                emptyHtml: '<div class="events-empty events-winter-break"><img src="img/frog-fireplace.webp" alt="A frog in a scarf sitting by the fireplace with a warm drink" width="720" height="461" loading="lazy"><div><h3>A short winter break</h3><p>Thank you for a lovely 2026! We&rsquo;ll be back in January with new sessions.</p></div></div>'
             });
             E.renderPast(document.getElementById('past-grid'));
 
